@@ -1,4 +1,27 @@
-### Hi there 👋
+![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751421/CockapooClub/JobHunter/ProfileImageAugust2023_uwj6eq.jpg)
+
+Hi, I'm Sam. Welcome, and thanks for visiting my Github
+
+
+## A little bit about me
+
+
+
+
+### Languages
+
+- Most familiar with using Django with React
+- JavaScript
+- Python
+- CSS
+- HTML
+
+
+_________________________________________________
+*Translation and image credit:* https://ogham.co/
+
+
+<!-- ### Hi there 👋 -->
 
 <!--
 **SamOBrienOlinger/SamOBrienOlinger** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
