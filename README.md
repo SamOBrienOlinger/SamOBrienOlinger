@@ -1,4 +1,4 @@
-![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751421/CockapooClub/JobHunter/ProfileImageAugust2023_uwj6eq.jpg)
+![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
 
 Hi, I'm Sam. Welcome, and thanks for visiting my Github
 
