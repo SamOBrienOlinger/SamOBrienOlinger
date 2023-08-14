@@ -1,12 +1,11 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
   
-  
-  (*Translation & profile image credit:* https://ogham.co/)
+(*Translation & profile image credit:* https://ogham.co/)
 
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
 
-**[Contact details](#contact-details)**
+**[Contact Details](#contact-details)**
 
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
@@ -89,7 +88,7 @@ ________________________________________________________________________________
 
 Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-Please go back to the top to see my [contact details](#contact-details)
+Please go back to the top for my [Contact Details](#contact-details)
 
 
 <!-- ### Hi there 👋 -->
