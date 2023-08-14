@@ -1,12 +1,14 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
-*Translation & profile image credit:* https://ogham.co/
+    *Translation & profile image credit:* https://ogham.co/
 
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
 
 **Contact me:**
-    - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) 
-    - Email: samobrienolinger@proton.me 
+
+    - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
+    
+    - Email: samobrienolinger@proton.me
 _____________________________________________________________________________________________________________
 
 Hi, I'm Sam.
@@ -23,7 +25,7 @@ If you don't have the time to sift through them all to find the best representat
     - [Deployed Site](https://spoodle-space-pp5.herokuapp.com/)
       
       - [Backend repository](https://github.com/SamOBrienOlinger/drf-spoodle-space)
-      - [Frontend Repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
+      - [Frontend repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
  
 - **Ships That Battle**
   - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
