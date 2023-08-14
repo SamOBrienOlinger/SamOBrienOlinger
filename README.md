@@ -1,12 +1,12 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
   
   
-(*Translation & profile image credit:* https://ogham.co/)
+  (*Translation & profile image credit:* https://ogham.co/)
 
-# [Sam O'Brien-Olinger](#sam)
+# Sam O'Brien-Olinger
   Junior Full Stack Developer
 
-**Contact me:**
+**[Contact details](#contact-details)**
 
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
@@ -34,6 +34,7 @@ If you don't have the time to sift through them all to find the best representat
       - [Frontend repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
  
 
+__________________________________________________________________________________________________________________________________________    
 - **Ships That Battle**
   
   ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
@@ -41,13 +42,14 @@ If you don't have the time to sift through them all to find the best representat
     - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
     - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
 
-
+__________________________________________________________________________________________________________________________________________
 - **Cockapoo Club**
   
   ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
 
     - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
     - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
+__________________________________________________________________________________________________________________________________________
 
 ## A little bit about me
 
@@ -65,21 +67,21 @@ If you don't have the time to sift through them all to find the best representat
   - Social Policy
   - Communications
 
-  - Developing and managing an online platform called **One Step Up*
+  - Developing and managing an online platform called *One Step Up*
 
 
     ![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
 __________________________________________________________________________________________________________________________________________
 
-For a bit more of an insight into my background, below are some examples of publications I was wither the author or a co-author:
+For a bit more of an insight into my background, below are some examples of publications I was either the author or a co-author:
 
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
 - [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
 - [*Submission to the Department of Children, Equality,Disability, Integration and Youth’s public consultations to review the Equality Acts*](https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf)
 - [*Submission for the National Plan for Equity of Access to Higher Education 2022-2026*](https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf)
 - [*Educational Equality is Central to Ireland's Recovery: Community Education in a Time of COVID-19*](https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf)
-- [*Lifelong learning and the odd puncture*](https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf) (pages 8-9)
+- [*Lifelong learning and the odd puncture*](https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf)
 - [*Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania*](http://www.combatingelderabuse.eu/wp-content/uploads/2016/04/Booklet_stage.pdf)
 - [*Age Action Intercultural Care Home Project Report*](https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf)
 - [*Value for Money and Policy Review of Youth Programmes*](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
@@ -87,7 +89,7 @@ ________________________________________________________________________________
 
 Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-[Back to the top](#sam)
+Please go back to the top to see my [contact details](#contact-details)
 
 
 <!-- ### Hi there 👋 -->
