@@ -10,7 +10,7 @@
 
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
- - Email: samobrienolinger@proton.me
+ - samobrienolinger@proton.me
 _____________________________________________________________________________________________________________
 
 Hi, I'm Sam.
