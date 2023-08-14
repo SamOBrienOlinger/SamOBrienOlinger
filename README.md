@@ -1,7 +1,6 @@
-![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
-  
- (*Translation & profile image credit:* https://ogham.co/)
-
+  ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
+(*Translation & profile image credit:* https://ogham.co/)
+__________________________________________________________________________________________________________________________________________
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
 
@@ -10,7 +9,7 @@
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
  - samobrienolinger@proton.me
-_____________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________
 
 Hi, I'm Sam.
 
@@ -42,6 +41,7 @@ ________________________________________________________________________________
   - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
 
 __________________________________________________________________________________________________________________________________________
+ 
  **Cockapoo Club**
   
   ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
@@ -73,7 +73,7 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________________________________________________
 
-For a bit more of an insight into my background, below are some examples of publications I was either the author or a co-author:
+For a bit more of an insight into my professional background, below are some examples of publications I was either the author or a co-author:
 
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
 - [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
@@ -88,7 +88,7 @@ ________________________________________________________________________________
 
 Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-Please go back to the top for my [Contact Details](#contact-details)
+Please go back to the top for my **[Contact Details](#contact-details)**
 
 
 <!-- ### Hi there 👋 -->
