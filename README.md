@@ -1,24 +1,66 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
 
-Hi, I'm Sam. Welcome, and thanks for visiting my Github
+# Sam O'Brien-Olinger
+  Junior Full Stack Developer
+
+
+Hi, I'm Sam. 
+
+Welcome to my Github, and thank you for taking the time to visit.  
+
+I have A LOT of repositories here, the majority are in development for playing with and learning purposes. 
+
+If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂: 
+
+- 
+
 
 
 ## A little bit about me
 
+  I am very pleased to say that I have completed Code Institute's Diploma in Full Stack Software Development, and was awarded a Merit for 2 of my projects. [Cockapoo Club](https://home-cockapoo-club-pp4.herokuapp.com/) is one example. 
+  
+  I'm really excited about what the future holds for me, especially because Full Stack Developement is a relatively new area and industry for me. 
+  
+  My previous career path provided me with professional experience and expertise in the folowing areas:
 
+  - Diversity & Inclusion
+  - Policing  
+  - Community Development
+  - Education
+  - European Union funded projects
+  - Social Policy
+  - Communications
 
+Below are examples of some of the publications I was author or co-author:
+- [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
+- [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
+- [*Submission to the Department of Children, Equality,Disability, Integration and Youth’s public consultations to review the Equality Acts*](https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf)
+- [*Submission for the National Plan for Equity of Access to Higher Education 2022-2026*](https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf)
+- [*Educational Equality is Central to Ireland's Recovery: Community Education in a Time of COVID-19*](https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf)
+- [*Lifelong learning and the odd puncture*](https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf) (pages 8-9)
+- [*Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania*](http://www.combatingelderabuse.eu/wp-content/uploads/2016/04/Booklet_stage.pdf)
+- [*Age Action Intercultural Care Home Project Report*](https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf)
+- [*Value for Money and Policy Review of Youth Programmes](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
+  
+- Contact me:
+    - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) 
+    - Email: samobrienolinger@proton.me  
 
-### Languages
+### Technologies
 
-- Most familiar with using Django with React
-- JavaScript
-- Python
-- CSS
-- HTML
+Currently, I am most familiar with using technologies associated with Django and React. But my learning never ever stops!
+
+- Languages:
+    
+  - JavaScript
+  - Python
+  - CSS
+  - HTML
 
 
 _________________________________________________
-*Translation and image credit:* https://ogham.co/
+*Translation & profile image credit:* https://ogham.co/
 
 
 <!-- ### Hi there 👋 -->
