@@ -1,10 +1,17 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
+*Translation & profile image credit:* https://ogham.co/
 
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
 
+**Contact me:**
+    - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) 
+    - Email: samobrienolinger@proton.me 
+_____________________________________________________________________________________________________________
 
-Hi, I'm Sam. 
+Hi, I'm Sam.
+
+![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692010960/CockapooClub/JobHunter/LinkedIn-profile-pic-August-2023.png_twcyf4.jpg)
 
 Welcome to my Github, and thank you for taking the time to visit.  
 
@@ -12,9 +19,19 @@ I have A LOT of repositories here, the majority are in development for playing w
 
 If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂: 
 
-- 
-
-
+- **SpoodleSpace**
+    - [Deployed Site](https://spoodle-space-pp5.herokuapp.com/)
+      
+      - [Backend repository](https://github.com/SamOBrienOlinger/drf-spoodle-space)
+      - [Frontend Repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
+ 
+- **Ships That Battle**
+  - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
+  - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
+ 
+- **Cockapoo Club**
+  - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
+  - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
 
 ## A little bit about me
 
@@ -43,10 +60,6 @@ Below are examples of some of the publications I was author or co-author:
 - [*Age Action Intercultural Care Home Project Report*](https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf)
 - [*Value for Money and Policy Review of Youth Programmes](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
   
-- Contact me:
-    - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) 
-    - Email: samobrienolinger@proton.me  
-
 ### Technologies
 
 Currently, I am most familiar with using technologies associated with Django and React. But my learning never ever stops!
@@ -59,8 +72,7 @@ Currently, I am most familiar with using technologies associated with Django and
   - HTML
 
 
-_________________________________________________
-*Translation & profile image credit:* https://ogham.co/
+
 
 
 <!-- ### Hi there 👋 -->
