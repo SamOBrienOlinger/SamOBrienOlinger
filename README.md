@@ -1,4 +1,6 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
+  
+  
   (*Translation & profile image credit:* https://ogham.co/)
 
 # Sam O'Brien-Olinger
@@ -22,19 +24,25 @@ I have A LOT of repositories here, the majority are in development for playing w
 If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂: 
 
 - **SpoodleSpace**
-     ![pp5-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012034/PP5-multiscreen_hucdla.jpg)
+  
+  ![pp5-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012034/PP5-multiscreen_hucdla.jpg)
+
     - [Deployed Site](https://spoodle-space-pp5.herokuapp.com/)
       
       - [Backend repository](https://github.com/SamOBrienOlinger/drf-spoodle-space)
       - [Frontend repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
  
 - **Ships That Battle**
-     ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
+  
+  ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
+
   - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
   - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
  
 - **Cockapoo Club**
-     ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
+  
+  ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
+
   - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
   - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
 
@@ -54,7 +62,13 @@ If you don't have the time to sift through them all to find the best representat
   - Social Policy
   - Communications
 
+  - Developing and managing an online platform called **One Step Up*
+
+![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
+
+
 Below are examples of some of the publications I was author or co-author:
+
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
 - [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
 - [*Submission to the Department of Children, Equality,Disability, Integration and Youth’s public consultations to review the Equality Acts*](https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf)
