@@ -1,19 +1,19 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
-    *Translation & profile image credit:* https://ogham.co/
+  (*Translation & profile image credit:* https://ogham.co/)
 
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
 
 **Contact me:**
 
-    - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
-    
-    - Email: samobrienolinger@proton.me
+ - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
+ 
+ - Email: samobrienolinger@proton.me
 _____________________________________________________________________________________________________________
 
 Hi, I'm Sam.
 
-![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692010960/CockapooClub/JobHunter/LinkedIn-profile-pic-August-2023.png_twcyf4.jpg)
+![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg)
 
 Welcome to my Github, and thank you for taking the time to visit.  
 
@@ -22,16 +22,19 @@ I have A LOT of repositories here, the majority are in development for playing w
 If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂: 
 
 - **SpoodleSpace**
+     ![pp5-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012034/PP5-multiscreen_hucdla.jpg)
     - [Deployed Site](https://spoodle-space-pp5.herokuapp.com/)
       
       - [Backend repository](https://github.com/SamOBrienOlinger/drf-spoodle-space)
       - [Frontend repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
  
 - **Ships That Battle**
+     ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
   - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
   - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
  
 - **Cockapoo Club**
+     ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
   - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
   - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
 
