@@ -1,6 +1,6 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
   
-(*Translation & profile image credit:* https://ogham.co/)
+ (*Translation & profile image credit:* https://ogham.co/)
 __________________________________________________________________________________________________________________________________________
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
