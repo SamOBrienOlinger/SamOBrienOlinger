@@ -1,9 +1,9 @@
 ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
   
   
-  (*Translation & profile image credit:* https://ogham.co/)
+(*Translation & profile image credit:* https://ogham.co/)
 
-# Sam O'Brien-Olinger
+# [Sam O'Brien-Olinger](#sam)
   Junior Full Stack Developer
 
 **Contact me:**
@@ -21,7 +21,8 @@ Welcome to my Github, and thank you for taking the time to visit.
 
 I have A LOT of repositories here, the majority are in development for playing with and learning purposes. 
 
-If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂: 
+If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂:
+
 
 - **SpoodleSpace**
   
@@ -32,19 +33,21 @@ If you don't have the time to sift through them all to find the best representat
       - [Backend repository](https://github.com/SamOBrienOlinger/drf-spoodle-space)
       - [Frontend repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
  
+
 - **Ships That Battle**
   
   ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
 
-  - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
-  - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
- 
+    - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
+    - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
+
+
 - **Cockapoo Club**
   
   ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
 
-  - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
-  - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
+    - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
+    - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
 
 ## A little bit about me
 
@@ -64,10 +67,12 @@ If you don't have the time to sift through them all to find the best representat
 
   - Developing and managing an online platform called **One Step Up*
 
-![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
+    ![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
-Below are examples of some of the publications I was author or co-author:
+__________________________________________________________________________________________________________________________________________
+
+For a bit more of an insight into my background, below are some examples of publications I was wither the author or a co-author:
 
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
 - [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
@@ -77,21 +82,12 @@ Below are examples of some of the publications I was author or co-author:
 - [*Lifelong learning and the odd puncture*](https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf) (pages 8-9)
 - [*Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania*](http://www.combatingelderabuse.eu/wp-content/uploads/2016/04/Booklet_stage.pdf)
 - [*Age Action Intercultural Care Home Project Report*](https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf)
-- [*Value for Money and Policy Review of Youth Programmes](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
-  
-### Technologies
+- [*Value for Money and Policy Review of Youth Programmes*](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
+__________________________________________________________________________________________________________________________________________
 
-Currently, I am most familiar with using technologies associated with Django and React. But my learning never ever stops!
+Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-- Languages:
-    
-  - JavaScript
-  - Python
-  - CSS
-  - HTML
-
-
-
+[Back to the top](#sam)
 
 
 <!-- ### Hi there 👋 -->
