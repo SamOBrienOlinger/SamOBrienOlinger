@@ -5,7 +5,9 @@ ________________________________________________________________________________
 # Sam O'Brien-Olinger
   Junior Full Stack Developer
 
-**[Contact Details](#contact-details)**
+<!--**[Contact Details](#contact-details)**-->
+
+**Contact Details**
 
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
@@ -89,7 +91,7 @@ ________________________________________________________________________________
 
 Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-Please go back to the top for my **[Contact Details](#contact-details)**
+<!--Please go back to the top for my **[Contact Details](#contact-details)**-->
 
 
 <!-- ### Hi there 👋 -->
