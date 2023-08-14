@@ -1,4 +1,4 @@
-  ![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
+![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
   
 (*Translation & profile image credit:* https://ogham.co/)
 __________________________________________________________________________________________________________________________________________
