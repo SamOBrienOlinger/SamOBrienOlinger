@@ -2,7 +2,7 @@
   
   (*Translation & profile image credit:* https://ogham.co/)
 __________________________________________________________________________________________________________________________________________
-# Sam O'Brien-Olinger
+## Sam O'Brien-Olinger
   **Aspiring Junior Full Stack Developer**
 
 <!--**[Contact Details](#contact-details)**-->
@@ -59,24 +59,25 @@ ________________________________________________________________________________
   
   I'm really excited about what the future holds for me, especially because Full Stack Developement is a relatively new area and industry for me. 
   
-  My previous career path provided me with professional experience and expertise in the folowing areas:
+  My previous career path provided me with international and domestic professional experience and expertise in the folowing areas:
 
   - Diversity & Inclusion
   - Policing  
   - Community Development
   - Education
   - European Union funded projects
-  - Social Policy
+  - Public Policy
+  - Social Research
   - Communications
 
-  - Developing and managing an online platform called *One Step Up*
+  - Developing and managing a platform with national scope called *One Step Up* 
 
 
     ![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
 __________________________________________________________________________________________________________________________________________
 
-For a bit more of an insight into my professional background, below are some examples of publications I was either the author or a co-author:
+For a bit more of an insight into my professional background, below are some examples of publications that I was either the author or a co-author:
 
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
 - [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
