@@ -91,7 +91,10 @@ For a bit more of an insight into my professional background, below are some exa
 __________________________________________________________________________________________________________________________________________
 
 For me anyway, one of the most interesting and positive aspects of making the move to Software Development has been finding out how much I enjoy each stage involved in the process of delivering a high-quality product. 
-The trapeze act Developers do every day to balance form and function fascinates me.  
+
+The creativity and dsicipline it takes to perform the trapeze act Developers do every day to balance form and function fascinates me.  
+
+[!](Chaplin)
 
 Many thanks again for visiting and hopefully we'll be in touch soon! 
 
