@@ -1,6 +1,6 @@
-![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
+<!--![Logo](https://res.cloudinary.com/dzhbg6go0/image/upload/v1691751976/ProfileImageIIAugust2023_w2ovfq.jpg)
   
-  (*Translation & profile image credit:* https://ogham.co/)
+  (*Translation & profile image credit:* https://ogham.co/)-->
 __________________________________________________________________________________________________________________________________________
 ## Sam O'Brien-Olinger
   **Aspiring Junior Full Stack Developer**
@@ -89,6 +89,9 @@ For a bit more of an insight into my professional background, below are some exa
 - [*Age Action Intercultural Care Home Project Report*](https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf)
 - [*Value for Money and Policy Review of Youth Programmes*](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
 __________________________________________________________________________________________________________________________________________
+
+For me anyway, one of the most interesting and positive aspects of making the move to Software Development has been finding out how much I enjoy each stage involved in the process of delivering a high-quality product. 
+The trapeze act Developers do every day to balance form and function fascinates me.  
 
 Many thanks again for visiting and hopefully we'll be in touch soon! 
 
