@@ -92,7 +92,7 @@ ________________________________________________________________________________
 
 For me anyway, one of the most interesting and positive aspects of making the move to Software Development has been finding out how much I enjoy each stage involved in the process of delivering a high-quality product. 
 
-The mindset, creativity and dsicipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me. I very much hope to be able to walk that tightrope myself for a long time to come.    
+The mindset, creativity and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me. I very much hope to be able to walk that tightrope myself for a long time to come.    
 
 ![Chaplin](https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg)
 
