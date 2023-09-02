@@ -3,7 +3,7 @@
   (*Translation & profile image credit:* https://ogham.co/)-->
 __________________________________________________________________________________________________________________________________________
 ## Sam O'Brien-Olinger
-  **Future Junior Full Stack Developer**
+  **Future Full Stack Developer**
 
 <!--**[Contact Details](#contact-details)**-->
 
