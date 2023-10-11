@@ -5,7 +5,7 @@ ________________________________________________________________________________
 # Sam O'Brien-Olinger
   **Junior Full Stack Developer**
 
-  Expertise: HTML | CSS | JavaScript | Python | Node | Diversity & Inclusion | Strategy & Policy | Knowledge Translation |
+  Expertise: **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
 
   ### Contact Details:
 
