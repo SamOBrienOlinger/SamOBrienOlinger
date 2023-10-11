@@ -7,24 +7,25 @@ ________________________________________________________________________________
 
   Expertise: HTML | CSS | JavaScript | Python | Node | Diversity & Inclusion | Strategy & Policy | Knowledge Translation |
 
-<!--**[Contact Details](#contact-details)**-->
-
-  Contact Details
+**[Contact Details](#contact-details)**
 
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
  - samobrienolinger@proton.me
 __________________________________________________________________________________________________________________________________________
 
-Hi, I'm Sam.
-
+Hi, I'm Sam. Welcome to my Github, and thank you for taking the time to visit. 
 ![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg)
 
-Welcome to my Github, and thank you for taking the time to visit.  
+For me anyway, one of the most interesting and exciting aspects of choosing to make a career change to Software Development is finding out how much I enjoy learning about and practicing each stage involved in the process of delivering high-quality products. 
+The mindset, creativity and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me.
+I very much look forward to walking that tightrope with my teammates in a great organiszation far into the future.    
 
-I have A LOT of repositories here, the majority are in development for playing with and learning purposes. 
+![Chaplin](https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg)
 
-If you don't have the time to sift through them all to find the best representations of my abilities, may I suggest checking out these projects 🙂:
+I have A LOT of repositories, the majority are fore improving my skills, knowledge and ezpereince. So, most are for practicing, playing and learning purposes. 
+
+Rather than sifting throught them all to find projects that best demonstrate my abilities, may I suggest checking out these projects 🙂:
 
 
 **SpoodleSpace**
@@ -57,29 +58,33 @@ ________________________________________________________________________________
 
 ## A little bit about me
 
-  I am very pleased to say that I have completed Code Institute's Diploma in Full Stack Software Development, and was awarded a Merit for 2 of my projects. [Cockapoo Club](https://home-cockapoo-club-pp4.herokuapp.com/) is one example. 
+  I am very pleased to say that I have completed Code Institute's Diploma in Full Stack Software Development, and was awarded Merits for 2 of my projects. [Cockapoo Club](https://home-cockapoo-club-pp4.herokuapp.com/), listed above is one example. 
   
-  I'm really excited about what the future holds for me, especially because Full Stack Developement is a relatively new area and industry for me. 
+  I'm really excited about what the future holds for me, especially because I am still learning so much about specific languages and technologies, but also about the scale and variety of roles within Software Development and the tech industry as a whole.
+
+  ![sector-image](https://res.cloudinary.com/dzhbg6go0/image/upload/v1697036408/CockapooClub/JobHunter/software-development-sectors_njfkym.webp)
   
   My previous career path provided me with international and domestic professional experience and expertise in the folowing areas:
 
-  - Diversity & Inclusion
+  - Diversity & Inclusion Strategy
   - Policing  
   - Community Development
   - Education
   - European Union funded projects
   - Public Policy
-  - Social Research
+  - Social Science Research
+  - Advocacy
+  - Antiracism
+  - Social Inclusion
   - Communications
 
   - Developing and managing a platform with national scope called *One Step Up* 
-
 
     ![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
 __________________________________________________________________________________________________________________________________________
 
-For a bit more of an insight into my professional background, below are some examples of publications that I was either the author or a co-author:
+For a bit more of an insight into my previous professional background, below are some examples of publications that I was either the author or a co-author:
 
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399?utm_medium=email&utm_source=EmailStudio%25%25__AdditionalEmailAttribute4%25%25&utm_campaign=B190608179_4539656%25%25__AdditionalEmailAttribute1%25%25) (Chapter 34)
 - [*Police, Race and Culture in the ‘New Ireland’*](https://link.springer.com/book/10.1057/9781137490452)
@@ -92,27 +97,12 @@ For a bit more of an insight into my professional background, below are some exa
 - [*Value for Money and Policy Review of Youth Programmes*](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
 __________________________________________________________________________________________________________________________________________
 
-For me anyway, one of the most interesting and positive aspects of making the move to Software Development has been finding out how much I enjoy each stage involved in the process of delivering a high-quality product. 
-
-The mindset, creativity and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me. I very much hope to be able to walk that tightrope myself for a long time to come.    
-
-![Chaplin](https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg)
-
-
-
 # Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-<!--Please go back to the top for my **[Contact Details](#contact-details)**-->
+Please go back to the top for my **[Contact Details](#contact-details)**
 
 
-<!-- ### Hi there 👋 -->
-
-<!--
-**SamOBrienOlinger/SamOBrienOlinger** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
+<!--🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
 - 👯 I’m looking to collaborate on ...
 - 🤔 I’m looking for help with ...
