@@ -7,7 +7,7 @@ ________________________________________________________________________________
 
   Expertise: HTML | CSS | JavaScript | Python | Node | Diversity & Inclusion | Strategy & Policy | Knowledge Translation |
 
-**[Contact Details](#contact-details)**
+### Contact Details
 
  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
  
@@ -17,18 +17,24 @@ ________________________________________________________________________________
 Hi, I'm Sam. Welcome to my Github, and thank you for taking the time to visit. 
 ![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg)
 
-For me anyway, one of the most interesting and exciting aspects of choosing to make a career change to Software Development is finding out how much I enjoy learning about and practicing each stage involved in the process of delivering high-quality products. 
-The mindset, creativity and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me.
+For me anyway, some of the most interesting and exciting aspects of choosing to make a career change to Software Development is 
+
+   [:smile:] Finding out how much I enjoy learning about and practicing each stage involved in the process of delivering high-quality products. 
+
+   [:smile:] The mindset, creativity and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me.
+
 I very much look forward to walking that tightrope with my teammates in a great organiszation far into the future.    
 
 ![Chaplin](https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg)
 
+____________________________________________________________________________________________________________________________________________
+
 I have A LOT of repositories, the majority are fore improving my skills, knowledge and ezpereince. So, most are for practicing, playing and learning purposes. 
 
-Rather than sifting throught them all to find projects that best demonstrate my abilities, may I suggest checking out these projects 🙂:
+Rather than sifting throught them all to find projects that best demonstrate my abilities, may I suggest checking out these projects:
 
 
-**SpoodleSpace**
+### SpoodleSpace
   
   ![pp5-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012034/PP5-multiscreen_hucdla.jpg)
 
@@ -39,7 +45,8 @@ Rather than sifting throught them all to find projects that best demonstrate my 
  
 
 __________________________________________________________________________________________________________________________________________    
-**Ships That Battle**
+
+### Ships That Battle
   
   ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
 
@@ -48,7 +55,7 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________________________________________________
  
- **Cockapoo Club**
+ ### Cockapoo Club
   
   ![cockapoo-club-multiscreen](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012284/cockapoo-club-multiscreen_ji9fl3.jpg)
 
@@ -66,19 +73,19 @@ ________________________________________________________________________________
   
   My previous career path provided me with international and domestic professional experience and expertise in the folowing areas:
 
-  - Diversity & Inclusion Strategy
-  - Policing  
-  - Community Development
-  - Education
-  - European Union funded projects
-  - Public Policy
-  - Social Science Research
-  - Advocacy
-  - Antiracism
-  - Social Inclusion
-  - Communications
-
-  - Developing and managing a platform with national scope called *One Step Up* 
+  - **Diversity & Inclusion Strategy**
+  - **Policing**
+  - **Community Development**
+  - **Education**
+  - **European Union funded projects**
+  - **Public Policy**
+  - **Social Science Research**
+  - **Advocacy**
+  - **Antiracism**
+  - **Social Inclusion**
+  - **Communications**
+  - **Developing and managing a platform with national scope called _One Step Up_**
+ 
 
     ![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
