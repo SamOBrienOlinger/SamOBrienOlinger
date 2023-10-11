@@ -2,17 +2,17 @@
   
   (*Translation & profile image credit:* https://ogham.co/)-->
 __________________________________________________________________________________________________________________________________________
-# Sam O'Brien-Olinger
-  ## Junior Full Stack Developer
+## Sam O'Brien-Olinger
 
-  Expertise:
+### Junior Full Stack Developer
 
   **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
 
-  ### Contact Details:
 
-   - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
- 
+  ### Contact Details:
+  
+  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
+   
    - samobrienolinger@proton.me
 __________________________________________________________________________________________________________________________________________
 
