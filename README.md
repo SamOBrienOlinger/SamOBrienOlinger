@@ -106,7 +106,7 @@ ________________________________________________________________________________
 
 # Many thanks again for visiting and hopefully we'll be in touch soon! 
 
-Please go back to the top for my **[Contact Details](#contact-details)**
+Please go back to the top for my **[Contact Details](#Contact-Details)**
 
 
 <!--🔭 I’m currently working on ...
