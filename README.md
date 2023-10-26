@@ -8,13 +8,6 @@ ________________________________________________________________________________
 
   **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
 
-![October 2023 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png)
-This badge is awarded to participants of Code Institute's Halloween Hackathon, October 2023.
-
-
-![September 2023 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/September_2023_hackathon_ji11hh.png)
-This badge is awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.
-
   ### Contact Details:
   
   - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
@@ -34,6 +27,17 @@ For me anyway, some of the most interesting and exciting aspects of choosing to 
 I very much look forward to walking that tightrope with my teammates in a great organiszation far into the future.    
 
 ![Chaplin](https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg)
+
+___________________________________________________________________________________________________________________________________________
+
+## Hackathons
+
+![October 2023 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png)
+This badge is awarded to participants of Code Institute's Halloween Hackathon, October 2023.
+
+
+![September 2023 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/September_2023_hackathon_ji11hh.png)
+This badge is awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.
 
 ____________________________________________________________________________________________________________________________________________
 
