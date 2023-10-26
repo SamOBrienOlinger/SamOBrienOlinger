@@ -8,6 +8,10 @@ ________________________________________________________________________________
 
   **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
 
+<iframe src="https://api.eu.badgr.io/public/assertions/Bg5nGu6FR5Kpx9_SPcnfsA?embedVersion=1&amp;embedWidth=330&amp;embedHeight=191&amp;identity__email=samtobo%40yahoo.co.uk" title="Badge: Halloween Hackathon 2023: Participant" style="width: 330px; height: 191px; border: 0px;"></iframe>
+This badge is awarded to participants of Code Institute's Halloween Hackathon, October 2023.
+
+
 <iframe src="https://api.eu.badgr.io/public/assertions/d3n81-qRS2iJ49H76Bo9Jw?embedVersion=1&amp;embedWidth=330&amp;embedHeight=191&amp;identity__email=samtobo%40yahoo.co.uk" title="Badge: September 2023 Hybrid Hackathon: 2nd Place" style="width: 330px; height: 191px; border: 0px;"></iframe>
 
 This badge is awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.
