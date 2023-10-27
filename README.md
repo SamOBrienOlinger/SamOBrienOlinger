@@ -31,7 +31,10 @@ ________________________________________________________________________________
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="October 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
     <p>Awarded for participating in Code Institute's Halloween-themed Hackathon, October 2023.</p>
-      <img src="https://res.cloudinary.com/dzhbg6go0/video/upload/v1698409633/Beetlejuice/LinkedInClip_smpcjz.mp4"/>
+    <video controls width="400" height="auto">
+      <source src="https://res.cloudinary.com/dzhbg6go0/video/upload/v1698409633/Beetlejuice/LinkedInClip_smpcjz.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <p><a href="https://l0rdgabbers.github.io/curse-generator/index.html">View the project's deployed site</a></p>
   </div>
 </div>
@@ -40,10 +43,14 @@ ________________________________________________________________________________
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/September_2023_hackathon_ji11hh.png" alt="September 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
     <p>Awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.</p>
-      <img src="https://res.cloudinary.com/dzhbg6go0/video/upload/v1698409846/Beetlejuice/EcoHub/EcoHub_bdght2.mp4"/>
+    <video controls width="400" height="auto">
+      <source src="https://res.cloudinary.com/dzhbg6go0/video/upload/v1698409846/Beetlejuice/EcoHub/EcoHub_bdght2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <p><a href="https://shanedoyledev.github.io/ecohub/">View the project's deployed site</a></p>
   </div>
 </div>
+
 
 ____________________________________________________________________________________________________________________________________________
 
