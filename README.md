@@ -27,11 +27,19 @@ ________________________________________________________________________________
 
 ## Hackathons
 
-| ![October 2023 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png) | Awarded for participating in Code Institute's Halloween Hackathon, October 2023.<br> Visit [The Beetlejuice Curse Generator](https://l0rdgabbers.github.io/curse-generator/index.html) to view the project's deployed site. |
-| --- | --- |
+<div style="display: flex; align-items: center;">
+  <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="October 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
 
-| ![September 2023 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/September_2023_hackathon_ji11hh.png) | This badge is awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.<br> Visit [EcoHub](https://shanedoyledev.github.io/ecohub/) to view the project's deployed site. |
-| --- | --- |
+  Awarded for participating in Code Institute's Halloween Hackathon, October 2023.<br>
+  Visit [The Beetlejuice Curse Generator](https://l0rdgabbers.github.io/curse-generator/index.html) to view the project's deployed site.
+</div>
+
+<div style="display: flex; align-items: center;">
+  <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/September_2023_hackathon_ji11hh.png" alt="September 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
+
+  This badge is awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.<br>
+  Visit [EcoHub](https://shanedoyledev.github.io/ecohub/) to view the project's deployed site.
+</div>
 
 ____________________________________________________________________________________________________________________________________________
 
