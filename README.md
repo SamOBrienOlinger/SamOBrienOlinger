@@ -32,7 +32,7 @@ ________________________________________________________________________________
   <div>
     <p>Awarded for participating in Code Institute's Halloween-themed Hackathon, October 2023.</p>
     <video controls width="400" height="auto">
-      <source src="https://res.cloudinary.com/dzhbg6go0/video/upload/v1698409633/Beetlejuice/LinkedInClip_smpcjz.mp4" type="video/mp4">
+      <source src="/workspace/SamOBrienOlinger/assets/images/LinkedInClip.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <p><a href="https://l0rdgabbers.github.io/curse-generator/index.html">View the project's deployed site</a></p>
@@ -44,7 +44,7 @@ ________________________________________________________________________________
   <div>
     <p>Awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.</p>
     <video controls width="400" height="auto">
-      <source src="https://res.cloudinary.com/dzhbg6go0/video/upload/v1698409846/Beetlejuice/EcoHub/EcoHub_bdght2.mp4" type="video/mp4">
+      <source src="/workspace/SamOBrienOlinger/assets/images/EcoHub.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <p><a href="https://shanedoyledev.github.io/ecohub/">View the project's deployed site</a></p>
