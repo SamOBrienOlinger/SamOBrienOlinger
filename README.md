@@ -54,7 +54,7 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________________________________
 
-I have A LOT of repositories, the majority are fore improving my skills, knowledge and ezpereince. So, most are for practicing, playing and learning purposes. 
+I have A LOT of repositories, the majority are fore improving my skills, knowledge and expereince. So, most are for practicing, playing and learning purposes. 
 
 Rather than sifting throught them all to find projects that best demonstrate my abilities, may I suggest checking out these projects:
 
