@@ -6,7 +6,7 @@ ________________________________________________________________________________
 
 ### Junior Full Stack Developer
 
-  **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
+  **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Django** | **React** | **Bootstrap** | **JQuery** | **PostgreSQL** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
 
   ### Contact Details:
   
