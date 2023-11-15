@@ -4,9 +4,12 @@
 __________________________________________________________________________________________________________________________________________
 ## Sam O'Brien-Olinger
 
-### Junior Full Stack Developer
+### Junior Full Stack Software Developer
+#### Specialization: Advanced Frontend
 
   **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Django** | **React** | **Bootstrap** | **JQuery** | **PostgreSQL** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
+
+  ________________________________________________________________________________________________________________________________________
 
   ### Contact Details:
   
