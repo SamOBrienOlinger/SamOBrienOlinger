@@ -45,7 +45,7 @@ ________________________________________________________________________________
       <source src="" type="">
       Your browser does not support the video tag.
     </video>
-    <p><a href="(https://github.com/kpetrauskas92/team9-hackathon-december/tree/main?tab=readme-ov-file)">View the project's Repository</a></p>
+    <p><a href="https://github.com/kpetrauskas92/team9-hackathon-december">View the project's Repository</a></p>
   </div>
 </div>
 
