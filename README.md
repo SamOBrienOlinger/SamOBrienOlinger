@@ -38,7 +38,7 @@ ________________________________________________________________________________
 ## Hackathons
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
-  <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/September_2023_hackathon_ji11hh.png" alt="September 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
+  <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="December 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
     <p> Awarded for participating in Code Institute's Christmas-themed Hackathon, December 2023 </p>
     <video controls width="400" height="auto">
