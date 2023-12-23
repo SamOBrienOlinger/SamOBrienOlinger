@@ -45,8 +45,7 @@ ________________________________________________________________________________
       <source src="" type="">
       Your browser does not support the video tag.
     </video>
-    <p><a [View the project's Repository](https://github.com/SamOBrienOlinger/team9-hackathon-december/tree/xmas-every-day)
-</a></p>
+    [View the project's Repository](https://github.com/SamOBrienOlinger/team9-hackathon-december/tree/xmas-every-day)
   </div>
 </div>
 
