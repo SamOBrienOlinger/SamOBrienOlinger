@@ -37,7 +37,8 @@ ________________________________________________________________________________
 
 ## Hackathons
 
-All Badges can be viewed <p a href="https://eu.badgr.com/backpack/badges"> HERE </P>
+All Badges can be viewed <a a href="https://eu.badgr.com/backpack/badges"> HERE </a>
+
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="January 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
@@ -47,7 +48,7 @@ All Badges can be viewed <p a href="https://eu.badgr.com/backpack/badges"> HERE 
       <source src="" type="">
       Your browser does not support the video tag.
     </video>
-    <a href="https://thrive-wallet-b5a54babd69b.herokuapp.com/">View the deployed site</a>
+    <p><a href="https://thrive-wallet-b5a54babd69b.herokuapp.com/"> View the deployed site </a></p>
   </div>
 </div>
 
@@ -59,7 +60,7 @@ All Badges can be viewed <p a href="https://eu.badgr.com/backpack/badges"> HERE 
       <source src="" type="">
       Your browser does not support the video tag.
     </video>
-    <a ahref="https://kpetrauskas92.github.io/team9-hackathon-december/edit.html">View the project's deployed site</a>
+    <p><a ahref="https://kpetrauskas92.github.io/team9-hackathon-december/edit.html"> View the project's deployed site </a></p>
   </div>
 </div>
 
