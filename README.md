@@ -37,6 +37,8 @@ ________________________________________________________________________________
 
 ## Hackathons
 
+<iframe src="https://api.eu.badgr.io/public/assertions/axqqWH2fQQeNEw1e2bmJmw?embedVersion=1&amp;embedWidth=330&amp;embedHeight=191&amp;identity__email=samtobo%40yahoo.co.uk" title="Badge: January 2024 Hackathon: Participant" style="width: 330px; height: 191px; border: 0px;"></iframe>
+
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="December 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
