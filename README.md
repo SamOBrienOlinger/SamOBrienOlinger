@@ -38,7 +38,7 @@ ________________________________________________________________________________
 
 ## Hackathons
 
-All Badges can be viewed <p><a a href="https://eu.badgr.com/backpack/badges"> HERE </a></p>
+All Badges verified by <p><a a href="https://eu.badgr.com/auth/login"> Canvas Badges Europe </a></p>
 
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
