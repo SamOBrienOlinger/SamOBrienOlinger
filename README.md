@@ -11,6 +11,7 @@
   
   - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
    
+   - samobrienolinger@gmail.com 
    - samobrienolinger@proton.me
 __________________________________________________________________________________________________________________________________________
 
@@ -37,13 +38,13 @@ ________________________________________________________________________________
 
 ## Hackathons
 
-All Badges can be viewed <a a href="https://eu.badgr.com/backpack/badges"> HERE </a>
+All Badges can be viewed <p><a a href="https://eu.badgr.com/backpack/badges"> HERE </a></p>
 
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="January 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
-    <p> Awarded for participating in Code Institute's January hackathon with the theme 'Budget Busters', January 2024 </p>
+    <p> Awarded for participating in Code Institute's January hackathon with the theme 'Budget Busters', January 2024. </p>
     <video controls width="400" height="auto">
       <source src="" type="">
       Your browser does not support the video tag.
@@ -73,7 +74,7 @@ All Badges can be viewed <a a href="https://eu.badgr.com/backpack/badges"> HERE 
       <source src="/workspace/SamOBrienOlinger/assets/images/LinkedInClip.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <p><a href="https://l0rdgabbers.github.io/curse-generator/index.html">View the project's deployed site</a></p>
+    <p><a href="https://l0rdgabbers.github.io/curse-generator/index.html">View the project's deployed site </a></p>
   </div>
 </div>
 
@@ -85,7 +86,7 @@ All Badges can be viewed <a a href="https://eu.badgr.com/backpack/badges"> HERE 
       <source src="/workspace/SamOBrienOlinger/assets/images/EcoHub.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <p><a href="https://shanedoyledev.github.io/ecohub/">View the project's deployed site</a></p>
+    <p><a href="https://shanedoyledev.github.io/ecohub/"> View the project's deployed site< /a></p>
   </div>
 </div>
 
