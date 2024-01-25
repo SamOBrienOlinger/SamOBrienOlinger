@@ -49,7 +49,7 @@ All Badges verified by <p><a a href="https://eu.badgr.com/auth/login"> Canvas Ba
       <source src="" type="">
       Your browser does not support the video tag.
     </video>
-    <p><a href="https://thrive-wallet-b5a54babd69b.herokuapp.com/"> View the deployed site </a></p>
+    <p><a href="https://thrive-wallet-b5a54babd69b.herokuapp.com/"> View the project's deployed site </a></p>
   </div>
 </div>
 
@@ -86,7 +86,7 @@ All Badges verified by <p><a a href="https://eu.badgr.com/auth/login"> Canvas Ba
       <source src="/workspace/SamOBrienOlinger/assets/images/EcoHub.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <p><a href="https://shanedoyledev.github.io/ecohub/"> View the project's deployed site< /a></p>
+    <p><a href="https://shanedoyledev.github.io/ecohub/"> View the project's deployed site</a></p>
   </div>
 </div>
 
