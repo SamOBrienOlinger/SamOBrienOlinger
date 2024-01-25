@@ -61,7 +61,7 @@ All Badges verified by <p><a a href="https://eu.badgr.com/auth/login"> Canvas Ba
       <source src="" type="">
       Your browser does not support the video tag.
     </video>
-    <p><a ahref="https://kpetrauskas92.github.io/team9-hackathon-december/edit.html"> View the project's deployed site </a></p>
+    <p><a href="https://kpetrauskas92.github.io/team9-hackathon-december/edit.html"> View the project's deployed site </a></p>
   </div>
 </div>
 
