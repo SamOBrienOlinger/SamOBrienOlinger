@@ -9,7 +9,7 @@
 
   ### [Contact Details](#contact-details):
   
-  - [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/](http://www.linkedin.com/in/samobrienolinger/)
+  - [LinkedIn](http://www.linkedin.com/in/samobrienolinger/)
    
    - samobrienolinger@gmail.com 
    - samobrienolinger@proton.me
