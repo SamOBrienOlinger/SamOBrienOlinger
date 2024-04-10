@@ -23,7 +23,6 @@ ________________________________________________________________________________
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg")
     />
 </div>
-____________________________________________________________________________________________________________________________________________
 
 ## Diploma in Full Stack Software Development (Advanced Front End) 
 
