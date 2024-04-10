@@ -11,8 +11,7 @@
   
   - [LinkedIn](http://www.linkedin.com/in/samobrienolinger/)
    
-   - samobrienolinger@gmail.com 
-   - samobrienolinger@proton.me
+   - samobrienolinger@gmail.com
 __________________________________________________________________________________________________________________________________________
 
 ### Hi, I'm Sam. Welcome and thank you for taking the time to visit. 
@@ -20,7 +19,7 @@ ________________________________________________________________________________
 | ![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg) | For me anyway, some of the most interesting and exciting aspects of choosing to make a career change to Software Development is:<br> 😊Finding out how much I enjoy learning about and practicing each stage involved in the process of delivering high-quality products.<br> 😊 The mindset, creativity, and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me.<br> I very much look forward to walking that tightrope with my teammates in a great organization far into the future. |
 | --- | --- |
    
-<div style="display: flex; align-items: center;">
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1693216950/Github%20README%20CV/Chaplin5_y2rjto.jpg")
     />
 </div>
