@@ -33,6 +33,18 @@ ________________________________________________________________________________
 
 All Badges verified by <p><a a href="https://eu.badgr.com/auth/login"> Canvas Badges Europe </a></p>
 
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
+  <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="January 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
+  <div>
+    <p> Awarded 2nd Place for participating in Code Institute's July hackathon with a theme surrounding Pride, July 2024. </p>
+    <video controls width="400" height="auto">
+      <source src="" type="">
+      Your browser does not support the video tag.
+    </video>
+    <p><a href="https://declan444.github.io/24-7-hackathon-team9/"> View the project's deployed site </a></p>
+  </div>
+</div>
+
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="January 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
