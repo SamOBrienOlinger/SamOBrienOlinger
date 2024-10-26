@@ -1,9 +1,23 @@
 # Sam O'Brien-Olinger
 
-### Junior Full Stack Software Developer
-#### Specialization: Advanced Frontend
+### Hi, I'm Sam. Welcome and thank you for taking the time to visit.
 
-  **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Django** | **React** | **Bootstrap** | **JQuery** | **PostgreSQL** | **Diversity Equality & Inclusion** (DEI) | **Strategy & Policy** | **Knowledge Translation**
+<table>
+  <tr>
+    <td>
+      <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg" alt="ProfilePic" width="400px"/>
+    </td>
+    <td align="center">
+      <h3>Junior Full Stack Software Developer</h3>
+      <h4>Specialization: Advanced Frontend</h4>
+      <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>JavaScript</strong> | <strong>Python</strong> | <strong>Node</strong> | 
+      <strong>Django</strong> | <strong>React</strong> | <strong>Bootstrap</strong> | <strong>JQuery</strong> | 
+      <strong>PostgreSQL</strong> | <strong>Diversity, Equality & Inclusion (DEI)</strong> | <strong>Strategy & Policy</strong> | 
+      <strong>Knowledge Translation</strong></p>
+    </td>
+  </tr>
+</table>
+
 
 ## Professional Summary
 Recent graduate with a solid foundation in fullstack software development and a growing interest in data analytics, as well as a strong commitment to Diversity, Equity, and Inclusion (DEI). Skilled in front-end and back-end development using Python, JavaScript, and SQL, I bring hands-on experience in data-focused projects, including those involving data analysis, visualization, and data-driven decision-making. Recognized for my analytical thinking, attention to detail, and collaborative approach, I am eager to contribute to a data-driven team while advancing DEI principles within the organization.
@@ -35,10 +49,6 @@ I am proactive about learning new tools and technologies and motivated to expand
    - samobrienolinger@gmail.com
 __________________________________________________________________________________________________________________________________________
 
-### Hi, I'm Sam. Welcome and thank you for taking the time to visit. 
-
-| ![ProfilePic](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg) | For me anyway, some of the most interesting and exciting aspects of choosing to make a career change to Software Development is:<br> 😊Finding out how much I enjoy learning about and practicing each stage involved in the process of delivering high-quality products.<br> 😊 The mindset, creativity, and discipline required to perform the trapeze act Developers do every day in order to balance Form and Function just fascinates me.<br> I very much look forward to walking that tightrope with my teammates in a great organization far into the future. |
-| --- | --- |
    
 ## Diploma in Full Stack Software Development (Advanced Front End) 
 
