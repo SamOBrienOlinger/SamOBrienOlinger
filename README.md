@@ -3,7 +3,28 @@
 ### Junior Full Stack Software Developer
 #### Specialization: Advanced Frontend
 
-  **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Django** | **React** | **Bootstrap** | **JQuery** | **PostgreSQL** | **Diversity & Inclusion** | **Strategy & Policy** | **Knowledge Translation**
+  **HTML** | **CSS** | **JavaScript** | **Python** | **Node** | **Django** | **React** | **Bootstrap** | **JQuery** | **PostgreSQL** | **Diversity Equality & Inclusion** (DEI) | **Strategy & Policy** | **Knowledge Translation**
+
+## Professional Summary
+Recent graduate with a solid foundation in fullstack software development and a growing interest in data analytics, as well as a strong commitment to Diversity, Equity, and Inclusion (DEI). Skilled in front-end and back-end development using Python, JavaScript, and SQL, I bring hands-on experience in data-focused projects, including those involving data analysis, visualization, and data-driven decision-making. Recognized for my analytical thinking, attention to detail, and collaborative approach, I am eager to contribute to a data-driven team while advancing DEI principles within the organization.
+
+I am proactive about learning new tools and technologies and motivated to expand my skill set in DEI strategy, data science, and business intelligence to support inclusive and impactful decision-making. Excited to work within a team that values data as essential to fostering an inclusive culture and delivering insights that drive continuous improvement and equity-focused outcomes.
+
+
+#### Skilled and Experienced at:
+
+- [x] Leading team-based solutions through clear and positive communication
+- [x] Rapidly learning new technologies and applying hands-on coding solutions
+- [x] Writing clean, maintainable, and efficient code across frontend and backend systems
+- [x] Building and styling responsive, user-centric web applications using HTML, CSS, and JavaScript
+- [x] Creating and maintaining RESTful APIs with Python and Django
+- [x] Managing databases, including SQL and PostgreSQL, for optimized data storage and retrieval
+- [x] Developing dynamic and interactive user interfaces with React and jQuery
+- [x] Implementing DEI strategies and fostering inclusive team environments
+- [x] Collaborating effectively within Agile and SCRUM environments to meet project goals
+- [x] Translating complex technical concepts for non-technical stakeholders, supporting knowledge translation
+- [x] Contributing to open-source projects and real-world coding environments
+- [x] Cultivating a positive work culture rooted in mutual respect and reciprocal cooperation to enhance team effectiveness
 
   ________________________________________________________________________________________________________________________________________
 
