@@ -65,6 +65,19 @@ ________________________________________________________________________________
 All Badges verified by <p><a a href="https://eu.badgr.com/auth/login"> Canvas Badges Europe </a></p>
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
+  <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="October 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
+  <div>
+    <p> Awarded for participating in Code Institute's October 2024 - Elevate Hackathon. The challenge was to create a career-oriented project with a strong focus on helping students prepare for the job market. The goal was to develop a web application that enhances career readiness.</p>
+    <video controls width="400" height="auto">
+      <source src="" type="">
+      Your browser does not support the video tag.
+    </video>
+    <p><a href="https://job-me-bc754484e6f7.herokuapp.com/"> View the project's deployed site </a></p>
+  </div>
+</div>
+
+
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1722433595/Badge_Code_Institute_-_July_2024_Hackathon_2nd_Place_-_2024-07-28_yu4bxz.png" alt="July 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
     <p> Awarded 2nd Place for participating in Code Institute's July hackathon with a theme surrounding Pride, July 2024. </p>
