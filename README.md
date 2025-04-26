@@ -40,7 +40,7 @@ I am proactive about learning new tools and technologies and motivated to expand
 - [x] Contributing to open-source projects and real-world coding environments
 - [x] Cultivating a positive work culture rooted in mutual respect and reciprocal cooperation to enhance team effectiveness
 - [x] Mastering AI to achieve maximum effect with minimum fuss.
-- [C] learning to low code and no code.
+- [X] learning to low code and no code.
 
   ________________________________________________________________________________________________________________________________________
 
