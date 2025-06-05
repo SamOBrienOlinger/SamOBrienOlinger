@@ -1,11 +1,13 @@
-# Sam O'Brien-Olinger
+# [Sam O'Brien-Olinger](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
 
 ### Hi, I'm Sam. Welcome and thank you for taking the time to visit.
 
 <table>
   <tr>
     <td>
+      <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/">
       <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg" alt="ProfilePic" width="400px"/>
+      </a>
     </td>
     <td align="center">
       <h3>Junior Full Stack Software Developer</h3>
