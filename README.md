@@ -5,24 +5,34 @@
 <table>
   <tr>
     <td>
-      <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/">
       <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg" alt="ProfilePic" width="400px"/>
-      </a>
-    </td>
+    </td>      
     <td align="center">
       <h3>Junior Full Stack Software Developer</h3>
       <h4>Specialization: Advanced Frontend</h4>
-      <p><strong>HTML</strong> | <strong>CSS</strong> | <strong>JavaScript</strong> | <strong>Python</strong> | <strong>Node</strong> | 
-      <strong>Django</strong> | <strong>React</strong> | <strong>Bootstrap</strong> | <strong>JQuery</strong> | 
-      <strong>PostgreSQL</strong> | <strong>Diversity, Equality & Inclusion (DEI)</strong> | <strong>Strategy & Policy</strong> | 
-      <strong>Knowledge Translation</strong></p>
+      <p>| ICT know-how + expertise with DEI advocacy |</p>
+      <p>| Experienced social policy researcher and author |</p>
+      <p>| I combine scalable, user-centric, socially responsible innovative solutions across sectors |</p>
+      <p>| People-First Projects |</p>
+      <p>| Community-Centred Collaboration |</p>
+      <p>| Positive Sustainable Social Policy Outcomes for All Ages & Communities |</p>
     </td>
   </tr>
 </table>
 
 
+
+
+
+
+
 ## Professional Summary
-Recent graduate with a solid foundation in fullstack software development and a growing interest in data analytics, as well as a strong commitment to Diversity, Equity, and Inclusion (DEI). Skilled in front-end and back-end development using Python, JavaScript, and SQL, I bring hands-on experience in data-focused projects, including those involving data analysis, visualization, and data-driven decision-making. Recognized for my analytical thinking, attention to detail, and collaborative approach, I am eager to contribute to a data-driven team while advancing DEI principles within the organization.
+Currently Currently serving as Strategic Development & Innovation Lead, focusing on fostering people-first initiatives and community-centered collaboration. With over a year of experience in this role, my work emphasizes cultivating cross-sector stakeholder engagement to drive sustainable social policy outcomes that benefit diverse communities. My expertise in public policy and community development underpins my commitment to creating inclusive, impactful solutions that address societal challenges. 
+
+Alumni of Code Institute, graduating with two Merits and a solid foundation in fullstack software development. I have a keen interest in staying up to date with all the evolution of AI as well as Frontend technologies and data analytics.
+Skilled in front-end and back-end development using Python, JavaScript, and SQL, I bring hands-on experience in data-focused projects, including those involving data analysis, visualization, and data-driven decision-making.
+
+I also have a strong commitment to Diversity, Equity, and Inclusion (DEI). A proven track record of managing, implementing and developing deliverables that are inherently collaborative with positive communication at their core. I am eager to contribute to a data-driven team, leveraging an evidence-based approach to achieivng goal, while advancing DEI principles and exploring systems that are people-centred, user-focused and enjoying the creative process that comes with teamwork.
 
 I am proactive about learning new tools and technologies and motivated to expand my skill set in DEI strategy, data science, and business intelligence to support inclusive and impactful decision-making. Excited to work within a team that values data as essential to fostering an inclusive culture and delivering insights that drive continuous improvement and equity-focused outcomes.
 
