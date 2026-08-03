@@ -1,4 +1,4 @@
-# [Sam O'Brien-Olinger](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
+## [Sam O'Brien-Olinger](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
 
 <table>
   <tr>      
@@ -178,7 +178,6 @@ ________________________________________________________________________________
   - **Social Inclusion**
   - **Communications**
   - **Developing and managing a platform with national scope called _One Step Up_**
-
 __________________________________________________________________________________________________________________________________________
 
 For a bit more of an insight into my previous professional background, below are some examples of publications that I was either the author or a co-author:
