@@ -7,7 +7,7 @@ Digital innovation · Inclusive technology · AI‑assisted development
 ---
 
 ## About Me
-I build people-first, accessible web experiences informed by a background in public policy, sociology and social research. I transitioned into software development through Code Institute (Diploma in Full Stack Software Development — Advanced Front End) and apply a research-driven, inclusive approach to product design and implementation.
+people-first, accessible web experiences informed by a background in public policy, sociology and social research. I transitioned into software development through Code Institute (Diploma in Full Stack Software Development -Advanced Front End) and apply a research-driven, inclusive approach to product design and implementation.
 
 My experience includes:
 - Software development (front-end focus, full‑stack projects)
