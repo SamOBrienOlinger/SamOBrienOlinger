@@ -20,15 +20,17 @@ Digital innovation · Inclusive technology · AI‑assisted development
 </table>
 
 ## Professional Summary
-Currently serving as Strategic Development & Innovation Lead, focusing on fostering people-first initiatives and community-centered collaboration. With over a year of experience in this role, my work emphasizes cultivating cross-sector stakeholder engagement to drive sustainable social policy outcomes that benefit diverse communities. My expertise in public policy and community development underpins my commitment to creating inclusive, impactful solutions that address societal challenges. 
+Currently Executive Officer in the Department of Social Protection. Serving the public is central to my role as a software developer. 
+Empowering individuals, their families, communities and society as a whole in whatever capacity I have remains my core mission.
 
-Alumni of Code Institute, graduating with two Merits and a solid foundation in fullstack software development. I have a keen interest in staying up to date with all the evolution of AI as well as Frontend technologies and data analytics.
-Skilled in front-end and back-end development using Python, JavaScript, and SQL, I bring hands-on experience in data-focused projects, including those involving data analysis, visualization, and data-driven decision-making.
+Partner and Strategic Development & Innovation Lead with Punch Lion, focusing on fostering people-first initiatives and community-centered collaboration. 
 
-I also have a strong commitment to Diversity, Equity, and Inclusion (DEI). A proven track record of managing, implementing and developing deliverables that are inherently collaborative with positive communication at their core. I am eager to contribute to a data-driven team, leveraging an evidence-based approach to achieivng goal, while advancing DEI principles and exploring systems that are people-centred, user-focused and enjoying the creative process that comes with teamwork.
+My work always emphasises cultivating cross-sector stakeholder engagement to drive sustainable social policy outcomes that benefit diverse communities. 
 
-I am proactive about learning new tools and technologies and motivated to expand my skill set in DEI strategy, data science, and business intelligence to support inclusive and impactful decision-making. Excited to work within a team that values data as essential to fostering an inclusive culture and delivering insights that drive continuous improvement and equity-focused outcomes.
+My expertise in public policy and community development underpins my commitment to creating inclusive, impactful solutions that address societal challenges.  
 
+Over the past three years, I also honed technical and creative skills in full-stack software development, earning a diploma from Code Institute. 
+This technical foundation complements my extensive background in qualitative research and advocacy, enabling me to deliver innovative, user-focused platforms and strategies. My mission is to bridge the gap between technology, policy, and community needs, empowering sustainable growth and positive change.
 
 #### Skilled and Experienced at:
 
