@@ -130,24 +130,31 @@ All badges verified by Canvas Badges Europe (Badgr).
 ---
 
 ## Publications & Selected Research
-(Selected items from my prior work — links preserved)
 
 - *Routledge International Handbook of Police Ethnography*  
   https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399
+
 - *Police, Race and Culture in the ‘New Ireland’*  
   https://link.springer.com/book/10.1057/9781137490452
+
 - Submission to the Department of Children, Equality, Disability, Integration and Youth’s public consultations to review the Equality Acts  
   https://www.aontas.com/assets/resources/Submissions/...
+
 - Submission for the National Plan for Equity of Access to Higher Education 2022–2026  
   https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf
+
 - Educational Equality is Central to Ireland's Recovery: Community Education in a Time of COVID‑19  
   https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf
+
 - Lifelong learning and the odd puncture  
   https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf
+
 - Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania  
   http://www.combatingelderabuse.eu/wp-content/uploads/2016/04/Booklet_stage.pdf
+
 - Age Action Intercultural Care Home Project Report  
   https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf
+
 - Value for Money and Policy Review of Youth Programmes  
   http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf
 
@@ -162,10 +169,6 @@ Before moving into software development I worked across policy, research and com
 - Managing and developing the national platform "One Step Up"
 
 These experiences shape my approach to product design: user research, evidence-based decision-making, and inclusive stakeholder engagement.
-
-![sector-image](https://res.cloudinary.com/dzhbg6go0/image/upload/v1697036408/CockapooClub/JobHunter/software-development-sectors_njfkym.webp)
-
-![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
 ---
 
