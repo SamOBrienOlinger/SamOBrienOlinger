@@ -1,10 +1,7 @@
 # [Sam O'Brien-Olinger](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
 
 <table>
-  <tr>
-    <td>
-      <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1692011747/AtASlant_lno4wp.jpg" alt="ProfilePic" width="400px"/>
-    </td>      
+  <tr>      
     <td align="center">
       <h3>Junior Full Stack Software Developer</h3>
       <h4>Specialization: Advanced Frontend</h4>
