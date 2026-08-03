@@ -27,7 +27,7 @@
 
 
 ## Professional Summary
-Currently Currently serving as Strategic Development & Innovation Lead, focusing on fostering people-first initiatives and community-centered collaboration. With over a year of experience in this role, my work emphasizes cultivating cross-sector stakeholder engagement to drive sustainable social policy outcomes that benefit diverse communities. My expertise in public policy and community development underpins my commitment to creating inclusive, impactful solutions that address societal challenges. 
+Currently serving as Strategic Development & Innovation Lead, focusing on fostering people-first initiatives and community-centered collaboration. With over a year of experience in this role, my work emphasizes cultivating cross-sector stakeholder engagement to drive sustainable social policy outcomes that benefit diverse communities. My expertise in public policy and community development underpins my commitment to creating inclusive, impactful solutions that address societal challenges. 
 
 Alumni of Code Institute, graduating with two Merits and a solid foundation in fullstack software development. I have a keen interest in staying up to date with all the evolution of AI as well as Frontend technologies and data analytics.
 Skilled in front-end and back-end development using Python, JavaScript, and SQL, I bring hands-on experience in data-focused projects, including those involving data analysis, visualization, and data-driven decision-making.
