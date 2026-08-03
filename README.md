@@ -9,12 +9,12 @@ Digital innovation · Inclusive technology · AI‑assisted development
     <td align="center">
       <h3>Junior Full Stack Software Developer</h3>
       <h4>Specialization: Advanced Frontend</h4>
-      <p>| ICT know-how + expertise with DEI advocacy |</p>
-      <p>| Experienced social policy researcher and author |</p>
-      <p>| I combine scalable, user-centric, socially responsible innovative solutions across sectors |</p>
-      <p>| People-First Projects |</p>
-      <p>| Community-Centred Collaboration |</p>
-      <p>| Positive Sustainable Social Policy Outcomes for All Ages & Communities |</p>
+        <p> ICT know-how + expertise with DEI advocacy </p>
+        <p> Experienced social policy researcher and author </p>
+        <p> I combine scalable, user-centric, socially responsible innovative solutions across sectors </p>
+        <p> People-First Projects </p>
+        <p> Community-Centred Collaboration </p>
+        <p> Positive Sustainable Social Policy Outcomes for All Ages & Communities </p>
     </td>
   </tr>
 </table>
