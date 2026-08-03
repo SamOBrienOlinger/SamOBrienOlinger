@@ -15,12 +15,6 @@
   </tr>
 </table>
 
-
-
-
-
-
-
 ## Professional Summary
 Currently serving as Strategic Development & Innovation Lead, focusing on fostering people-first initiatives and community-centered collaboration. With over a year of experience in this role, my work emphasizes cultivating cross-sector stakeholder engagement to drive sustainable social policy outcomes that benefit diverse communities. My expertise in public policy and community development underpins my commitment to creating inclusive, impactful solutions that address societal challenges. 
 
@@ -79,12 +73,10 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p> Awarded for participating in <a href= "https://codeinstitute.net/ie/launching-talent/"> Code Institute's October 2024 - Elevate Hackathon</a></p> The challenge was to create a career-oriented project with a strong focus on helping students prepare for the job market. The goal was to develop a web application that enhances career readiness.</p>
     <video controls width="400" height="auto">
       <source src="" type="">
-      Your browser does not support the video tag.
     </video>
     <p><a href="https://job-me-bc754484e6f7.herokuapp.com/"> View the project's deployed site </a></p>
   </div>
 </div>
-
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1722433595/Badge_Code_Institute_-_July_2024_Hackathon_2nd_Place_-_2024-07-28_yu4bxz.png" alt="July 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
@@ -92,7 +84,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p> Awarded 2nd Place for participating in Code Institute's July hackathon with a theme surrounding Pride, July 2024. </p>
     <video controls width="400" height="auto">
       <source src="" type="">
-      Your browser does not support the video tag.
     </video>
     <p><a href="https://declan444.github.io/24-7-hackathon-team9/"> View the project's deployed site </a></p>
   </div>
@@ -105,7 +96,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p> Awarded for participating in Code Institute's January hackathon with the theme 'Budget Busters', January 2024. </p>
     <video controls width="400" height="auto">
       <source src="" type="">
-      Your browser does not support the video tag.
     </video>
     <p><a href="https://thrive-wallet-b5a54babd69b.herokuapp.com/"> View the project's deployed site </a></p>
   </div>
@@ -117,7 +107,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p> Awarded for participating in Code Institute's Christmas-themed Hackathon, December 2023 </p>
     <video controls width="400" height="auto">
       <source src="" type="">
-      Your browser does not support the video tag.
     </video>
     <p><a href="https://kpetrauskas92.github.io/team9-hackathon-december/edit.html"> View the project's deployed site </a></p>
   </div>
@@ -130,7 +119,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p>Awarded for participating in Code Institute's Halloween-themed Hackathon, October 2023.</p>
     <video controls width="400" height="auto">
       <source src="/workspace/SamOBrienOlinger/assets/images/LinkedInClip.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <p><a href="https://l0rdgabbers.github.io/curse-generator/index.html">View the project's deployed site </a></p>
   </div>
@@ -142,23 +130,13 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p>Awarded to team members for the project that placed 2nd in Code Institute's September 2023 Hackathon, themed 'Tech for a Greener Tomorrow: Hackathon for Sustainable Solutions in collaboration with SODA Social.</p>
     <video controls width="400" height="auto">
       <source src="/workspace/SamOBrienOlinger/assets/images/EcoHub.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <p><a href="https://shanedoyledev.github.io/ecohub/"> View the project's deployed site</a></p>
   </div>
 </div>
-
-
-
-
 ____________________________________________________________________________________________________________________________________________
 
 ## Portfolio Projects
-
-I have A LOT of repositories, the majority are fore improving my skills, knowledge and expereince. So, most are for practicing, playing and learning purposes. 
-
-Rather than sifting throught them all to find projects that best demonstrate my abilities, may I suggest checking out these projects:
-
 
 ### SpoodleSpace
   
@@ -176,7 +154,7 @@ ________________________________________________________________________________
   
   ![ships-that-battle](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012172/ships-that-battle_p00jje.jpg)
 
-  - [Deployed site](https://spoodle-space-pp5.herokuapp.com/)
+  - [Deployed site](https://ships-that-battle.herokuapp.com/)
   - [Repository](https://github.com/SamOBrienOlinger/Ships-that-Battle)
 
 __________________________________________________________________________________________________________________________________________
@@ -188,14 +166,6 @@ ________________________________________________________________________________
   - [Deployed site](https://home-cockapoo-club-pp4.herokuapp.com/)
   - [Repository](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4)
 __________________________________________________________________________________________________________________________________________
-
-## A little bit about me
-
-  I am very pleased to say that I have completed Code Institute's Diploma in Full Stack Software Development, and was awarded Merits for 2 of my projects. [Cockapoo Club](https://home-cockapoo-club-pp4.herokuapp.com/), listed above is one example. 
-  
-  I'm really excited about what the future holds for me, especially because I am still learning so much about specific languages and technologies, but also about the scale and variety of roles within Software Development and the tech industry as a whole.
-
-  ![sector-image](https://res.cloudinary.com/dzhbg6go0/image/upload/v1697036408/CockapooClub/JobHunter/software-development-sectors_njfkym.webp)
   
   My previous career path provided me with international and domestic professional experience and expertise in the folowing areas:
 
@@ -211,9 +181,6 @@ ________________________________________________________________________________
   - **Social Inclusion**
   - **Communications**
   - **Developing and managing a platform with national scope called _One Step Up_**
- 
-
-    ![one-step-up](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012823/OSU_uumflg.jpg)
 
 __________________________________________________________________________________________________________________________________________
 
