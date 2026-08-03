@@ -133,7 +133,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
   </div>
 </div>
 ____________________________________________________________________________________________________________________________________________
-
 ## Portfolio Projects
 
 ### SpoodleSpace
