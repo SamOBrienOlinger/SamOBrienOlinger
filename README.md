@@ -21,7 +21,6 @@ I enjoy working at the intersection of tech and social impact — building scala
 ---
 
 ## Tech Stack
-(Shields reflect the technologies listed in my original README)
 
 **Frontend**
 
@@ -55,8 +54,6 @@ I enjoy working at the intersection of tech and social impact — building scala
 
 ## Featured Projects
 
-> All screenshots, live deployments and repository links are preserved from the original README.
-
 ### SpoodleSpace
 
 ![SpoodleSpace screenshot](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012034/PP5-multiscreen_hucdla.jpg)
@@ -77,7 +74,7 @@ I enjoy working at the intersection of tech and social impact — building scala
 - Short description: A browser-based interactive game project from my portfolio.
 - Technologies: JavaScript, HTML, CSS
 - Links:
-  - Live: https://spoodle-space-pp5.herokuapp.com/
+  - Live: 
   - Repo: https://github.com/SamOBrienOlinger/Ships-that-Battle
 
 ---
@@ -104,7 +101,7 @@ Code Institute — Diploma in Full Stack Software Development (Advanced Front En
 ---
 
 ## Hackathons & Badges
-All badges verified by Canvas Badges Europe (Badgr). Below are the hackathon badges and preserved deployment links from the original README.
+All badges verified by Canvas Badges Europe (Badgr).
 
 - October 2024 — Elevate Hackathon  
   ![October 2024 Hackathon](https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png)  
@@ -172,23 +169,10 @@ These experiences shape my approach to product design: user research, evidence-b
 
 ---
 
-## GitHub Stats & Activity
-[![Sam's GitHub stats](https://github-readme-stats.vercel.app/api?username=SamOBrienOlinger&show_icons=true&theme=radical)](https://github.com/SamOBrienOlinger)  
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamOBrienOlinger&layout=compact&theme=radical)](https://github.com/SamOBrienOlinger)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=SamOBrienOlinger&theme=dark)  
-![Activity Graph](https://activity-graph.herokuapp.com/graph?username=SamOBrienOlinger&theme=github)  
-
-![Profile Views](https://komarev.com/ghpvc/?username=SamOBrienOlinger&color=brightgreen)
-
----
-
 ## Contact
 - LinkedIn: https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/  
 - Email: samobrienolinger@gmail.com
 
 ---
 
-Thank you for visiting my profile. If you'd like to collaborate, review a project, or discuss roles in frontend / inclusive digital products, please reach out via LinkedIn or email — I reply promptly.
-
-(Scroll up for quick links to projects, diploma, hackathon badges and publications.)
+Thank you for visiting my profile. If you'd like to collaborate, review a project, or discuss roles in frontend / inclusive digital products, please reach out via LinkedIn or email
