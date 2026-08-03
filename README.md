@@ -1,7 +1,5 @@
 # [Sam O'Brien-Olinger](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
 
-### Hi, I'm Sam. Welcome and thank you for taking the time to visit.
-
 <table>
   <tr>
     <td>
