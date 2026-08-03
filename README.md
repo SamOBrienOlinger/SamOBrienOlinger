@@ -89,7 +89,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
   </div>
 </div>
 
-
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="January 2024 Hackathon" width="200" height="200" style="margin-right: 20px;" />
   <div>
@@ -111,7 +110,6 @@ All Badges verified by <a a href="https://eu.badgr.com/auth/login"> Canvas Badge
     <p><a href="https://kpetrauskas92.github.io/team9-hackathon-december/edit.html"> View the project's deployed site </a></p>
   </div>
 </div>
-
 
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
   <img src="https://res.cloudinary.com/dzhbg6go0/image/upload/v1698331248/CockapooClub/JobHunter/October_2023_hackathon_obfszb.png" alt="October 2023 Hackathon" width="200" height="200" style="margin-right: 20px;" />
@@ -147,7 +145,6 @@ ________________________________________________________________________________
     - [Backend repository](https://github.com/SamOBrienOlinger/drf-spoodle-space)
     - [Frontend repository](https://github.com/SamOBrienOlinger/spoodle-space-pp5)
  
-
 __________________________________________________________________________________________________________________________________________    
 
 ### Ships That Battle
@@ -197,6 +194,5 @@ For a bit more of an insight into my previous professional background, below are
 - [*Value for Money and Policy Review of Youth Programmes*](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
 __________________________________________________________________________________________________________________________________________
 
-# Many thanks again for visiting and hopefully we'll be in touch soon! 
-
-Please go back to the top for my **[Contact Details](#contact-details)**
+Many thanks again for visiting and hopefully we'll be in touch soon
+**[Contact Details](#contact-details)**
