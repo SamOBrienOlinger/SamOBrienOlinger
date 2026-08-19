@@ -1,16 +1,5 @@
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const navLinks = [...document.querySelectorAll('nav a')];
-const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach(link => link.removeAttribute('aria-current'));
-      const active = navLinks.find(link => link.getAttribute('href') === `#${entry.target.id}`);
-      if (active) active.setAttribute('aria-current', 'location');
-    });
-  }, { rootMargin: '-35% 0px -55%' });
-  sections.forEach(section => observer.observe(section));
-}
+const root=document.documentElement;const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
+const toggle=document.querySelector('.theme-toggle');const stored=localStorage.getItem('portfolio-theme');if(stored==='dark'||stored==='light')root.dataset.theme=stored;else if(window.matchMedia('(prefers-color-scheme: dark)').matches)root.dataset.theme='dark';
+function syncThemeLabel(){if(toggle)toggle.setAttribute('aria-label',root.dataset.theme==='dark'?'Switch to light theme':'Switch to dark theme')}syncThemeLabel();
+toggle?.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('portfolio-theme',root.dataset.theme);syncThemeLabel()});
+const navLinks=[...document.querySelectorAll('.header nav a')];const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;navLinks.forEach(a=>a.removeAttribute('aria-current'));navLinks.find(a=>a.getAttribute('href')===`#${visible.target.id}`)?.setAttribute('aria-current','page')},{rootMargin:'-25% 0px -60%',threshold:[0,.2,.5]});sections.forEach(s=>observer.observe(s))}
