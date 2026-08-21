@@ -2,7 +2,7 @@
 **Junior Full Stack Software Developer — Advanced Frontend**  
 Digital innovation · Inclusive technology · AI‑assisted development
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) [![Email](https://img.shields.io/badge/Email-samobrienolinger%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:samobrienolinger@gmail.com) [![GitHub](https://img.shields.io/badge/GitHub-@SamOBrienOlinger-181717?logo=github&logoColor=white)](https://github.com/SamOBrienOlinger) [🌐 Website](https://samobrienolinger.github.io/SamOBrienOlinger/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) [![Email](https://img.shields.io/badge/Email-samobrienolinger%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:samobrienolinger@gmail.com) [![GitHub](https://img.shields.io/badge/GitHub-@SamOBrienOlinger-181717?logo=github&logoColor=white)](https://github.com/SamOBrienOlinger) [![Website](https://img.shields.io/badge/Website-Portfolio-4285F4?logo=googlechrome&logoColor=white)](https://samobrienolinger.github.io/SamOBrienOlinger/)
 
 <table>
   <tr>      
