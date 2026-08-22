@@ -1,0 +1,7 @@
+:root{--button-hover:#e5e7eb;--button-active:#c4c7cc}
+html[data-theme="dark"]{--button-hover:#d7d9dd;--button-active:#b8bbc1}
+.btn,.contact-pill,.theme-toggle,.project-links a{transition:background-color .05s ease,color .05s ease,border-color .05s ease,transform .05s ease!important}
+.btn:hover,.contact-pill:hover,.theme-toggle:hover,.project-links a:hover{background:var(--button-hover)!important;color:#17191d!important;border-color:var(--button-hover)!important;transform:none!important}
+.btn:active,.contact-pill:active,.theme-toggle:active,.project-links a:active{background:var(--button-active)!important;color:#101216!important;border-color:var(--button-active)!important;transform:translateY(1px)!important}
+@media (hover:none){.btn:hover,.contact-pill:hover,.theme-toggle:hover,.project-links a:hover{background:initial}}
+@media(prefers-reduced-motion:reduce){.btn,.contact-pill,.theme-toggle,.project-links a{transition:none!important}}
