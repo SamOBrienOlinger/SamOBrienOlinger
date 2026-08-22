@@ -5,10 +5,9 @@ const navLinks=[...document.querySelectorAll('.header nav a')];const sections=na
 const coverMap=[
 ['Routledge International Handbook','https://covers.openlibrary.org/b/isbn/9780367539399-L.jpg'],
 ['Police, Race and Culture','https://books.google.com/books/content?id=iL5EAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api'],
-['Equality Acts','https://image.thum.io/get/width/260/crop/360/noanimate/https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf'],
-['National Plan for Equity','https://image.thum.io/get/width/260/crop/360/noanimate/https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf'],
-['Educational Equality','https://image.thum.io/get/width/260/crop/360/noanimate/https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf'],
-['Lifelong learning','https://image.thum.io/get/width/260/crop/360/noanimate/https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf'],
-['Value for Money','https://image.thum.io/get/width/260/crop/360/noanimate/https://ubu.gov.ie/userfiles/pdf/Value%20for%20Money%20Policy%20Review%20on%20Youth%20Services%202014.pdf']];
-for(const link of document.querySelectorAll('.publications>a:not(.publication-feature)')){const title=link.querySelector('strong')?.textContent||'';const found=coverMap.find(([key])=>title.includes(key));if(!found)continue;link.classList.add('publication-with-cover');const img=document.createElement('img');img.className='publication-cover';img.src=found[1];img.alt=`Cover of ${title}`;img.loading='lazy';img.onerror=()=>img.remove();link.prepend(img)}
-document.querySelectorAll('.publications small').forEach(el=>el.remove());
+['Equality Acts','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf'],
+['National Plan for Equity','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf'],
+['Educational Equality','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf'],
+['Lifelong learning','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf'],
+['Value for Money','https://image.thum.io/get/width/500/crop/700/noanimate/http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf']];
+for(const link of document.querySelectorAll('.publications>a:not(.publication-feature)')){const title=link.querySelector('strong')?.textContent||'';const found=coverMap.find(([key])=>title.includes(key));if(!found)continue;link.classList.add('publication-with-cover');let img=link.querySelector('.publication-cover');if(!img){img=document.createElement('img');img.className='publication-cover';link.prepend(img)}img.src=found[1];img.alt=`Cover of ${title}`;img.loading='lazy'}
