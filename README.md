@@ -201,3 +201,7 @@ ________________________________________________________________________________
 
 Many thanks again for visiting and hopefully we'll be in touch soon
 **[Contact Details](#contact-details)**
+
+## Image attribution
+
+- Homepage hero photograph: [How do whales sleep?](https://specialtours.is/blog/how-do-whales-sleep/)
