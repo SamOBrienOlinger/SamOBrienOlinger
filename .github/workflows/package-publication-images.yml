@@ -1,0 +1,26 @@
+name: Package publication images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/package-publication-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-images
+          path: |
+            IMG_0858.jpeg
+            IMG_0859.jpeg
+            IMG_0860.jpeg
+            IMG_0861.jpeg
+            IMG_0863.jpeg
+          if-no-files-found: error
