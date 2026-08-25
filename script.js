@@ -5,10 +5,11 @@ const navLinks=[...document.querySelectorAll('.header nav a')];const sections=na
 const coverMap=[
 ['Routledge International Handbook','https://covers.openlibrary.org/b/isbn/9780367539399-L.jpg'],
 ['Police, Race and Culture','https://books.google.com/books/content?id=iL5EAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api'],
-['Equality Acts','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf'],
-['National Plan for Equity','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf'],
-['Educational Equality','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf'],
+['Equality Acts','assets/images/aontas-equality-acts-2021.jpeg'],
+['National Plan for Equity','assets/images/aontas-equity-access-2022-2026.jpeg'],
+['Educational Equality','assets/images/community-education-covid-19.jpeg'],
 ['Lifelong learning','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf'],
-['Value for Money','https://image.thum.io/get/width/500/crop/700/noanimate/http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf']];
-for(const link of document.querySelectorAll('.publications>a:not(.publication-feature)')){const title=link.querySelector('strong')?.textContent||'';const found=coverMap.find(([key])=>title.includes(key));if(!found)continue;link.classList.add('publication-with-cover');let img=link.querySelector('.publication-cover');if(!img){img=document.createElement('img');img.className='publication-cover';link.prepend(img)}img.src=found[1];img.alt=`Cover of ${title}`;img.loading='lazy'}
+['Value for Money','assets/images/value-for-money-youth-programmes.jpeg']];
+for(const link of document.querySelectorAll('.publications>a:not(.publication-feature)')){const title=link.querySelector('strong')?.textContent||'';const found=coverMap.find(([key])=>title.includes(key));if(!found)continue;link.classList.add('publication-with-cover');let img=link.querySelector('.publication-cover');if(!img){img=document.createElement('img');img.className='publication-cover';link.prepend(img)}img.src=found[1];img.alt=`Cover of ${title}`;img.loading='lazy';img.decoding='async'}
+const elderCover=document.querySelector('.publication-feature img');if(elderCover){elderCover.src='assets/images/elder-abuse-context-theory.jpeg';elderCover.alt='Cover of Elder Abuse, Context and Theory: Finland, Ireland, Italy and Romania';elderCover.loading='lazy';elderCover.decoding='async'}
 const backToTop=document.querySelector('.back-to-top');if(backToTop){const syncBackToTop=()=>backToTop.classList.toggle('is-visible',window.scrollY>600);syncBackToTop();window.addEventListener('scroll',syncBackToTop,{passive:true})}
