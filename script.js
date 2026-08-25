@@ -3,8 +3,8 @@ const toggle=document.querySelector('.theme-toggle');const stored=localStorage.g
 function syncThemeLabel(){if(toggle)toggle.setAttribute('aria-label',root.dataset.theme==='dark'?'Switch to light theme':'Switch to dark theme')}syncThemeLabel();toggle?.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('portfolio-theme',root.dataset.theme);syncThemeLabel()});
 const navLinks=[...document.querySelectorAll('.header nav a')];const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;navLinks.forEach(a=>a.removeAttribute('aria-current'));navLinks.find(a=>a.getAttribute('href')===`#${visible.target.id}`)?.setAttribute('aria-current','page')},{rootMargin:'-25% 0px -60%',threshold:[0,.2,.5]});sections.forEach(s=>observer.observe(s))}
 const coverMap=[
-['Routledge International Handbook','https://covers.openlibrary.org/b/isbn/9780367539399-L.jpg'],
-['Police, Race and Culture','https://books.google.com/books/content?id=iL5EAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api'],
+['Routledge International Handbook','assets/images/routledge-international-handbook-police-ethnography.webp'],
+['Police, Race and Culture','assets/images/police-race-culture-new-ireland.webp'],
 ['Equality Acts','assets/images/aontas-equality-acts-2021.jpeg'],
 ['National Plan for Equity','assets/images/aontas-equity-access-2022-2026.jpeg'],
 ['Educational Equality','assets/images/community-education-covid-19.jpeg'],
