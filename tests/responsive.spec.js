@@ -72,6 +72,7 @@ test('Focus diagram labels remain readable and touch-ready on mobile', async ({ 
   const diagram = page.getByRole('group', { name: 'Areas of focus' });
   await expect(diagram).toBeVisible();
   await expect(diagram.locator('.focus-venn-graphic')).toBeVisible();
+  await expect(diagram.locator('.focus-venn-graphic')).toHaveAttribute('src', /focus-venn-labelled-v5\.webp$/);
 
   const links = [
     ['Software: Full-stack digital products.', '#work'],
