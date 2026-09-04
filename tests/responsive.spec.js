@@ -20,7 +20,8 @@ test('mobile navigation and layout remain usable', async ({ page }) => {
   const boxes = await headerTargets.evaluateAll(elements => elements
     .filter(element => {
       const style = getComputedStyle(element);
-      return style.visibility !== 'hidden' && style.display !== 'none';
+      const rect = element.getBoundingClientRect();
+      return style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0;
     })
     .map(element => {
       const rect = element.getBoundingClientRect();
