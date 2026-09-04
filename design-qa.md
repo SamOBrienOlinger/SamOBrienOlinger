@@ -1,46 +1,44 @@
-# Design QA — portfolio navigation and responsive controls
+# Design QA — portfolio hero copy
 
 ## Scope
 
 - Deployed branch: `portfolio-redesign`
-- Verified commit: `697b4987de63efdd2de22514769babd51e1a475a`
-- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=697b498`
-- Reference state: desktop, light theme, top of page
-- Reference viewport: 1363 × 936 CSS pixels at DPR 1
+- Verified content commit: `33f860b6ca21a13ff068f050bb3c00e550b04eba`
+- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=33f860b`
+- Requested change: replace “community” in the hero description with “empowering people”
 
-## Visual comparison
+## Evidence
 
-- Source screenshot: `/workspace/scratch/portfolio-responsive-desktop-20260904.jpg`
-- Implementation screenshot: `/workspace/scratch/portfolio-responsive-after-20260904.jpg`
-- Side-by-side comparison: `/workspace/scratch/portfolio-responsive-comparison-20260904.jpg`
+- Source visual truth: `/workspace/scratch/a4ba07158abf/upload/IMG_1077.jpeg`
+- Browser-rendered implementation: `/workspace/scratch/portfolio-hero-copy-focused-33f860b.jpg`
+- Side-by-side comparison: `/workspace/scratch/portfolio-hero-copy-comparison-33f860b.jpg`
+- Source image: 1125 × 1190 pixels; annotated mobile crop
+- Implementation image: 1363 × 936 pixels; 1363 × 936 CSS viewport at DPR 1
+- State: light theme, hero copy and actions visible
 
-The desktop composition, typography, spacing, colours, image treatment and copy remain visually stable. The responsive work is intentionally concentrated below the 851 px breakpoint, so the desktop comparison shows no unintended layout drift.
+The source is an annotated mobile crop rather than a full viewport reference, so the comparison is focused on the requested copy and preservation of the existing hero hierarchy. Exact cross-viewport geometry is not treated as a fidelity target.
 
-## Responsive and interaction evidence
+## Findings
 
-- Android Chromium profiles: 360 × 800 and 412 × 915
-- iOS WebKit profiles: 375 × 667 and 393 × 852
-- Eight automated checks passed across the four profiles.
-- Mobile menu opens visibly, reports `aria-expanded="true"`, closes after link selection, and closes with Escape while restoring focus.
-- Header identity, theme control, contact control and all navigation links meet a minimum 44 px touch height.
-- Safe-area-aware horizontal padding is applied at mobile widths.
-- No horizontal document overflow was detected; project cards remain inside the viewport.
-- Desktop verification at 1363 × 936 found zero horizontal overflow, all project cards within the viewport and no failed images.
-- Theme switching was verified from light to dark and back to light.
-- No site-origin console errors were present. Browser-extension metadata errors were excluded because they do not originate from the site.
+- No P0, P1 or P2 findings.
+- The rendered sentence reads: “Software developer and researcher working across technology, policy and empowering people.”
+- Fonts and typography: existing family, weight, line height and hierarchy preserved.
+- Spacing and layout rhythm: no CSS changed; hero spacing and actions remain stable.
+- Colours and visual tokens: unchanged.
+- Image quality and asset fidelity: unchanged; no failed images detected.
+- Copy and content: requested replacement is exact and grammatically integrated.
 
-## Fidelity surfaces
+## Interaction and responsive verification
 
-- Typography: passed
-- Spacing and alignment: passed
-- Colour and contrast treatment: passed
-- Image quality and cropping: passed
-- Copy and project order: passed
-- Navigation and interaction states: passed
+- Live desktop page has zero horizontal overflow and no site-origin console errors.
+- Responsive device workflow passed all eight navigation, touch-target and overflow checks across the existing Android Chromium and iOS WebKit profiles.
+- No focused interaction retest was necessary because only static text changed; the primary hero links remain present and unchanged.
 
-## Limitations
+## Comparison history
 
-The mobile checks use production browser engines and representative device profiles in automated CI. They are not measurements from physical Android and iOS handsets, so hardware-specific browser chrome and vendor accessibility settings remain suitable candidates for a final manual spot check.
+- Initial state: hero description ended with “community.”
+- Fix: changed only the final concept to “empowering people.”
+- Post-fix evidence: deployed browser capture shows the new sentence without layout or visual regression.
 
 ## Final result
 
