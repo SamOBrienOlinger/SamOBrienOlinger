@@ -36,18 +36,3 @@ html[data-theme="dark"] .focus-core{background:#eef2ff;color:#17336f}
 @media(max-width:600px){.hero-panel.hero-panel-venn{padding:1rem!important}.focus-diagram{width:min(68%,230px);margin-block:0 .75rem}.focus-core{font-size:.6rem}.focus-links{grid-template-columns:1fr;gap:.5rem}.focus-link{grid-template-columns:minmax(5.8rem,.7fr) minmax(0,1.3fr);min-height:58px;padding:.7rem .8rem .7rem 1rem}.focus-link-title{font-size:.9rem}.focus-link-copy{margin:0;padding:0 0 0 .75rem;border-top:0;border-inline-start:1px solid var(--line);font-size:.7rem}}
 @media(max-width:360px){.focus-diagram{width:min(72%,205px)}.focus-link{grid-template-columns:1fr;gap:.25rem}.focus-link-copy{padding:0;border:0}}
 @media(prefers-reduced-motion:reduce){.focus-link{transition:none}}
-
-
-/* Focus diagram: labels are part of one responsive visual so they cannot drift or wrap independently. */
-.hero-panel.hero-panel-venn{display:block!important;grid-template-columns:none!important;gap:0!important;max-width:480px;justify-self:end}
-.hero-panel.hero-panel-venn .panel-label{grid-column:auto!important;margin-bottom:.9rem!important}
-.focus-venn.focus-venn-labelled{position:relative;isolation:isolate;width:min(100%,27rem);margin:0 auto}
-.focus-venn-labelled .focus-venn-graphic{position:static!important;inset:auto!important;display:block;width:100%;height:auto!important;aspect-ratio:auto!important;object-fit:fill!important;filter:none!important;pointer-events:none}
-.focus-hotspot{position:absolute;z-index:1;display:block;border-radius:24px}
-.focus-hotspot:hover{transform:scale(1.015)}
-.focus-hotspot:focus-visible{outline:3px solid #8092ff;outline-offset:3px}
-.focus-hotspot-software{top:21%;left:3%;width:44%;height:31%}
-.focus-hotspot-research{top:21%;right:3%;width:43%;height:31%}
-.focus-hotspot-people{bottom:7%;left:18%;width:64%;height:31%}
-@media(max-width:850px){.hero-panel.hero-panel-venn{max-width:none;justify-self:stretch}}
-@media(max-width:600px){.hero-panel.hero-panel-venn{padding:1rem!important}.focus-venn.focus-venn-labelled{width:100%;max-width:24rem}.focus-hotspot{border-radius:18px}}
