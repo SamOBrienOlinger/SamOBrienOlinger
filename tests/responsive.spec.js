@@ -65,3 +65,33 @@ test('Escape closes the mobile menu and returns focus', async ({ page }) => {
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(menu).toBeFocused();
 });
+
+
+test('Focus diagram remains readable and touch-ready on mobile', async ({ page }) => {
+  await page.goto('/');
+  const diagram = page.getByRole('group', { name: 'Areas of focus' });
+  await expect(diagram).toBeVisible();
+  await expect(diagram.locator('.focus-venn-graphic')).toBeVisible();
+
+  const links = [
+    ['Software: Full-stack digital products.', '#work'],
+    ['Research: Evidence, policy and social science.', '#research'],
+    ['People: Supporting communities.', '#about']
+  ];
+  for (const [name, href] of links) {
+    const link = page.getByRole('link', { name, exact: true });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute('href', href);
+  }
+
+  const hotspotsFit = await page.locator('.focus-hotspot').evaluateAll(elements => {
+    const container = document.querySelector('.focus-venn').getBoundingClientRect();
+    return elements.every(element => {
+      const rect = element.getBoundingClientRect();
+      return rect.width >= 44 && rect.height >= 44 &&
+        rect.left >= container.left - 0.5 && rect.right <= container.right + 0.5 &&
+        rect.top >= container.top - 0.5 && rect.bottom <= container.bottom + 0.5;
+    });
+  });
+  expect(hotspotsFit).toBe(true);
+});
