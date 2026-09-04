@@ -1,0 +1,35 @@
+name: Responsive device checks
+
+on:
+  push:
+    branches:
+      - main
+      - portfolio-redesign
+  pull_request:
+    branches:
+      - main
+      - portfolio-redesign
+
+permissions:
+  contents: read
+
+jobs:
+  mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm test
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-test-results
+          path: test-results
+          if-no-files-found: ignore

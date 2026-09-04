@@ -1,0 +1,12 @@
+{
+  "name": "sam-obrien-olinger-portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 4173 .",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "serve": "^14.2.4"
+  }
+}
