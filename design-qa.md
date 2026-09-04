@@ -1,44 +1,41 @@
-# Design QA — portfolio hero copy
+# Design QA — People focus copy
 
 ## Scope
 
-- Deployed branch: `portfolio-redesign`
-- Verified content commit: `33f860b6ca21a13ff068f050bb3c00e550b04eba`
-- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=33f860b`
-- Requested change: replace “community” in the hero description with “empowering people”
+- Branch: `portfolio-redesign`
+- Verified content commit: `8ddcfee56e27b89ac2a98aeac279e7093fe0a5e0`
+- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=8ddcfee`
+- Requested change: replace the description beneath “People” with “Supporting communities.”
 
 ## Evidence
 
-- Source visual truth: `/workspace/scratch/a4ba07158abf/upload/IMG_1077.jpeg`
-- Browser-rendered implementation: `/workspace/scratch/portfolio-hero-copy-focused-33f860b.jpg`
-- Side-by-side comparison: `/workspace/scratch/portfolio-hero-copy-comparison-33f860b.jpg`
-- Source image: 1125 × 1190 pixels; annotated mobile crop
-- Implementation image: 1363 × 936 pixels; 1363 × 936 CSS viewport at DPR 1
-- State: light theme, hero copy and actions visible
-
-The source is an annotated mobile crop rather than a full viewport reference, so the comparison is focused on the requested copy and preservation of the existing hero hierarchy. Exact cross-viewport geometry is not treated as a fidelity target.
+- Source visual truth: `/workspace/scratch/a4ba07158abf/upload/IMG_1078.jpeg`
+- Browser-rendered implementation: `/workspace/scratch/portfolio-people-copy-8ddcfee.jpg`
+- Focused comparison: `/workspace/scratch/portfolio-people-copy-comparison-8ddcfee.jpg`
+- Source image: 1125 × 1117 pixels, mobile crop
+- Implementation: 1363 × 936 CSS viewport at DPR 1; focused panel crop normalized for comparison
+- State: light theme, top-of-page Focus panel
 
 ## Findings
 
 - No P0, P1 or P2 findings.
-- The rendered sentence reads: “Software developer and researcher working across technology, policy and empowering people.”
-- Fonts and typography: existing family, weight, line height and hierarchy preserved.
-- Spacing and layout rhythm: no CSS changed; hero spacing and actions remain stable.
-- Colours and visual tokens: unchanged.
-- Image quality and asset fidelity: unchanged; no failed images detected.
-- Copy and content: requested replacement is exact and grammatically integrated.
+- Copy: the People description reads exactly “Supporting communities.”
+- Fonts and typography: existing family, weight, size, line height and hierarchy preserved.
+- Spacing and layout rhythm: no CSS changed; the new phrase fits without clipping or overflow.
+- Colours and tokens: unchanged.
+- Image quality and asset fidelity: unchanged; no failed images.
 
-## Interaction and responsive verification
+## Verification
 
-- Live desktop page has zero horizontal overflow and no site-origin console errors.
-- Responsive device workflow passed all eight navigation, touch-target and overflow checks across the existing Android Chromium and iOS WebKit profiles.
-- No focused interaction retest was necessary because only static text changed; the primary hero links remain present and unchanged.
+- Browser-rendered live page has zero horizontal overflow and no site-origin console errors.
+- The existing Android Chromium and iOS WebKit responsive workflow passed on the content commit.
+- No interaction behavior changed; navigation and hero controls remain intact.
 
 ## Comparison history
 
-- Initial state: hero description ended with “community.”
-- Fix: changed only the final concept to “empowering people.”
-- Post-fix evidence: deployed browser capture shows the new sentence without layout or visual regression.
+- Initial state: “Accessible, inclusive design.”
+- Fix: changed only the People description.
+- Post-fix: focused browser capture confirms the requested text and stable card layout.
 
 ## Final result
 
