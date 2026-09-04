@@ -66,34 +66,37 @@ test('Escape closes the mobile menu and returns focus', async ({ page }) => {
   await expect(menu).toBeFocused();
 });
 
-test('Focus content remains readable and navigable on mobile', async ({ page }) => {
+test('Focus diagram labels remain readable and touch-ready on mobile', async ({ page }) => {
   await page.goto('/');
 
-  const focusPanel = page.locator('.hero-panel-venn');
-  await expect(focusPanel).toBeVisible();
-  await expect(focusPanel.getByText('Public', { exact: false })).toBeVisible();
+  const diagram = page.getByRole('group', { name: 'Areas of focus' });
+  await expect(diagram).toBeVisible();
+  await expect(diagram.locator('.focus-venn-graphic')).toBeVisible();
 
-  const focusLinks = focusPanel.getByRole('navigation', { name: 'Areas of focus' }).getByRole('link');
-  await expect(focusLinks).toHaveCount(3);
-
-  for (const label of ['Software', 'Research', 'People']) {
-    const link = focusPanel.getByRole('link', { name: new RegExp('^' + label) });
-    await expect(link).toBeVisible();
-    const box = await link.boundingBox();
-    expect(box.width, label + ' width').toBeGreaterThanOrEqual(44);
-    expect(box.height, label + ' height').toBeGreaterThanOrEqual(44);
+  const links = [
+    ['Software: Full-stack digital products.', '#work'],
+    ['Research: Evidence, policy and social science.', '#research'],
+    ['People: Supporting communities.', '#about']
+  ];
+  for (const [name, href] of links) {
+    const link = page.getByRole('link', { name, exact: true });
+    await expect(link).toHaveAttribute('href', href);
   }
 
-  const metrics = await focusPanel.evaluate(panel => {
-    const rect = panel.getBoundingClientRect();
-    return {
-      left: rect.left,
-      right: rect.right,
-      viewport: window.innerWidth,
-      overflow: panel.scrollWidth - panel.clientWidth
-    };
+  const hotspotsFit = await page.locator('.focus-hotspot').evaluateAll(elements => {
+    const container = document.querySelector('.focus-venn').getBoundingClientRect();
+    return elements.every(element => {
+      const rect = element.getBoundingClientRect();
+      return rect.width >= 44 && rect.height >= 44 &&
+        rect.left >= container.left - 0.5 && rect.right <= container.right + 0.5 &&
+        rect.top >= container.top - 0.5 && rect.bottom <= container.bottom + 0.5;
+    });
   });
-  expect(metrics.left).toBeGreaterThanOrEqual(-0.5);
-  expect(metrics.right).toBeLessThanOrEqual(metrics.viewport + 0.5);
-  expect(metrics.overflow).toBeLessThanOrEqual(1);
+  expect(hotspotsFit).toBe(true);
+
+  const pageMetrics = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth
+  }));
+  expect(pageMetrics.scrollWidth).toBeLessThanOrEqual(pageMetrics.clientWidth);
 });

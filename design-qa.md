@@ -1,47 +1,43 @@
-# Design QA — Focus diagram text layout
+# Design QA — Focus labelled hexagon diagram
 
 ## Scope
 
 - Branch: `portfolio-redesign`
-- Verified implementation commit: `1718f9e081a3cee760276c79aee9bc61cb392770`
-- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=1718f9e`
-- Requested fix: make the text inside the Focus diagram readable, consistently wrapped and contained within the three coloured regions.
+- Requested outcome: keep the supplied interlocking hexagons and make the Software, Research and People text readable inside them on mobile.
+- Implemented revision: labels are part of the single responsive WebP visual; transparent hotspots retain keyboard and screen-reader navigation.
 
 ## Evidence
 
-- Source visual truth: `IMG_1083.jpeg`
-- Browser-rendered implementation: `portfolio-focus-text-fixed-live-1718f9e.jpg`
-- Focused comparison: `focus-text-comparison-1718f9e.jpg`
-- Source pixels: 1125 × 1166, supplied iPhone screenshot at approximately 3× density
-- Implementation pixels: 1348 × 926
-- Browser CSS viewport: 1363 × 936 at DPR 1
-- Density normalization: both focused panel crops were resized to 650 px high for side-by-side inspection
-- State: light theme, homepage Focus panel
+- Source visual truth: user-supplied mobile screenshot `IMG_1083.jpeg`.
+- Implementation: browser-rendered homepage at `https://rawcdn.githack.com/SamOBrienOlinger/SamOBrienOlinger/RELEASE/index.html`.
+- Browser viewport: 1363 × 936 CSS pixels, DPR 1, light theme, homepage top.
+- Responsive workflow: Android Chromium at 360 × 800 and 412 × 915; iOS WebKit at 375 × 667 and 393 × 852.
 
 ## Findings
 
-- No remaining P0, P1 or P2 findings.
-- Fonts and typography: mobile title sizing was reduced from the earlier 4.5vw/1.35rem rule to 3.6vw/0.95rem; descriptions now use 2.5vw/0.72rem, 1.25 line height and balanced wrapping.
-- Spacing and layout rhythm: mobile labels receive smaller internal padding and stable percentage zones. Software and Research are centred in the upper lobes; People remains centred in the lower lobe.
-- Colours and tokens: existing cobalt, turquoise, light navy and deep navy remain unchanged. Foreground contrast is preserved for all three labels.
-- Image quality and asset fidelity: the existing WebP diagram remains sharp and unchanged; only the semantic HTML text overlay was corrected.
-- Copy and content: wording remains exactly “Full-stack digital products.”, “Evidence, policy and social science.” and “Supporting communities.”
-- Responsive behaviour: Android Chromium and iOS WebKit workflow checks passed. The deployed desktop capture has zero horizontal overflow; the mobile rules now constrain title and copy sizes rather than allowing the earlier oversized wrapping.
+- [P1, fixed] Independent HTML labels could wrap or drift over the translucent hexagons at small widths.
+  - Fix: composed the exact labels into `assets/images/focus-venn-labelled-v4.webp`, leaving only invisible accessible links over their corresponding regions.
+  - Evidence after fix: rendered diagram is 389 × 433 CSS pixels with a 980 × 1090 source asset; all visible copy scales as one object, and page horizontal overflow is 0 pixels.
 
-## Primary interactions tested
+## Fidelity surfaces
 
-- Software links to `#work`.
-- Research links to `#research`.
-- People links to `#about`.
-- Focus image loads successfully.
-- No site-origin console errors were recorded.
+- Typography: labels use strong, high-contrast title weights with supporting lines arranged within their own hexagon fields; no independent browser wrapping remains.
+- Spacing and layout: fixed artwork preserves label-to-shape alignment at every scale; panel stays within its container.
+- Colours: existing cobalt, turquoise, light-navy and deep-navy hexagons are retained.
+- Image quality: flattened WebP has a white background matching the panel, preventing transparency/halo artefacts.
+- Copy: Software — “Full-stack digital products.”; Research — “Evidence, policy and social science.”; People — “Supporting communities.”
+
+## Verification
+
+- Browser rendering: image loaded successfully, all three accessible hotspots present, no horizontal overflow.
+- Interaction: hotspots link to Work, Research and Approach and meet the 44 × 44 px minimum touch target.
+- Device workflow: Android Chromium and iOS WebKit checks are required for this revision.
 
 ## Comparison history
 
-- Earlier finding (P2): at iPhone width, title and description sizes consumed too much of each lobe; Research crowded the right edge and descriptions wrapped into uneven tall columns.
-- Fix: reduced mobile typography and padding, tightened line height, balanced copy wrapping, widened the mobile label zones and moved Research inward.
-- Post-fix evidence: deployed browser capture shows compact label groups; automated iOS WebKit and Android Chromium responsive checks pass without overflow.
+- Previous approach: separate text overlays and, later, separate text cards; both departed from the intended labelled-diagram composition.
+- Current approach: labels baked into the responsive visual with semantic controls preserved over the matching regions.
 
 ## Final result
 
-passed
+blocked
