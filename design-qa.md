@@ -1,44 +1,46 @@
-# Design QA — Focus Venn diagram
+# Design QA — Focus diagram text layout
 
 ## Scope
 
 - Branch: `portfolio-redesign`
-- Verified implementation commit: `b682eb74853ee05c332be04335121af6b1b4501e` (published in release `d37dfb5`)
-- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=d37dfb5`
-- Requested change: use the supplied interlocking-hexagon geometry for the Focus section, recoloured to the site's cobalt, turquoise, light-navy and deep-navy palette.
+- Verified implementation commit: `1718f9e081a3cee760276c79aee9bc61cb392770`
+- Live URL: `https://samobrienolinger.github.io/SamOBrienOlinger/?release=1718f9e`
+- Requested fix: make the text inside the Focus diagram readable, consistently wrapped and contained within the three coloured regions.
 
 ## Evidence
 
-- Source visual truth: `IMG_1081.jpeg`
-- Browser-rendered implementation: `portfolio-focus-venn-deployed-d37dfb5.jpg`
-- Focused side-by-side comparison: `focus-venn-comparison-b682eb7.jpg`
-- Source image: 1125 × 1117 pixels
-- Implementation capture: 1363 × 936 CSS viewport at DPR 1; Focus panel crop normalized to the source height for comparison
-- State: light theme, homepage at the top of the page
+- Source visual truth: `IMG_1083.jpeg`
+- Browser-rendered implementation: `portfolio-focus-text-fixed-live-1718f9e.jpg`
+- Focused comparison: `focus-text-comparison-1718f9e.jpg`
+- Source pixels: 1125 × 1166, supplied iPhone screenshot at approximately 3× density
+- Implementation pixels: 1348 × 926
+- Browser CSS viewport: 1363 × 936 at DPR 1
+- Density normalization: both focused panel crops were resized to 650 px high for side-by-side inspection
+- State: light theme, homepage Focus panel
 
 ## Findings
 
-- No P0, P1 or P2 findings.
-- Three overlapping hexagons and a darker shared centre preserve the reference's visual relationship.
-- Neon reference colours are replaced with the existing site's cobalt, turquoise, light-navy and deep-navy palette.
-- Software, Research and People remain semantic, keyboard-focusable links to the corresponding page sections.
-- Each title and description is positioned within its coloured field; Research uses a narrower right-hand zone for legibility.
-- Narrow screens switch the panel to a single block, keeping the square diagram intact and preventing horizontal overflow.
-- `assets/images/focus-venn-hexagons.webp` loads successfully.
+- No remaining P0, P1 or P2 findings.
+- Fonts and typography: mobile title sizing was reduced from the earlier 4.5vw/1.35rem rule to 3.6vw/0.95rem; descriptions now use 2.5vw/0.72rem, 1.25 line height and balanced wrapping.
+- Spacing and layout rhythm: mobile labels receive smaller internal padding and stable percentage zones. Software and Research are centred in the upper lobes; People remains centred in the lower lobe.
+- Colours and tokens: existing cobalt, turquoise, light navy and deep navy remain unchanged. Foreground contrast is preserved for all three labels.
+- Image quality and asset fidelity: the existing WebP diagram remains sharp and unchanged; only the semantic HTML text overlay was corrected.
+- Copy and content: wording remains exactly “Full-stack digital products.”, “Evidence, policy and social science.” and “Supporting communities.”
+- Responsive behaviour: Android Chromium and iOS WebKit workflow checks passed. The deployed desktop capture has zero horizontal overflow; the mobile rules now constrain title and copy sizes rather than allowing the earlier oversized wrapping.
 
-## Verification
+## Primary interactions tested
 
-- Browser-rendered page: zero horizontal overflow and zero site-origin console errors.
-- Focus panel: 434.3 × 474.6 CSS px; diagram: 389.1 × 389.1 CSS px in the desktop verification viewport.
-- Responsive device-check workflow passed for the published commit and covers Android Chromium and iOS WebKit profiles.
-- Pages build and deployment passed for the published commit.
-- Stylesheet cache markers were advanced so the deployed page receives the final label positioning.
+- Software links to `#work`.
+- Research links to `#research`.
+- People links to `#about`.
+- Focus image loads successfully.
+- No site-origin console errors were recorded.
 
 ## Comparison history
 
-- Initial Venn implementation was compressed by a stale stylesheet and a legacy mobile grid override.
-- Fix: widened the hero grid, forced the Venn panel to block layout, invalidated the CSS cache and moved each label into its own colour field.
-- Post-fix: deployed page shows the selected geometry, readable labels and preserved homepage hierarchy.
+- Earlier finding (P2): at iPhone width, title and description sizes consumed too much of each lobe; Research crowded the right edge and descriptions wrapped into uneven tall columns.
+- Fix: reduced mobile typography and padding, tightened line height, balanced copy wrapping, widened the mobile label zones and moved Research inward.
+- Post-fix evidence: deployed browser capture shows compact label groups; automated iOS WebKit and Android Chromium responsive checks pass without overflow.
 
 ## Final result
 
