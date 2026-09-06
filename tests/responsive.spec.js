@@ -31,7 +31,7 @@ test('mobile navigation and project layouts remain usable', async ({ page }) => 
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#work')).toBeFocused();
-  const cardsFit = await page.locator('.project, .project-small').evaluateAll(cards => cards.every(card => {
+  const cardsFit = await page.locator('.project[data-project][aria-hidden="false"]').evaluateAll(cards => cards.length === 1 && cards.every(card => {
     const rect = card.getBoundingClientRect();
     return rect.left >= -0.5 && rect.right <= window.innerWidth + 0.5;
   }));
@@ -74,8 +74,11 @@ test('focus labels are readable HTML links at normal and enlarged text sizes', a
 
 test('AllyIndex retains all supplied screens and destinations', async ({ page }) => {
   await page.goto('/#work');
-  const card = page.locator('.project-small').filter({ has: page.getByRole('heading', { name: 'AllyIndex', exact: true }) });
+  const card = page.locator('[data-project="allyindex"]');
   await expect(card).toHaveCount(1);
+  await page.locator('.work-track').focus();
+  await card.evaluate(element => element.parentElement.scrollTo({ left: element.offsetLeft, behavior: 'instant' }));
+  await expect(card).toHaveAttribute('aria-hidden', 'false');
   const screens = card.locator('.allyindex-gallery img');
   await expect(screens).toHaveCount(3);
   await screens.evaluateAll(images => images.forEach(image => image.scrollIntoView({ block: 'center' })));
