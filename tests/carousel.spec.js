@@ -12,18 +12,21 @@ async function openWork(page, reducedMotion = 'no-preference') {
 test('rotation advances, then stays stopped after a real touch and a return to the section', async ({ page }) => {
   await openWork(page);
   const carousel = page.locator('[data-carousel]');
-  await expect(carousel).toHaveAttribute('data-current-project', 'spoodle', { timeout: 10000 });
+  await expect(page.locator('[data-autoplay], .carousel-play')).toHaveCount(0);
+  const track = page.locator('.work-track');
+  await expect(track).toHaveClass(/is-animating/, { timeout: 11000 });
+  await page.waitForTimeout(300);
+  await expect(track).toHaveClass(/is-animating/);
+  await expect(carousel).toHaveAttribute('data-current-project', 'spoodle', { timeout: 5000 });
   await page.locator('.carousel-count').tap();
   await expect(carousel).toHaveAttribute('data-rotation', 'paused');
   await page.evaluate(() => window.scrollTo(0, 0));
   await carousel.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(6500);
+  await page.waitForTimeout(9000);
   await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
   await page.getByRole('button', { name: 'Next project', exact: true }).click();
   await expect(carousel).toHaveAttribute('data-current-project', 'beaver');
-  await page.getByRole('button', { name: 'Start automatic project rotation' }).tap();
-  await expect(carousel).toHaveAttribute('data-rotation', 'playing');
-  await expect(carousel).toHaveAttribute('data-current-project', 'new-life', { timeout: 10000 });
+  await expect(carousel).toHaveAttribute('data-rotation', 'paused');
 });
 
 test('every project and its images fit the carousel, including both loop boundaries', async ({ page }) => {
