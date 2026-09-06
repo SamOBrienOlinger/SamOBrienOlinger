@@ -8,8 +8,9 @@
   <title>Sam Tim Solutions | Sam O’Brien-Olinger</title>
   <link rel="canonical" href="https://samobrienolinger.github.io/SamOBrienOlinger/">
   <link rel="icon" href="assets/images/sam-logo.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260906-hero-role">
+  <link rel="stylesheet" href="styles.css?v=20260906-work-carousel">
   <script src="script.js?v=20260906-plain-copy" defer></script>
+  <script src="carousel.js?v=20260906-work-carousel" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -53,37 +54,53 @@
     <section class="section work-section" id="work" aria-labelledby="work-title">
       <div class="container">
         <div class="section-heading">
-          <div><p class="eyebrow">Selected work</p><h2 id="work-title">Ideas put into practice.</h2></div>
+          <div>
+<p class="eyebrow">Selected work</p>
+<h2 id="work-title">Explore my work.</h2>
+</div>
           <p>Community resources, playful learning and applications built around real interests.</p>
         </div>
-        <div class="projects">
-          <article class="project project-featured" aria-labelledby="sct-title">
-            <a class="project-media sct-media" href="https://samobrienolinger.github.io/saggart-and-citywest-together/" aria-label="Visit the Saggart &amp; Citywest Together website">
-              <img src="assets/images/projects/saggart-citywest.webp" alt="Illustration of Saggart and Citywest, with the village church, homes, park and Luas" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="media-link" aria-hidden="true">Visit website ↗</span>
-            </a>
+        <div class="work-carousel" role="region" aria-roledescription="carousel" aria-labelledby="work-title" data-carousel>
+          <div class="carousel-toolbar" hidden>
+            <button class="carousel-play" type="button" data-autoplay aria-controls="work-track" aria-label="Pause automatic project rotation"><span data-play-icon aria-hidden="true">Ⅱ</span><span data-play-label>Pause</span></button>
+            <div class="carousel-navigation">
+              <span class="carousel-count" aria-hidden="true"><span data-project-number>01</span><span class="carousel-total"> / 10</span></span>
+              <button class="carousel-arrow" type="button" data-previous aria-controls="work-track" aria-label="Previous project"><span aria-hidden="true">←</span></button>
+              <button class="carousel-arrow" type="button" data-next aria-controls="work-track" aria-label="Next project"><span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <div class="work-track" id="work-track" tabindex="0" aria-label="Project cards. Swipe left or right, or use the arrow keys.">
+<article class="project" data-project="sct" role="group" aria-roledescription="slide" aria-label="1 of 10: S&amp;CT">
+            <a class="project-media sct-media" href="https://samobrienolinger.github.io/saggart-and-citywest-together/" aria-label="Visit Saggart &amp; Citywest Together">
+              <img src="assets/images/projects/carousel-sct.webp" alt="Illustration of Saggart and Citywest with a historic church, hotel, homes, a Luas tram and park beneath a golden sun." width="1200" height="800" loading="lazy" decoding="async"></a>
             <div class="project-content">
               <p class="project-category">Community connection</p>
               <h3 id="sct-title"><a href="https://samobrienolinger.github.io/saggart-and-citywest-together/">S&amp;CT</a></h3>
               <p class="project-subtitle">Saggart &amp; Citywest Together</p>
               <p>Helping neighbours find local information, practical supports and ways to connect. A shared resource for a welcoming, informed community.</p>
-              <ul class="project-tags" aria-label="Project focus"><li>Local resources</li><li>Community learning</li></ul>
+              <ul class="project-tags" aria-label="Project focus">
+<li>Local resources</li>
+<li>Community learning</li>
+</ul>
               <div class="project-links">
                 <a class="text-link" href="https://samobrienolinger.github.io/saggart-and-citywest-together/">Explore S&amp;CT <span aria-hidden="true">↗</span></a>
                 <a class="source-link" href="https://github.com/SamOBrienOlinger/saggart-and-citywest-together" aria-label="View the Saggart &amp; Citywest Together source code">Source code</a>
               </div>
             </div>
           </article>
-          <article class="project" aria-labelledby="spoodle-title">
-            <a class="project-media spoodle-media" href="https://github.com/SamOBrienOlinger/spoodle-space-pp5" aria-label="Explore the SpoodleSpace frontend repository">
-              <img src="assets/images/projects/spoodlespace.webp" alt="SpoodleSpace shown on desktop, tablet and mobile screens" width="1209" height="711" loading="lazy" decoding="async">
-              <span class="media-link" aria-hidden="true">Explore project ↗</span>
-            </a>
+
+
+<article class="project" data-project="spoodle" role="group" aria-roledescription="slide" aria-label="2 of 10: SpoodleSpace">
+            <a class="project-media spoodle-media" href="https://spoodle-space-pp5.herokuapp.com/" aria-label="Visit SpoodleSpace">
+              <img src="assets/images/projects/carousel-spoodle.webp" alt="A white curly-haired dog running toward the camera across a grassy field." width="1170" height="780" loading="lazy" decoding="async"></a>
             <div class="project-content">
               <p class="project-category">Full-stack application</p>
               <h3 id="spoodle-title"><a href="https://github.com/SamOBrienOlinger/spoodle-space-pp5">SpoodleSpace</a></h3>
               <p>A social space for people who love dogs. A React interface and Django REST API bring a shared-interest community together.</p>
-              <ul class="project-tags" aria-label="Technologies"><li>React</li><li>Django REST</li></ul>
+              <ul class="project-tags" aria-label="Technologies">
+<li>React</li>
+<li>Django REST</li>
+</ul>
               <div class="project-links">
                 <a class="text-link" href="https://spoodle-space-pp5.herokuapp.com/" aria-label="Visit the SpoodleSpace live site">Live site <span aria-hidden="true">↗</span></a>
                 <a class="source-link" href="https://github.com/SamOBrienOlinger/spoodle-space-pp5" aria-label="View the SpoodleSpace frontend repository">Frontend <span aria-hidden="true">↗</span></a>
@@ -91,53 +108,111 @@
               </div>
             </div>
           </article>
-          <article class="project" aria-labelledby="beaver-title">
-            <a class="project-media beaver-media" href="https://samobrienolinger.github.io/beaver-v-otter/" aria-label="Play Beaver v Otter">
-              <img src="assets/images/projects/beaver-otter.webp" alt="The beaver and otter characters holding hands" width="1024" height="772" loading="lazy" decoding="async">
-              <span class="media-link" aria-hidden="true">Play the game ↗</span>
-            </a>
+
+
+<article class="project" data-project="beaver" role="group" aria-roledescription="slide" aria-label="3 of 10: Beaver v Otter">
+            <a class="project-media beaver-media" href="https://samobrienolinger.github.io/beaver-v-otter/" aria-label="Visit Beaver v Otter">
+              <img src="assets/images/projects/carousel-beaver.webp" alt="Illustrated beaver and otter holding hands." width="1024" height="772" loading="lazy" decoding="async"></a>
             <div class="project-content">
               <p class="project-category">Interactive learning</p>
               <h3 id="beaver-title"><a href="https://samobrienolinger.github.io/beaver-v-otter/">Beaver v Otter</a></h3>
               <p>Two animals. One river. A choice-based game exploring river ecosystems, data centres and how people can protect the water they share.</p>
-              <ul class="project-tags" aria-label="Project focus"><li>Learning through play</li><li>River ecology</li></ul>
+              <ul class="project-tags" aria-label="Project focus">
+<li>Learning through play</li>
+<li>River ecology</li>
+</ul>
               <div class="project-links">
                 <a class="text-link" href="https://samobrienolinger.github.io/beaver-v-otter/">Play Beaver v Otter <span aria-hidden="true">↗</span></a>
                 <a class="source-link" href="https://github.com/SamOBrienOlinger/beaver-v-otter" aria-label="View the Beaver v Otter source code">Source code</a>
               </div>
             </div>
           </article>
-        </div>
 
-        <div class="more-work">
-          <h3 class="small-heading">More to explore</h3>
-          <div class="project-list">
-            <article class="project-small">
-              <p class="project-category">Learning resource</p>
-              <h4>A New Life in Ireland</h4>
+
+<article class="project" data-project="new-life" role="group" aria-roledescription="slide" aria-label="4 of 10: A New Life in Ireland">
+              <a class="project-media new-life-media" href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/" aria-label="Visit A New Life in Ireland"><img src="assets/images/projects/carousel-new-life.webp" alt="Illustration of a group of people following coastal paths toward an Irish town." width="1200" height="675" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Learning resource</p>
+              <h3 id="new-life-title">A New Life in Ireland</h3>
               <p>Character-based learning about migration, rights and settlement in Ireland.</p>
-              <a class="text-link" href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/" aria-label="Explore A New Life in Ireland">Explore the project <span aria-hidden="true">↗</span></a>
-            </article>
-            <article class="project-small">
-              <p class="project-category">Django application</p>
-              <h4>Cockapoo Club</h4>
+              <div class="project-links">
+<a class="text-link" href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/" aria-label="Explore A New Life in Ireland">Explore the project <span aria-hidden="true">↗</span></a>
+            </div>
+</div></article>
+
+
+<article class="project" data-project="cockapoo" role="group" aria-roledescription="slide" aria-label="5 of 10: Cockapoo Club">
+              <a class="project-media cockapoo-media" href="https://home-cockapoo-club-pp4.herokuapp.com/" aria-label="Visit Cockapoo Club"><img src="assets/images/projects/carousel-cockapoo.webp" alt="A white cockapoo on grass beneath an evening sky." width="1113" height="795" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Django application</p>
+              <h3 id="cockapoo-title">Cockapoo Club</h3>
               <p>Dog-care content and a training-booking application for owners and enthusiasts.</p>
-              <a class="text-link" href="https://home-cockapoo-club-pp4.herokuapp.com/" aria-label="Visit the Cockapoo Club live site">Live site <span aria-hidden="true">↗</span></a>
+              <div class="project-links">
+<a class="text-link" href="https://home-cockapoo-club-pp4.herokuapp.com/" aria-label="Visit the Cockapoo Club live site">Live site <span aria-hidden="true">↗</span></a>
               <a class="text-link" href="https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4" aria-label="View the Cockapoo Club repository">View repository <span aria-hidden="true">↗</span></a>
-            </article>
-            <article class="project-small">
-              <p class="project-category">Python game</p>
-              <h4>Ships That Battle</h4>
+            </div>
+</div></article>
+
+
+<article class="project" data-project="ships" role="group" aria-roledescription="slide" aria-label="6 of 10: Ships That Battle">
+              <a class="project-media ships-media" href="https://github.com/SamOBrienOlinger/Ships-that-Battle" aria-label="Explore Ships That Battle"><img src="assets/images/projects/carousel-ships.webp" alt="Ships That Battle terminal game shown on desktop, laptop, tablet and phone screens." width="991" height="595" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Python game</p>
+              <h3 id="ships-title">Ships That Battle</h3>
               <p>A terminal game built around coordinate choices, game state and hit-or-miss feedback.</p>
-              <a class="text-link" href="https://github.com/SamOBrienOlinger/Ships-that-Battle" aria-label="View the Ships That Battle repository">View repository <span aria-hidden="true">↗</span></a>
-            </article>
-<article class="project-small"><p class="project-category">Hackathon</p><h4>Beetlejuice</h4><p>An interactive film-inspired web experience.</p><div class="project-links"><a class="text-link" href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/" aria-label="Live site for Beetlejuice">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/SamOBrienOlinger/Beetlejuice-Beetlejuice-Beetlejuice" aria-label="Repository for Beetlejuice">Repository <span aria-hidden="true">↗</span></a></div></article>
-<article class="project-small"><p class="project-category">Learning</p><h4>Know Yellowknife</h4><p>A mobile-first learning hub and quiz.</p><div class="project-links"><a class="text-link" href="https://samobrienolinger.github.io/know-yellowknife/" aria-label="Live site for Know Yellowknife">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/SamOBrienOlinger/know-yellowknife" aria-label="Repository for Know Yellowknife">Repository <span aria-hidden="true">↗</span></a></div></article>
-<article class="project-small"><p class="project-category">Learning resource</p><h4>AllyIndex</h4><p>An interactive resource for exploring LGBTQ+ terminology, diverse history and allyship through self-guided learning and a knowledge quiz.</p><div class="allyindex-gallery" tabindex="0" role="region" aria-label="AllyIndex project screenshots"><img src="assets/images/allyindex-home.webp" alt="AllyIndex welcome screen with the quiz call to action" width="1125" height="1852" loading="lazy" decoding="async"><img src="assets/images/allyindex-quiz.webp" alt="AllyIndex LGBTQ+ quiz screen" width="1125" height="1747" loading="lazy" decoding="async"><img src="assets/images/allyindex-terminology.webp" alt="AllyIndex terminology learning screen" width="1125" height="1890" loading="lazy" decoding="async"></div><div class="project-links"><a class="text-link" href="https://declan444.github.io/24-7-hackathon-team9/index.html" aria-label="Live site for AllyIndex">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/declan444/24-7-hackathon-team9" aria-label="Repository for AllyIndex">Repository <span aria-hidden="true">↗</span></a></div></article>
-<article class="project-small"><p class="project-category">Literary game</p><h4>The White Whale vs Old Thunder</h4><p>A tactical Moby-Dick browser game.</p><div class="project-links"><a class="text-link" href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/" aria-label="Live site for The White Whale vs Old Thunder">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder" aria-label="Repository for The White Whale vs Old Thunder">Repository <span aria-hidden="true">↗</span></a></div></article>
+              <div class="project-links">
+<a class="text-link" href="https://github.com/SamOBrienOlinger/Ships-that-Battle" aria-label="View the Ships That Battle repository">View repository <span aria-hidden="true">↗</span></a>
+            </div>
+</div></article>
+
+
+<article class="project" data-project="beetlejuice" role="group" aria-roledescription="slide" aria-label="7 of 10: Beetlejuice"><a class="project-media beetlejuice-media" href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/" aria-label="Visit Beetlejuice"><img src="assets/images/projects/carousel-beetlejuice.webp" alt="Beetlejuice appearing and inviting visitors to play." width="245" height="245" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Hackathon</p>
+<h3 id="beetlejuice-title">Beetlejuice</h3>
+<p>An interactive film-inspired web experience.</p>
+<div class="project-links">
+<a class="text-link" href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/" aria-label="Live site for Beetlejuice">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/SamOBrienOlinger/Beetlejuice-Beetlejuice-Beetlejuice" aria-label="Repository for Beetlejuice">Repository <span aria-hidden="true">↗</span></a>
+</div>
+</div></article>
+
+
+<article class="project" data-project="yellowknife" role="group" aria-roledescription="slide" aria-label="8 of 10: Know Yellowknife"><a class="project-media yellowknife-media" href="https://samobrienolinger.github.io/know-yellowknife/" aria-label="Visit Know Yellowknife"><img src="assets/images/projects/carousel-yellowknife.webp" alt="Illustration of Yellowknife among northern lakes, forest and rocky terrain beneath the aurora." width="1200" height="600" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Learning</p>
+<h3 id="yellowknife-title">Know Yellowknife</h3>
+<p>A mobile-first learning hub and quiz.</p>
+<div class="project-links">
+<a class="text-link" href="https://samobrienolinger.github.io/know-yellowknife/" aria-label="Live site for Know Yellowknife">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/SamOBrienOlinger/know-yellowknife" aria-label="Repository for Know Yellowknife">Repository <span aria-hidden="true">↗</span></a>
+</div>
+</div></article>
+
+
+<article class="project" data-project="allyindex" role="group" aria-roledescription="slide" aria-label="9 of 10: AllyIndex"><a class="project-media allyindex-media" href="https://declan444.github.io/24-7-hackathon-team9/index.html" aria-label="Visit AllyIndex"><img src="assets/images/projects/carousel-allyindex-1.webp" alt="A smiling person wearing rainbow accessories and glitter face decoration." width="281" height="500" loading="lazy" decoding="async"><img src="assets/images/projects/carousel-allyindex-2.webp" alt="Two people in white shirts and pink bow ties holding hands with their foreheads touching outdoors." width="281" height="500" loading="lazy" decoding="async"><img src="assets/images/projects/carousel-allyindex-3.webp" alt="Rainbow neon arcs in front of a wall covered with handwritten messages about love." width="281" height="500" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Learning resource</p>
+<h3 id="allyindex-title">AllyIndex</h3>
+<p>An interactive resource for exploring LGBTQ+ terminology, diverse history and allyship through self-guided learning and a knowledge quiz.</p>
+<div class="allyindex-gallery" role="region" aria-label="AllyIndex project screenshots">
+<a href="assets/images/allyindex-home.webp" aria-label="AllyIndex welcome screen with the quiz call to action, open full image"><img src="assets/images/allyindex-home.webp" alt="AllyIndex welcome screen with the quiz call to action" width="1125" height="1852" loading="lazy" decoding="async"></a><a href="assets/images/allyindex-quiz.webp" aria-label="AllyIndex LGBTQ+ quiz screen, open full image"><img src="assets/images/allyindex-quiz.webp" alt="AllyIndex LGBTQ+ quiz screen" width="1125" height="1747" loading="lazy" decoding="async"></a><a href="assets/images/allyindex-terminology.webp" aria-label="AllyIndex terminology learning screen, open full image"><img src="assets/images/allyindex-terminology.webp" alt="AllyIndex terminology learning screen" width="1125" height="1890" loading="lazy" decoding="async"></a>
+</div>
+<div class="project-links">
+<a class="text-link" href="https://declan444.github.io/24-7-hackathon-team9/index.html" aria-label="Live site for AllyIndex">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/declan444/24-7-hackathon-team9" aria-label="Repository for AllyIndex">Repository <span aria-hidden="true">↗</span></a>
+</div>
+</div></article>
+
+
+<article class="project" data-project="white-whale" role="group" aria-roledescription="slide" aria-label="10 of 10: The White Whale vs Old Thunder"><a class="project-media white-whale-media" href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/" aria-label="Visit The White Whale vs Old Thunder"><img src="assets/images/projects/carousel-white-whale.webp" alt="Black-and-white artwork of the Pequod sailing through lightning above Moby Dick beneath the sea." width="721" height="1200" loading="lazy" decoding="async"></a><div class="project-content">
+<p class="project-category">Literary game</p>
+<h3 id="white-whale-title">The White Whale vs Old Thunder</h3>
+<p>A tactical Moby-Dick browser game.</p>
+<div class="project-links">
+<a class="text-link" href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/" aria-label="Live site for The White Whale vs Old Thunder">Live site <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder" aria-label="Repository for The White Whale vs Old Thunder">Repository <span aria-hidden="true">↗</span></a>
+</div>
+</div></article>
+
+
           </div>
-          <a class="text-link all-work" href="https://github.com/SamOBrienOlinger?tab=repositories">Browse all repositories on GitHub <span aria-hidden="true">↗</span></a>
+          <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-carousel-status></p>
         </div>
+        <div class="work-footer">
+<p>Swipe to explore</p>
+<a class="text-link" href="https://github.com/SamOBrienOlinger?tab=repositories">All repositories <span aria-hidden="true">↗</span></a>
+</div>
       </div>
     </section>
 
