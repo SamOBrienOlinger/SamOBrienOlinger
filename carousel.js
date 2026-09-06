@@ -44,7 +44,10 @@
   const positions = Array.from(track.children);
 
   function updateControls() {
-    carousel.dataset.rotation = paused ? 'paused' : 'playing';
+    const state = paused ? 'paused' : 'playing';
+    // Avoid changing content under a finger during touchstart; WebKit may cancel its click.
+    if (carousel.dataset.rotation === state) return;
+    carousel.dataset.rotation = state;
     rotation.setAttribute('aria-label', paused ? 'Start automatic project rotation' : 'Pause automatic project rotation');
     rotation.querySelector('[data-play-label]').textContent = paused ? 'Play' : 'Pause';
     rotation.querySelector('[data-play-icon]').textContent = paused ? '▷' : 'Ⅱ';
@@ -119,7 +122,11 @@
   }, { passive: true });
   section.addEventListener('touchstart', pause, { passive: true });
   section.addEventListener('wheel', pause, { passive: true });
-  section.addEventListener('focusin', pause);
+  section.addEventListener('focusin', event => {
+    // Pointer focus on Play can arrive after its click on iOS. Keyboard focus still pauses.
+    if (rotation.contains(event.target) && !rotation.matches(':focus-visible')) return;
+    pause();
+  });
   section.addEventListener('keydown', event => {
     if (!rotation.contains(event.target)) pause();
     if (event.target !== track) return;
