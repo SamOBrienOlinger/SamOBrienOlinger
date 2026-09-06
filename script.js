@@ -4,6 +4,26 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  // Keep copied page text free of rich webpage formats that iOS apps may attach as files.
+  document.addEventListener('copy', event => {
+    if (event.defaultPrevented || !event.clipboardData) return;
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed) return;
+    const isEditable = node => {
+      const element = node instanceof Element ? node : node?.parentElement;
+      return element?.isContentEditable || Boolean(element?.closest('input, textarea'));
+    };
+    if ([event.target, document.activeElement, selection.anchorNode, selection.focusNode].some(isEditable)) return;
+    if (event.target instanceof Element && event.target.closest('img, svg')) return;
+    const text = selection.toString();
+    if (!text) return;
+    try {
+      event.clipboardData.clearData();
+      event.clipboardData.setData('text/plain', text);
+      event.preventDefault();
+    } catch { /* Leave the browser's normal Copy action available if the write fails. */ }
+  });
+
   const root = document.documentElement;
   const themeButton = document.querySelector('.theme-toggle');
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
