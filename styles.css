@@ -100,6 +100,10 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .project-media { display: grid; place-items: center; position: relative; flex-shrink: 0; aspect-ratio: 4 / 3; border-radius: 1.1rem; background: var(--soft); overflow: hidden; }
 .project-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .sct-media { background: #e6eee9; }
+/* Match the source project's maroon and teal; anchor text within the sky. */
+.new-life-media { container-type: inline-size; }
+.journey-preview-title { position: absolute; top: 17%; left: 6%; max-width: 58%; color: #7a1f3d; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1rem, 5cqw, 2.25rem); font-weight: 600; line-height: 1.08; letter-spacing: -.025em; text-align: left; text-shadow: 0 1px 6px rgba(250,247,245,.7); }
+.journey-preview-title > span { color: #135e59; }
 .spoodle-media { background: #eaf0f7; }
 .beaver-media { background: #fbfaf5; }
 .white-whale-media { background: #e8e6dc; }
