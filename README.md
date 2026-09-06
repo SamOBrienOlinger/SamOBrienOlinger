@@ -32,11 +32,11 @@ I bring together software development, social policy research and community work
 
 | Project | What it explores |
 | --- | --- |
-| **SpoodleSpace** | A dog-community social application with a React frontend and Django REST API · [Frontend](https://github.com/SamOBrienOlinger/spoodle-space-pp5) · [Backend](https://github.com/SamOBrienOlinger/drf-api-spoodle-space) |
+| **SpoodleSpace** | A dog-community social application with a React frontend and Django REST API · [Frontend](https://github.com/SamOBrienOlinger/spoodle-space-pp5) · [Backend](https://github.com/SamOBrienOlinger/drf-spoodle-space) |
 | **Beaver v Otter** | River ecology, data centres and public participation through interactive choices · [Play](https://samobrienolinger.github.io/beaver-v-otter/) · [Code](https://github.com/SamOBrienOlinger/beaver-v-otter) |
 | **Punch Lion** | Live experiences, comedy, workshops and corporate programmes · [Website](https://samobrienolinger.github.io/punch-lion/) · [Code](https://github.com/SamOBrienOlinger/punch-lion) |
 | **The White Whale versus Old Thunder** | A literary coordinate-hunt game with two playable perspectives · [Play](https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/) · [Code](https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder) |
-| **Cockapoo Club** | Dog-care content and a Django training-booking portfolio application · [Frontend](https://github.com/SamOBrienOlinger/Cockapoo-Club) · [Django](https://github.com/SamOBrienOlinger/cockapoo-club-drf) |
+| **Cockapoo Club** | Dog-care content and a Django training-booking portfolio application · [Frontend](https://github.com/SamOBrienOlinger/Cockapoo-Club) · [Django](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4) |
 | **Ships That Battle** | A Python terminal game with coordinate selection and hit/miss feedback · [Code](https://github.com/SamOBrienOlinger/Ships-that-Battle) |
 
 Each repository explains its own implementation, setup, project status and reuse terms. Educational prototypes and older learning exercises are identified in their documentation.
@@ -56,7 +56,7 @@ Each repository explains its own implementation, setup, project status and reuse
 
 ### Credentials
 
-I hold a **Diploma in Full Stack Software Development, specialising in Advanced Front End**, from Code Institute. [View the original credential](https://api.accredible.com/v1/frontend/credential_website_embed_image/24704171)
+I hold a **Diploma in Full Stack Software Development, specialising in Advanced Front End**, from Code Institute. [View my Accredible credential wallet](https://www.credential.net/profile/samobrienolinger167622/wallet)
 
 ---
 
@@ -81,8 +81,8 @@ I bring a commitment to accessible communication, evidence-based problem-solving
 
 - [*Police, Race and Culture in the 'New Ireland'*](https://link.springer.com/book/10.1057/9781137490452)
 - [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399), Chapter 34
-- [*Age Action Intercultural Care Home Project Report*](https://www.ageaction.ie/sites/default/files/23626-Age%20Action%20Inter-Cultural%20Report-LR4.pdf)
-- [*Value for Money and Policy Review of Youth Programmes*](http://www.drugsandalcohol.ie/23242/1/ValueforMoneyYouthProjects.pdf)
+- *Age Action Intercultural Care Home Project Report* (2015)
+- [*Value for Money and Policy Review of Youth Programmes*](https://ubu.gov.ie/userfiles/pdf/Value%20for%20Money%20Policy%20Review%20on%20Youth%20Services%202014.pdf)
 
 <details>
 <summary><strong>📖 Expand to see more policy and research</strong></summary>
@@ -90,8 +90,8 @@ I bring a commitment to accessible communication, evidence-based problem-solving
 - [AONTAS submission to the consultation on the Equality Acts](https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf)
 - [Submission for the National Plan for Equity of Access to Higher Education 2022–2026](https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf)
 - [*Educational Equality is Central to Ireland's Recovery*](https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf)
-- [*Lifelong learning and the odd puncture*](https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf)
-- [*Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania*](http://www.combatingelderabuse.eu/wp-content/uploads/2016/04/Booklet_stage.pdf)
+- *Lifelong learning and the odd puncture* — Age Action
+- *Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania*
 
 </details>
 
@@ -99,7 +99,7 @@ I bring a commitment to accessible communication, evidence-based problem-solving
 
 ## Collaborative projects
 
-Code Institute hackathons have provided opportunities to build and learn with other developers. Examples include [Job Me](https://github.com/SamOBrienOlinger/elevate_hackathon_2024-get-a-gig), [AllyIndex](https://github.com/declan444/24-7-hackathon-team9), and [ConnectCare](https://github.com/Tmuat/pp5-connect-care).
+Code Institute hackathons have provided opportunities to build and learn with other developers. Examples include [Job Me](https://github.com/SamOBrienOlinger/elevate_hackathon_2024-get-a-gig), [AllyIndex](https://github.com/declan444/24-7-hackathon-team9), and ConnectCare.
 
 Team projects retain their original contributor, content and media credits. My forks are identified as such in their READMEs.
 
@@ -117,7 +117,7 @@ This repository serves two purposes: this README appears on my GitHub profile, a
 
 ### Inspect locally
 
-To inspect the website locally, use Python 3 and a browser:
+To inspect the website locally, use Git, Python 3 and a browser:
 
 ```bash
 git clone https://github.com/SamOBrienOlinger/SamOBrienOlinger.git
