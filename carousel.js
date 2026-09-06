@@ -7,20 +7,19 @@
   const track = carousel.querySelector('.work-track');
   const slides = Array.from(track.children);
   const toolbar = carousel.querySelector('.carousel-toolbar');
-  const rotation = carousel.querySelector('[data-autoplay]');
   const count = carousel.querySelector('[data-project-number]');
   const status = carousel.querySelector('[data-carousel-status]');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (slides.length < 2) return;
 
-  const delay = 6000;
+  const delay = 7000;
   let current = 0;
   let target = 0;
   let paused = motion.matches;
   let visible = false;
   let hovered = false;
   let automaticMove = false;
-  let rotationPointerIntent;
+  let animationFrame = null;
   let timer;
   let scrollTimer;
   let lastWidth = track.clientWidth;
@@ -44,13 +43,13 @@
   const positions = Array.from(track.children);
 
   function updateControls() {
-    const state = paused ? 'paused' : 'playing';
-    // Avoid changing content under a finger during touchstart; WebKit may cancel its click.
-    if (carousel.dataset.rotation === state) return;
-    carousel.dataset.rotation = state;
-    rotation.setAttribute('aria-label', paused ? 'Start automatic project rotation' : 'Pause automatic project rotation');
-    rotation.querySelector('[data-play-label]').textContent = paused ? 'Play' : 'Pause';
-    rotation.querySelector('[data-play-icon]').textContent = paused ? '▷' : 'Ⅱ';
+    carousel.dataset.rotation = paused ? 'paused' : 'playing';
+  }
+
+  function cancelAnimation() {
+    if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+    animationFrame = null;
+    track.classList.remove('is-animating');
   }
 
   function schedule() {
@@ -63,9 +62,9 @@
   function pause() {
     paused = true;
     clearTimeout(timer);
-    if (automaticMove) {
+    if (automaticMove || animationFrame !== null) {
       automaticMove = false;
-      track.scrollTo({ left: track.scrollLeft, behavior: 'instant' });
+      cancelAnimation();
     }
     updateControls();
   }
@@ -79,6 +78,7 @@
     });
     count.textContent = String(index + 1).padStart(2, '0');
     carousel.dataset.currentProject = slides[index].dataset.project;
+    carousel.style.setProperty('--project-progress', (index + 1) / slides.length);
     // Load the nearby artwork before it scrolls into view.
     for (const offset of [-1, 0, 1]) {
       slides[(index + offset + slides.length) % slides.length].querySelectorAll('img').forEach(img => { img.loading = 'eager'; });
@@ -87,17 +87,41 @@
   }
 
   function goTo(physicalIndex, smooth = true) {
+    cancelAnimation();
     target = (physicalIndex - 1 + slides.length) % slides.length;
-    track.scrollTo({ left: positions[physicalIndex].offsetLeft, behavior: smooth && !motion.matches ? 'smooth' : 'instant' });
+    const destination = positions[physicalIndex].offsetLeft;
+    if (!smooth || motion.matches) {
+      track.scrollTo({ left: destination, behavior: 'instant' });
+      schedule();
+      return;
+    }
+    const origin = track.scrollLeft;
+    const duration = automaticMove ? 1800 : 750;
+    const started = performance.now();
+    track.classList.add('is-animating');
+    function frame(now) {
+      const progress = Math.min((now - started) / duration, 1);
+      const eased = progress < .5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
+      track.scrollLeft = origin + (destination - origin) * eased;
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(frame);
+      } else {
+        animationFrame = null;
+        track.classList.remove('is-animating');
+        settle();
+        schedule();
+      }
+    }
+    animationFrame = requestAnimationFrame(frame);
   }
 
   function move(direction, automatic = false) {
     automaticMove = automatic;
     goTo(target + 1 + direction);
-    schedule();
   }
 
   function settle() {
+    if (animationFrame !== null) return;
     clearTimeout(scrollTimer);
     let nearest = 0;
     positions.forEach((slide, i) => {
@@ -115,20 +139,13 @@
   }, { passive: true });
   track.addEventListener('scrollend', settle);
 
-  // Once touched, scrolling away or waiting never restarts automatic rotation.
-  section.addEventListener('pointerdown', event => {
-    rotationPointerIntent = rotation.contains(event.target) ? !paused : undefined;
-    pause();
-  }, { passive: true });
+  // Any interaction permanently hands this visit's carousel over to the visitor.
+  section.addEventListener('pointerdown', pause, { passive: true });
   section.addEventListener('touchstart', pause, { passive: true });
   section.addEventListener('wheel', pause, { passive: true });
-  section.addEventListener('focusin', event => {
-    // Pointer focus on Play can arrive after its click on iOS. Keyboard focus still pauses.
-    if (rotation.contains(event.target) && !rotation.matches(':focus-visible')) return;
-    pause();
-  });
+  section.addEventListener('focusin', pause);
   section.addEventListener('keydown', event => {
-    if (!rotation.contains(event.target)) pause();
+    pause();
     if (event.target !== track) return;
     if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) event.preventDefault();
     if (event.key === 'ArrowLeft') move(-1);
@@ -146,13 +163,6 @@
     hovered = false;
     schedule();
   });
-  rotation.addEventListener('click', () => {
-    paused = rotationPointerIntent === undefined ? !paused : rotationPointerIntent;
-    rotationPointerIntent = undefined;
-    // Explicit Play can resume while the control remains under the pointer.
-    if (!paused) hovered = false;
-    schedule();
-  });
   carousel.querySelector('[data-previous]').addEventListener('click', () => { pause(); move(-1); });
   carousel.querySelector('[data-next]').addEventListener('click', () => { pause(); move(1); });
 
@@ -164,7 +174,7 @@
   else motion.addListener(onMotionChange);
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && automaticMove) {
-      track.scrollTo({ left: track.scrollLeft, behavior: 'instant' });
+      cancelAnimation();
       automaticMove = false;
     }
     schedule();
