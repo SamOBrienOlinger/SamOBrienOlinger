@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'cockapoo', 'ships', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'cockapoo', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
 
 async function openWork(page, reducedMotion = 'no-preference') {
   await page.emulateMedia({ reducedMotion });
@@ -78,7 +78,7 @@ test('keyboard focus stops rotation and offscreen projects stay out of the tab o
   await page.keyboard.press('Home');
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
   const tabState = await page.locator('.project[data-project]').evaluateAll(slides => slides.map(slide => slide.inert));
-  expect(tabState).toEqual([false, ...Array(9).fill(true)]);
+  expect(tabState).toEqual([false, ...Array(projects.length - 1).fill(true)]);
   await page.keyboard.press('Tab');
   await expect(page.locator('[data-project="sct"] .project-media')).toBeFocused();
 });
