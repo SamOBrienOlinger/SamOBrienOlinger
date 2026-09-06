@@ -1,15 +1,158 @@
-const root=document.documentElement;const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
-const toggle=document.querySelector('.theme-toggle');const stored=localStorage.getItem('portfolio-theme');if(stored==='dark'||stored==='light')root.dataset.theme=stored;else if(window.matchMedia('(prefers-color-scheme: dark)').matches)root.dataset.theme='dark';
-function syncThemeLabel(){if(toggle)toggle.setAttribute('aria-label',root.dataset.theme==='dark'?'Switch to light theme':'Switch to dark theme')}syncThemeLabel();toggle?.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('portfolio-theme',root.dataset.theme);syncThemeLabel()});
-const navLinks=[...document.querySelectorAll('.header nav a')];const header=document.querySelector('.header');const navToggle=document.querySelector('.nav-toggle');const closeNav=()=>{header?.removeAttribute('data-nav-open');navToggle?.setAttribute('aria-expanded','false')};const setNavOpen=open=>{if(!header||!navToggle)return;if(open)header.setAttribute('data-nav-open','true');else header.removeAttribute('data-nav-open');navToggle.setAttribute('aria-expanded',String(open))};navToggle?.addEventListener('click',()=>setNavOpen(navToggle.getAttribute('aria-expanded')!=='true'));navLinks.forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',event=>{if(event.key==='Escape'&&navToggle?.getAttribute('aria-expanded')==='true'){closeNav();navToggle.focus()}});const desktopNav=window.matchMedia('(min-width:851px)');desktopNav.addEventListener?.('change',()=>{if(desktopNav.matches)closeNav()});const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;navLinks.forEach(a=>a.removeAttribute('aria-current'));navLinks.find(a=>a.getAttribute('href')===`#${visible.target.id}`)?.setAttribute('aria-current','page')},{rootMargin:'-25% 0px -60%',threshold:[0,.2,.5]});sections.forEach(s=>observer.observe(s))}
-const coverMap=[
-['Routledge International Handbook','assets/images/routledge-international-handbook-police-ethnography.webp'],
-['Police, Race and Culture','assets/images/police-race-culture-new-ireland.webp'],
-['Equality Acts','assets/images/aontas-equality-acts-2021.jpeg'],
-['National Plan for Equity','assets/images/aontas-equity-access-2022-2026.jpeg'],
-['Educational Equality','assets/images/community-education-covid-19.jpeg'],
-['Lifelong learning','https://image.thum.io/get/width/500/crop/700/noanimate/https://www.ageaction.ie/sites/default/files/attachments/third_and_final_proof.pdf'],
-['Value for Money','assets/images/value-for-money-youth-programmes.jpeg']];
-for(const link of document.querySelectorAll('.publications>a:not(.publication-feature)')){const title=link.querySelector('strong')?.textContent||'';const found=coverMap.find(([key])=>title.includes(key));if(!found)continue;link.classList.add('publication-with-cover');let img=link.querySelector('.publication-cover');if(!img){img=document.createElement('img');img.className='publication-cover';link.prepend(img)}img.src=found[1];img.alt=`Cover of ${title}`;img.loading='lazy';img.decoding='async'}
-const elderCover=document.querySelector('.publication-feature img');if(elderCover){elderCover.src='assets/images/elder-abuse-context-theory.jpeg';elderCover.alt='Cover of Elder Abuse, Context and Theory: Finland, Ireland, Italy and Romania';elderCover.loading='lazy';elderCover.decoding='async'}
-const backToTop=document.querySelector('.back-to-top');if(backToTop){const syncBackToTop=()=>backToTop.classList.toggle('is-visible',window.scrollY>600);syncBackToTop();window.addEventListener('scroll',syncBackToTop,{passive:true})}
+(() => {
+  'use strict';
+
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  const root = document.documentElement;
+  const themeButton = document.querySelector('.theme-toggle');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+  let savedTheme;
+  try { savedTheme = localStorage.getItem('portfolio-theme'); } catch { /* Storage may be blocked. */ }
+  const hasThemePreference = () => savedTheme === 'light' || savedTheme === 'dark';
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    themeButton?.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#111e2d' : '#f7f9fc');
+  }
+  applyTheme(hasThemePreference() ? savedTheme : systemTheme.matches ? 'dark' : 'light');
+  if (themeButton) {
+    themeButton.addEventListener('click', () => {
+      savedTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(savedTheme);
+      try { localStorage.setItem('portfolio-theme', savedTheme); } catch { /* Theme still works for this visit. */ }
+    });
+    themeButton.hidden = false;
+  }
+  const syncSystemTheme = () => {
+    if (!hasThemePreference()) applyTheme(systemTheme.matches ? 'dark' : 'light');
+  };
+  if (systemTheme.addEventListener) systemTheme.addEventListener('change', syncSystemTheme);
+  else systemTheme.addListener(syncSystemTheme);
+
+  const header = document.querySelector('[data-header]');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.getElementById('site-nav');
+  if (!header || !menuButton || !navigation) return;
+
+  const menuLabel = menuButton.querySelector('[data-menu-label]');
+  const desktop = window.matchMedia('(min-width: 64rem)');
+  const navLinks = Array.from(navigation.querySelectorAll('a[href^="#"]'));
+
+  function setMenu(open, returnFocus = false) {
+    const expanded = open && !desktop.matches;
+    menuButton.setAttribute('aria-expanded', String(expanded));
+    navigation.classList.toggle('is-open', expanded);
+    if (menuLabel) menuLabel.textContent = expanded ? 'Close' : 'Menu';
+    if (returnFocus) menuButton.focus();
+  }
+
+  function markActive(id) {
+    navLinks.forEach(link => {
+      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  function moveFocusToSection(hash) {
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return;
+    if (!target.hasAttribute('tabindex')) {
+      target.setAttribute('tabindex', '-1');
+      target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+    }
+    // Keep native links, URL fragments and scrolling intact while moving keyboard focus.
+    target.focus({ preventScroll: true });
+  }
+
+  menuButton.addEventListener('click', () => {
+    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+      const wasExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      setMenu(false);
+      markActive(link.hash.slice(1));
+      if (wasExpanded) moveFocusToSection(link.hash);
+    });
+  });
+
+  header.querySelector('.brand')?.addEventListener('click', () => {
+    setMenu(false);
+    markActive('');
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false, true);
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!header.contains(event.target) && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenu(false, navigation.contains(document.activeElement));
+    }
+  });
+
+  header.addEventListener('focusout', () => {
+    requestAnimationFrame(() => {
+      if (!header.contains(document.activeElement)) setMenu(false);
+    });
+  });
+
+  const onBreakpointChange = () => {
+    const focusWouldBeHidden = desktop.matches
+      ? document.activeElement === menuButton
+      : navigation.contains(document.activeElement);
+    setMenu(false);
+    if (focusWouldBeHidden) {
+      if (desktop.matches) navLinks[0]?.focus();
+      else menuButton.focus();
+    }
+    measureHeader();
+  };
+  if (desktop.addEventListener) desktop.addEventListener('change', onBreakpointChange);
+  else desktop.addListener(onBreakpointChange);
+
+  function measureHeader() {
+    // Ignore the expanded menu when calculating sticky-header anchor clearance.
+    if (menuButton.getAttribute('aria-expanded') !== 'true') {
+      document.documentElement.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    }
+  }
+
+  // Enhance only after keyboard, touch and breakpoint handlers are ready.
+  menuButton.hidden = false;
+  header.classList.add('nav-ready');
+  measureHeader();
+  if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
+
+  // The last section above the reading line is stable even for very tall sections.
+  const sections = navLinks.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean);
+  let updateScheduled = false;
+  function updateActiveSection() {
+    updateScheduled = false;
+    const readingLine = Math.min(window.innerHeight * .32, 260);
+    let current = '';
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= readingLine) current = section.id;
+    }
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3) {
+      current = sections[sections.length - 1]?.id || current;
+    }
+    markActive(current);
+  }
+  function scheduleActiveUpdate() {
+    if (!updateScheduled) {
+      updateScheduled = true;
+      requestAnimationFrame(updateActiveSection);
+    }
+  }
+  window.addEventListener('scroll', scheduleActiveUpdate, { passive: true });
+  window.addEventListener('resize', scheduleActiveUpdate, { passive: true });
+  window.addEventListener('hashchange', scheduleActiveUpdate);
+  window.addEventListener('pageshow', () => { setMenu(false); scheduleActiveUpdate(); });
+  scheduleActiveUpdate();
+})();
