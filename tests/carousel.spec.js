@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'cockapoo', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
 
 async function openWork(page, reducedMotion = 'no-preference') {
   await page.emulateMedia({ reducedMotion });
