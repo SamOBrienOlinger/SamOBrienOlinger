@@ -1,6 +1,6 @@
 # <img src="assets/profile/portfolio-logo.png" width="36" alt=""> Sam Tim Solutions
 
-[Home](#sam-tim-solutions) &nbsp;·&nbsp; [Work](#explore-my-work) &nbsp;·&nbsp; [Experience](#work-in-context) &nbsp;·&nbsp; [Research](#a-foundation-in-evidence) &nbsp;·&nbsp; [Approach](#people-first-then-the-technology) &nbsp;·&nbsp; [Contact](#good-things-start-with-a-conversation)
+[Home](#-sam-tim-solutions) &nbsp;·&nbsp; [Work](#explore-my-work) &nbsp;·&nbsp; [Experience](#work-in-context) &nbsp;·&nbsp; [Research](#a-foundation-in-evidence) &nbsp;·&nbsp; [Approach](#people-first-then-the-technology) &nbsp;·&nbsp; [Contact](#good-things-start-with-a-conversation)
 
 <p align="center">
   <picture>
@@ -200,4 +200,4 @@ Have a digital project, a research question or a community idea? I’d be glad t
 
 **[Send me an email](mailto:samobrienolinger@gmail.com)** &nbsp;·&nbsp; **[LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)** &nbsp;·&nbsp; [Visit Sam Tim Solutions](https://samobrienolinger.github.io/SamOBrienOlinger/)
 
-<sub>© 2026 Sam O’Brien-Olinger · Sam Tim Solutions · [Repository setup & credits](docs/repository-guide.md) · [Back to top](#sam-tim-solutions)</sub>
+<sub>© 2026 Sam O’Brien-Olinger · Sam Tim Solutions · [Repository setup & credits](docs/repository-guide.md) · [Back to top](#-sam-tim-solutions)</sub>
