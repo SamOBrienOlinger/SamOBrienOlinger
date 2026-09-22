@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Curiosity. Creativity. Purpose.</title>
+  <desc id="desc">Sam Tim Solutions, the independent work of Sam O'Brien-Olinger.</desc>
+  <rect width="600" height="360" rx="12" fill="#102d3a"/>
+  <path d="M32 38h25" stroke="#8bd7ce" stroke-width="4"/>
+  <text x="73" y="44" fill="#dce9ec" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" letter-spacing="2">SAM TIM SOLUTIONS</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-2">
+    <text x="32" y="136" fill="#ffffff">Curiosity.</text>
+    <text x="32" y="221" fill="#8bd7ce">Creativity.</text>
+    <text x="32" y="306" fill="#f3c281">Purpose.</text>
+  </g>
+</svg>

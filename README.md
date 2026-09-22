@@ -1,148 +1,87 @@
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile/banner-mobile.svg">
+  <img src="assets/profile/banner.svg" alt="Curiosity. Creativity. Purpose. — Sam Tim Solutions" width="100%">
+</picture>
+
 # Sam O'Brien-Olinger
 
-**Software development · Social research · Community connection**
+**Full stack software developer · Dublin, Ireland**
 
-I bring together software development, social policy research and community work to make information easier to understand and digital experiences more useful. My projects range from local community initiatives to interactive learning experiences and full-stack applications.
+I build web applications and interactive learning experiences that make information easier to use. I'm a **Junior Software Developer at the Department of Social Protection**. My independent projects bring together software, social research and community work.
 
----
+**[View my portfolio](https://samobrienolinger.github.io/SamOBrienOlinger/)** &nbsp;·&nbsp; **[LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)** &nbsp;·&nbsp; **[Email me](mailto:samobrienolinger@gmail.com)**
 
-## Quick Links
-
-- 🌐 [Portfolio · Sam Tim Solutions](https://samobrienolinger.github.io/SamOBrienOlinger/)
-- 💼 [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/)
-- ✉️ [Email](mailto:samobrienolinger@gmail.com)
-
-**Jump to:** [Selected work](#selected-work) · [Technical practice](#technical-practice) · [Research](#research-and-publications) · [About this repository](#about-this-repository)
-
----
+`JavaScript` `TypeScript` `React` `Python` `Django` `PostgreSQL`
 
 ## Selected work
 
-### Community and learning
+<p align="center">
+  <a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/saggart-citywest.jpg" width="390" alt="Saggart &amp; Citywest Together — open the community website"></a>
+  <a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/profile/spoodlespace.jpg" width="390" alt="SpoodleSpace — open the interface design preview; accounts and API are disabled"></a>
+  <a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/new-life-ireland.jpg" width="390" alt="A New Life in Ireland — explore the interactive learning website"></a>
+  <a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/stopped-both-sides.jpg" width="390" alt="Stopped: Both Sides — try the public and Garda perspectives"></a>
+</p>
 
-| Project | What it offers |
-| --- | --- |
-| **Saggart & Citywest Together** | Local information, practical supports, community imagery and learning resources · [Website](https://samobrienolinger.github.io/saggart-and-citywest-together/) · [Code](https://github.com/SamOBrienOlinger/saggart-and-citywest-together) |
-| **A New Life in Ireland** | Character-based learning about migration and settlement in Ireland · [Website](https://samobrienolinger.github.io/My-New-Life-in-Ireland/) · [Code](https://github.com/SamOBrienOlinger/My-New-Life-in-Ireland) |
-| **Know Yellowknife** | Source-linked local learning and a replayable knowledge quiz · [Website](https://samobrienolinger.github.io/know-yellowknife/) · [Code](https://github.com/SamOBrienOlinger/know-yellowknife) |
-| **Know Dublin** | Learning about the Liffey, Dublin's bridges, history and civic life · [Website](https://samobrienolinger.github.io/dublin-city-bridges-frontend/) · [Code](https://github.com/SamOBrienOlinger/dublin-city-bridges-frontend) |
-| **AllyIndex** | A team-built introduction to LGBTQIA+ terminology, history and allyship · [Team website](https://declan444.github.io/24-7-hackathon-team9/) · [My fork](https://github.com/SamOBrienOlinger/24-7-hackathon-team9) |
+### Saggart & Citywest Together
 
-### Applications, games and experiences
+A neighbourhood website connecting local information, practical supports, history and community life. Includes a Facts section, a source directory, translation controls and an integrated history gallery.
 
-| Project | What it explores |
-| --- | --- |
-| **SpoodleSpace** | A dog-community social application with a React frontend and Django REST API · [Frontend](https://github.com/SamOBrienOlinger/spoodle-space-pp5) · [Backend](https://github.com/SamOBrienOlinger/drf-spoodle-space) |
-| **Beaver v Otter** | River ecology, data centres and public participation through interactive choices · [Play](https://samobrienolinger.github.io/beaver-v-otter/) · [Code](https://github.com/SamOBrienOlinger/beaver-v-otter) |
-| **Punch Lion** | Live experiences, comedy, workshops and corporate programmes · [Website](https://samobrienolinger.github.io/punch-lion/) · [Code](https://github.com/SamOBrienOlinger/punch-lion) |
-| **The White Whale versus Old Thunder** | A literary coordinate-hunt game with two playable perspectives · [Play](https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/) · [Code](https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder) |
-| **Cockapoo Club** | Dog-care content and a Django training-booking portfolio application · [Frontend](https://github.com/SamOBrienOlinger/Cockapoo-Club) · [Django](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4) |
-| **Ships That Battle** | A Python terminal game with coordinate selection and hit/miss feedback · [Code](https://github.com/SamOBrienOlinger/Ships-that-Battle) |
+**HTML · CSS · JavaScript** &nbsp;·&nbsp; [Visit website](https://samobrienolinger.github.io/saggart-and-citywest-together/) &nbsp;·&nbsp; [View code](https://github.com/SamOBrienOlinger/saggart-and-citywest-together)
 
-Each repository explains its own implementation, setup, project status and reuse terms. Educational prototypes and older learning exercises are identified in their documentation.
+### SpoodleSpace
 
----
+A dog-community application with a React frontend and Django REST API. The code covers profiles, posts, comments, likes and following, with API permissions and media handling.
 
-## Technical practice
+**React · Python · Django REST Framework** &nbsp;·&nbsp; [Frontend](https://github.com/SamOBrienOlinger/spoodle-space-pp5) &nbsp;·&nbsp; [Backend](https://github.com/SamOBrienOlinger/drf-spoodle-space) &nbsp;·&nbsp; [Design preview](https://samobrienolinger.github.io/spoodle-space-pp5/)
 
-| Area | Technologies and approaches |
-| --- | --- |
-| **Frontend** | HTML, CSS, JavaScript, React, Bootstrap and jQuery |
-| **Backend** | Python, Django and Django REST Framework |
-| **Data** | SQL and PostgreSQL |
-| **Delivery** | Git, GitHub, Agile collaboration and iterative testing |
-| **Design priorities** | Clear language, responsive layouts, keyboard access and useful feedback |
-| **Cross-disciplinary work** | Qualitative research, knowledge translation, stakeholder engagement and inclusive design |
+<sub>The public preview demonstrates the interface; account and API features require the configured backend.</sub>
 
-### Credentials
+### A New Life in Ireland
 
-I hold a **Diploma in Full Stack Software Development, specialising in Advanced Front End**, from Code Institute. [View my Accredible credential wallet](https://www.credential.net/profile/samobrienolinger167622/wallet)
+An interactive learning experience following twelve fictional journeys to Ireland. Combines character choices, feedback, multilingual content and links to official information.
 
----
+**React · TypeScript · Vite** &nbsp;·&nbsp; [Explore the experience](https://samobrienolinger.github.io/My-New-Life-in-Ireland/) &nbsp;·&nbsp; [View code](https://github.com/SamOBrienOlinger/My-New-Life-in-Ireland)
 
-## Professional background
+### Stopped: Both Sides
+
+A learning game exploring the same Garda encounter from two perspectives. Branching decisions, persistent characters and saved progress let players switch sides and compare the explanations.
+
+**JavaScript modules · HTML · CSS** &nbsp;·&nbsp; [Try the game](https://samobrienolinger.github.io/stopped-both-sides/) &nbsp;·&nbsp; [View code](https://github.com/SamOBrienOlinger/stopped-both-sides)
+
+<sub>A New Life in Ireland and Stopped: Both Sides are independent educational projects.</sub>
 
 <details>
-<summary><strong>💼 Expand to read my professional background</strong></summary>
+<summary><strong>More projects and team work</strong></summary>
 
-My work connects public service, software and social research. My professional experience includes an Executive Officer role in the Department of Social Protection, and work as Partner and Strategic Lead with the not-for-profit organisation AONTAS, and research officer positions with the Irish Police Service and the National University of Ireland.
+- **[Beaver v Otter](https://samobrienolinger.github.io/beaver-v-otter/)** — an interactive game about a river, data centres and environmental choices. [Code](https://github.com/SamOBrienOlinger/beaver-v-otter)
+- **[The White Whale versus Old Thunder](https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/)** — a literary coordinate-hunt game with two playable perspectives. [Code](https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder)
+- **[Punch Lion](https://samobrienolinger.github.io/punch-lion/)** — a website for comedy, workshops and live experiences. [Code](https://github.com/SamOBrienOlinger/punch-lion)
+- **[Know Yellowknife](https://samobrienolinger.github.io/know-yellowknife/)** — local learning and a replayable knowledge quiz. [Code](https://github.com/SamOBrienOlinger/know-yellowknife)
+- **[Know Dublin](https://samobrienolinger.github.io/dublin-city-bridges-frontend/)** — learning about Dublin's bridges, history and civic life. [Code](https://github.com/SamOBrienOlinger/dublin-city-bridges-frontend)
+- **[AllyIndex](https://declan444.github.io/24-7-hackathon-team9/)** — a team-built introduction to LGBTQIA+ history, terminology and allyship. [Team repository](https://github.com/declan444/24-7-hackathon-team9) · [My fork](https://github.com/SamOBrienOlinger/24-7-hackathon-team9)
+- **[Job Me](https://github.com/SamOBrienOlinger/elevate_hackathon_2024-get-a-gig)** — a collaborative Code Institute hackathon project focused on career readiness.
 
-Earlier work spans community development, education, policing research, public policy, antiracism, diversity and inclusion, and the communication of research to wider audiences. Supporting people to understand and use digital services has been central to most of my roles.
-
-I bring a commitment to accessible communication, evidence-based problem-solving, and collaborative approaches to technology and social change.
+Earlier learning projects include [Cockapoo Club](https://github.com/SamOBrienOlinger/Cockapoo-Club-PortProj4), a Django booking application, and [Ships That Battle](https://github.com/SamOBrienOlinger/Ships-that-Battle), a Python terminal game. Team projects retain their contributor and media credits.
 
 </details>
 
----
+## How I work
 
-## Research and publications
+- **Frontend:** semantic HTML, CSS, JavaScript, TypeScript and React, with attention to responsive layouts, keyboard access and clear feedback.
+- **Backend and data:** Python, Django, Django REST Framework, SQL and PostgreSQL.
+- **Delivery:** Git, GitHub, code review, iterative testing and collaboration.
+- **Problem solving:** research, plain English and an understanding of the people using a service.
 
-### Peer-reviewed and published research
+## Background & qualifications
 
-- [*Police, Race and Culture in the 'New Ireland'*](https://link.springer.com/book/10.1057/9781137490452)
-- [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399), Chapter 34
-- *Age Action Intercultural Care Home Project Report* (2015)
-- [*Value for Money and Policy Review of Youth Programmes*](https://ubu.gov.ie/userfiles/pdf/Value%20for%20Money%20Policy%20Review%20on%20Youth%20Services%202014.pdf)
+**Diploma in Full Stack Software Development — Advanced Front End**, Code Institute. [View credential](https://www.credential.net/profile/samobrienolinger167622/wallet)
 
-<details>
-<summary><strong>📖 Expand to see more policy and research</strong></summary>
+**PhD in Sociology**, University College Dublin. My experience in public service, research and community development informs how I approach software: understand the problem, make the information clear, and build something useful.
 
-- [AONTAS submission to the consultation on the Equality Acts](https://www.aontas.com/assets/resources/Submissions/Equality%20Acts%20Consultation%20Paper_AONTAS%202021.docx.pdf)
-- [Submission for the National Plan for Equity of Access to Higher Education 2022–2026](https://www.aontas.com/assets/resources/Submissions/AONTAS%20Submission_NAP%202022-2026.pdf)
-- [*Educational Equality is Central to Ireland's Recovery*](https://www.aontas.com/assets/resources/CEN%20Census/CEN%20Census%20Policy%20Paper.pdf)
-- *Lifelong learning and the odd puncture* — Age Action
-- *Elder Abuse Context and Theory: Finland, Ireland, Italy and Romania*
-
-</details>
+I'm the author of [*Police, Race and Culture in the 'New Ireland'*](https://link.springer.com/book/10.1057/9781137490452) and a contributor to the [*Routledge International Handbook of Police Ethnography*](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399). [More research and background](docs/research-and-background.md)
 
 ---
 
-## Collaborative projects
+**Have a project in mind?** [Email me](mailto:samobrienolinger@gmail.com) or [connect on LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/).
 
-Code Institute hackathons have provided opportunities to build and learn with other developers. Examples include [Job Me](https://github.com/SamOBrienOlinger/elevate_hackathon_2024-get-a-gig), [AllyIndex](https://github.com/declan444/24-7-hackathon-team9), and ConnectCare.
-
-Team projects retain their original contributor, content and media credits. My forks are identified as such in their READMEs.
-
----
-
-## About this repository
-
-This repository serves two purposes: this README appears on my GitHub profile, and the repository contains source for my portfolio website.
-
-| File | Purpose |
-| --- | --- |
-| [index.html](index.html) | Portfolio page structure and content |
-| [styles.css](styles.css) | Layout and visual presentation |
-| [script.js](script.js) | Page interactions |
-
-### Inspect locally
-
-To inspect the website locally, use Git, Python 3 and a browser:
-
-```bash
-git clone https://github.com/SamOBrienOlinger/SamOBrienOlinger.git
-cd SamOBrienOlinger
-python3 -m http.server 8000 --bind 127.0.0.1
-```
-
-Open [localhost:8000](http://localhost:8000). Review navigation, project links, keyboard access and mobile layouts before proposing a change.
-
----
-
-## Credits and reuse
-
-The [original profile record](https://github.com/SamOBrienOlinger/SamOBrienOlinger/blob/e913e4a3696655da181c6bb3ccbe584e8880d786/README.md) preserves earlier project descriptions, hackathon records and collaboration notes.
-
-**Homepage hero photograph attribution:** [How do whales sleep?](https://specialtours.is/blog/how-do-whales-sleep/)
-
-No repository-level licence file is present in this snapshot. Linked projects, publications, photographs and third-party assets retain their own ownership and reuse terms.
-
----
-
-## Contact
-
-For a project conversation, contact me through [LinkedIn](https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/) or [email](mailto:samobrienolinger@gmail.com). For a reproducible website issue, raise an Issue or Pull Request here.
-
----
-
-[↑ Back to top](#sam-obrien-olinger)
+<sub>[Repository setup & credits](docs/repository-guide.md) · [Back to top](#sam-obrien-olinger)</sub>
