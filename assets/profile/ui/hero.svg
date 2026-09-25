@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="410" viewBox="0 0 1200 410" role="img" aria-labelledby="title">
 <title id="title">Curiosity. Creativity. Purpose. A pod of sperm whales beneath a diver.</title>
 <style>
-:root{--paper:#f7f9fc;--ink:#152b46;--mid:#294e71;--light:#446b8b;--soft:#eaf0f6;--line:#aab9c8;--button:#152b46;--button-text:#fff}
-@media(prefers-color-scheme:dark){:root{--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}}
+:root{color-scheme:dark;--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}
 
 .hero-photo{opacity:1;animation:hero-reveal .8s ease-out 1.2s 1 both}
 @keyframes hero-reveal{from{opacity:0}to{opacity:1}}

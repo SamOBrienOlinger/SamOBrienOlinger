@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="178" height="48" viewBox="0 0 178 48" role="img" aria-labelledby="title">
 <title id="title">Explore my work</title>
 <style>
-:root{--paper:#f7f9fc;--ink:#152b46;--mid:#294e71;--light:#446b8b;--soft:#eaf0f6;--line:#aab9c8;--button:#152b46;--button-text:#fff}
-@media(prefers-color-scheme:dark){:root{--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}}
+:root{color-scheme:dark;--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}
 </style>
 <rect x="1" y="1" width="176" height="46" rx="9" fill="var(--button)" stroke="var(--button)"/>
 <text x="89.0" y="29.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="var(--button-text)">Explore my work</text>

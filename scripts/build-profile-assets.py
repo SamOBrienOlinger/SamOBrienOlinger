@@ -13,9 +13,10 @@ ASSETS = ROOT / 'assets' / 'profile'
 OUT = ASSETS / 'ui'
 OUT.mkdir(exist_ok=True)
 
+# Keep the screenshot's dark identity regardless of the viewer's OS theme.
+# GitHub itself controls the surrounding README text and page background.
 PALETTE = '''
-:root{--paper:#f7f9fc;--ink:#152b46;--mid:#294e71;--light:#446b8b;--soft:#eaf0f6;--line:#aab9c8;--button:#152b46;--button-text:#fff}
-@media(prefers-color-scheme:dark){:root{--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}}
+:root{color-scheme:dark;--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}
 '''
 FONT = '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif'
 

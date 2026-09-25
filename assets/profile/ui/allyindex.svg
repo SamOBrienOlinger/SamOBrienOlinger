@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title">
 <title id="title">AllyIndex</title>
 <style>
-:root{--paper:#f7f9fc;--ink:#152b46;--mid:#294e71;--light:#446b8b;--soft:#eaf0f6;--line:#aab9c8;--button:#152b46;--button-text:#fff}
-@media(prefers-color-scheme:dark){:root{--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}}
+:root{color-scheme:dark;--paper:#111e2d;--ink:#edf4ff;--mid:#b7d5ed;--light:#92b8d6;--soft:#21364a;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}
 </style>
 <defs><clipPath id="frame"><rect width="800" height="500" rx="20"/></clipPath></defs>
 <g clip-path="url(#frame)"><rect width="800" height="500" fill="var(--soft)"/>
