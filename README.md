@@ -208,8 +208,10 @@ Have a digital project, a research question or a community idea? I’d be glad t
 
 <p>
   <a href="mailto:samobrienolinger@gmail.com"><img src="assets/profile/ui/email.svg" width="188" height="48" alt="Send me an email"></a>
-  &nbsp;
-  <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/"><img src="assets/profile/ui/linkedin.svg" width="116" height="48" alt="LinkedIn"></a>
+</p>
+<p>
+  <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/"><img src="assets/profile/ui/linkedin.svg" width="144" height="48" alt="Visit Sam O’Brien-Olinger on LinkedIn"></a>
+  <a href="https://github.com/SamOBrienOlinger"><img src="assets/profile/ui/github.svg" width="128" height="48" alt="Visit Sam O’Brien-Olinger on GitHub"></a>
 </p>
 
 [Visit Sam Tim Solutions](https://samobrienolinger.github.io/SamOBrienOlinger/)
