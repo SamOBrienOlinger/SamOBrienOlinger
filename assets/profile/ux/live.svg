@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="48" viewBox="0 0 140 48" role="img" aria-labelledby="title">
+<title id="title">Open site</title>
+<rect x="1" y="1" width="138" height="46" rx="10" fill="#b7d5ed" stroke="#b7d5ed"/>
+<g transform="translate(12 12)" fill="none" stroke="#152b46" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></g>
+<text x="46" y="30" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="#152b46">Open site</text>
+</svg>

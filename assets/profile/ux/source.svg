@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="48" viewBox="0 0 144 48" role="img" aria-labelledby="title">
+<title id="title">View code</title>
+<rect x="1" y="1" width="142" height="46" rx="10" fill="#172638" stroke="#647b93"/>
+<g transform="translate(12 12)" fill="none" stroke="#edf4ff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></g>
+<text x="46" y="30" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="#edf4ff">View code</text>
+</svg>
