@@ -71,7 +71,7 @@ Ten data centres. Two animals. One river. A choice-based game exploring the dyna
 
 #### A New Life in Ireland
 
-<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/ui/new-life.svg" width="560" alt="People following coastal paths toward an Irish town."></a>
+<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/IMG_1456.jpeg" width="560" alt="People following coastal paths toward an Irish town."></a>
 
 **Interactive learning** · React, TypeScript, Vite<br>
 Every journey to Ireland is different. Follow one of twelve fictional people through choices, circumstances and life in Ireland.
@@ -84,7 +84,7 @@ Every journey to Ireland is different. Follow one of twelve fictional people thr
 
 #### Stopped: Both Sides
 
-<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/ui/both-sides.svg" width="560" alt="Public and Garda characters meeting on a Dublin street."></a>
+<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/IMG_1457.jpeg" width="560" alt="Public and Garda characters meeting on a Dublin street."></a>
 
 **Interactive learning** · JavaScript modules, HTML, CSS<br>
 Explore rights, responsibilities and fair decision-making in Ireland through public and Garda perspectives.
@@ -97,7 +97,7 @@ Explore rights, responsibilities and fair decision-making in Ireland through pub
 
 #### Beetlejuice
 
-<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/ui/beetlejuice.svg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon background."></a>
+<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/IMG_1458.jpeg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon background."></a>
 
 **Playful experience**<br>
 A browser experience inspired by the world of Beetlejuice.
@@ -123,7 +123,7 @@ Explore Yellowknife through local information and a replayable knowledge quiz.
 
 #### AllyIndex
 
-<a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/profile/ui/allyindex.svg" width="560" alt="The AllyIndex welcome screen and quiz introduction."></a>
+<a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/profile/IMG_1474.jpeg" width="560" alt="The AllyIndex welcome screen and quiz introduction."></a>
 
 **Team project**<br>
 Learning resources and a quiz introducing LGBTQIA+ history, terminology and allyship.
@@ -139,7 +139,7 @@ Learning resources and a quiz introducing LGBTQIA+ history, terminology and ally
 
 #### The White Whale vs Old Thunder
 
-<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/ui/white-whale.svg" width="560" alt="The Pequod in a storm, with Moby Dick beneath the sea."></a>
+<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/IMG_1475.jpeg" width="560" alt="The Pequod in a storm, with Moby Dick beneath the sea."></a>
 
 **Literary game**<br>
 Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspectives.
