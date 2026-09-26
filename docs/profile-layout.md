@@ -6,9 +6,9 @@
 
 The README is the branded introduction inside GitHub, not a replacement for GitHub's native app or web interface. It reuses Sam Tim Solutions' dark palette: navy `#111e2d`, surface `#172638`, light text `#edf4ff` and blue `#b7d5ed`.
 
-The reading order is Work, Experience, Research, Approach, Contact. Saggart & Citywest Together, SpoodleSpace and Beaver v Otter have immediately visible artwork. All nine projects have a visible description and separate site/preview and source-code links. The six other previews can be expanded without hiding essential project information or links. The portfolio's project order is preserved.
+The reading order is Work, Experience, Research, Approach, Contact. All nine projects have immediately visible artwork, a description and separate site/preview and source-code links. The portfolio's project order is preserved.
 
-Site and source-code controls are real links around 48-pixel-high SVG images, with destination-specific alternative text. Buttons can wrap onto another line rather than forcing a narrow screen to scroll sideways. Section headings have separate desktop and mobile graphics. Custom anchors preserve both the shorter navigation links and the previous section URLs.
+Site and source-code controls are real links around 48-pixel-high SVG images, with destination-specific alternative text. Section navigation uses 44-pixel-high, pale-blue rounded links with navy labels, visually secondary to the main calls to action. Buttons can wrap onto another line rather than forcing a narrow screen to scroll sideways. Section headings have separate desktop and mobile graphics. Custom anchors preserve both the shorter navigation links and the previous section URLs.
 
 The original whale artwork, its 1.2-second pause and 0.8-second reveal, and its reduced-motion alternative are unchanged. The existing LinkedIn and GitHub logo buttons are reused. No changes are made to portfolio HTML, CSS, JavaScript, publishing configuration, profile settings, avatar or repository pins.
 
@@ -22,7 +22,7 @@ python3 scripts/build-profile-layout.py
 python3 scripts/check-profile-layout.py
 ```
 
-The first script builds the existing artwork in `assets/profile/ui`. The second builds only the new section headings and action buttons in `assets/profile/ux`. It uses Python's standard library and makes no network requests. The check script validates link visibility, custom anchors, local asset references, SVG structure and optional-preview markup. It does not test whether external services are available.
+The first script builds the existing artwork in `assets/profile/ui`. The second builds the 19 section-heading, action-button and navigation components in `assets/profile/ux`. It uses Python's standard library and makes no network requests. The check script validates link visibility, custom anchors, local asset references, SVG structure, navigation buttons and visible project previews. It does not test whether external services are available.
 
 ## Validation scope
 

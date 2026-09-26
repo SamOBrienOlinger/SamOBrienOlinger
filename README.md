@@ -7,7 +7,7 @@
   <img src="assets/profile/ui/hero.svg" width="100%" alt="Curiosity. Creativity. Purpose. A pod of sperm whales beneath a diver.">
 </picture>
 
-I make information clearer, connect communities and build useful digital experiences.
+I create bespoke digital experiences to empower people and connect communities.
 
 <p>
   <a href="https://samobrienolinger.github.io/SamOBrienOlinger/"><img src="assets/profile/ux/portfolio.svg" width="144" height="48" alt="Visit the Sam Tim Solutions portfolio"></a>
@@ -18,7 +18,13 @@ I make information clearer, connect communities and build useful digital experie
   <a href="https://github.com/SamOBrienOlinger"><img src="assets/profile/ui/github.svg" width="128" height="48" alt="Sam O’Brien-Olinger on GitHub"></a>
 </p>
 
-[Work](#work) · [Experience](#experience) · [Research](#research) · [Approach](#approach) · [Contact](#contact)
+<p>
+  <a href="#work"><img src="assets/profile/ux/nav-work.svg" width="84" height="44" alt="Work"></a>
+  <a href="#experience"><img src="assets/profile/ux/nav-experience.svg" width="124" height="44" alt="Experience"></a>
+  <a href="#research"><img src="assets/profile/ux/nav-research.svg" width="112" height="44" alt="Research"></a>
+  <a href="#approach"><img src="assets/profile/ux/nav-approach.svg" width="112" height="44" alt="Approach"></a>
+  <a href="#contact"><img src="assets/profile/ux/nav-contact.svg" width="100" height="44" alt="Contact"></a>
+</p>
 
 <a name="work"></a>
 <a name="explore-my-work"></a>

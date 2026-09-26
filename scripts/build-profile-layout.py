@@ -46,6 +46,15 @@ def button(label: str, width: int, icon: str, primary: bool) -> str:
     return svg(width, 48, label, body)
 
 
+def navigation(label: str, width: int) -> str:
+    body = (f'<rect x="1" y="1" width="{width-2}" height="42" rx="21" '
+            f'fill="#eaf0f6" stroke="#92b8d6"/>\n'
+            f'<text x="{width/2:g}" y="27" text-anchor="middle" '
+            f'font-family="{FONT}" font-size="15" font-weight="600" '
+            f'fill="#152b46">{escape(label)}</text>')
+    return svg(width, 44, label, body)
+
+
 def build() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     for name, title in [('work', 'Explore my work'), ('experience', 'Work in context'),
@@ -61,7 +70,11 @@ def build() -> None:
         ('preview', 'UI preview', 148, 'preview', True),
     ]:
         (OUT / f'{name}.svg').write_text(button(label, width, icon, primary), encoding='utf-8')
-    print(f'Built 14 profile components in {OUT.relative_to(ROOT)}')
+    for name, label, width in [('work', 'Work', 84), ('experience', 'Experience', 124),
+                               ('research', 'Research', 112), ('approach', 'Approach', 112),
+                               ('contact', 'Contact', 100)]:
+        (OUT / f'nav-{name}.svg').write_text(navigation(label, width), encoding='utf-8')
+    print(f'Built 19 profile components in {OUT.relative_to(ROOT)}')
 
 
 if __name__ == '__main__':

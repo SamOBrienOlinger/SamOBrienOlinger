@@ -47,7 +47,7 @@ class Profile(HTMLParser):
         if tag == 'img':
             if 'alt' not in a:
                 self.errors.append('Image missing alt attribute')
-            if a.get('height') == '48' and not a.get('alt'):
+            if a.get('height') in ('44', '48') and not a.get('alt'):
                 self.errors.append('Button missing accessible label')
             self.assets.append(a.get('src', ''))
         if tag == 'source':
@@ -68,7 +68,7 @@ def main():
     profile = Profile()
     profile.feed(text)
     assert not profile.errors, profile.errors
-    assert profile.depth == 0 and profile.disclosures == 6, 'Unexpected preview disclosure structure'
+    assert profile.depth == 0 and profile.disclosures == 0, 'Project previews must remain visible'
     assert len(profile.anchors) == len(set(profile.anchors)), 'Duplicate custom anchors'
     anchors = set(profile.anchors)
     links = profile.links + [(url, 0) for url in re.findall(r'(?<!!)\[[^\]\n]+\]\(([^)]+)\)', text)]
@@ -86,14 +86,19 @@ def main():
         assert any(slug in url and url.startswith('https://github.com/') and depth == 0
                    for url, depth in profile.links), f'Code link hidden or missing: {slug}'
     components = sorted((ROOT / 'assets/profile/ux').glob('*.svg'))
-    assert len(components) == 14, 'Expected 14 generated components'
+    assert len(components) == 19, 'Expected 19 generated components'
+    for name in ('work', 'experience', 'research', 'approach', 'contact'):
+        assert f'assets/profile/ux/nav-{name}.svg' in profile.assets, f'Missing navigation button: {name}'
+        assert (f'#{name}', 0) in profile.links, f'Missing navigation destination: {name}'
+    assert 'I create bespoke digital experiences to empower people and connect communities.' in text
     for path in components:
         root = ET.parse(path).getroot()
         assert root.get('viewBox') and root.find('{http://www.w3.org/2000/svg}title') is not None, path
         assert not any('href' in key for node in root.iter() for key in node.attrib), path
     assert 'interface; sign-in and account features require' in text, 'Preview limitation lost'
     print('PASS: all nine project site/code links visible; navigation resolves; all assets referenced; '
-          'six optional previews; 14 valid self-contained SVGs; no page scripts or table layout.')
+          'all previews visible; 19 valid self-contained SVGs; five navigation buttons; '
+          'no page scripts or table layout.')
 
 
 if __name__ == '__main__':
