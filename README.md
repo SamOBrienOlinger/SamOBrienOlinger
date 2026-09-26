@@ -60,7 +60,7 @@ The preview shows the interface; sign-in and account features require the config
 
 <a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/ui/beaver.svg" width="560" alt="Play Beaver v Otter: the two animals beside a river, with data centres in the landscape."></a>
 
-Ten data centres. Two animals. One river. A choice-based game exploring the dynamics between energy consumption and everyday decisions that change our waterways and natural environments
+Ten data centres. Two animals. One river. A choice-based game exploring the dynamics between energy consumption and everyday decisions that change our waterways and natural environments.
 
 <p>
   <a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Play Beaver v Otter"></a>
