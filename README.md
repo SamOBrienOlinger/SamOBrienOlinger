@@ -71,6 +71,8 @@ Ten data centres. Two animals. One river. A choice-based game exploring the dyna
 
 #### A New Life in Ireland
 
+<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/ui/new-life.svg" width="560" alt="People following coastal paths toward an Irish town."></a>
+
 **Interactive learning** · React, TypeScript, Vite<br>
 Every journey to Ireland is different. Follow one of twelve fictional people through choices, circumstances and life in Ireland.
 
@@ -78,9 +80,11 @@ Every journey to Ireland is different. Follow one of twelve fictional people thr
   <a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore A New Life in Ireland"></a>
   <a href="https://github.com/SamOBrienOlinger/My-New-Life-in-Ireland"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the A New Life in Ireland source code"></a>
 </p>
-<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/ui/new-life.svg" width="560" alt="People following coastal paths toward an Irish town."></a>
+
 
 #### Stopped: Both Sides
+
+<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/ui/both-sides.svg" width="560" alt="Public and Garda characters meeting on a Dublin street."></a>
 
 **Interactive learning** · JavaScript modules, HTML, CSS<br>
 Explore rights, responsibilities and fair decision-making in Ireland through public and Garda perspectives.
@@ -89,9 +93,11 @@ Explore rights, responsibilities and fair decision-making in Ireland through pub
   <a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore Stopped: Both Sides"></a>
   <a href="https://github.com/SamOBrienOlinger/stopped-both-sides"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the Stopped: Both Sides source code"></a>
 </p>
-<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/ui/both-sides.svg" width="560" alt="Public and Garda characters meeting on a Dublin street."></a>
+
 
 #### Beetlejuice
+
+<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/ui/beetlejuice.svg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon background."></a>
 
 **Playful experience**<br>
 A browser experience inspired by the world of Beetlejuice.
@@ -100,9 +106,11 @@ A browser experience inspired by the world of Beetlejuice.
   <a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore the Beetlejuice website"></a>
   <a href="https://github.com/SamOBrienOlinger/Beetlejuice-Beetlejuice-Beetlejuice"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the Beetlejuice source code"></a>
 </p>
-<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/ui/beetlejuice.svg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon background."></a>
+
 
 #### Know Yellowknife
+
+<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/ui/yellowknife.svg" width="560" alt="Yellowknife among northern lakes and forest beneath the aurora."></a>
 
 **Place-based learning**<br>
 Explore Yellowknife through local information and a replayable knowledge quiz.
@@ -111,9 +119,11 @@ Explore Yellowknife through local information and a replayable knowledge quiz.
   <a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore Know Yellowknife"></a>
   <a href="https://github.com/SamOBrienOlinger/know-yellowknife"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the Know Yellowknife source code"></a>
 </p>
-<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/ui/yellowknife.svg" width="560" alt="Yellowknife among northern lakes and forest beneath the aurora."></a>
+
 
 #### AllyIndex
+
+<a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/profile/ui/allyindex.svg" width="560" alt="The AllyIndex welcome screen and quiz introduction."></a>
 
 **Team project**<br>
 Learning resources and a quiz introducing LGBTQIA+ history, terminology and allyship.
@@ -125,9 +135,11 @@ Learning resources and a quiz introducing LGBTQIA+ history, terminology and ally
 
 [My fork](https://github.com/SamOBrienOlinger/24-7-hackathon-team9)
 
-<a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/profile/ui/allyindex.svg" width="560" alt="The AllyIndex welcome screen and quiz introduction."></a>
+
 
 #### The White Whale vs Old Thunder
+
+<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/ui/white-whale.svg" width="560" alt="The Pequod in a storm, with Moby Dick beneath the sea."></a>
 
 **Literary game**<br>
 Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspectives.
@@ -136,7 +148,7 @@ Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspective
   <a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Play The White Whale vs Old Thunder"></a>
   <a href="https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View The White Whale vs Old Thunder source code"></a>
 </p>
-<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/ui/white-whale.svg" width="560" alt="The Pequod in a storm, with Moby Dick beneath the sea."></a>
+
 
 [Browse the full interactive portfolio](https://samobrienolinger.github.io/SamOBrienOlinger/#work)
 
