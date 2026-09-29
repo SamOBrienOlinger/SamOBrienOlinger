@@ -1,13 +1,13 @@
 # <img src="assets/profile/portfolio-logo.png" width="36" alt=""> Sam Tim Solutions
 
-**Sam O’Brien-Olinger · Software & community developer · Dublin, Ireland**
+**Sam O’Brien-Olinger · Software & Community Development · Dublin, Ireland**
 
 <picture>
   <source media="(max-width: 680px)" srcset="assets/profile/ui/hero-mobile.svg">
   <img src="assets/profile/ui/hero.svg" width="100%" alt="Curiosity. Creativity. Purpose. A pod of sperm whales beneath a diver.">
 </picture>
 
-I create bespoke digital experiences to empower people and connect communities.
+I create bespoke digital experiences to empower and connect communities.
 
 <p>
   <a href="https://samobrienolinger.github.io/SamOBrienOlinger/"><img src="assets/profile/ux/portfolio.svg" width="144" height="48" alt="Visit the Sam Tim Solutions portfolio"></a>
