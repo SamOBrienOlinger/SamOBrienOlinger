@@ -63,9 +63,11 @@ main:focus { outline: none; }
 .hero { padding-block: clamp(2.5rem, 6vw, 5.75rem) clamp(2rem, 5vw, 3.75rem); }
 .hero-intro { display: flex; flex-wrap: wrap; gap: .2rem .65rem; max-width: 42rem; color: var(--muted); letter-spacing: .01em; }
 .hero-intro span { color: #7b8d9d; }
-.hero-layout { display: grid; gap: 1.75rem; }
-.hero-copy { display: flex; flex-direction: column; min-width: 0; }
-.hero-image { order: -1; margin: 0 0 1.5rem; }
+.hero-layout { max-width: 56rem; margin-inline: auto; }
+.hero-copy { display: flex; flex-direction: column; align-items: center; min-width: 0; text-align: center; }
+.hero-image { width: 100%; max-width: 44rem; margin: 0 0 1.5rem; }
+.hero #hero-title { width: 100%; margin-bottom: 1.5rem; text-align: center; }
+.hero .actions { justify-content: center; max-width: 100%; }
 .hero-image img { width: 100%; aspect-ratio: 1045 / 691; object-fit: cover; border-radius: .9rem; }
 .hero-role { max-width: 38rem; margin-bottom: .75rem; color: var(--ink); font-size: .9375rem; font-weight: 600; line-height: 1.55; }
 h1 { margin-bottom: 0; font-size: clamp(3.25rem, 10.9vw, 6.25rem); font-weight: 750; line-height: 1.035; letter-spacing: -.065em; }
@@ -178,15 +180,13 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .footer-brand { display: block; color: #a7bdcf; }
 .back-to-top { display: inline-flex; align-items: center; gap: .65rem; min-height: 2.75rem; font-size: .875rem; }
 @media (min-width: 40rem) {
-  .hero-layout { gap: 2.25rem; }
   .hero-intro { margin-bottom: 1.5rem; }
   .publication { grid-template-columns: 5rem minmax(0, 1fr); gap: 1.5rem; }
   .publication-meta { grid-column: auto; flex-direction: column; gap: .2rem; }
 }
 @media (min-width: 48rem) {
   .header-inner { flex-wrap: wrap; }
-  .hero-layout { grid-template-columns: 1.05fr 1fr; align-items: center; gap: clamp(2rem, 6vw, 6rem); }
-  h1 { font-size: clamp(3.6rem, 7.3vw, 6.25rem); }
+  .hero #hero-title { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 .35em; font-size: clamp(2.5rem, 4.5vw, 4rem); }
   .hero-copy { padding-top: 0; }
   .project { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); }
   .project-media { align-self: start; }
