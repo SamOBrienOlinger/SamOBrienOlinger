@@ -145,6 +145,12 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
 .research-section { background: var(--surface); border-top: 1px solid var(--line); }
+.research-section .section-heading { align-items: start; }
+.research-intro { min-width: 0; width: 100%; max-width: 36rem; color: var(--muted); }
+.research-intro > p { margin-bottom: 1rem; }
+.research-experience { padding-inline-start: 1.25rem; list-style: disc; }
+.research-experience li + li { margin-top: .45rem; }
+.research-experience li::marker { color: var(--accent); }
 .publication-list { border-top: 1px solid #aebfce; }
 .publication { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: .65rem 1rem; align-items: center; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
 .publication-meta { display: flex; flex-wrap: wrap; gap: .75rem; font-size: .875rem; color: var(--muted); }
