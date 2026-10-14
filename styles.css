@@ -160,8 +160,10 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .contact-copy > p { max-width: 31rem; color: #d0deea; font-size: 1.0625rem; }
 .contact-button { background: #e6f5f2; color: #152b46; }
 .email-link { display: block; width: fit-content; max-width: 100%; min-height: 2.75rem; padding-block: .7rem; margin-top: .45rem; color: #d0deea; font-size: .9375rem; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: .3em; }
-.social { display: flex; gap: 1.5rem; margin-top: 1rem; }
-.social a { display: inline-flex; align-items: center; min-height: 2.75rem; gap: .75rem; font-size: 1rem; }
+.social { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.social a { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; max-width: 100%; gap: .65rem; padding: .65rem 1rem; border: 1px solid #647b93; border-radius: .6rem; background: #21364a; color: #edf4ff; font-size: 1rem; font-weight: 600; text-decoration: none; }
+.social-icon { display: block; flex: 0 0 1.5rem; width: 1.5rem; height: 1.5rem; }
+.social a:active { background: #294e71; border-color: #a7d9d4; }
 .contact-section :focus-visible, .site-footer :focus-visible { outline-color: #a7d9d4; }
 .site-footer { background: #152b46; color: #d0deea; border-top: 1px solid #38506c; }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: 1rem; padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
@@ -213,7 +215,8 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .publication:hover .publication-copy strong { text-decoration: underline; text-underline-offset: .2em; }
   .publication:hover .publication-arrow { background: var(--ink); color: white; border-color: var(--ink); }
   .contact-button:hover { background: white; }
-  .social a:hover, .email-link:hover, .back-to-top:hover { color: #a7d9d4; text-decoration: underline; text-underline-offset: .3em; }
+  .social a:hover { background: #294e71; border-color: #a7d9d4; color: #a7d9d4; }
+  .email-link:hover, .back-to-top:hover { color: #a7d9d4; text-decoration: underline; text-underline-offset: .3em; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
