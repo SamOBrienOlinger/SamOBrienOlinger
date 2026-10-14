@@ -146,13 +146,12 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
 .research-section { background: var(--surface); border-top: 1px solid var(--line); }
 .publication-list { border-top: 1px solid #aebfce; }
-.publication { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) auto; gap: .65rem 1rem; align-items: center; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
+.publication { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: .65rem 1rem; align-items: center; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
 .publication-meta { display: flex; flex-wrap: wrap; gap: .75rem; font-size: .875rem; color: var(--muted); }
 .publication-meta span { color: var(--accent); }
 .publication-copy { min-width: 0; }
 .publication-copy strong { display: block; font-size: 1.125rem; line-height: 1.45; font-weight: 600; }
 .publication-copy > span { display: block; margin-top: .45rem; color: var(--muted); font-size: .9375rem; line-height: 1.5; }
-.publication-arrow { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid var(--line); border-radius: 50%; font-size: 1.25rem; }
 .contact-section { padding-block: clamp(3.5rem, 7vw, 5.5rem); background: #152b46; color: white; }
 .contact-layout { display: grid; gap: 2rem; }
 .contact-section .eyebrow { color: #a7d9d4; }
@@ -173,7 +172,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 @media (min-width: 40rem) {
   .hero-layout { gap: 2.25rem; }
   .hero-intro { margin-bottom: 1.5rem; }
-  .publication { grid-template-columns: 5rem minmax(0, 1fr) auto; gap: 1.5rem; }
+  .publication { grid-template-columns: 5rem minmax(0, 1fr); gap: 1.5rem; }
   .publication-meta { grid-column: auto; flex-direction: column; gap: .2rem; }
 }
 @media (min-width: 48rem) {
@@ -206,14 +205,13 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .hero-intro { display: block; max-width: 18rem; }
 }
 @media (hover: hover) and (pointer: fine) {
-  a, button, .publication-arrow { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
+  a, button { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
   .site-nav a:hover { background: var(--soft); color: var(--accent); }
   .site-nav .nav-contact:hover, .button.primary:hover { background: var(--navy-mid); color: white; }
   .button.secondary:hover { background: var(--soft); border-color: var(--navy-mid); }
   .text-link:hover, .source-link:hover, .project h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
   .project-media:hover .media-link { background: var(--ink); color: white; }
   .publication:hover .publication-copy strong { text-decoration: underline; text-underline-offset: .2em; }
-  .publication:hover .publication-arrow { background: var(--ink); color: white; border-color: var(--ink); }
   .contact-button:hover { background: white; }
   .social a:hover { background: #294e71; border-color: #a7d9d4; color: #a7d9d4; }
   .email-link:hover, .back-to-top:hover { color: #a7d9d4; text-decoration: underline; text-underline-offset: .3em; }
@@ -252,8 +250,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .experience-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
 }
 @media (max-width: 24rem) {
-  .publication { grid-template-columns: 2.75rem minmax(0, 1fr) auto; gap: .75rem; }
-  .publication-arrow { width: 1.75rem; height: 1.75rem; }
+  .publication { grid-template-columns: 2.75rem minmax(0, 1fr); gap: .75rem; }
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -270,7 +267,7 @@ html[data-theme="dark"] {
 [data-theme="dark"] .button.primary, [data-theme="dark"] .site-nav .nav-contact { background: #b7d5ed; color: #152b46; }
 [data-theme="dark"] .button.primary:hover, [data-theme="dark"] .site-nav .nav-contact:hover { background: #d8eaf6; color: #152b46; }
 [data-theme="dark"] .approach-simplify { color: #152b46; }
-[data-theme="dark"] .publication:hover .publication-arrow, [data-theme="dark"] .project-media:hover .media-link { background: #d8eaf6; color: #152b46; }
+[data-theme="dark"] .project-media:hover .media-link { background: #d8eaf6; color: #152b46; }
 [data-theme="dark"] .skip-link { background: #b7d5ed; color: #152b46; }
 
 @media print {
