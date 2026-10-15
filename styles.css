@@ -165,11 +165,11 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .contact-section .eyebrow { color: #a7d9d4; }
 .contact-section h2 { font-size: clamp(2.15rem, 4.6vw, 3.65rem); }
 .contact-copy > p { max-width: 31rem; color: #d0deea; font-size: 1.0625rem; }
-.contact-button { justify-content: center; gap: .7rem; width: fit-content; max-width: 100%; padding: .85rem 1.15rem; border-color: #b8d5d0; background: #e6f5f2; color: #152b46; text-align: center; text-decoration: none; }
+.contact-button { display: flex; margin-inline: auto; justify-content: center; gap: .7rem; width: fit-content; max-width: 100%; padding: .85rem 1.15rem; border-color: #b8d5d0; background: #e6f5f2; color: #152b46; text-align: center; text-decoration: none; }
 .contact-button-icon { display: block; flex: 0 0 1.5rem; width: 1.5rem; height: 1.5rem; }
 .contact-button-label { min-width: 0; overflow-wrap: anywhere; }
 .email-link { display: block; width: fit-content; max-width: 100%; min-height: 2.75rem; padding-block: .7rem; margin-top: .45rem; color: #d0deea; font-size: .9375rem; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: .3em; }
-.social { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.social { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1rem; }
 .social a { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; max-width: 100%; gap: .65rem; padding: .65rem 1rem; border: 1px solid #647b93; border-radius: .6rem; background: #21364a; color: #edf4ff; font-size: 1rem; font-weight: 600; text-decoration: none; }
 .social-icon { display: block; flex: 0 0 1.5rem; width: 1.5rem; height: 1.5rem; }
 .social a:active { background: #294e71; border-color: #a7d9d4; }
