@@ -130,6 +130,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .work-footer p { margin: 0; color: var(--muted); font-size: .8125rem; }
 .work-footer .text-link { font-size: .8125rem; }
 .about-layout { display: grid; gap: 2.5rem; }
+.about-goal { margin: 1rem 0 0; color: var(--muted); font-size: clamp(1.125rem, 1.6vw, 1.375rem); font-weight: 600; line-height: 1.45; letter-spacing: -.015em; }
 .about-copy > p { color: var(--muted); }
 .about-copy > .lead-paragraph { color: var(--ink); font-size: 1.25rem; line-height: 1.65; }
 .approach { display: grid; gap: 0; margin-top: 2rem; max-width: 31rem; }
