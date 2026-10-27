@@ -4,6 +4,27 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  // Reveal the three hero words in sequence whenever the heading enters view.
+  // Text stays readable if JavaScript, IntersectionObserver or motion is unavailable.
+  const heroTitle = document.getElementById('hero-title');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let heroObserver;
+  function syncHeroReveal() {
+    heroObserver?.disconnect();
+    heroTitle?.classList.remove('is-revealing');
+    if (!heroTitle || reducedMotion.matches || !('IntersectionObserver' in window)) return;
+
+    heroObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('is-revealing', entry.isIntersecting);
+      });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0 });
+    heroObserver.observe(heroTitle);
+  }
+  syncHeroReveal();
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncHeroReveal);
+  else reducedMotion.addListener(syncHeroReveal);
+
   // Keep copied page text free of rich webpage formats that iOS apps may attach as files.
   document.addEventListener('copy', event => {
     if (event.defaultPrevented || !event.clipboardData) return;
@@ -176,3 +197,4 @@
   window.addEventListener('pageshow', () => { setMenu(false); scheduleActiveUpdate(); });
   scheduleActiveUpdate();
 })();
+
