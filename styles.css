@@ -234,7 +234,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   #hero-title.is-revealing > span:nth-child(3) { animation-delay: .2s; }
 }
 @keyframes hero-word-reveal {
-  from { opacity: 0; transform: translateY(100%); }
+  from { opacity: 0; transform: translateY(75%); }
   to { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
