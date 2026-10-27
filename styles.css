@@ -228,13 +228,13 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
   #hero-title.is-revealing > span {
-    animation: hero-word-reveal 1s cubic-bezier(.175, .885, .32, 1.275) both;
+    animation: hero-word-reveal 1s ease-out both;
   }
   #hero-title.is-revealing > span:nth-child(2) { animation-delay: .1s; }
   #hero-title.is-revealing > span:nth-child(3) { animation-delay: .2s; }
 }
 @keyframes hero-word-reveal {
-  from { opacity: 0; transform: translateY(75%); }
+  from { opacity: 0; transform: translateY(37.5%); }
   to { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
