@@ -10,6 +10,9 @@ async function openWork(page, reducedMotion = 'no-preference') {
 }
 
 test('rotation advances, then stays stopped after a real touch and a return to the section', async ({ page }) => {
+  // A cold WebKit page can take ~21s to start on CI before this real-time
+  // 7s rotation + 9s pause check begins. Keep the behaviour assertions intact.
+  test.setTimeout(60000);
   await openWork(page);
   const carousel = page.locator('[data-carousel]');
   await expect(page.locator('[data-autoplay], .carousel-play')).toHaveCount(0);
