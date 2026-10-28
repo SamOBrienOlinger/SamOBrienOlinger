@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test('selected page text copies and pastes without HTML or file attachments', async ({ page }) => {
   await page.goto('/');
-  const text = 'makes information clearer, connects communities';
+  const text = 'empower people and strengthen communities';
   await page.evaluate(text => {
     const node = document.querySelector('.lede').firstChild;
     const start = node.textContent.indexOf(text);
