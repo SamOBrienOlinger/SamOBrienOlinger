@@ -53,10 +53,8 @@ main:focus { outline: none; }
 .menu-toggle[aria-expanded="true"] .menu-icon::before, .menu-toggle[aria-expanded="true"] .menu-icon::after { content: ""; position: absolute; top: 50%; left: 0; width: 100%; border-top: 1.5px solid currentColor; transform: rotate(45deg); }
 .menu-toggle[aria-expanded="true"] .menu-icon::after { transform: rotate(-45deg); }
 .site-nav { flex-basis: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; padding-block: .5rem; }
-.site-nav a { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 3rem; padding: .65rem .85rem; border-radius: .5rem; font-size: .9375rem; font-weight: 550; }
-.site-nav a[aria-current="location"] { background: var(--soft); color: var(--accent); text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 2px; }
-.site-nav .nav-contact { background: var(--ink); color: white; }
-.site-nav .nav-contact[aria-current="location"] { background: var(--navy-mid); color: white; }
+.site-nav a { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 3rem; padding: .65rem .85rem; border-radius: .5rem; background: var(--ink); color: white; font-size: .9375rem; font-weight: 550; }
+.site-nav a[aria-current="location"] { background: var(--navy-mid); color: white; text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 2px; }
 /* Only collapse navigation after its controls have been successfully wired. */
 .nav-ready .site-nav:not(.is-open) { display: none; }
 .eyebrow { margin-bottom: 1rem; color: var(--accent); font-size: .875rem; font-weight: 650; line-height: 1.55; letter-spacing: .065em; }
@@ -215,8 +213,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 }
 @media (hover: hover) and (pointer: fine) {
   a, button { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
-  .site-nav a:hover { background: var(--soft); color: var(--accent); }
-  .site-nav .nav-contact:hover, .button.primary:hover { background: var(--navy-mid); color: white; }
+  .site-nav a:hover, .button.primary:hover { background: var(--navy-mid); color: white; }
   .button.secondary:hover { background: var(--soft); border-color: var(--navy-mid); }
   .text-link:hover, .source-link:hover, .project h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
   .project-media:hover .media-link { background: var(--ink); color: white; }
@@ -282,8 +279,8 @@ html[data-theme="dark"] {
   --line: #3c5066;
   --soft: #21364a;
 }
-[data-theme="dark"] .button.primary, [data-theme="dark"] .site-nav .nav-contact { background: #b7d5ed; color: #152b46; }
-[data-theme="dark"] .button.primary:hover, [data-theme="dark"] .site-nav .nav-contact:hover { background: #d8eaf6; color: #152b46; }
+[data-theme="dark"] .button.primary, [data-theme="dark"] .site-nav a { background: #b7d5ed; color: #152b46; }
+[data-theme="dark"] .button.primary:hover, [data-theme="dark"] .site-nav a:hover { background: #d8eaf6; color: #152b46; }
 [data-theme="dark"] .approach-simplify { color: #152b46; }
 [data-theme="dark"] .project-media:hover .media-link { background: #d8eaf6; color: #152b46; }
 [data-theme="dark"] .skip-link { background: #b7d5ed; color: #152b46; }
