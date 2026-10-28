@@ -72,19 +72,40 @@ test('focus labels are readable HTML links at normal and enlarged text sizes', a
   }
 });
 
-test('AllyIndex retains all supplied screens and its live destination', async ({ page }) => {
+test('every project has three usable screenshot links without mobile overflow', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#work');
-  const card = page.locator('[data-project="allyindex"]');
-  await expect(card).toHaveCount(1);
-  await page.locator('.work-track').focus();
-  await card.evaluate(element => element.parentElement.scrollTo({ left: element.offsetLeft, behavior: 'instant' }));
-  await expect(card).toHaveAttribute('aria-hidden', 'false');
-  const screens = card.locator('.allyindex-gallery img');
-  await expect(screens).toHaveCount(3);
-  await screens.evaluateAll(images => images.forEach(image => image.scrollIntoView({ block: 'center' })));
-  await expect.poll(() => screens.evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
-  await expect(card.getByRole('link', { name: 'Live site for AllyIndex', exact: true })).toHaveAttribute('href', 'https://declan444.github.io/24-7-hackathon-team9/index.html');
-  await expectNoOverflow(page);
+  const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+  for (const [index, project] of projects.entries()) {
+    const card = page.locator(`[data-project="${project}"]`);
+    await expect(card).toHaveAttribute('aria-hidden', 'false');
+    const screens = card.locator('.project-gallery img');
+    await expect(screens).toHaveCount(3);
+    await screens.first().scrollIntoViewIfNeeded();
+    await expect.poll(() => screens.evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
+    const links = card.locator('.project-gallery a');
+    const boxes = await links.evaluateAll(elements => elements.map(element => {
+      const rect = element.getBoundingClientRect();
+      return { width: rect.width, height: rect.height, left: rect.left, right: rect.right };
+    }));
+    for (const box of boxes) {
+      expect(box.width).toBeGreaterThanOrEqual(44);
+      expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(box.left).toBeGreaterThanOrEqual(0);
+      expect(box.right).toBeLessThanOrEqual(page.viewportSize().width);
+    }
+    for (const link of await links.all()) {
+      const href = await link.getAttribute('href');
+      const response = await page.request.get(href);
+      expect(response.ok(), `${project}: ${href}`).toBe(true);
+      expect(response.headers()['content-type']).toMatch(/^image\//);
+    }
+    await expectNoOverflow(page);
+    if (index < projects.length - 1) await page.getByRole('button', { name: 'Next project', exact: true }).click();
+  }
+  await expect(page.locator('[data-project="allyindex"] .allyindex-gallery img')).toHaveCount(3);
+  await expect(page.locator('[data-project="allyindex"] .project-links a')).toHaveAttribute('href', 'https://declan444.github.io/24-7-hackathon-team9/index.html');
+  await expect(page.locator('#work a[href*="github.com/"]')).toHaveCount(0);
 });
 
 test('theme and menu work when preference storage is blocked', async ({ page }) => {

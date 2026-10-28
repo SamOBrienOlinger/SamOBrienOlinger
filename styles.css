@@ -255,9 +255,9 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .experience-list article { padding-top: 1.25rem; border-top: 1px solid #aab9c8; }
 .experience-list h3 { font-size: 1.375rem; }
 .experience-list article > p:not(.project-category) { color: var(--muted); }
-.allyindex-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-block: 0 1rem; }
-.allyindex-gallery a { min-width: 0; min-height: 2.75rem; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--line); border-radius: .4rem; }
-.allyindex-gallery img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.project-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; margin-block: 0 1rem; }
+.project-gallery a { min-width: 0; min-height: 2.75rem; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--line); border-radius: .4rem; }
+.project-gallery img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 @media (min-width: 40rem) {
   .publication-cover { height: 6.5rem; }
 }
