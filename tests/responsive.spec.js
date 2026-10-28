@@ -72,7 +72,7 @@ test('focus labels are readable HTML links at normal and enlarged text sizes', a
   }
 });
 
-test('AllyIndex retains all supplied screens and destinations', async ({ page }) => {
+test('AllyIndex retains all supplied screens and its live destination', async ({ page }) => {
   await page.goto('/#work');
   const card = page.locator('[data-project="allyindex"]');
   await expect(card).toHaveCount(1);
@@ -84,7 +84,6 @@ test('AllyIndex retains all supplied screens and destinations', async ({ page })
   await screens.evaluateAll(images => images.forEach(image => image.scrollIntoView({ block: 'center' })));
   await expect.poll(() => screens.evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
   await expect(card.getByRole('link', { name: 'Live site for AllyIndex', exact: true })).toHaveAttribute('href', 'https://declan444.github.io/24-7-hackathon-team9/index.html');
-  await expect(card.getByRole('link', { name: 'Repository for AllyIndex', exact: true })).toHaveAttribute('href', 'https://github.com/declan444/24-7-hackathon-team9');
   await expectNoOverflow(page);
 });
 
