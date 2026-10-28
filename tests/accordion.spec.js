@@ -6,7 +6,7 @@ test('Research and People accordions support pointer and keyboard activation', a
   const outerSummary = page.locator('.approach #research-panel > summary');
   const publishedWork = page.locator('#research-publications');
   await expect(publishedWork).toBeHidden();
-  await expect(outerSummary).toContainText('Evidence, policy and social science');
+  await expect(outerSummary).toContainText('Evidence-based, social policy and critical thinking');
   await outerSummary.click();
   await expect(publishedWork).toBeVisible();
   await expect(publishedWork.getByRole('heading', { name: 'Published work', exact: true })).toBeVisible();

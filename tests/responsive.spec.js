@@ -54,7 +54,7 @@ test('focus cards and contact actions are readable at normal and enlarged text s
   await expect(diagram.locator('#software-panel > summary')).toContainText('Software');
   await expect(diagram.locator('#software-panel > summary')).toContainText('Community resources, learning through play and applications built around real interests and positive outcomes.');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Research');
-  await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence, policy and social science');
+  await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence-based, social policy and critical thinking');
   await expect(diagram.locator('#people-panel > summary')).toContainText('People');
   await expect(diagram.locator('#people-panel > summary')).toContainText('Supporting communities');
   for (const size of ['100%', '200%']) {
