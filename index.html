@@ -8,9 +8,10 @@
   <title>Sam Tim Solutions | Sam O’Brien-Olinger</title>
   <link rel="canonical" href="https://samobrienolinger.github.io/SamOBrienOlinger/">
   <link rel="icon" href="assets/images/sam-logo.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20261028-contact-ux">
+  <link rel="stylesheet" href="styles.css?v=20261028-venn-reveal">
   <script src="script.js?v=20261028-people-card" defer></script>
   <script src="carousel.js?v=20261028-software-card" defer></script>
+  <script src="credentials-venn.js?v=20261028-venn-reveal" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -214,7 +215,28 @@
           </div>
         </div>
         <div class="about-copy">
-          <div class="credentials"><p><strong>PhD in Sociology</strong></p><p><strong>Diploma in Full Stack Software Development</strong></p><p><strong>Over a decade working in the Community &amp; Voluntary sector</strong></p><p><strong>Junior Software Developer in the Irish Civil Service</strong></p></div>
+          <figure class="credentials-venn" id="career-background" data-credentials-venn>
+            <svg viewBox="285 0 970 980" role="img" aria-labelledby="credentials-title credentials-description">
+              <title id="credentials-title">Education and professional experience</title>
+              <desc id="credentials-description">PhD in Sociology. Diploma in Full Stack Software Development. Over a decade working in the Community &amp; Voluntary sector. Junior Software Developer in the Irish Civil Service.</desc>
+              <g class="credential-circle credential-circle--sociology" data-credential-circle aria-hidden="true">
+                <circle cx="590" cy="310" r="275" />
+                <text x="490" y="260"><tspan x="490">PhD in</tspan><tspan x="490" dy="52" class="credential-accent">Sociology</tspan></text>
+              </g>
+              <g class="credential-circle credential-circle--development" data-credential-circle aria-hidden="true">
+                <circle cx="940" cy="310" r="275" />
+                <text x="1030" y="190"><tspan x="1030">Diploma in</tspan><tspan x="1030" dy="48">Full Stack</tspan><tspan x="1030" dy="48">Software</tspan><tspan x="1030" dy="48" class="credential-accent">Development</tspan></text>
+              </g>
+              <g class="credential-circle credential-circle--community" data-credential-circle aria-hidden="true">
+                <circle cx="590" cy="650" r="280" />
+                <text x="520" y="640"><tspan x="520">Over a decade</tspan><tspan x="520" dy="48">working in the</tspan><tspan x="520" dy="48" class="credential-accent">Community &amp;</tspan><tspan x="520" dy="48" class="credential-accent">Voluntary sector</tspan></text>
+              </g>
+              <g class="credential-circle credential-circle--service" data-credential-circle aria-hidden="true">
+                <circle cx="940" cy="650" r="280" />
+                <text x="1035" y="640"><tspan x="1035">Junior Software</tspan><tspan x="1035" dy="48">Developer in the</tspan><tspan x="1035" dy="48" class="credential-accent">Irish Civil</tspan><tspan x="1035" dy="48" class="credential-accent">Service</tspan></text>
+              </g>
+            </svg>
+          </figure>
         </div>
       </div>
     </section>

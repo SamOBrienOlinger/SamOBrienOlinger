@@ -1,3 +1,35 @@
+# Design QA — Random scroll reveal for career Venn
+
+## Scope
+
+- Branch: `feature/random-venn-scroll`, based on `portfolio-redesign`.
+- Replace the four career statements in the Approach section with individually animated SVG circles.
+- Reveal in a random order 450 ms apart once 25% of the diagram enters the viewport; reset after it fully leaves and choose a different order on return.
+
+## Evidence and fidelity
+
+- Source: approved four-circle graphic, `exec-9e171cc4-e26f-469c-8930-7f304f0ab7e7.png` (1536 × 1024), with the updated “Over a decade working in the Community & Voluntary sector” wording.
+- Browser screenshots captured in the task workspace: `venn-desktop.jpg`, `venn-mobile.jpg`, and `venn-comparison.jpg`.
+- Desktop: 1363 × 936 CSS px. Mobile: 375 × 812 iframe, 360 px usable content width with the browser scrollbar.
+- Side-by-side visual review preserves the four-circle arrangement, blue/amber complementary palette, navy background and highlighted keywords. Live vector text uses shorter lines for mobile readability; the raster texture is replaced by flat translucent fills to support independent circles.
+- [P2, fixed] The Community label initially touched the left circle edge. Shifted its text inward and reduced its font size slightly; the final desktop and mobile screenshots show clear spacing.
+- Exact wording is present in the SVG description for assistive technology; visual groups are hidden from accessibility APIs to avoid duplicate announcements.
+
+## Verification
+
+- Browser: initial hidden state, full reveal, complete off-screen reset, and return with a different sequence all confirmed. First and repeat delay arrays were `[0.12, 1.02, 0.57, 1.47]` and `[1.47, 0.57, 1.02, 0.12]` seconds.
+- Mobile: all four labels visible and no horizontal overflow.
+- Five Node regression tests pass: threshold/stagger, no restart during scroll jitter, fresh return order, reduced-motion changes/fallbacks, and browser-history restoration.
+- Without JavaScript or observer support the diagram remains visible. Reduced motion bypasses the reveal, and print styles show all circles.
+- No application console errors observed; browser-extension metadata warnings were unrelated to the page.
+- Full existing Playwright suite is delegated to the repository's pull-request CI; it was not executed locally.
+
+## Final result
+
+passed — visual and targeted interaction checks. Full CI status is reported separately on the pull request.
+
+---
+
 # Design QA — Focus label colour refinement
 
 ## Scope
