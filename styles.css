@@ -160,8 +160,6 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .accordion[open] > summary .accordion-icon::after { transform: rotate(0); }
 .accordion-content { padding: 1.25rem clamp(1rem, 3vw, 1.75rem) 1.5rem; border-top: 1px solid var(--line); color: var(--muted); }
 .accordion-content > :last-child { margin-bottom: 0; }
-.experience-accordion { align-self: start; background: var(--surface); }
-.experience-accordion .project-category { display: block; letter-spacing: .035em; }
 .accordion .publication-list { border-top: 0; }
 .accordion .publication { color: var(--ink); }
 .accordion .publication:last-child { border-bottom: 0; }
@@ -281,7 +279,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .publication-cover { height: 6.5rem; }
 }
 @media (min-width: 48rem) {
-  .experience-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  .experience-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 }
 @media (max-width: 24rem) {
   .publication { grid-template-columns: 2.75rem minmax(0, 1fr); gap: .75rem; }

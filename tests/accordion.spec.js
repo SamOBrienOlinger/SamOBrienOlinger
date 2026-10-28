@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test('research accordions support pointer and keyboard activation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#research');
-  for (const selector of ['.experience-accordion', '#research-experience', '#research-publications']) {
+  for (const selector of ['#research-experience', '#research-publications']) {
     const panel = page.locator(selector);
     const summary = panel.locator('summary');
     const content = panel.locator('.accordion-content');
@@ -24,7 +24,7 @@ test('expanded research content fits phones, dark mode and enlarged text', async
   await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
   await page.goto('/#research');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-  for (const selector of ['.experience-accordion', '#research-experience', '#research-publications']) {
+  for (const selector of ['#research-experience', '#research-publications']) {
     await page.locator(`${selector} > summary`).click();
   }
   await expect(page.locator('.research-experience li')).toHaveCount(10);
