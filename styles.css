@@ -170,7 +170,8 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .approach-research + a { margin-top: 0; }
 .research-overview { position: relative; background: #294e71; color: white; border: 3px solid var(--paper); border-radius: 5rem; }
 .research-overview[open] { border-radius: 2rem; }
-.research-overview > summary { flex-direction: column; justify-content: center; gap: .5rem; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); text-align: center; }
+.research-overview > summary { border-radius: 5rem; flex-direction: column; justify-content: center; gap: .5rem; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); text-align: center; }
+.research-overview[open] > summary { border-radius: 1.8rem 1.8rem 0 0; }
 .research-overview > summary:focus-visible { outline-color: #a7d9d4; }
 .research-label { min-width: 0; }
 .research-label > p { margin-bottom: 0; }
