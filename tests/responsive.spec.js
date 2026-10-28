@@ -52,7 +52,7 @@ test('focus cards are readable at normal and enlarged text sizes', async ({ page
   const diagram = page.getByRole('group', { name: 'Areas of focus' });
   await expect(diagram).toBeVisible();
   await expect(diagram.locator('#software-panel > summary')).toContainText('Software');
-  await expect(diagram.locator('#software-panel > summary')).toContainText('Full-stack digital products');
+  await expect(diagram.locator('#software-panel > summary')).toContainText('Community resources, learning through play and applications built around real interests and positive outcomes.');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Research');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence, policy and social science');
   await expect(diagram.locator('#people-panel > summary')).toContainText('People');

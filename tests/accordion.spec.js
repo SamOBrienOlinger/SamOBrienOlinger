@@ -95,7 +95,7 @@ test('Software opens in place, retains its project when reopened, and fits enlar
   await summary.click();
   await expect(content).toBeVisible();
   await expect(page).not.toHaveURL(/#/);
-  await expect(content.locator('#work-title')).toHaveText('Explore my work.');
+  await expect(carousel).toHaveAccessibleName('Software');
   await expect(page.locator('[data-carousel]')).toHaveCount(1);
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
   await page.getByRole('button', { name: 'Next project', exact: true }).click();
