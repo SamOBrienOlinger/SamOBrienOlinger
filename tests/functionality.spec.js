@@ -93,12 +93,10 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(peopleSummary).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
+  await expect(page.locator('#people-panel .research-experience')).toBeVisible();
+  await expect(page.locator('#people-panel li')).toHaveCount(9);
   await page.keyboard.press('Tab');
-  const experienceSummary = page.locator('#people-experience > summary');
-  await expect(experienceSummary).toBeFocused();
-  await page.keyboard.press('Enter');
-  await expect(page.locator('#people-experience .research-experience')).toBeVisible();
-  await expect(page.locator('#people-experience li')).toHaveCount(9);
+  await expect(page.getByRole('link', { name: 'Send me an email', exact: true })).toBeFocused();
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');

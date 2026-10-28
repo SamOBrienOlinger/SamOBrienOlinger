@@ -131,12 +131,11 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await expect(page.locator('#people-panel > .accordion-content')).toBeHidden();
   await page.locator('#people-panel > summary').click();
   await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
-  for (const selector of ['#people-experience', '#research-publications']) {
-    const panel = page.locator(selector);
-    await expect(panel.locator('.accordion-content')).toBeHidden();
-    await panel.locator('summary').click();
-    await expect(panel.locator('.accordion-content')).toBeVisible();
-  }
+  await expect(page.locator('#people-panel .research-experience')).toBeVisible();
+  const publications = page.locator('#research-publications');
+  await expect(publications.locator('.accordion-content')).toBeHidden();
+  await publications.locator('summary').click();
+  await expect(publications.locator('.accordion-content')).toBeVisible();
   await expect(page.locator('.publication').last()).toBeVisible();
   await expectNoOverflow(page);
   await context.close();
