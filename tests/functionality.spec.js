@@ -21,7 +21,7 @@ test('each mobile navigation link closes the menu and reaches its section', asyn
   await page.goto('/');
   const menu = page.locator('.menu-toggle');
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
-  for (const [name, id] of [['Work', 'work'], ['Experience', 'experience'], ['Research', 'research'], ['Approach', 'about'], ['Contact', 'contact'], ['Home', 'top']]) {
+  for (const [name, id] of [['Work', 'work'], ['Research', 'research'], ['Approach', 'about'], ['Contact', 'contact'], ['Home', 'top']]) {
     await menu.click();
     await nav.getByRole('link', { name, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));

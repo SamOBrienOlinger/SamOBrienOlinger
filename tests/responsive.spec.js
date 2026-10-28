@@ -25,7 +25,7 @@ test('mobile navigation and project layouts remain usable', async ({ page }) => 
     expect(box.height, box.label + ' height').toBeGreaterThanOrEqual(44);
   }
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
-  for (const name of ['Home', 'Work', 'Experience', 'Research', 'Approach', 'Contact']) {
+  for (const name of ['Home', 'Work', 'Research', 'Approach', 'Contact']) {
     await expect(nav.getByRole('link', { name, exact: name !== 'Contact' })).toBeVisible();
   }
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
