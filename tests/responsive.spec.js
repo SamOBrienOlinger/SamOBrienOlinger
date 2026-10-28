@@ -72,38 +72,32 @@ test('focus labels are readable HTML links at normal and enlarged text sizes', a
   }
 });
 
-test('every project has three usable screenshot links without mobile overflow', async ({ page }) => {
+test('every project keeps one main image and a live link without mobile overflow', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#work');
   const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+  await expect(page.locator('#work .project-gallery')).toHaveCount(0);
   for (const [index, project] of projects.entries()) {
     const card = page.locator(`[data-project="${project}"]`);
     await expect(card).toHaveAttribute('aria-hidden', 'false');
-    const screens = card.locator('.project-gallery img');
-    await expect(screens).toHaveCount(3);
-    await screens.first().scrollIntoViewIfNeeded();
-    await expect.poll(() => screens.evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
-    const links = card.locator('.project-gallery a');
-    const boxes = await links.evaluateAll(elements => elements.map(element => {
-      const rect = element.getBoundingClientRect();
-      return { width: rect.width, height: rect.height, left: rect.left, right: rect.right };
-    }));
-    for (const box of boxes) {
-      expect(box.width).toBeGreaterThanOrEqual(44);
-      expect(box.height).toBeGreaterThanOrEqual(44);
-      expect(box.left).toBeGreaterThanOrEqual(0);
-      expect(box.right).toBeLessThanOrEqual(page.viewportSize().width);
-    }
-    for (const link of await links.all()) {
-      const href = await link.getAttribute('href');
-      const response = await page.request.get(href);
-      expect(response.ok(), `${project}: ${href}`).toBe(true);
-      expect(response.headers()['content-type']).toMatch(/^image\//);
-    }
+    await expect(card.locator('img')).toHaveCount(1);
+    const mainImage = card.locator('.project-media img');
+    await mainImage.scrollIntoViewIfNeeded();
+    await expect.poll(() => mainImage.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+    const response = await page.request.get(await mainImage.getAttribute('src'));
+    expect(response.ok(), `${project}: main image`).toBe(true);
+    expect(response.headers()['content-type']).toMatch(/^image\//);
+    const liveLink = card.locator('.project-links a');
+    await expect(liveLink).toHaveCount(1);
+    await expect(liveLink).toHaveAttribute('href', /^https:\/\//);
+    const box = await liveLink.boundingBox();
+    expect(box.width).toBeGreaterThanOrEqual(44);
+    expect(box.height).toBeGreaterThanOrEqual(44);
+    expect(box.x).toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width).toBeLessThanOrEqual(page.viewportSize().width);
     await expectNoOverflow(page);
     if (index < projects.length - 1) await page.getByRole('button', { name: 'Next project', exact: true }).click();
   }
-  await expect(page.locator('[data-project="allyindex"] .allyindex-gallery img')).toHaveCount(3);
   await expect(page.locator('[data-project="allyindex"] .project-links a')).toHaveAttribute('href', 'https://declan444.github.io/24-7-hackathon-team9/index.html');
   await expect(page.locator('#work a[href*="github.com/"]')).toHaveCount(0);
 });

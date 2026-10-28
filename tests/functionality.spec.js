@@ -52,7 +52,7 @@ test('reduced motion keeps the hero readable and stops automatic rotation', asyn
   await expect(page.locator('#hero-title')).not.toHaveClass(/is-revealing/);
 });
 
-test('desktop navigation, focus links and screenshot return work without script errors', async ({ browser }, testInfo) => {
+test('desktop navigation, focus links and carousel work without script errors', async ({ browser }, testInfo) => {
   test.skip(!['Android Chrome 360', 'iOS WebKit 375'].includes(testInfo.project.name), 'One desktop pass per browser engine.');
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
   const page = await context.newPage();
@@ -86,10 +86,8 @@ test('desktop navigation, focus links and screenshot return work without script 
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-current-project', 'white-whale');
   await page.keyboard.press('Home');
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-current-project', 'sct');
-  await page.locator('[data-project="sct"] .project-gallery a').first().click();
-  await expect(page).toHaveURL(/\/gallery\/sct-home\.webp$/);
-  await expect.poll(() => page.locator('img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
-  await page.goBack();
+  await expect(page.locator('[data-project="sct"] img')).toHaveCount(1);
+  await expect.poll(() => page.locator('[data-project="sct"] .project-media img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   await expect(page.locator('[data-carousel]')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(errors).toEqual([]);
