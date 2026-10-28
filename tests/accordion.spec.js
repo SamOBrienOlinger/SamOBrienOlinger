@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('research accordions support pointer and keyboard without trapping focus', async ({ page, browserName }) => {
+test('research accordions support pointer and keyboard activation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#research');
   for (const selector of ['.experience-accordion', '#research-experience', '#research-publications']) {
@@ -18,19 +18,6 @@ test('research accordions support pointer and keyboard without trapping focus', 
     await summary.press('Space');
     await expect(content).toBeHidden();
   }
-  const publications = page.locator('#research-publications');
-  // WebKit follows Safari's default: Option-Tab includes links in keyboard navigation.
-  // https://support.apple.com/guide/safari/keyboard-shortcuts-and-gestures-cpsh003/mac
-  const nextItem = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
-  const previousItem = browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab';
-  await publications.locator('summary').press('Enter');
-  await page.keyboard.press(nextItem);
-  await expect(publications.locator('a').first()).toBeFocused();
-  await page.keyboard.press(previousItem);
-  await expect(publications.locator('summary')).toBeFocused();
-  await page.keyboard.press('Enter');
-  await page.keyboard.press(nextItem);
-  await expect(page.getByRole('link', { name: 'Software: Full-stack digital products.', exact: true })).toBeFocused();
 });
 
 test('expanded research content fits phones, dark mode and enlarged text', async ({ page }) => {

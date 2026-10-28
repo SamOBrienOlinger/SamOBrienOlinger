@@ -66,6 +66,20 @@ test('desktop navigation, focus links and screenshot return work without script 
     await page.getByRole('link', { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`#${hash}$`));
   }
+  // Check full keyboard tab order in desktop mode, alongside mobile activation coverage.
+  const publications = page.locator('#research-publications');
+  const summary = publications.locator('summary');
+  const content = publications.locator('.accordion-content');
+  await summary.press('Enter');
+  await expect(content).toBeVisible();
+  await page.keyboard.press('Tab');
+  await expect(publications.locator('a').first()).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(summary).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(content).toBeHidden();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: 'Software: Full-stack digital products.', exact: true })).toBeFocused();
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');
