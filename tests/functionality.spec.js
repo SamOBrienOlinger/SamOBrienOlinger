@@ -62,10 +62,8 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('.menu-toggle')).toBeHidden();
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
   await expect(nav).toBeVisible();
-  for (const [label, hash] of [['People: Supporting communities.', 'about']]) {
-    await page.getByRole('link', { name: label, exact: true }).click();
-    await expect(page).toHaveURL(new RegExp(`#${hash}$`));
-  }
+  await nav.getByRole('link', { name: 'Approach', exact: true }).click();
+  await expect(page).toHaveURL(/#about$/);
   const softwareSummary = page.locator('.approach #software-panel > summary');
   await softwareSummary.press('Enter');
   await expect(page.locator('#software-panel > .accordion-content')).toBeVisible();
@@ -91,7 +89,16 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await page.keyboard.press('Enter');
   await expect(content).toBeHidden();
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'People: Supporting communities.', exact: true })).toBeFocused();
+  const peopleSummary = page.locator('#people-panel > summary');
+  await expect(peopleSummary).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
+  await page.keyboard.press('Tab');
+  const experienceSummary = page.locator('#people-experience > summary');
+  await expect(experienceSummary).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#people-experience .research-experience')).toBeVisible();
+  await expect(page.locator('#people-experience li')).toHaveCount(10);
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');

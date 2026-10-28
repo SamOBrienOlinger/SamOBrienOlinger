@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('research accordions support pointer and keyboard activation', async ({ page }) => {
+test('Research and People accordions support pointer and keyboard activation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   const outerSummary = page.locator('.approach #research-panel > summary');
@@ -21,7 +21,18 @@ test('research accordions support pointer and keyboard activation', async ({ pag
   await expect(nestedPanels).toBeHidden();
   await outerSummary.press('Space');
   await expect(nestedPanels).toBeVisible();
-  for (const selector of ['#research-experience', '#research-publications']) {
+  const peopleSummary = page.locator('#people-panel > summary');
+  const peopleContent = page.locator('#people-panel > .accordion-content');
+  await expect(peopleContent).toBeHidden();
+  await peopleSummary.click();
+  await expect(peopleContent).toBeVisible();
+  await expect(page.locator('#research .research-experience')).toHaveCount(0);
+  await expect(page.locator('#people .research-experience li')).toHaveCount(10);
+  await peopleSummary.press('Enter');
+  await expect(peopleContent).toBeHidden();
+  await peopleSummary.press('Space');
+  await expect(peopleContent).toBeVisible();
+  for (const selector of ['#people-experience', '#research-publications']) {
     const panel = page.locator(selector);
     const summary = panel.locator('summary');
     const content = panel.locator('.accordion-content');
@@ -38,11 +49,13 @@ test('research accordions support pointer and keyboard activation', async ({ pag
   }
 });
 
-test('expanded research content fits phones, dark mode and enlarged text', async ({ page }) => {
+test('expanded Research and People content fits phones, dark mode and enlarged text', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
-  await page.goto('/#research');
+  await page.goto('/#people');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-  for (const selector of ['#research-experience', '#research-publications']) {
+  await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
+  await page.locator('#research-panel > summary').click();
+  for (const selector of ['#people-experience', '#research-publications']) {
     await page.locator(`${selector} > summary`).click();
   }
   await expect(page.locator('.research-experience li')).toHaveCount(10);

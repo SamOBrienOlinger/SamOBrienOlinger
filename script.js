@@ -50,13 +50,14 @@
   // Native details/summary controls remain usable without JavaScript.
   const focusPanels = new Map([
     ['#work', document.getElementById('software-panel')],
-    ['#research', document.getElementById('research-panel')]
+    ['#research', document.getElementById('research-panel')],
+    ['#people', document.getElementById('people-panel')]
   ]);
   function revealFocusPanel(hash) {
     const panel = focusPanels.get(hash);
     if (panel) panel.open = true;
   }
-  document.querySelectorAll('a[href="#work"], a[href="#research"]').forEach(link => {
+  document.querySelectorAll('a[href="#work"], a[href="#research"], a[href="#people"]').forEach(link => {
     link.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
       revealFocusPanel(link.hash);

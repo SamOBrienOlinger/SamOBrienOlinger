@@ -51,20 +51,15 @@ test('focus cards are readable at normal and enlarged text sizes', async ({ page
   await page.goto('/#about');
   const diagram = page.getByRole('group', { name: 'Areas of focus' });
   await expect(diagram).toBeVisible();
-  for (const [name, href, text] of [
-    ['People: Supporting communities.', '#about', 'Supporting communities']
-  ]) {
-    const link = diagram.getByRole('link', { name, exact: true });
-    await expect(link).toHaveAttribute('href', href);
-    await expect(link).toContainText(text);
-  }
   await expect(diagram.locator('#software-panel > summary')).toContainText('Software');
   await expect(diagram.locator('#software-panel > summary')).toContainText('Full-stack digital products');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Research');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence, policy and social science');
+  await expect(diagram.locator('#people-panel > summary')).toContainText('People');
+  await expect(diagram.locator('#people-panel > summary')).toContainText('Supporting communities');
   for (const size of ['100%', '200%']) {
     await page.evaluate(value => document.documentElement.style.fontSize = value, size);
-    const labelsFit = await diagram.locator(':scope > a, .focus-overview > summary').evaluateAll(elements => elements.every(element => {
+    const labelsFit = await diagram.locator('.focus-overview > summary').evaluateAll(elements => elements.every(element => {
       const rect = element.getBoundingClientRect();
       return rect.width >= 44 && rect.height >= 44 && element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1;
     }));
@@ -133,7 +128,10 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await expect(page.locator('.research-accordions')).toBeHidden();
   await page.locator('#research-panel > summary').click();
   await expect(page.locator('.research-accordions')).toBeVisible();
-  for (const selector of ['#research-experience', '#research-publications']) {
+  await expect(page.locator('#people-panel > .accordion-content')).toBeHidden();
+  await page.locator('#people-panel > summary').click();
+  await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
+  for (const selector of ['#people-experience', '#research-publications']) {
     const panel = page.locator(selector);
     await expect(panel.locator('.accordion-content')).toBeHidden();
     await panel.locator('summary').click();
