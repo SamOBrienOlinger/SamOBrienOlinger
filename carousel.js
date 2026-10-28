@@ -4,6 +4,7 @@
   const carousel = document.querySelector('[data-carousel]');
   if (!carousel) return;
   const section = carousel.closest('section');
+  const disclosure = carousel.closest('details');
   const track = carousel.querySelector('.work-track');
   const slides = Array.from(track.children);
   const toolbar = carousel.querySelector('.carousel-toolbar');
@@ -55,7 +56,7 @@
   function schedule() {
     clearTimeout(timer);
     updateControls();
-    if (paused || hovered || !visible || document.hidden) return;
+    if (paused || hovered || !visible || document.hidden || (disclosure && !disclosure.open)) return;
     timer = setTimeout(() => move(1, true), delay);
   }
 
@@ -89,6 +90,8 @@
   function goTo(physicalIndex, smooth = true) {
     cancelAnimation();
     target = (physicalIndex - 1 + slides.length) % slides.length;
+    // A collapsed card has no measurable slide positions. Restore them when it opens.
+    if (!track.clientWidth) return;
     const destination = positions[physicalIndex].offsetLeft;
     if (!smooth || motion.matches) {
       track.scrollTo({ left: destination, behavior: 'instant' });
@@ -121,7 +124,7 @@
   }
 
   function settle() {
-    if (animationFrame !== null) return;
+    if (animationFrame !== null || !track.clientWidth) return;
     clearTimeout(scrollTimer);
     let nearest = 0;
     positions.forEach((slide, i) => {
@@ -188,10 +191,23 @@
     visible = true;
   }
   function resize() {
-    if (Math.abs(track.clientWidth - lastWidth) < 1) return;
-    lastWidth = track.clientWidth;
+    const width = track.clientWidth;
+    if (!width) {
+      lastWidth = 0;
+      clearTimeout(timer);
+      clearTimeout(scrollTimer);
+      cancelAnimation();
+      automaticMove = false;
+      return;
+    }
+    if (Math.abs(width - lastWidth) < 1) return;
+    lastWidth = width;
     goTo(current + 1, false);
   }
+  disclosure?.addEventListener('toggle', () => {
+    resize();
+    schedule();
+  });
   if ('ResizeObserver' in window) new ResizeObserver(resize).observe(track);
   else window.addEventListener('resize', resize);
 

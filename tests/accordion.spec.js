@@ -70,3 +70,57 @@ test('expanded research content fits phones, dark mode and enlarged text', async
     await expect(page.locator('.publication').last()).toBeVisible();
   }
 });
+
+
+test('Software opens in place, retains its project when reopened, and fits enlarged text', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
+  await page.goto('/');
+  const summary = page.locator('.approach #software-panel > summary');
+  const content = page.locator('#software-panel > .accordion-content');
+  const carousel = content.locator('[data-carousel]');
+  await expect(content).toBeHidden();
+  await summary.click();
+  await expect(content).toBeVisible();
+  await expect(page).not.toHaveURL(/#/);
+  await expect(content.locator('#work-title')).toHaveText('Explore my work.');
+  await expect(page.locator('[data-carousel]')).toHaveCount(1);
+  await expect(carousel).toHaveAttribute('data-current-project', 'sct');
+  await page.getByRole('button', { name: 'Next project', exact: true }).click();
+  await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
+  await summary.press('Enter');
+  await expect(content).toBeHidden();
+  await summary.press('Space');
+  await expect(content).toBeVisible();
+  await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
+  // Work navigation opens the same card, including when its fragment is unchanged.
+  const workLink = page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Work', exact: true });
+  for (let attempt = 0; attempt < 2; attempt++) {
+    await summary.click();
+    await expect(content).toBeHidden();
+    await page.locator('.menu-toggle').click();
+    await workLink.click();
+    await expect(page).toHaveURL(/#work$/);
+    await expect(content).toBeVisible();
+    await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
+  }
+  for (const size of ['100%', '200%']) {
+    await page.evaluate(value => document.documentElement.style.fontSize = value, size);
+    await expect.poll(() => page.locator('[data-project="spoodle"]').evaluate(element => {
+      const card = element.getBoundingClientRect();
+      const media = element.querySelector('.project-media').getBoundingClientRect();
+      const panel = element.closest('#software-panel').getBoundingClientRect();
+      return card.left >= panel.left - 1 && card.right <= panel.right + 1 && media.width > 100
+        && element.scrollWidth <= element.clientWidth + 1
+        && document.documentElement.scrollWidth <= document.documentElement.clientWidth;
+    })).toBe(true);
+    for (const button of await page.locator('.carousel-toolbar button').all()) {
+      const box = await button.boundingBox();
+      expect(box.width).toBeGreaterThanOrEqual(44);
+      expect(box.height).toBeGreaterThanOrEqual(44);
+    }
+    await page.getByRole('button', { name: 'Next project', exact: true }).click();
+    await expect(carousel).toHaveAttribute('data-current-project', 'beaver');
+    await page.getByRole('button', { name: 'Previous project', exact: true }).click();
+    await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
+  }
+});

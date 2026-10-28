@@ -31,11 +31,10 @@ test('mobile navigation and project layouts remain usable', async ({ page }) => 
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#work')).toBeFocused();
-  const cardsFit = await page.locator('.project[data-project][aria-hidden="false"]').evaluateAll(cards => cards.length === 1 && cards.every(card => {
+  await expect.poll(() => page.locator('.project[data-project][aria-hidden="false"]').evaluateAll(cards => cards.length === 1 && cards.every(card => {
     const rect = card.getBoundingClientRect();
     return rect.left >= -0.5 && rect.right <= window.innerWidth + 0.5;
-  }));
-  expect(cardsFit).toBe(true);
+  }))).toBe(true);
   await expectNoOverflow(page);
 });
 
@@ -48,23 +47,24 @@ test('Escape closes the mobile menu and returns focus', async ({ page }) => {
   await expect(menu).toBeFocused();
 });
 
-test('focus links and Research disclosure are readable at normal and enlarged text sizes', async ({ page }) => {
+test('focus cards are readable at normal and enlarged text sizes', async ({ page }) => {
   await page.goto('/#about');
   const diagram = page.getByRole('group', { name: 'Areas of focus' });
   await expect(diagram).toBeVisible();
   for (const [name, href, text] of [
-    ['Software: Full-stack digital products.', '#work', 'Full-stack digital products'],
     ['People: Supporting communities.', '#about', 'Supporting communities']
   ]) {
     const link = diagram.getByRole('link', { name, exact: true });
     await expect(link).toHaveAttribute('href', href);
     await expect(link).toContainText(text);
   }
+  await expect(diagram.locator('#software-panel > summary')).toContainText('Software');
+  await expect(diagram.locator('#software-panel > summary')).toContainText('Full-stack digital products');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Research');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence, policy and social science');
   for (const size of ['100%', '200%']) {
     await page.evaluate(value => document.documentElement.style.fontSize = value, size);
-    const labelsFit = await diagram.locator(':scope > a, #research-panel > summary').evaluateAll(elements => elements.every(element => {
+    const labelsFit = await diagram.locator(':scope > a, .focus-overview > summary').evaluateAll(elements => elements.every(element => {
       const rect = element.getBoundingClientRect();
       return rect.width >= 44 && rect.height >= 44 && element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1;
     }));
@@ -124,6 +124,11 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await page.goto('http://127.0.0.1:4173/');
   await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
   await expect(page.locator('.menu-toggle')).toBeHidden();
+  await expect(page.locator('#software-panel > .accordion-content')).toBeHidden();
+  await page.locator('#software-panel > summary').click();
+  await expect(page.locator('#work-track')).toBeVisible();
+  await expect(page.locator('#software-panel [data-project]')).toHaveCount(9);
+  await expect(page.locator('[data-project="sct"] .project-links a')).toBeVisible();
   await expect(page.locator('.publication-cover')).toHaveCount(7);
   await expect(page.locator('.research-accordions')).toBeHidden();
   await page.locator('#research-panel > summary').click();

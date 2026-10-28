@@ -46,20 +46,24 @@
   });
 
 
-  // Research navigation reveals the focus card while preserving normal URL navigation.
+  // Navigation reveals the matching focus card while keeping native anchor links.
   // Native details/summary controls remain usable without JavaScript.
-  const researchPanel = document.getElementById('research-panel');
-  function revealResearch(hash) {
-    if (researchPanel && hash === '#research') researchPanel.open = true;
+  const focusPanels = new Map([
+    ['#work', document.getElementById('software-panel')],
+    ['#research', document.getElementById('research-panel')]
+  ]);
+  function revealFocusPanel(hash) {
+    const panel = focusPanels.get(hash);
+    if (panel) panel.open = true;
   }
-  document.querySelectorAll('a[href="#research"]').forEach(link => {
+  document.querySelectorAll('a[href="#work"], a[href="#research"]').forEach(link => {
     link.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
-      revealResearch(link.hash);
+      revealFocusPanel(link.hash);
     });
   });
-  window.addEventListener('hashchange', () => revealResearch(window.location.hash));
-  revealResearch(window.location.hash);
+  window.addEventListener('hashchange', () => revealFocusPanel(window.location.hash));
+  revealFocusPanel(window.location.hash);
 
   const root = document.documentElement;
   const themeButton = document.querySelector('.theme-toggle');
@@ -187,7 +191,7 @@
   if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
 
   // The last section above the reading line is stable even for very tall sections.
-  // Research is nested within Approach; track reading order independently of menu order.
+  // Work and Research are nested within Approach; follow document order independently of menu order.
   const sections = navLinks.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean)
     .sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
   let updateScheduled = false;

@@ -78,7 +78,6 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .button.primary { background: var(--ink); color: white; }
 .button.secondary { border-color: #aab9c8; background: transparent; }
 .section { padding-block: clamp(3.5rem, 7vw, 6rem); }
-.work-section { background: var(--surface); border-block: 1px solid var(--line); }
 .section-heading { display: grid; gap: 1rem; margin-bottom: 2rem; }
 .section-heading > p { max-width: 36rem; margin: 0; color: var(--muted); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
@@ -113,8 +112,8 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .media-link { position: absolute; right: 1rem; bottom: 1rem; padding: .45rem .7rem; border: 1px solid #d2dde6; border-radius: .45rem; background: #fff; color: #152b46; font-size: .875rem; font-weight: 600; line-height: 1.35; }
 .project-content { display: flex; flex: 1; flex-direction: column; padding: 1.5rem .15rem .25rem; }
 .project-category { margin-bottom: .65rem; color: var(--accent); font-size: .8125rem; font-weight: 600; line-height: 1.45; letter-spacing: .035em; }
-.project h3 { margin-bottom: .65rem; font-size: clamp(1.65rem, 2.8vw, 2.4rem); overflow-wrap: anywhere; }
-.project h3 a { display: inline-block; min-height: 2.75rem; padding-block: .15rem; }
+.project h5 { margin-bottom: .65rem; font-size: clamp(1.65rem, 2.8vw, 2.4rem); overflow-wrap: anywhere; }
+.project h5 a { display: inline-block; min-height: 2.75rem; padding-block: .15rem; }
 .project-subtitle { margin-bottom: 1rem; font-size: 1rem; font-weight: 600; line-height: 1.4; color: var(--ink); }
 .project-content > p:not(.project-category, .project-subtitle) { max-width: 38rem; color: var(--muted); }
 .project-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: 0 1rem; }
@@ -133,11 +132,10 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .about-copy > .lead-paragraph { color: var(--ink); font-size: 1.25rem; line-height: 1.65; }
 .approach { display: grid; gap: 0; margin-top: 2rem; max-width: 31rem; }
 .approach > a { display: flex; flex-direction: column; justify-content: center; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); border-radius: 5rem; text-align: center; border: 3px solid var(--paper); position: relative; }
-.approach > * + * { margin-top: -.65rem; }
-.approach > a strong, .research-overview > summary h3 { display: block; margin: 0 0 .15rem; font-size: 1.6rem; line-height: 1.3; letter-spacing: -.02em; }
-.approach > a > span, .research-label > p { display: block; max-width: 15rem; margin-inline: auto; font-size: 1rem; line-height: 1.5; }
-.approach-people { background: #152b46; color: white; margin-right: 1.5rem; }
-.approach-play { background: #294e71; color: white; margin-left: 1.5rem; }
+.approach > a strong, .focus-overview > summary h3 { display: block; margin: 0 0 .15rem; font-size: 1.6rem; line-height: 1.3; letter-spacing: -.02em; }
+.approach > a > span, .focus-label > p { display: block; max-width: 15rem; margin-inline: auto; font-size: 1rem; line-height: 1.5; }
+.approach-people { --focus-background: #152b46; --focus-hover: #213e60; background: #152b46; color: white; margin-right: 1.5rem; }
+.approach-play { --focus-background: #294e71; --focus-hover: #345f85; background: #294e71; color: white; margin-left: 1.5rem; }
 .approach-simplify { background: #d9e7f0; color: var(--ink); margin-right: 1.5rem; }
 .credentials { display: grid; gap: 1.25rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
 .credentials p { margin: 0; }
@@ -165,21 +163,27 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .accordion .publication-list { border-top: 0; }
 .accordion .publication { color: var(--ink); }
 .accordion .publication:last-child { border-bottom: 0; }
-/* The Research focus card opens its content in place, between Software and People. */
-.approach-research { min-width: 0; }
-.approach-research + a { margin-top: 0; }
-.research-overview { position: relative; background: #294e71; color: white; border: 3px solid var(--paper); border-radius: 5rem; }
-.research-overview[open] { border-radius: 2rem; }
-.research-overview > summary { border-radius: 5rem; flex-direction: column; justify-content: center; gap: .5rem; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); text-align: center; }
-.research-overview[open] > summary { border-radius: 1.8rem 1.8rem 0 0; }
-.research-overview > summary:focus-visible { outline-color: #a7d9d4; }
-.research-label { min-width: 0; }
-.research-label > p { margin-bottom: 0; }
-.research-overview > summary .accordion-icon { color: white; border-color: #8aa6bf; }
-.research-overview > .accordion-content { padding: clamp(.75rem, 2vw, 1.25rem); border-color: #8aa6bf; border-radius: 0 0 1.8rem 1.8rem; background: var(--surface); color: var(--ink); }
+/* Focus cards open their content in place within About & approach. */
+.approach-software, .approach-research { min-width: 0; }
+.focus-overview { position: relative; background: var(--focus-background); color: white; border: 3px solid var(--paper); border-radius: 5rem; }
+.focus-overview[open] { border-radius: 2rem; }
+.focus-overview > summary { border-radius: 5rem; flex-direction: column; justify-content: center; gap: .5rem; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); text-align: center; }
+.focus-overview[open] > summary { border-radius: 1.8rem 1.8rem 0 0; }
+.focus-overview > summary:focus-visible { outline-color: #a7d9d4; }
+.focus-label { min-width: 0; }
+.focus-label > p { margin-bottom: 0; }
+.focus-overview > summary .accordion-icon { color: white; border-color: #8aa6bf; }
+.focus-overview > .accordion-content { padding: clamp(.75rem, 2vw, 1.25rem); border-color: #8aa6bf; border-radius: 0 0 1.8rem 1.8rem; background: var(--surface); color: var(--ink); }
 .research-overview .accordion > summary { gap: .5rem; }
 .research-overview .accordion-content .accordion-content { padding-inline: clamp(.5rem, 2vw, 1rem); }
 .research-overview .publication { grid-template-columns: min(3.5rem, 22%) minmax(0, 1fr); gap: .75rem; }
+.software-overview .work-heading { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
+.software-overview .work-heading h4 { margin: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.15; }
+.software-overview .work-heading p { margin: 0; color: var(--muted); }
+/* The carousel follows the card width, including in the desktop About column. */
+.software-overview .project { display: flex; flex-direction: column; gap: 0; }
+.software-overview .project-media { align-self: stretch; }
+.software-overview .project-content { padding: 1.25rem .15rem .25rem; }
 .research-intro { min-width: 0; width: 100%; max-width: 36rem; color: var(--muted); }
 .research-intro > p { margin-bottom: 1rem; }
 .research-experience { padding-inline-start: 1.25rem; list-style: disc; }
@@ -235,7 +239,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .section-heading > p { max-width: 28rem; justify-self: end; }
   .about-layout { gap: 6rem; }
   .approach { margin-top: 2.5rem; }
-  .approach > a, .research-overview > summary { min-height: 9rem; }
+  .approach > a, .focus-overview > summary { min-height: 9rem; }
   .footer-brand { display: inline; margin-left: 1rem; }
 }
 @media (max-width: 24rem) {
@@ -248,11 +252,11 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   a, button { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
   .site-nav a:hover, .button.primary:hover { background: var(--navy-mid); color: white; }
   .button.secondary:hover { background: var(--soft); border-color: var(--navy-mid); }
-  .text-link:hover, .source-link:hover, .project h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  .text-link:hover, .source-link:hover, .project h5 a:hover { color: var(--accent); text-decoration-color: currentColor; }
   .project-media:hover .media-link { background: var(--ink); color: white; }
   .publication:hover .publication-copy strong { text-decoration: underline; text-underline-offset: .2em; }
   .accordion > summary:hover { background: var(--soft); }
-  .research-overview > summary:hover { background: #345f85; }
+  .focus-overview > summary:hover { background: var(--focus-hover); }
   .contact-button:hover { background: white; }
   .social a:hover { background: #294e71; border-color: #a7d9d4; color: #a7d9d4; }
   .email-link:hover, .back-to-top:hover { color: #a7d9d4; text-decoration: underline; text-underline-offset: .3em; }
@@ -273,7 +277,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 @media (forced-colors: active) {
-  .button, .brand-logo, .approach > a, .research-overview, .media-link { border: 1px solid ButtonText; }
+  .button, .brand-logo, .approach > a, .focus-overview, .media-link { border: 1px solid ButtonText; }
 }
 
 /* Publications and focus labels are real HTML, including with scripts disabled. */

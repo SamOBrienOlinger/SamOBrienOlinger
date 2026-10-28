@@ -62,10 +62,16 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('.menu-toggle')).toBeHidden();
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
   await expect(nav).toBeVisible();
-  for (const [label, hash] of [['Software: Full-stack digital products.', 'work'], ['People: Supporting communities.', 'about']]) {
+  for (const [label, hash] of [['People: Supporting communities.', 'about']]) {
     await page.getByRole('link', { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`#${hash}$`));
   }
+  const softwareSummary = page.locator('.approach #software-panel > summary');
+  await softwareSummary.press('Enter');
+  await expect(page.locator('#software-panel > .accordion-content')).toBeVisible();
+  await expect(page).toHaveURL(/#about$/);
+  await softwareSummary.press('Space');
+  await expect(page.locator('#software-panel > .accordion-content')).toBeHidden();
   // The Research card expands in place and keeps focus in the About flow.
   const researchSummary = page.locator('.approach #research-panel > summary');
   await researchSummary.press('Enter');
