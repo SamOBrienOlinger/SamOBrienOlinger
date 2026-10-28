@@ -47,7 +47,7 @@ test('Escape closes the mobile menu and returns focus', async ({ page }) => {
   await expect(menu).toBeFocused();
 });
 
-test('focus cards are readable at normal and enlarged text sizes', async ({ page }) => {
+test('focus cards and contact actions are readable at normal and enlarged text sizes', async ({ page }) => {
   await page.goto('/#about');
   const diagram = page.getByRole('group', { name: 'Areas of focus' });
   await expect(diagram).toBeVisible();
@@ -64,6 +64,12 @@ test('focus cards are readable at normal and enlarged text sizes', async ({ page
       return rect.width >= 44 && rect.height >= 44 && element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1;
     }));
     expect(labelsFit).toBe(true);
+    const contactActionsFit = await page.locator('.contact-actions a').evaluateAll(elements => elements.every(element => {
+      const rect = element.getBoundingClientRect();
+      return rect.width >= 44 && rect.height >= 44 && element.scrollWidth <= element.clientWidth + 1
+        && rect.left >= 0 && rect.right <= document.documentElement.clientWidth + 1;
+    }));
+    expect(contactActionsFit).toBe(true);
     await expectNoOverflow(page);
   }
 });
@@ -125,17 +131,14 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await expect(page.locator('#software-panel [data-project]')).toHaveCount(9);
   await expect(page.locator('[data-project="sct"] .project-links a')).toBeVisible();
   await expect(page.locator('.publication-cover')).toHaveCount(7);
-  await expect(page.locator('.research-accordions')).toBeHidden();
+  await expect(page.locator('#research-publications')).toBeHidden();
   await page.locator('#research-panel > summary').click();
-  await expect(page.locator('.research-accordions')).toBeVisible();
+  await expect(page.locator('#research-publications')).toBeVisible();
   await expect(page.locator('#people-panel > .accordion-content')).toBeHidden();
   await page.locator('#people-panel > summary').click();
   await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
   await expect(page.locator('#people-panel .research-experience')).toBeVisible();
-  const publications = page.locator('#research-publications');
-  await expect(publications.locator('.accordion-content')).toBeHidden();
-  await publications.locator('summary').click();
-  await expect(publications.locator('.accordion-content')).toBeVisible();
+  await expect(page.locator('#research-publications .publication').first()).toBeVisible();
   await expect(page.locator('.publication').last()).toBeVisible();
   await expectNoOverflow(page);
   await context.close();

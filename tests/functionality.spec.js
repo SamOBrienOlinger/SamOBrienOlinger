@@ -78,16 +78,13 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(researchSummary).toBeFocused();
   // Check full keyboard tab order in desktop mode, alongside mobile activation coverage.
   const publications = page.locator('#research-publications');
-  const summary = publications.locator('summary');
-  const content = publications.locator('.accordion-content');
-  await summary.press('Enter');
-  await expect(content).toBeVisible();
+  await expect(publications.locator('a').first()).toBeVisible();
   await page.keyboard.press('Tab');
   await expect(publications.locator('a').first()).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(summary).toBeFocused();
+  await expect(researchSummary).toBeFocused();
   await page.keyboard.press('Enter');
-  await expect(content).toBeHidden();
+  await expect(publications).toBeHidden();
   await page.keyboard.press('Tab');
   const peopleSummary = page.locator('#people-panel > summary');
   await expect(peopleSummary).toBeFocused();
