@@ -9,8 +9,7 @@ test('Research and People accordions support pointer and keyboard activation', a
   await expect(outerSummary).toContainText('Evidence, policy and social science');
   await outerSummary.click();
   await expect(nestedPanels).toBeVisible();
-  await expect(page.locator('.approach #research .research-heading')).toContainText('A foundation in evidence.');
-  await expect(page.locator('.research-heading')).toHaveCount(1);
+  await expect(page.locator('#research-publications > summary')).toHaveText('Published work');
   await outerSummary.click();
   await expect(nestedPanels).toBeHidden();
   await page.locator('.menu-toggle').click();
