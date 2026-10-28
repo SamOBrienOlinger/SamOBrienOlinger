@@ -45,6 +45,22 @@
     } catch { /* Leave the browser's normal Copy action available if the write fails. */ }
   });
 
+
+  // Research links reveal the outer panel while preserving normal URL navigation.
+  // Native details/summary controls remain usable without JavaScript.
+  const researchPanel = document.getElementById('research-panel');
+  function revealResearch(hash) {
+    if (researchPanel && hash === '#research') researchPanel.open = true;
+  }
+  document.querySelectorAll('a[href="#research"]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+      revealResearch(link.hash);
+    });
+  });
+  window.addEventListener('hashchange', () => revealResearch(window.location.hash));
+  revealResearch(window.location.hash);
+
   const root = document.documentElement;
   const themeButton = document.querySelector('.theme-toggle');
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');

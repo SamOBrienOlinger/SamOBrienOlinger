@@ -2,7 +2,18 @@ const { test, expect } = require('@playwright/test');
 
 test('research accordions support pointer and keyboard activation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/#research');
+  await page.goto('/');
+  const outerSummary = page.locator('#research-panel > summary');
+  const nestedPanels = page.locator('.research-accordions');
+  await expect(nestedPanels).toBeHidden();
+  await page.locator('.menu-toggle').click();
+  await page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Research', exact: true }).click();
+  await expect(page).toHaveURL(/#research$/);
+  await expect(nestedPanels).toBeVisible();
+  await outerSummary.press('Enter');
+  await expect(nestedPanels).toBeHidden();
+  await outerSummary.press('Space');
+  await expect(nestedPanels).toBeVisible();
   for (const selector of ['#research-experience', '#research-publications']) {
     const panel = page.locator(selector);
     const summary = panel.locator('summary');

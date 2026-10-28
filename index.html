@@ -8,8 +8,8 @@
   <title>Sam Tim Solutions | Sam O’Brien-Olinger</title>
   <link rel="canonical" href="https://samobrienolinger.github.io/SamOBrienOlinger/">
   <link rel="icon" href="assets/images/sam-logo.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20261028-main-project-images">
-  <script src="script.js?v=20261027-hero-reveal" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261028-nested-research">
+  <script src="script.js?v=20261028-nested-research" defer></script>
   <script src="carousel.js?v=20260906-work-refined" defer></script>
 </head>
 <body id="top">
@@ -200,12 +200,16 @@
 
     <section class="section research-section" id="research" aria-labelledby="research-title">
       <div class="container">
-        <div class="section-heading">
-          <div><p class="eyebrow">Research &amp; writing</p><h2 id="research-title">A foundation in evidence.</h2></div>
-        </div>
+        <details class="accordion research-overview" id="research-panel">
+          <summary><h2 id="research-title">Research</h2><span class="accordion-icon" aria-hidden="true"></span></summary>
+          <div class="accordion-content">
+            <div class="research-heading">
+              <p class="eyebrow">Research &amp; writing</p>
+              <h3>A foundation in evidence.</h3>
+            </div>
         <div class="research-accordions">
           <details class="accordion" id="research-experience">
-            <summary><h3>Experience &amp; areas of focus</h3><span class="accordion-icon" aria-hidden="true"></span></summary>
+            <summary><h4>Experience &amp; areas of focus</h4><span class="accordion-icon" aria-hidden="true"></span></summary>
             <div class="accordion-content">
               <div class="research-intro">
             <p>Digital work informed by more than a decade of experience in:</p>
@@ -225,7 +229,7 @@
             </div>
           </details>
           <details class="accordion" id="research-publications">
-            <summary><h3>Publications &amp; writing</h3><span class="accordion-icon" aria-hidden="true"></span></summary>
+            <summary><h4>Publications &amp; writing</h4><span class="accordion-icon" aria-hidden="true"></span></summary>
             <div class="accordion-content">
               <div class="publication-list">
 <a class="publication" href="https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399"><img class="publication-cover" src="assets/images/routledge-international-handbook-police-ethnography.webp" width="300" height="450" alt="" loading="lazy" decoding="async"><span class="publication-copy"><span class="publication-meta">Book chapter · Routledge</span><strong>Routledge International Handbook of Police Ethnography (Chapter 34)</strong></span></a>
@@ -240,6 +244,8 @@
             </div>
           </details>
         </div>
+          </div>
+        </details>
       </div>
     </section>
 

@@ -146,14 +146,19 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
 .research-section { background: var(--surface); border-top: 1px solid var(--line); }
-.research-section .section-heading { align-items: start; }
 .research-accordions { display: grid; gap: 1rem; }
+.research-overview > summary h2 { min-width: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.25; }
+.research-overview > .accordion-content { padding: clamp(.75rem, 2vw, 1.5rem); color: var(--ink); }
+.research-heading { margin-bottom: 1.5rem; }
+.research-heading h3 { margin: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.15; }
+.research-overview .research-accordions > .accordion > summary { padding-inline: clamp(.75rem, 2vw, 1.25rem); }
+
 .accordion { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
 .accordion > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; padding: 1.25rem clamp(1rem, 3vw, 1.75rem); border-radius: inherit; list-style: none; cursor: pointer; touch-action: manipulation; }
 .accordion > summary::-webkit-details-marker { display: none; }
 .accordion > summary::marker { content: ""; }
 .accordion > summary:focus-visible { outline-offset: -4px; }
-.accordion > summary h3 { min-width: 0; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.35; letter-spacing: -.025em; }
+.accordion > summary :is(h3, h4) { min-width: 0; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.35; letter-spacing: -.025em; }
 .accordion-icon { position: relative; flex: 0 0 2rem; width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); }
 .accordion-icon::before, .accordion-icon::after { content: ""; position: absolute; top: calc(50% - 1px); left: calc(50% - .375rem); width: .75rem; border-top: 2px solid currentColor; }
 .accordion-icon::after { transform: rotate(90deg); }
