@@ -27,7 +27,7 @@ test('Research and People accordions support pointer and keyboard activation', a
   await peopleSummary.click();
   await expect(peopleContent).toBeVisible();
   await expect(page.locator('#research .research-experience')).toHaveCount(0);
-  await expect(page.locator('#people .research-experience li')).toHaveCount(10);
+  await expect(page.locator('#people .research-experience li')).toHaveCount(9);
   await peopleSummary.press('Enter');
   await expect(peopleContent).toBeHidden();
   await peopleSummary.press('Space');
@@ -58,7 +58,7 @@ test('expanded Research and People content fits phones, dark mode and enlarged t
   for (const selector of ['#people-experience', '#research-publications']) {
     await page.locator(`${selector} > summary`).click();
   }
-  await expect(page.locator('.research-experience li')).toHaveCount(10);
+  await expect(page.locator('.research-experience li')).toHaveCount(9);
   await expect(page.locator('#research-publications .publication')).toHaveCount(8);
   await expect(page.locator('#research-publications .publication-cover')).toHaveCount(7);
   for (const size of ['100%', '200%']) {

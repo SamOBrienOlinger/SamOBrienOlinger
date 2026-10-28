@@ -98,7 +98,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(experienceSummary).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('#people-experience .research-experience')).toBeVisible();
-  await expect(page.locator('#people-experience li')).toHaveCount(10);
+  await expect(page.locator('#people-experience li')).toHaveCount(9);
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');
