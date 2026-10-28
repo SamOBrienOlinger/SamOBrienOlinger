@@ -46,7 +46,7 @@
   });
 
 
-  // Research links reveal the outer panel while preserving normal URL navigation.
+  // Research navigation reveals the focus card while preserving normal URL navigation.
   // Native details/summary controls remain usable without JavaScript.
   const researchPanel = document.getElementById('research-panel');
   function revealResearch(hash) {
@@ -187,7 +187,9 @@
   if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
 
   // The last section above the reading line is stable even for very tall sections.
-  const sections = navLinks.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean);
+  // Research is nested within Approach; track reading order independently of menu order.
+  const sections = navLinks.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean)
+    .sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
   let updateScheduled = false;
   function updateActiveSection() {
     updateScheduled = false;

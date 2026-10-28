@@ -24,11 +24,11 @@ a { color: inherit; text-decoration: none; }
 a, button { -webkit-touch-callout: default; }
 button { cursor: pointer; }
 img { display: block; max-width: 100%; height: auto; }
-h1, h2, h3, h4, p { margin-top: 0; }
-h1, h2, h3, h4 { text-wrap: balance; overflow-wrap: anywhere; }
+h1, h2, h3, h4, h5, p { margin-top: 0; }
+h1, h2, h3, h4, h5 { text-wrap: balance; overflow-wrap: anywhere; }
 p, li, a { overflow-wrap: anywhere; }
 h2 { margin-bottom: 0; font-size: clamp(2rem, 4.4vw, 3.5rem); line-height: 1.15; letter-spacing: -.045em; font-weight: 700; }
-h3, h4 { line-height: 1.2; letter-spacing: -.035em; }
+h3, h4, h5 { line-height: 1.2; letter-spacing: -.035em; }
 p { margin-bottom: 1.25rem; }
 strong { font-weight: 650; }
 ul { margin: 0; padding: 0; list-style: none; }
@@ -133,9 +133,9 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .about-copy > .lead-paragraph { color: var(--ink); font-size: 1.25rem; line-height: 1.65; }
 .approach { display: grid; gap: 0; margin-top: 2rem; max-width: 31rem; }
 .approach > a { display: flex; flex-direction: column; justify-content: center; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); border-radius: 5rem; text-align: center; border: 3px solid var(--paper); position: relative; }
-.approach > a + a { margin-top: -.65rem; }
-.approach strong { display: block; margin-bottom: .15rem; font-size: 1.6rem; line-height: 1.3; letter-spacing: -.02em; }
-.approach span { display: block; max-width: 15rem; margin-inline: auto; font-size: 1rem; line-height: 1.5; }
+.approach > * + * { margin-top: -.65rem; }
+.approach > a strong, .research-overview > summary h3 { display: block; margin: 0 0 .15rem; font-size: 1.6rem; line-height: 1.3; letter-spacing: -.02em; }
+.approach > a > span, .research-label > p { display: block; max-width: 15rem; margin-inline: auto; font-size: 1rem; line-height: 1.5; }
 .approach-people { background: #152b46; color: white; margin-right: 1.5rem; }
 .approach-play { background: #294e71; color: white; margin-left: 1.5rem; }
 .approach-simplify { background: #d9e7f0; color: var(--ink); margin-right: 1.5rem; }
@@ -145,12 +145,9 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .credentials span { color: var(--muted); font-size: .9375rem; }
 .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
-.research-section { background: var(--surface); border-top: 1px solid var(--line); }
 .research-accordions { display: grid; gap: 1rem; }
-.research-overview > summary h2 { min-width: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.25; }
-.research-overview > .accordion-content { padding: clamp(.75rem, 2vw, 1.5rem); color: var(--ink); }
 .research-heading { margin-bottom: 1.5rem; }
-.research-heading h3 { margin: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.15; }
+.research-heading h4 { margin: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.15; }
 .research-overview .research-accordions > .accordion > summary { padding-inline: clamp(.75rem, 2vw, 1.25rem); }
 
 .accordion { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
@@ -158,7 +155,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .accordion > summary::-webkit-details-marker { display: none; }
 .accordion > summary::marker { content: ""; }
 .accordion > summary:focus-visible { outline-offset: -4px; }
-.accordion > summary :is(h3, h4) { min-width: 0; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.35; letter-spacing: -.025em; }
+.accordion > summary :is(h4, h5) { min-width: 0; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.35; letter-spacing: -.025em; }
 .accordion-icon { position: relative; flex: 0 0 2rem; width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); }
 .accordion-icon::before, .accordion-icon::after { content: ""; position: absolute; top: calc(50% - 1px); left: calc(50% - .375rem); width: .75rem; border-top: 2px solid currentColor; }
 .accordion-icon::after { transform: rotate(90deg); }
@@ -168,6 +165,20 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .accordion .publication-list { border-top: 0; }
 .accordion .publication { color: var(--ink); }
 .accordion .publication:last-child { border-bottom: 0; }
+/* The Research focus card opens its content in place, between Software and People. */
+.approach-research { min-width: 0; }
+.approach-research + a { margin-top: 0; }
+.research-overview { position: relative; background: #294e71; color: white; border: 3px solid var(--paper); border-radius: 5rem; }
+.research-overview[open] { border-radius: 2rem; }
+.research-overview > summary { flex-direction: column; justify-content: center; gap: .5rem; min-height: 8.25rem; padding: 1.5rem clamp(1rem, 3vw, 2rem); text-align: center; }
+.research-overview > summary:focus-visible { outline-color: #a7d9d4; }
+.research-label { min-width: 0; }
+.research-label > p { margin-bottom: 0; }
+.research-overview > summary .accordion-icon { color: white; border-color: #8aa6bf; }
+.research-overview > .accordion-content { padding: clamp(.75rem, 2vw, 1.25rem); border-color: #8aa6bf; border-radius: 0 0 1.8rem 1.8rem; background: var(--surface); color: var(--ink); }
+.research-overview .accordion > summary { gap: .5rem; }
+.research-overview .accordion-content .accordion-content { padding-inline: clamp(.5rem, 2vw, 1rem); }
+.research-overview .publication { grid-template-columns: min(3.5rem, 22%) minmax(0, 1fr); gap: .75rem; }
 .research-intro { min-width: 0; width: 100%; max-width: 36rem; color: var(--muted); }
 .research-intro > p { margin-bottom: 1rem; }
 .research-experience { padding-inline-start: 1.25rem; list-style: disc; }
@@ -223,7 +234,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .section-heading > p { max-width: 28rem; justify-self: end; }
   .about-layout { gap: 6rem; }
   .approach { margin-top: 2.5rem; }
-  .approach > a { min-height: 9rem; }
+  .approach > a, .research-overview > summary { min-height: 9rem; }
   .footer-brand { display: inline; margin-left: 1rem; }
 }
 @media (max-width: 24rem) {
@@ -240,6 +251,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .project-media:hover .media-link { background: var(--ink); color: white; }
   .publication:hover .publication-copy strong { text-decoration: underline; text-underline-offset: .2em; }
   .accordion > summary:hover { background: var(--soft); }
+  .research-overview > summary:hover { background: #345f85; }
   .contact-button:hover { background: white; }
   .social a:hover { background: #294e71; border-color: #a7d9d4; color: #a7d9d4; }
   .email-link:hover, .back-to-top:hover { color: #a7d9d4; text-decoration: underline; text-underline-offset: .3em; }
@@ -260,7 +272,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 @media (forced-colors: active) {
-  .button, .brand-logo, .approach > a, .media-link { border: 1px solid ButtonText; }
+  .button, .brand-logo, .approach > a, .research-overview, .media-link { border: 1px solid ButtonText; }
 }
 
 /* Publications and focus labels are real HTML, including with scripts disabled. */

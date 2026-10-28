@@ -3,8 +3,15 @@ const { test, expect } = require('@playwright/test');
 test('research accordions support pointer and keyboard activation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  const outerSummary = page.locator('#research-panel > summary');
+  const outerSummary = page.locator('.approach #research-panel > summary');
   const nestedPanels = page.locator('.research-accordions');
+  await expect(nestedPanels).toBeHidden();
+  await expect(outerSummary).toContainText('Evidence, policy and social science');
+  await outerSummary.click();
+  await expect(nestedPanels).toBeVisible();
+  await expect(page.locator('.approach #research .research-heading')).toContainText('A foundation in evidence.');
+  await expect(page.locator('.research-heading')).toHaveCount(1);
+  await outerSummary.click();
   await expect(nestedPanels).toBeHidden();
   await page.locator('.menu-toggle').click();
   await page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Research', exact: true }).click();
@@ -53,6 +60,13 @@ test('expanded research content fits phones, dark mode and enlarged text', async
       expect(summary.fits).toBe(true);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+    const layout = await page.evaluate(() => {
+      const card = document.querySelector('#research-panel').getBoundingClientRect();
+      const content = document.querySelector('#research-panel > .accordion-content').getBoundingClientRect();
+      const people = document.querySelector('.approach-simplify').getBoundingClientRect();
+      return { contained: content.left >= card.left && content.right <= card.right, peopleBelow: people.top >= content.bottom };
+    });
+    expect(layout).toEqual({ contained: true, peopleBelow: true });
     await expect(page.locator('.publication').last()).toBeVisible();
   }
 });

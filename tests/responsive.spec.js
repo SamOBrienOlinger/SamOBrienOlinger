@@ -48,22 +48,23 @@ test('Escape closes the mobile menu and returns focus', async ({ page }) => {
   await expect(menu).toBeFocused();
 });
 
-test('focus labels are readable HTML links at normal and enlarged text sizes', async ({ page }) => {
+test('focus links and Research disclosure are readable at normal and enlarged text sizes', async ({ page }) => {
   await page.goto('/#about');
   const diagram = page.getByRole('group', { name: 'Areas of focus' });
   await expect(diagram).toBeVisible();
   for (const [name, href, text] of [
     ['Software: Full-stack digital products.', '#work', 'Full-stack digital products'],
-    ['Research: Evidence, policy and social science.', '#research', 'Evidence, policy and social science'],
     ['People: Supporting communities.', '#about', 'Supporting communities']
   ]) {
     const link = diagram.getByRole('link', { name, exact: true });
     await expect(link).toHaveAttribute('href', href);
     await expect(link).toContainText(text);
   }
+  await expect(diagram.locator('#research-panel > summary')).toContainText('Research');
+  await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence, policy and social science');
   for (const size of ['100%', '200%']) {
     await page.evaluate(value => document.documentElement.style.fontSize = value, size);
-    const labelsFit = await diagram.locator('a').evaluateAll(elements => elements.every(element => {
+    const labelsFit = await diagram.locator(':scope > a, #research-panel > summary').evaluateAll(elements => elements.every(element => {
       const rect = element.getBoundingClientRect();
       return rect.width >= 44 && rect.height >= 44 && element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1;
     }));

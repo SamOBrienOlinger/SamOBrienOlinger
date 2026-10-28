@@ -62,10 +62,16 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('.menu-toggle')).toBeHidden();
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
   await expect(nav).toBeVisible();
-  for (const [label, hash] of [['Software: Full-stack digital products.', 'work'], ['Research: Evidence, policy and social science.', 'research'], ['People: Supporting communities.', 'about']]) {
+  for (const [label, hash] of [['Software: Full-stack digital products.', 'work'], ['People: Supporting communities.', 'about']]) {
     await page.getByRole('link', { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`#${hash}$`));
   }
+  // The Research card expands in place and keeps focus in the About flow.
+  const researchSummary = page.locator('.approach #research-panel > summary');
+  await researchSummary.press('Enter');
+  await expect(page).toHaveURL(/#about$/);
+  await expect(page.locator('#research-panel > .accordion-content')).toBeVisible();
+  await expect(researchSummary).toBeFocused();
   // Check full keyboard tab order in desktop mode, alongside mobile activation coverage.
   const publications = page.locator('#research-publications');
   const summary = publications.locator('summary');
@@ -79,7 +85,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await page.keyboard.press('Enter');
   await expect(content).toBeHidden();
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Software: Full-stack digital products.', exact: true })).toBeFocused();
+  await expect(page.getByRole('link', { name: 'People: Supporting communities.', exact: true })).toBeFocused();
   await nav.getByRole('link', { name: 'Work', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');
