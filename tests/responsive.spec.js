@@ -130,6 +130,13 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
   await expect(page.locator('.menu-toggle')).toBeHidden();
   await expect(page.locator('.publication-cover')).toHaveCount(7);
+  for (const selector of ['.experience-accordion', '#research-experience', '#research-publications']) {
+    const panel = page.locator(selector);
+    await expect(panel.locator('.accordion-content')).toBeHidden();
+    await panel.locator('summary').click();
+    await expect(panel.locator('.accordion-content')).toBeVisible();
+  }
+  await expect(page.locator('.publication').last()).toBeVisible();
   await expectNoOverflow(page);
   await context.close();
 });

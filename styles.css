@@ -147,6 +147,24 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
 .research-section { background: var(--surface); border-top: 1px solid var(--line); }
 .research-section .section-heading { align-items: start; }
+.research-accordions { display: grid; gap: 1rem; }
+.accordion { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+.accordion > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; padding: 1.25rem clamp(1rem, 3vw, 1.75rem); border-radius: inherit; list-style: none; cursor: pointer; touch-action: manipulation; }
+.accordion > summary::-webkit-details-marker { display: none; }
+.accordion > summary::marker { content: ""; }
+.accordion > summary:focus-visible { outline-offset: -4px; }
+.accordion > summary h3 { min-width: 0; margin: 0; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.35; letter-spacing: -.025em; }
+.accordion-icon { position: relative; flex: 0 0 2rem; width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); }
+.accordion-icon::before, .accordion-icon::after { content: ""; position: absolute; top: calc(50% - 1px); left: calc(50% - .375rem); width: .75rem; border-top: 2px solid currentColor; }
+.accordion-icon::after { transform: rotate(90deg); }
+.accordion[open] > summary .accordion-icon::after { transform: rotate(0); }
+.accordion-content { padding: 1.25rem clamp(1rem, 3vw, 1.75rem) 1.5rem; border-top: 1px solid var(--line); color: var(--muted); }
+.accordion-content > :last-child { margin-bottom: 0; }
+.experience-accordion { align-self: start; background: var(--surface); }
+.experience-accordion .project-category { display: block; letter-spacing: .035em; }
+.accordion .publication-list { border-top: 0; }
+.accordion .publication { color: var(--ink); }
+.accordion .publication:last-child { border-bottom: 0; }
 .research-intro { min-width: 0; width: 100%; max-width: 36rem; color: var(--muted); }
 .research-intro > p { margin-bottom: 1rem; }
 .research-experience { padding-inline-start: 1.25rem; list-style: disc; }
@@ -218,6 +236,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .text-link:hover, .source-link:hover, .project h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
   .project-media:hover .media-link { background: var(--ink); color: white; }
   .publication:hover .publication-copy strong { text-decoration: underline; text-underline-offset: .2em; }
+  .accordion > summary:hover { background: var(--soft); }
   .contact-button:hover { background: white; }
   .social a:hover { background: #294e71; border-color: #a7d9d4; color: #a7d9d4; }
   .email-link:hover, .back-to-top:hover { color: #a7d9d4; text-decoration: underline; text-underline-offset: .3em; }
