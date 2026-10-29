@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "serve -l 4173 .",
-    "test": "playwright test"
+    "test": "npm run test:venn && playwright test",
+    "test:venn": "node --test tests/credentials-venn.node-test.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

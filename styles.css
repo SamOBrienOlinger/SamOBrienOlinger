@@ -139,10 +139,30 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .approach-people { --focus-background: #152b46; --focus-hover: #213e60; background: #152b46; color: white; margin-right: clamp(0rem, 1.5vw, .75rem); }
 .approach-play { --focus-background: #294e71; --focus-hover: #345f85; background: #294e71; color: white; margin-left: clamp(0rem, 1.5vw, .75rem); }
 .approach-simplify { --focus-background: #d9e7f0; --focus-hover: #c4d8e7; --focus-color: #152b46; --focus-outline: #086b68; background: #d9e7f0; color: #152b46; margin-right: clamp(0rem, 1.5vw, .75rem); }
-.credentials { display: grid; gap: 1.25rem; margin-block: 0; padding-block: 1.5rem; border-block: 1px solid var(--line); }
-.credentials p { margin: 0; }
-.credentials strong, .credentials span { display: block; }
-.credentials span { color: var(--muted); font-size: .9375rem; }
+.credentials-venn { margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow: hidden; }
+.credentials-venn svg { display: block; width: 100%; height: auto; }
+.credential-circle { transform-box: fill-box; transform-origin: center; }
+.credential-circle circle { stroke-width: 4; }
+.credential-circle--sociology circle { fill: #6aa3d0; fill-opacity: .42; stroke: #bbdcf5; }
+.credential-circle--development circle { fill: #39739f; fill-opacity: .46; stroke: #8dbce3; }
+.credential-circle--community circle { fill: #d6a46b; fill-opacity: .46; stroke: #ffc776; }
+.credential-circle--service circle { fill: #69a6d4; fill-opacity: .44; stroke: #b2d4ef; }
+.credential-circle text { fill: #f4f7fc; font: 650 42px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.8px; text-anchor: middle; }
+.credential-circle--community text { font-size: 39px; }
+.credential-circle .credential-accent { fill: #ffcf84; }
+@media (prefers-reduced-motion: no-preference) {
+  .credentials-venn.reveal-ready .credential-circle { opacity: 0; }
+  .credentials-venn.reveal-ready.is-revealing .credential-circle {
+    animation: credential-circle-reveal .8666666667s cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both;
+  }
+}
+@keyframes credential-circle-reveal {
+  from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media print {
+  .credentials-venn .credential-circle { opacity: 1 !important; animation: none !important; transform: none !important; }
+}
 .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
 .research-publications-title { margin: 0 0 .25rem; font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.35; letter-spacing: -.025em; }
