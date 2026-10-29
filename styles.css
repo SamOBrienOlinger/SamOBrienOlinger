@@ -142,26 +142,42 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .credentials-venn { margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow: hidden; }
 .credentials-venn svg { display: block; width: 100%; height: auto; }
 .credential-circle { transform-box: fill-box; transform-origin: center; }
-.credential-circle circle { stroke-width: 4; }
-.credential-circle--sociology circle { fill: #6aa3d0; fill-opacity: .42; stroke: #bbdcf5; }
-.credential-circle--development circle { fill: #39739f; fill-opacity: .46; stroke: #8dbce3; }
-.credential-circle--community circle { fill: #d6a46b; fill-opacity: .46; stroke: #ffc776; }
-.credential-circle--service circle { fill: #69a6d4; fill-opacity: .44; stroke: #b2d4ef; }
-.credential-circle text { fill: #f4f7fc; font: 650 42px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.8px; text-anchor: middle; }
-.credential-circle--community text { font-size: 39px; }
-.credential-circle .credential-accent { fill: #ffcf84; }
+.credential-circle circle { fill: #a9cde6; }
+.credential-outline { fill: none; stroke: #e7f2fa; stroke-width: 3; stroke-opacity: .85; }
+.credential-detail text { fill: #152b46; font: 650 42px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.8px; text-anchor: middle; }
+.credential-detail--community text { font-size: 39px; }
+.credential-detail .credential-accent { fill: #ffcf84; stroke: #152b46; stroke-width: 3px; stroke-linejoin: round; paint-order: stroke fill; }
+.credential-overlap--gold { fill: #d6ac70; }
+.credential-overlap--teal { fill: #8ebbb6; }
+.credential-overlap--peach { fill: #e4b49b; }
+.credential-overlap--lavender { fill: #b5b5d5; }
+.credential-overlap--sage { fill: #b1c4a3; }
+.credential-overlap--rose { fill: #c99f9c; }
+.credential-overlap--sand { fill: #d6c397; }
+.credential-overlap--slate { fill: #96b3c5; }
+.credential-overlap--centre { fill: #ffcf84; }
 @media (prefers-reduced-motion: no-preference) {
-  .credentials-venn.reveal-ready .credential-circle { opacity: 0; }
+  .credentials-venn.reveal-ready :is(.credential-circle, .credential-detail, .credential-overlap) { opacity: 0; }
   .credentials-venn.reveal-ready.is-revealing .credential-circle {
     animation: credential-circle-reveal .8666666667s cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both;
+  }
+  .credentials-venn.reveal-ready.is-revealing .credential-detail {
+    animation: credential-colour-reveal .8666666667s ease-out var(--reveal-delay, 0ms) both;
+  }
+  .credentials-venn.reveal-ready.is-revealing .credential-overlap {
+    animation: credential-colour-reveal 1.8s ease-in-out var(--overlap-delay, 3s) both;
   }
 }
 @keyframes credential-circle-reveal {
   from { opacity: 0; transform: translateY(12px) scale(.97); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+@keyframes credential-colour-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 @media print {
-  .credentials-venn .credential-circle { opacity: 1 !important; animation: none !important; transform: none !important; }
+  .credentials-venn :is(.credential-circle, .credential-detail, .credential-overlap) { opacity: 1 !important; animation: none !important; transform: none !important; }
 }
 .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }

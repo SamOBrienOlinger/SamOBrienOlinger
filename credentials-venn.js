@@ -4,6 +4,8 @@
   const diagram = document.querySelector('[data-credentials-venn]');
   if (!diagram) return;
   const circles = Array.from(diagram.querySelectorAll('[data-credential-circle]'));
+  const details = Array.from(diagram.querySelectorAll('[data-credential-detail]'));
+  const overlaps = Array.from(diagram.querySelectorAll('[data-overlap-circles]'));
   if (!circles.length || !window.matchMedia || !('IntersectionObserver' in window)) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -23,8 +25,18 @@
       [order[0], order[1]] = [order[1], order[0]];
     }
     previousOrder = order;
+    const delays = [];
     order.forEach((index, position) => {
-      circles[index].style.setProperty('--reveal-delay', `${160 + position * 600}ms`);
+      delays[index] = 160 + position * 600;
+      circles[index].style.setProperty('--reveal-delay', `${delays[index]}ms`);
+      details[index]?.style.setProperty('--reveal-delay', `${delays[index]}ms`);
+    });
+    overlaps.forEach(overlap => {
+      const members = overlap.dataset.overlapCircles.split(' ').map(Number);
+      // Colour arrives only after every contributing circle has settled.
+      // Deeper intersections follow the pairwise colours, with a slower fade.
+      const delay = Math.max(...members.map(index => delays[index])) + 867 + 180 + (members.length - 2) * 220;
+      overlap.style.setProperty('--overlap-delay', `${delay}ms`);
     });
     active = true;
     diagram.classList.add('is-revealing');

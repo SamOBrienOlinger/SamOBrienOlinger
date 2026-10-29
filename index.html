@@ -8,10 +8,10 @@
   <title>Sam Tim Solutions | Sam O’Brien-Olinger</title>
   <link rel="canonical" href="https://samobrienolinger.github.io/SamOBrienOlinger/">
   <link rel="icon" href="assets/images/sam-logo.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20261029-venn-slower">
+  <link rel="stylesheet" href="styles.css?v=20261029-venn-overlaps">
   <script src="script.js?v=20261028-people-card" defer></script>
   <script src="carousel.js?v=20261028-software-card" defer></script>
-  <script src="credentials-venn.js?v=20261029-venn-replay" defer></script>
+  <script src="credentials-venn.js?v=20261029-venn-overlaps" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -226,20 +226,94 @@
             <svg viewBox="285 0 970 980" role="img" aria-labelledby="credentials-title credentials-description">
               <title id="credentials-title">Education and professional experience</title>
               <desc id="credentials-description">PhD in Sociology. Diploma in Full Stack Software Development. Over a decade working in the Community &amp; Voluntary sector. Junior Software Developer in the Irish Civil Service.</desc>
-              <g class="credential-circle credential-circle--sociology" data-credential-circle aria-hidden="true">
-                <circle cx="590" cy="310" r="275" />
+              <defs>
+                <clipPath id="venn-clip-0" clipPathUnits="userSpaceOnUse"><circle cx="590" cy="310" r="275" /></clipPath>
+                <clipPath id="venn-clip-1" clipPathUnits="userSpaceOnUse"><circle cx="940" cy="310" r="275" /></clipPath>
+                <clipPath id="venn-clip-2" clipPathUnits="userSpaceOnUse"><circle cx="590" cy="650" r="280" /></clipPath>
+                <clipPath id="venn-clip-3" clipPathUnits="userSpaceOnUse"><circle cx="940" cy="650" r="280" /></clipPath>
+                <mask id="venn-exclude-gold" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="590" cy="650" r="280" fill="black" />
+                  <circle cx="940" cy="650" r="280" fill="black" />
+                </mask>
+                <mask id="venn-exclude-teal" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="940" cy="310" r="275" fill="black" />
+                  <circle cx="940" cy="650" r="280" fill="black" />
+                </mask>
+                <mask id="venn-exclude-peach" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="590" cy="310" r="275" fill="black" />
+                  <circle cx="590" cy="650" r="280" fill="black" />
+                </mask>
+                <mask id="venn-exclude-lavender" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="590" cy="310" r="275" fill="black" />
+                  <circle cx="940" cy="310" r="275" fill="black" />
+                </mask>
+                <mask id="venn-exclude-sage" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="940" cy="650" r="280" fill="black" />
+                </mask>
+                <mask id="venn-exclude-rose" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="590" cy="650" r="280" fill="black" />
+                </mask>
+                <mask id="venn-exclude-sand" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="940" cy="310" r="275" fill="black" />
+                </mask>
+                <mask id="venn-exclude-slate" maskUnits="userSpaceOnUse" x="285" y="0" width="970" height="980">
+                  <rect x="285" y="0" width="970" height="980" fill="white" />
+                  <circle cx="590" cy="310" r="275" fill="black" />
+                </mask>
+              </defs>
+              <!-- Equal blue bases, exact intersection colours, then outlines and labels. -->
+              <g class="credential-circle" data-credential-circle aria-hidden="true"><circle cx="590" cy="310" r="275" /></g>
+              <g class="credential-circle" data-credential-circle aria-hidden="true"><circle cx="940" cy="310" r="275" /></g>
+              <g class="credential-circle" data-credential-circle aria-hidden="true"><circle cx="590" cy="650" r="280" /></g>
+              <g class="credential-circle" data-credential-circle aria-hidden="true"><circle cx="940" cy="650" r="280" /></g>
+              <g class="credential-overlap credential-overlap--gold" data-overlap-circles="0 1" aria-hidden="true">
+                <g clip-path="url(#venn-clip-0)"><g clip-path="url(#venn-clip-1)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-gold)" /></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--teal" data-overlap-circles="0 2" aria-hidden="true">
+                <g clip-path="url(#venn-clip-0)"><g clip-path="url(#venn-clip-2)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-teal)" /></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--peach" data-overlap-circles="1 3" aria-hidden="true">
+                <g clip-path="url(#venn-clip-1)"><g clip-path="url(#venn-clip-3)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-peach)" /></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--lavender" data-overlap-circles="2 3" aria-hidden="true">
+                <g clip-path="url(#venn-clip-2)"><g clip-path="url(#venn-clip-3)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-lavender)" /></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--sage" data-overlap-circles="0 1 2" aria-hidden="true">
+                <g clip-path="url(#venn-clip-0)"><g clip-path="url(#venn-clip-1)"><g clip-path="url(#venn-clip-2)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-sage)" /></g></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--rose" data-overlap-circles="0 1 3" aria-hidden="true">
+                <g clip-path="url(#venn-clip-0)"><g clip-path="url(#venn-clip-1)"><g clip-path="url(#venn-clip-3)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-rose)" /></g></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--sand" data-overlap-circles="0 2 3" aria-hidden="true">
+                <g clip-path="url(#venn-clip-0)"><g clip-path="url(#venn-clip-2)"><g clip-path="url(#venn-clip-3)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-sand)" /></g></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--slate" data-overlap-circles="1 2 3" aria-hidden="true">
+                <g clip-path="url(#venn-clip-1)"><g clip-path="url(#venn-clip-2)"><g clip-path="url(#venn-clip-3)"><rect x="285" y="0" width="970" height="980" mask="url(#venn-exclude-slate)" /></g></g></g>
+              </g>
+              <g class="credential-overlap credential-overlap--centre" data-overlap-circles="0 1 2 3" aria-hidden="true">
+                <g clip-path="url(#venn-clip-0)"><g clip-path="url(#venn-clip-1)"><g clip-path="url(#venn-clip-2)"><g clip-path="url(#venn-clip-3)"><rect x="285" y="0" width="970" height="980" /></g></g></g></g>
+              </g>
+              <g class="credential-detail credential-detail--sociology" data-credential-detail aria-hidden="true">
+                <circle cx="590" cy="310" r="275" class="credential-outline" />
                 <text x="490" y="260"><tspan x="490">PhD in</tspan><tspan x="490" dy="52" class="credential-accent">Sociology</tspan></text>
               </g>
-              <g class="credential-circle credential-circle--development" data-credential-circle aria-hidden="true">
-                <circle cx="940" cy="310" r="275" />
+              <g class="credential-detail credential-detail--development" data-credential-detail aria-hidden="true">
+                <circle cx="940" cy="310" r="275" class="credential-outline" />
                 <text x="1030" y="190"><tspan x="1030">Diploma in</tspan><tspan x="1030" dy="48" class="credential-accent">Full Stack</tspan><tspan x="1030" dy="48" class="credential-accent">Software</tspan><tspan x="1030" dy="48" class="credential-accent">Development</tspan></text>
               </g>
-              <g class="credential-circle credential-circle--community" data-credential-circle aria-hidden="true">
-                <circle cx="590" cy="650" r="280" />
+              <g class="credential-detail credential-detail--community" data-credential-detail aria-hidden="true">
+                <circle cx="590" cy="650" r="280" class="credential-outline" />
                 <text x="520" y="640"><tspan x="520">Over a decade</tspan><tspan x="520" dy="48">working in the</tspan><tspan x="520" dy="48" class="credential-accent">Community &amp;</tspan><tspan x="520" dy="48" class="credential-accent">Voluntary sector</tspan></text>
               </g>
-              <g class="credential-circle credential-circle--service" data-credential-circle aria-hidden="true">
-                <circle cx="940" cy="650" r="280" />
+              <g class="credential-detail credential-detail--service" data-credential-detail aria-hidden="true">
+                <circle cx="940" cy="650" r="280" class="credential-outline" />
                 <text x="1035" y="640"><tspan x="1035">Junior Software</tspan><tspan x="1035" dy="48">Developer in the</tspan><tspan x="1035" dy="48" class="credential-accent">Irish Civil</tspan><tspan x="1035" dy="48" class="credential-accent">Service</tspan></text>
               </g>
             </svg>

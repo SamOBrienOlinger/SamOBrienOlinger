@@ -11,8 +11,17 @@ function setup({ reduced = false, observerAvailable = true } = {}) {
     style: { setProperty(_, value) { this.owner.delay = value; } }
   }));
   circles.forEach(circle => { circle.style.owner = circle; });
+  const details = circles.map(() => ({ style: { setProperty(_, value) { this.delay = value; } } }));
+  const overlaps = ['0 1', '0 2', '1 3', '2 3', '0 1 2', '0 1 3', '0 2 3', '1 2 3', '0 1 2 3'].map(members => ({
+    dataset: { overlapCircles: members },
+    style: { setProperty(_, value) { this.delay = value; } }
+  }));
   const diagram = {
-    querySelectorAll: () => circles,
+    querySelectorAll: selector => ({
+      '[data-credential-circle]': circles,
+      '[data-credential-detail]': details,
+      '[data-overlap-circles]': overlaps
+    })[selector],
     classList: { add: name => classes.add(name), remove: name => classes.delete(name) }
   };
   const observers = [];
@@ -35,7 +44,7 @@ function setup({ reduced = false, observerAvailable = true } = {}) {
   math.random = () => .5;
   runInNewContext(source, { window, document: { querySelector: () => diagram },
     IntersectionObserver: window.IntersectionObserver, Math: math });
-  return { classes, circles, observers, media, handlers, delays: () => circles.map(circle => circle.delay) };
+  return { classes, circles, details, overlaps, observers, media, handlers, delays: () => circles.map(circle => circle.delay) };
 }
 
 test('entry staggers all four circles; small scroll changes do not restart the reveal', () => {
@@ -114,4 +123,21 @@ test('a small visible edge resets the reveal on tall desktop screens', () => {
   observer.enter(.3);
   assert.equal(state.classes.has('is-revealing'), true);
   assert.notDeepEqual(state.delays(), first);
+});
+
+test('labels follow their circle and intersection colours wait for all contributing circles', () => {
+  const state = setup();
+  // Check both the first draw and a different return-visit order.
+  for (let visit = 0; visit < 2; visit++) {
+    state.observers[0].enter(.3);
+    state.details.forEach((detail, index) => assert.equal(detail.style.delay, state.circles[index].delay));
+    state.overlaps.forEach(overlap => {
+      const members = overlap.dataset.overlapCircles.split(' ').map(Number);
+      const latestCircleEnd = Math.max(...members.map(index => parseInt(state.circles[index].delay))) + 867;
+      assert.ok(parseInt(overlap.style.delay) > latestCircleEnd, `${members}: intersection appeared before its circles settled`);
+    });
+    const centreDelay = parseInt(state.overlaps.at(-1).style.delay);
+    assert.ok(state.overlaps.slice(0, -1).every(overlap => parseInt(overlap.style.delay) < centreDelay));
+    state.observers[0].enter(0);
+  }
 });
