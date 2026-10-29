@@ -25,10 +25,10 @@ test('mobile navigation and project layouts remain usable', async ({ page }) => 
     expect(box.height, box.label + ' height').toBeGreaterThanOrEqual(44);
   }
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
-  for (const name of ['Home', 'Work', 'Research', 'Approach', 'Contact']) {
+  for (const name of ['Home', 'Software', 'Research', 'People', 'Contact']) {
     await expect(nav.getByRole('link', { name, exact: name !== 'Contact' })).toBeVisible();
   }
-  await nav.getByRole('link', { name: 'Work', exact: true }).click();
+  await nav.getByRole('link', { name: 'Software', exact: true }).click();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#work')).toBeFocused();
   await expect.poll(() => page.locator('.project[data-project][aria-hidden="false"]').evaluateAll(cards => cards.length === 1 && cards.every(card => {
@@ -54,7 +54,7 @@ test('focus cards and contact actions are readable at normal and enlarged text s
   await expect(diagram.locator('#software-panel > summary')).toContainText('Software');
   await expect(diagram.locator('#software-panel > summary')).toContainText('Community resources, learning through play and applications built around real interests and positive outcomes.');
   await expect(diagram.locator('#research-panel > summary')).toContainText('Research');
-  await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence, policy and social science');
+  await expect(diagram.locator('#research-panel > summary')).toContainText('Evidence-based, social policy and critical thinking');
   await expect(diagram.locator('#people-panel > summary')).toContainText('People');
   await expect(diagram.locator('#people-panel > summary')).toContainText('Supporting communities');
   for (const size of ['100%', '200%']) {

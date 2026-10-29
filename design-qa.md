@@ -12,6 +12,11 @@
 - The easing curve, random order, reset and reduced-motion behaviour are unchanged. Five targeted regression tests pass at the new timing. Prior visual/layout evidence below still applies; the delay arrays below record the original browser check.
 - MP4 and GIF previews are re-rendered using the same 0.75 speed factor.
 
+## Release integration — 29 October 2026
+
+- Integrated the latest Software, Research and People navigation and responsive spacing updates from `portfolio-redesign`.
+- The Venn inherits the revised zero top margin of the credentials block it replaces. Existing focus-card spacing and content changes are retained.
+
 ## Evidence and fidelity
 
 - Source: approved four-circle graphic, `exec-9e171cc4-e26f-469c-8930-7f304f0ab7e7.png` (1536 × 1024), with the updated “Over a decade working in the Community & Voluntary sector” wording.
