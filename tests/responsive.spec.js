@@ -25,10 +25,10 @@ test('mobile navigation and project layouts remain usable', async ({ page }) => 
     expect(box.height, box.label + ' height').toBeGreaterThanOrEqual(44);
   }
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
-  for (const name of ['Home', 'Work', 'Research', 'Approach', 'Contact']) {
+  for (const name of ['Home', 'Software', 'Research', 'People', 'Contact']) {
     await expect(nav.getByRole('link', { name, exact: name !== 'Contact' })).toBeVisible();
   }
-  await nav.getByRole('link', { name: 'Work', exact: true }).click();
+  await nav.getByRole('link', { name: 'Software', exact: true }).click();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#work')).toBeFocused();
   await expect.poll(() => page.locator('.project[data-project][aria-hidden="false"]').evaluateAll(cards => cards.length === 1 && cards.every(card => {

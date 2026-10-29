@@ -91,7 +91,7 @@ test('Software opens in place, retains its project when reopened, and fits enlar
   await expect(content).toBeVisible();
   await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
   // Work navigation opens the same card, including when its fragment is unchanged.
-  const workLink = page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Work', exact: true });
+  const workLink = page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Software', exact: true });
   for (let attempt = 0; attempt < 2; attempt++) {
     await summary.click();
     await expect(content).toBeHidden();

@@ -21,7 +21,7 @@ test('each mobile navigation link closes the menu and reaches its section', asyn
   await page.goto('/');
   const menu = page.locator('.menu-toggle');
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
-  for (const [name, id] of [['Work', 'work'], ['Research', 'research'], ['Approach', 'about'], ['Contact', 'contact'], ['Home', 'top']]) {
+  for (const [name, id] of [['Software', 'work'], ['Research', 'research'], ['People', 'people'], ['Contact', 'contact'], ['Home', 'top']]) {
     await menu.click();
     await nav.getByRole('link', { name, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
@@ -62,7 +62,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('.menu-toggle')).toBeHidden();
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
   await expect(nav).toBeVisible();
-  await nav.getByRole('link', { name: 'Approach', exact: true }).click();
+  await page.goto('http://127.0.0.1:4173/#about');
   await expect(page).toHaveURL(/#about$/);
   const softwareSummary = page.locator('.approach #software-panel > summary');
   await softwareSummary.press('Enter');
@@ -94,7 +94,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('#people-panel li')).toHaveCount(9);
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Send me an email', exact: true })).toBeFocused();
-  await nav.getByRole('link', { name: 'Work', exact: true }).click();
+  await nav.getByRole('link', { name: 'Software', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-current-project', 'white-whale');
