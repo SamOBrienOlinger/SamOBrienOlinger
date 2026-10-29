@@ -4,13 +4,19 @@
 
 - Branch: `feature/random-venn-scroll`, based on `portfolio-redesign`.
 - Replace the four career statements in the Approach section with individually animated SVG circles.
-- Reveal in a random order 600 ms apart once 25% of the diagram enters the viewport; reset after it fully leaves and choose a different order on return.
+- Reveal in a random order 600 ms apart once 25% of the diagram enters the viewport; reset when at most 15% remains visible and choose a different order on return.
 
 ## Timing update — 29 October 2026
 
 - The user requested 25% slower motion: playback is now 75% of its former speed. The reveal lasts 866.67 ms (formerly 650 ms); stagger is 600 ms (formerly 450 ms), and the initial delay is 160 ms (formerly 120 ms).
 - The easing curve, random order, reset and reduced-motion behaviour are unchanged. Five targeted regression tests pass at the new timing. Prior visual/layout evidence below still applies; the delay arrays below record the original browser check.
 - MP4 and GIF previews are re-rendered using the same 0.75 speed factor.
+
+## Live replay correction — 29 October 2026
+
+- The updated spacing leaves approximately 14% of the Venn visible at the top of a tall desktop viewport, so waiting for complete invisibility prevented replay on return.
+- Reset at 15% visibility and reveal at 25%; the gap prevents small scroll movements from repeatedly restarting the animation.
+- Six Node tests pass, including this partial-visibility reset and the existing random-order, motion preference and history behaviours.
 
 ## Release integration — 29 October 2026
 

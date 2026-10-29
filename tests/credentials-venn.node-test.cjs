@@ -48,7 +48,7 @@ test('entry staggers all four circles; small scroll changes do not restart the r
   assert.deepEqual([...state.delays()].sort((a, b) => parseInt(a) - parseInt(b)), ['160ms', '760ms', '1360ms', '1960ms']);
   const first = state.delays();
   observer.enter(.8);
-  observer.enter(.1);
+  observer.enter(.2);
   observer.enter(.4);
   assert.deepEqual(state.delays(), first);
 });
@@ -98,5 +98,20 @@ test('restoring from browser history arms a fresh reveal', () => {
   assert.equal(state.observers[0].disconnected, true);
   assert.equal(state.classes.has('is-revealing'), false);
   state.observers.at(-1).enter(.3);
+  assert.notDeepEqual(state.delays(), first);
+});
+
+
+test('a small visible edge resets the reveal on tall desktop screens', () => {
+  const state = setup();
+  const observer = state.observers[0];
+  observer.enter(.3);
+  const first = state.delays();
+  observer.enter(.14);
+  assert.equal(state.classes.has('is-revealing'), false);
+  observer.enter(.2);
+  assert.equal(state.classes.has('is-revealing'), false);
+  observer.enter(.3);
+  assert.equal(state.classes.has('is-revealing'), true);
   assert.notDeepEqual(state.delays(), first);
 });

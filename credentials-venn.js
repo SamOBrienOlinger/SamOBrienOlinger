@@ -46,10 +46,11 @@
       // Ignore queued notifications from a disconnected observer after a preference change.
       if (reducedMotion.matches) return;
       entries.forEach(entry => {
-        if (!entry.isIntersecting) reset();
+        // A small visible edge must not prevent replay on tall screens.
+        if (!entry.isIntersecting || entry.intersectionRatio <= .15) reset();
         else if (!active && entry.intersectionRatio >= .25) reveal();
       });
-    }, { threshold: [0, .25] });
+    }, { threshold: [0, .15, .25] });
     observer.observe(diagram);
     // Progressive enhancement: without this script/observer, every circle stays visible.
     diagram.classList.add('reveal-ready');
