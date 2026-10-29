@@ -151,7 +151,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 @media (prefers-reduced-motion: no-preference) {
   .credentials-venn.reveal-ready .credential-circle { opacity: 0; }
   .credentials-venn.reveal-ready.is-revealing .credential-circle {
-    animation: credential-circle-reveal .65s cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both;
+    animation: credential-circle-reveal .8666666667s cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both;
   }
 }
 @keyframes credential-circle-reveal {

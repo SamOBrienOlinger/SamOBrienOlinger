@@ -45,7 +45,7 @@ test('entry staggers all four circles; small scroll changes do not restart the r
   assert.equal(state.classes.has('is-revealing'), false);
   observer.enter(.3);
   assert.equal(state.classes.has('is-revealing'), true);
-  assert.deepEqual([...state.delays()].sort((a, b) => parseInt(a) - parseInt(b)), ['120ms', '570ms', '1020ms', '1470ms']);
+  assert.deepEqual([...state.delays()].sort((a, b) => parseInt(a) - parseInt(b)), ['160ms', '760ms', '1360ms', '1960ms']);
   const first = state.delays();
   observer.enter(.8);
   observer.enter(.1);

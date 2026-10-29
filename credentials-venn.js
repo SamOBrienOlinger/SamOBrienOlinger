@@ -24,7 +24,7 @@
     }
     previousOrder = order;
     order.forEach((index, position) => {
-      circles[index].style.setProperty('--reveal-delay', `${120 + position * 450}ms`);
+      circles[index].style.setProperty('--reveal-delay', `${160 + position * 600}ms`);
     });
     active = true;
     diagram.classList.add('is-revealing');
