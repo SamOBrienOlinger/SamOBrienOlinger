@@ -142,11 +142,11 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .credentials-venn { margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow: hidden; }
 .credentials-venn svg { display: block; width: 100%; height: auto; }
 .credential-circle { transform-box: fill-box; transform-origin: center; }
-.credential-circle circle { fill: #a9cde6; }
-.credential-outline { fill: none; stroke: #e7f2fa; stroke-width: 3; stroke-opacity: .85; }
-.credential-detail text { fill: #152b46; font: 650 42px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.8px; text-anchor: middle; }
+.credential-circle circle { fill: url(#venn-blue-glass); }
+.credential-outline { fill: none; stroke: #b9dcf4; stroke-width: 2.5; stroke-opacity: .5; }
+.credential-detail text { fill: #edf5fc; font: 600 42px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.5px; text-anchor: middle; }
 .credential-detail--community text { font-size: 39px; }
-.credential-detail .credential-accent { fill: #ffcf84; stroke: #152b46; stroke-width: 3px; stroke-linejoin: round; paint-order: stroke fill; }
+.credential-detail .credential-accent { fill: #ffcf84; font-weight: 700; letter-spacing: -.3px; }
 .credential-overlap--gold { fill: #d6ac70; }
 .credential-overlap--teal { fill: #8ebbb6; }
 .credential-overlap--peach { fill: #e4b49b; }
