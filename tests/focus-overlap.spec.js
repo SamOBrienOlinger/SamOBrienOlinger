@@ -60,7 +60,10 @@ test('overlap animates on scroll and respects a changed motion preference', asyn
   await expect(stack).toHaveClass(/is-overlapped/);
   expect(await research.evaluate(element => getComputedStyle(element).transitionDuration)).toBe('1s');
   await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
-  await page.locator('.brand').click();
+  // Home can still show the first card at the bottom of a tall viewport.
+  // Move fully past the group to exercise an actual leave-and-return visit.
+  await page.setViewportSize({ width: page.viewportSize().width, height: 480 });
+  await page.locator('.site-footer').scrollIntoViewIfNeeded();
   await expect(stack).not.toHaveClass(/is-overlapped/);
   await stack.locator('#software-panel > summary').scrollIntoViewIfNeeded();
   await expect(stack).toHaveClass(/is-overlapped/);

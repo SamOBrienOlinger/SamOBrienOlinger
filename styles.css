@@ -216,7 +216,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .approach.overlap-ready > section { position: relative; }
 .approach.overlap-ready > section:focus-within { z-index: 2; }
 .approach.overlap-ready > section + section { margin-block-start: 1rem; }
-.approach.overlap-ready .focus-overview > summary { padding-block: max(3.5rem, var(--focus-edge-space, 0px)); }
+.approach.overlap-ready:not(.has-open-panel) .focus-overview > summary { padding-block: max(3.5rem, var(--focus-edge-space, 0px)); }
 .approach.overlap-ready.is-overlapped:not(.has-open-panel) > section + section { margin-block-start: calc(-1 * var(--focus-overlap, 0px)); }
 @media (prefers-reduced-motion: no-preference) {
   .approach.overlap-ready > section + section { transition: margin-block-start 1s cubic-bezier(.2, .7, .3, 1) .16s; }
