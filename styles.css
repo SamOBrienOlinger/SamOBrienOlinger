@@ -211,6 +211,21 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .focus-overview > summary .accordion-icon { color: currentColor; border-color: #8aa6bf; }
 .focus-overview > .accordion-content { padding: var(--panel-space); border-color: #8aa6bf; border-radius: 0 0 1.8rem 1.8rem; background: var(--surface); color: var(--ink); }
 .focus-overview .accordion-content .accordion-content { padding-inline: clamp(.5rem, 2vw, 1rem); }
+/* Closed cards share 20% of the smaller neighbouring card's height. */
+.approach.overlap-ready { gap: 0; isolation: isolate; overflow-anchor: none; }
+.approach.overlap-ready > section { position: relative; }
+.approach.overlap-ready > section:focus-within { z-index: 2; }
+.approach.overlap-ready > section + section { margin-block-start: 1rem; }
+.approach.overlap-ready .focus-overview > summary { padding-block: max(3.5rem, var(--focus-edge-space, 0px)); }
+.approach.overlap-ready.is-overlapped:not(.has-open-panel) > section + section { margin-block-start: calc(-1 * var(--focus-overlap, 0px)); }
+@media (prefers-reduced-motion: no-preference) {
+  .approach.overlap-ready > section + section { transition: margin-block-start 1s cubic-bezier(.2, .7, .3, 1) .16s; }
+  .approach.overlap-ready > section:nth-child(3) { transition-delay: .32s; }
+  .approach.overlap-ready.has-open-panel > section { transition: none; }
+}
+@media print {
+  .approach.overlap-ready.is-overlapped > section + section { margin-block-start: 1rem !important; }
+}
 .research-overview .publication { grid-template-columns: min(3.5rem, 22%) minmax(0, 1fr); gap: .75rem; }
 .software-overview .work-heading { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
 .software-overview .work-heading h4 { margin: 0; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.15; }
