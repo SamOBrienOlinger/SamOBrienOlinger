@@ -1,3 +1,5 @@
+> Historical QA for the earlier publishing-branch layout. For `profesh`, see [current implementation and verification notes](docs/profesh.md).
+
 # Design QA — Random scroll reveal for career Venn
 
 ## Scope

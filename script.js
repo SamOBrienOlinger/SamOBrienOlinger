@@ -4,26 +4,29 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Reveal the three hero words in sequence whenever the heading enters view.
-  // Text stays readable if JavaScript, IntersectionObserver or motion is unavailable.
-  const heroTitle = document.getElementById('hero-title');
+  // Animate once on entry, without leaving unread content hidden if an observer fails.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let heroObserver;
-  function syncHeroReveal() {
-    heroObserver?.disconnect();
-    heroTitle?.classList.remove('is-revealing');
-    if (!heroTitle || reducedMotion.matches || !('IntersectionObserver' in window)) return;
-
-    heroObserver = new IntersectionObserver(entries => {
+  let revealObserver;
+  const revealed = new WeakSet();
+  function syncReveals() {
+    revealObserver?.disconnect();
+    document.querySelectorAll('[data-reveal]').forEach(element => element.classList.remove('is-entering'));
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+    revealObserver = new IntersectionObserver(entries => {
+      if (reducedMotion.matches) return;
       entries.forEach(entry => {
-        entry.target.classList.toggle('is-revealing', entry.isIntersecting);
+        if (!entry.isIntersecting || revealed.has(entry.target)) return;
+        revealed.add(entry.target);
+        if (!entry.target.contains(document.activeElement)) entry.target.classList.add('is-entering');
+        revealObserver.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -15% 0px', threshold: 0 });
-    heroObserver.observe(heroTitle);
+    }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(element => revealObserver.observe(element));
   }
-  syncHeroReveal();
-  if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncHeroReveal);
-  else reducedMotion.addListener(syncHeroReveal);
+  syncReveals();
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncReveals);
+  else reducedMotion.addListener(syncReveals);
+  document.addEventListener('focusin', event => event.target.closest?.('[data-reveal]')?.classList.remove('is-entering'));
 
   // Keep copied page text free of rich webpage formats that iOS apps may attach as files.
   document.addEventListener('copy', event => {
@@ -46,26 +49,6 @@
   });
 
 
-  // Navigation reveals the matching focus card while keeping native anchor links.
-  // Native details/summary controls remain usable without JavaScript.
-  const focusPanels = new Map([
-    ['#work', document.getElementById('software-panel')],
-    ['#research', document.getElementById('research-panel')],
-    ['#people', document.getElementById('people-panel')]
-  ]);
-  function revealFocusPanel(hash) {
-    const panel = focusPanels.get(hash);
-    if (panel) panel.open = true;
-  }
-  document.querySelectorAll('a[href="#work"], a[href="#research"], a[href="#people"]').forEach(link => {
-    link.addEventListener('click', event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
-      revealFocusPanel(link.hash);
-    });
-  });
-  window.addEventListener('hashchange', () => revealFocusPanel(window.location.hash));
-  revealFocusPanel(window.location.hash);
-
   const root = document.documentElement;
   const themeButton = document.querySelector('.theme-toggle');
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -75,7 +58,7 @@
   function applyTheme(theme) {
     root.dataset.theme = theme;
     themeButton?.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#111e2d' : '#f7f9fc');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#111e2d' : '#f4f6f6');
   }
   applyTheme(hasThemePreference() ? savedTheme : systemTheme.matches ? 'dark' : 'light');
   if (themeButton) {
@@ -99,7 +82,7 @@
 
   const menuLabel = menuButton.querySelector('[data-menu-label]');
   const desktop = window.matchMedia('(min-width: 64rem)');
-  const navLinks = Array.from(navigation.querySelectorAll('a[href^="#"]'));
+  const navLinks = Array.from(navigation.querySelectorAll('a'));
 
   function setMenu(open, returnFocus = false) {
     const expanded = open && !desktop.matches;
@@ -138,6 +121,14 @@
       setMenu(false);
       markActive(link.hash.slice(1));
       if (wasExpanded) moveFocusToSection(link.hash);
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+      setMenu(false);
+      moveFocusToSection(link.hash);
     });
   });
 
@@ -192,8 +183,8 @@
   if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
 
   // The last section above the reading line is stable even for very tall sections.
-  // Work and Research are nested within Approach; follow document order independently of menu order.
-  const sections = navLinks.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean)
+  // Only observe targets on the current page; case-study navigation links return home.
+  const sections = navLinks.filter(link => link.pathname === location.pathname).map(link => document.getElementById(link.hash.slice(1))).filter(Boolean)
     .sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
   let updateScheduled = false;
   function updateActiveSection() {

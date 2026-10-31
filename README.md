@@ -96,11 +96,15 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 Open [localhost:8000](http://localhost:8000). Review navigation, project links, keyboard access and mobile layouts before proposing a change. The deployed website is maintained on `portfolio-redesign`. Its existing responsive checks run with `npm install` followed by `npm test`; Playwright browser dependencies must be installed for that command. GitHub Actions runs these checks on supported mobile Chromium and WebKit configurations.
 
-### Portfolio experience
+### Portfolio experience on `profesh`
 
-The site uses a mobile-first, single-page layout with all sections available in the navigation. The mobile menu supports keyboard access, Escape to close, and focus return; without JavaScript, its links stay visible. The light/dark theme follows the device preference until a choice is saved; blocked browser storage does not prevent the menu or theme switch from working. The page also respects reduced-motion preferences and includes a skip link, visible focus indicators, flexible text layouts and a compact footer.
+The `profesh` branch is based on `portfolio-redesign` at `767c641`. It presents the independent practice around community organisations, educators, research teams and public-interest projects. The published branch and its deployment settings are unchanged.
 
-Project artwork is served locally as WebP with reserved image space and deferred loading. System fonts keep the initial page independent of external font services. The featured project order is Saggart & Citywest Together, SpoodleSpace, then Beaver v Otter.
+The homepage introduces services, three visible project summaries, research, professional background, the working process and contact details. Dedicated case studies explain Saggart & Citywest Together, Journeys to Ireland and Stopped: Both Sides. Six additional projects remain available through the native “More projects” disclosure. Benefits are described as intended contributions; no client endorsements, awards or measured outcomes have been invented.
+
+The existing navy, blue and teal identity, whale photograph, project artwork and credentials diagram are retained. The redesign uses an editorial grid, larger type, restrained entry motion and direct email contact. It preserves the system-aware light/dark preference, storage fallback, keyboard navigation, Escape-to-close menu, plain-text copy behaviour and reduced-motion support. All essential text, links and case studies work without JavaScript. System fonts and local assets avoid external font or animation services.
+
+See [the Profesh implementation notes](docs/profesh.md) for structure and verification. Run `npm run check` for offline integrity and syntax checks, `npm run test:venn` for the credentials regression tests, and `npm test` for the full suite. The browser suite covers desktop Chromium, Firefox and WebKit, Android-sized Chromium, iPhone-sized WebKit and tablet-sized WebKit. GitHub Actions also runs on pushes to `profesh` and saves browser screenshots and test reports.
 
 ## Credits and reuse
 

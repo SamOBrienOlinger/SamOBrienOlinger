@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - portfolio-redesign
+      - profesh
   pull_request:
     branches:
       - main
       - portfolio-redesign
+      - profesh
 
 permissions:
   contents: read
@@ -23,12 +25,14 @@ jobs:
         with:
           node-version: 24
       - run: npm install --no-audit --no-fund
-      - run: npx playwright install --with-deps chromium webkit
+      - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm test
-      - name: Upload failure evidence
-        if: failure()
+      - name: Upload browser checks and screenshots
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: responsive-test-results
-          path: test-results
+          name: profesh-browser-results
+          path: |
+            test-results
+            playwright-report
           if-no-files-found: ignore

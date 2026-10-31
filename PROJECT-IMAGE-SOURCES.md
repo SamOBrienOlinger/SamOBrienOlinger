@@ -1,4 +1,6 @@
-# Project carousel image sources
+# Project image sources
+
+The `profesh` redesign reuses these existing assets. Its case studies present them as project artwork or a landing-page preview, not as newly captured screenshots. The Stopped: Both Sides case study uses `assets/images/projects/both-sides-landing.jpeg`, inherited from the publishing branch. Existing attribution and reuse terms remain in force.
 
 Rechecked 6 September 2026 against the live sites, their repositories and the original portfolio. Five previews restore the complete original project images in place of isolated photos or scene layers. The other four retain their verified current artwork. These are existing assets, not newly captured screenshots.
 
