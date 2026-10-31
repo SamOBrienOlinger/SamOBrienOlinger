@@ -24,6 +24,8 @@ test('all pages load their assets and stay within the viewport', async ({ page }
   }
   expect(errors).toEqual([]);
   await page.goto('/');
+  await page.locator('img').evaluateAll(images => images.forEach(img => { img.loading = 'eager'; }));
+  await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('homepage.png'), fullPage: true });
   await page.goto('/work/stopped-both-sides.html');
   await page.screenshot({ path: testInfo.outputPath('case-study.png'), fullPage: true });
@@ -132,10 +134,20 @@ test('blocked storage and unavailable observers do not prevent navigation or the
   expect(await page.locator('[data-reveal]').evaluateAll(elements => elements.every(el => getComputedStyle(el).opacity === '1'))).toBe(true);
 });
 
-test('320px layout and enlarged text preserve readable content', async ({ page }) => {
+test('320px layout and enlarged text preserve readable content', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 320, height: 740 });
-  await page.goto('/');
-  await page.addStyleTag({ content: 'html { font-size: 200%; }' });
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-  await expect(page.locator('.lede')).toBeVisible();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const route of pages) {
+    await page.goto(route);
+    await page.addStyleTag({ content: 'html { font-size: 200%; }' });
+    const overflowing = await page.locator('body *').evaluateAll(elements => elements.filter(element => {
+      if (!element.getClientRects().length || element.closest('svg, .sr-only, .skip-link')) return false;
+      const r = element.getBoundingClientRect();
+      return r.left < -1 || r.right > innerWidth + 1;
+    }).map(element => ({ tag: element.tagName, class: element.className, text: element.textContent.trim().slice(0, 70) })));
+    expect(overflowing, route).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), route).toBe(true);
+    await expect(page.locator('h1')).toBeVisible();
+  }
+  await page.screenshot({ path: testInfo.outputPath('enlarged-text.png'), fullPage: true });
 });

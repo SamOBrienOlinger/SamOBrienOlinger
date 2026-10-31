@@ -86,6 +86,9 @@ test('Copy falls back to the browser when a clipboard write is unavailable', asy
       new ClipboardEvent('copy', { bubbles: true, cancelable: true }),
       new ClipboardEvent('copy', { bubbles: true, cancelable: true, clipboardData: new DataTransfer() })
     ];
+    // Firefox supplies clipboardData even when omitted from the constructor.
+    // Explicitly simulate the absent-clipboard case in every engine.
+    Object.defineProperty(events[0], 'clipboardData', { value: null });
     events[1].clipboardData.setData = () => { throw new Error('Clipboard write unavailable'); };
     return events.map(event => {
       document.body.dispatchEvent(event);

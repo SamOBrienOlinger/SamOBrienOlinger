@@ -39,4 +39,6 @@ The obsolete carousel and overlapping-accordion scripts and browser specificatio
 
 The session’s managed preview browser was unavailable. Local static and unit checks passed; the GitHub Actions run is the source of truth for browser results. Full-page homepage and case-study screenshots are included in the workflow artifact. Automated viewport checks are not a claim of testing every physical device or of an independent accessibility certification.
 
+The preview server uses Python’s static HTTP server so case-study URLs are tested with their actual `.html` paths. Font enlargement is checked on all four pages, and screenshots wait for lazy-loaded project images. The inherited clipboard fallback test explicitly simulates missing clipboard data across all engines.
+
 Run `npm run check`, `npm run test:venn`, or `npm test`. Browser tests require dependencies and Playwright browser installations. Python 3 is required for the offline integrity check.
