@@ -1,6 +1,6 @@
 /* A connected practice: clear offers, real interfaces and an editorial rhythm. */
 :root { --max: 1280px; --gold: #b88948; }
-.hero-topline { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.hero-topline { justify-content: flex-end; margin-bottom: clamp(2rem, 4vw, 3rem); }
 #hero-title { font-size: clamp(2.8rem, 6.2vw, 5.85rem); line-height: 1.04; letter-spacing: -.058em; }
 #hero-title > span { display: block; }
 #hero-title > span:last-child { margin-top: .13em; font-size: .78em; letter-spacing: -.05em; }
@@ -115,11 +115,7 @@ html.is-viewing-image { overflow: hidden; }
 /* Native disclosures keep the overview compact and work without JavaScript. */
 .collapsible-section { padding-block: 0; }
 .hero + .collapsible-section { margin-top: clamp(2.5rem, 5vw, 4rem); }
-.section-disclosure { border-top: 1px solid var(--line); }
-/* Carry the practice-strip colours into the five main section dividers. */
-:is(#people, #approach) .section-disclosure { border-top: 2px solid var(--gold); }
-:is(#work, #services) .section-disclosure { border-top: 2px solid var(--blue); }
-#research .section-disclosure { border-top: 2px solid var(--accent); }
+.section-disclosure { border-top: 2px solid var(--gold); }
 .section-toggle { display: block; list-style: none; cursor: pointer; padding-block: clamp(1.5rem, 3vw, 2.5rem); }
 .section-toggle::-webkit-details-marker { display: none; }
 .section-toggle > h2 { display: grid; grid-template-columns: minmax(0,1fr) 2.75rem; align-items: center; gap: 1.25rem; }
