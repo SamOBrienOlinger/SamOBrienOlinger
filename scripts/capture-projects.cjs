@@ -3,6 +3,7 @@ const { chromium, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const output = 'project-captures';
+setTimeout(() => { console.error('Capture deadline reached'); process.exit(1); }, 180000).unref();
 const base = 'https://samobrienolinger.github.io/';
 (async () => {
   await fs.mkdir(output, { recursive: true });
@@ -12,6 +13,7 @@ const base = 'https://samobrienolinger.github.io/';
   page.setDefaultTimeout(20000);
   const manifest = [];
   async function capture(name, action) {
+    console.log('Capturing', name, page.url());
     if (action) await action();
     await page.evaluate(async () => {
       await document.fonts.ready;
@@ -19,11 +21,15 @@ const base = 'https://samobrienolinger.github.io/';
         const r = img.getBoundingClientRect();
         return (img.currentSrc || img.getAttribute('src')) && r.width > 0 && r.bottom > 0 && r.top < innerHeight;
       });
-      await Promise.all(visible.map(img => img.decode()));
+      await Promise.race([
+        Promise.all(visible.map(img => { img.loading = 'eager'; return img.decode(); })),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Visible image decode timed out')), 15000))
+      ]);
       await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     });
     await page.screenshot({ path: path.join(output, name + '.jpg'), type: 'jpeg', quality: 90 });
     manifest.push({ file: name + '.jpg', url: page.url(), title: await page.title(), viewport: page.viewportSize(), captured: new Date().toISOString() });
+    await fs.writeFile(path.join(output,'manifest.json'), JSON.stringify(manifest,null,2)+'\n');
   }
   await page.goto(base + 'saggart-and-citywest-together/');
   await expect(page.locator('h1')).toBeVisible();
