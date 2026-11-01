@@ -17,7 +17,7 @@ The opening restores the live `portfolio-redesign` presentation: a centred whale
 
 ## Refinement: offer, evidence and editorial rhythm
 
-The whale photograph and “Curiosity. Creativity. Purpose.” signature lead the page, immediately below the navigation. The offer follows: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the work section.
+The whale photograph and “Curiosity. Creativity. Purpose.” signature lead the page, immediately below the navigation. The offer follows: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the main sections. People comes first (01), followed by Work (02), Services (03), Research (04), Working together (05) and Contact (06). Navigation follows this order on the homepage and case studies.
 
 The three featured projects use nine real interface captures, including phone views and Stopped's two perspectives. An alternating project layout and a dark Stopped feature create variety while retaining the existing colours and typography foundations. Short, finite heading and interface entrances honour reduced motion. Screenshots can be enlarged with a native dialog and restore focus when closed; without JavaScript, they remain ordinary image links.
 
@@ -35,7 +35,7 @@ The contact action is a rounded “Email me” button with an envelope icon. The
 
 ## Implementation and accessibility
 
-The homepage's six main sections (Work, Services, Research, People, Working together and Contact) use independent native disclosures. They begin closed, with descriptive headings and plus/minus controls. The opening offer stays visible. Navigation and contact links open their destination; initial URL fragments, reloads, browser history and deeper anchors also reveal the relevant section. The existing More projects disclosure remains inside Work. Without JavaScript, visitors can open each section directly with its native summary control.
+The homepage's six main sections (People, Work, Services, Research, Working together and Contact) use independent native disclosures. They begin closed, with descriptive headings and plus/minus controls. The opening offer stays visible. Navigation and contact links open their destination; initial URL fragments, reloads, browser history and deeper anchors also reveal the relevant section. The existing More projects disclosure remains inside Work. Without JavaScript, visitors can open each section directly with its native summary control.
 
 Each main disclosure and More projects also has a discreet “Collapse section” button at its bottom. It closes only its own disclosure, restores keyboard focus to the summary and brings that heading below the sticky navigation. Reduced motion disables the smooth return scroll. The buttons are revealed only after their handlers are ready; native summary controls remain available without JavaScript.
 
