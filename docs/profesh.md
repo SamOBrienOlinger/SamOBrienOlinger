@@ -4,6 +4,8 @@ This branch starts from the live source branch, `portfolio-redesign`, at `767c64
 
 ## Experience
 
+The opening restores the live `portfolio-redesign` presentation: a centred whale image (up to 44rem wide), followed by three bold navy-to-blue words. They sit in a row from 48rem and stack on smaller screens, using the original gentle staggered reveal. The two supporting lines remain centred beneath them. The opening stays above the offer, and its former “Discuss a project” / “See the work” buttons have been removed. Contact remains available in the navigation and sections.
+
 - Audience: community organisations, NGOs, education and research teams, cultural organisations, social enterprises and collaborating development teams.
 - Clear positioning and three services: websites/information hubs, interactive learning, and research/digital content.
 - Three substantial case studies at `work/saggart-citywest.html`, `work/journeys-to-ireland.html` and `work/stopped-both-sides.html`.

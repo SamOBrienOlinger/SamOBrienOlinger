@@ -126,7 +126,7 @@ test('reduced motion settles animations and keeps all main content visible', asy
   await page.goto('/');
   await expect(page.locator('.case-preview')).toHaveCount(3);
   await openMainSections(page);
-  const states = await page.locator('[data-reveal], #hero-title > span, .project-interfaces, .credential-circle, .credential-detail, .credential-overlap').evaluateAll(elements => elements.map(el => {
+  const states = await page.locator('[data-reveal], .signature > span, #hero-title > span, .project-interfaces, .credential-circle, .credential-detail, .credential-overlap').evaluateAll(elements => elements.map(el => {
     const css = getComputedStyle(el);
     return { opacity: css.opacity, animation: css.animationName };
   }));
@@ -215,12 +215,12 @@ test('interface images enlarge by keyboard, close with Escape and restore focus'
   }
 });
 
-test('offer and contact are available before the project list, and image links work without JavaScript', async ({ browser, baseURL }) => {
+test('offer and navigation contact remain available, and image links work without JavaScript', async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   await page.goto(baseURL + '/');
   await expect(page.locator('h1')).toContainText('Websites &');
-  await expect(page.locator('.hero-actions').getByRole('link', { name: 'Discuss a project' })).toHaveAttribute('href', '#contact');
+  await expect(page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '#contact');
   await page.locator('#work .section-toggle').click();
   const link = page.locator('[data-screen]').first();
   const destination = await link.getAttribute('href');
@@ -276,7 +276,8 @@ test('fragment links, repeat navigation and browser history reveal the requested
   if (await menu.isVisible()) await menu.click();
   await page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Research', exact: true }).click();
   await expect(page.locator('#research .publication-list')).toBeVisible();
-  await page.locator('.hero-actions').getByRole('link', { name: 'Discuss a project' }).click();
+  if (await menu.isVisible()) await menu.click();
+  await page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Contact' }).click();
   await expect(page.locator('#contact .contact-copy')).toBeVisible();
   await page.locator('#research .section-toggle').click();
   await page.goBack();

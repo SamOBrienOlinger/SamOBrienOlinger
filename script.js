@@ -6,6 +6,23 @@
 
   // Animate once on entry, without leaving unread content hidden if an observer fails.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Match the live portfolio's gentle, staggered three-word reveal.
+  // The caption stays readable without JavaScript, observers or motion.
+  const signature = document.querySelector('.signature');
+  let signatureObserver;
+  function syncSignatureReveal() {
+    signatureObserver?.disconnect();
+    signature?.classList.remove('is-revealing');
+    if (!signature || reducedMotion.matches || !('IntersectionObserver' in window)) return;
+    signatureObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle('is-revealing', entry.isIntersecting));
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0 });
+    signatureObserver.observe(signature);
+  }
+  syncSignatureReveal();
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncSignatureReveal);
+  else reducedMotion.addListener(syncSignatureReveal);
+
   let revealObserver;
   const revealed = new WeakSet();
   function syncReveals() {
