@@ -75,6 +75,42 @@
   if (systemTheme.addEventListener) systemTheme.addEventListener('change', syncSystemTheme);
   else systemTheme.addListener(syncSystemTheme);
 
+  // Real interface captures open in a native dialog; normal links remain the fallback.
+  const viewer = document.getElementById('screen-viewer');
+  let imageOpener;
+  if (viewer && typeof viewer.showModal === 'function') {
+    const content = document.getElementById('viewer-content');
+    const caption = document.getElementById('viewer-caption');
+    document.querySelectorAll('[data-screen]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+        const source = link.querySelector('img');
+        if (!source) return;
+        const preview = new Image();
+        preview.src = link.href;
+        preview.alt = source.alt;
+        preview.width = source.naturalWidth || source.width;
+        preview.height = source.naturalHeight || source.height;
+        content.replaceChildren(preview);
+        caption.textContent = link.dataset.screenCaption || source.alt;
+        imageOpener = link;
+        viewer.showModal();
+        root.classList.add('is-viewing-image');
+        event.preventDefault();
+      });
+    });
+    viewer.addEventListener('close', () => {
+      root.classList.remove('is-viewing-image');
+      content.replaceChildren();
+      if (imageOpener?.isConnected) imageOpener.focus({ preventScroll: true });
+    });
+    viewer.addEventListener('click', event => {
+      if (event.target !== viewer) return;
+      const bounds = viewer.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) viewer.close();
+    });
+  }
+
   const header = document.querySelector('[data-header]');
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.getElementById('site-nav');

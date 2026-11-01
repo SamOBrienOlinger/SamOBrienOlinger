@@ -1,6 +1,20 @@
 # Project image sources
 
-The `profesh` redesign reuses these existing assets. Its case studies present them as project artwork or a landing-page preview, not as newly captured screenshots. The Stopped: Both Sides case study uses `assets/images/projects/both-sides-landing.jpeg`, inherited from the publishing branch. Existing attribution and reuse terms remain in force.
+The `profesh` refinement combines the original portfolio artwork with real interface captures from the three featured projects. Existing attribution and reuse terms remain in force.
+
+## Live interface captures — 1 November 2026
+
+The nine WebP files in `assets/images/interfaces/` are full, unaltered viewport captures of the live projects, converted from JPEG to WebP without changing their dimensions. Desktop views are 1440 × 1000; phone views are 390 × 844. These are screenshots of working interfaces, not device mockups or generated illustrations. `manifest.json` records the exact URL, viewport, page title and capture time of each image.
+
+| Files | Source and interaction |
+| --- | --- |
+| `saggart-home`, `saggart-services`, `saggart-mobile` | [Saggart & Citywest Together](https://samobrienolinger.github.io/saggart-and-citywest-together/): homepage, Citywest supports directory, local-services section on a phone |
+| `journeys-decision`, `journeys-feedback`, `journeys-mobile` | [Journeys to Ireland](https://samobrienolinger.github.io/My-New-Life-in-Ireland/): Kwame's planning stage, feedback after checking a response, Fact or Fiction on a phone |
+| `stopped-public`, `stopped-garda`, `stopped-mobile` | [Stopped: Both Sides](https://samobrienolinger.github.io/stopped-both-sides/): the same street encounter before and after switching perspective, then its Garda view on a phone |
+
+Capture provenance: [GitHub Actions run 41257240267](https://github.com/SamOBrienOlinger/SamOBrienOlinger/actions/runs/41257240267), using `scripts/capture-projects.cjs` at `eba5ca84244b25acb4007f39cf7d84613e7960c8`. The script uses normal navigation and interaction, light mode and reduced motion, and waits for visible images before capture. The screenshot viewer supports keyboard opening, native Escape/close and focus restoration; its links open the source images when JavaScript is unavailable.
+
+## Retained project artwork
 
 Rechecked 6 September 2026 against the live sites, their repositories and the original portfolio. Five previews restore the complete original project images in place of isolated photos or scene layers. The other four retain their verified current artwork. These are existing assets, not newly captured screenshots.
 

@@ -84,6 +84,7 @@ This repository serves two purposes: this README appears on my GitHub profile, a
 | --- | --- |
 | [index.html](index.html) | Portfolio page structure and content |
 | [styles.css](styles.css) | Layout and visual presentation |
+| [refinements.css](refinements.css) | Offer, project interfaces and case-study refinements on `profesh` |
 | [script.js](script.js) | Page interactions |
 
 To inspect the website locally, use Python 3 and a browser:
@@ -103,6 +104,8 @@ The `profesh` branch is based on `portfolio-redesign` at `767c641`. It presents 
 The homepage introduces services, three visible project summaries, research, professional background, the working process and contact details. Dedicated case studies explain Saggart & Citywest Together, Journeys to Ireland and Stopped: Both Sides. Six additional projects remain available through the native “More projects” disclosure. Benefits are described as intended contributions; no client endorsements, awards or measured outcomes have been invented.
 
 The existing navy, blue and teal identity, whale photograph, project artwork and credentials diagram are retained. The redesign uses an editorial grid, larger type, restrained entry motion and direct email contact. It preserves the system-aware light/dark preference, storage fallback, keyboard navigation, Escape-to-close menu, plain-text copy behaviour and reduced-motion support. All essential text, links and case studies work without JavaScript. System fonts and local assets avoid external font or animation services.
+
+The refined opening puts the offer and the combination of software, social research and community experience first. Real desktop and phone interface captures show the projects in use; an accessible image viewer lets visitors inspect them. The expanded case studies explain specific build decisions, tradeoffs and delivered scope without inventing impact figures. See [image sources and capture provenance](PROJECT-IMAGE-SOURCES.md).
 
 See [the Profesh implementation notes](docs/profesh.md) for structure and verification. Run `npm run check` for offline integrity and syntax checks, `npm run test:venn` for the credentials regression tests, and `npm test` for the full suite. The browser suite covers desktop Chromium, Firefox and WebKit, Android-sized Chromium, iPhone-sized WebKit and tablet-sized WebKit. GitHub Actions also runs on pushes to `profesh` and saves browser screenshots and test reports.
 

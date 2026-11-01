@@ -13,6 +13,14 @@ This branch starts from the live source branch, `portfolio-redesign`, at `767c64
 - A four-step process includes scope, prototypes, review, handover and an agreed support plan.
 - Direct email contact; there is no form pretending to submit to an unconfigured service.
 
+## Refinement: offer, evidence and editorial rhythm
+
+The opening now states the offer directly: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the work section. “Curiosity. Creativity. Purpose.” remains beside the whale photograph as the practice's signature.
+
+The three featured projects use nine real interface captures, including phone views and Stopped's two perspectives. An alternating project layout and a dark Stopped feature create variety while retaining the existing colours and typography foundations. Short, finite heading and interface entrances honour reduced motion. Screenshots can be enlarged with a native dialog and restore focus when closed; without JavaScript, they remain ordinary image links.
+
+Each case study now identifies the brief, my contribution, three concrete implementation decisions and their tradeoffs, delivered scope, and the next evaluation step. Descriptions were checked against the current project sources on 1 November 2026: Saggart & Citywest Together `b0605db`, Journeys to Ireland `01f9173`, and Stopped: Both Sides `692368c`. Features and delivered content are distinguished from learning outcomes or client results that have not been measured. Capture provenance is recorded in `PROJECT-IMAGE-SOURCES.md` and the image manifest.
+
 ## Design references
 
 The implementation is original. Dennis Snellenberg informed the use of generous space and deliberate motion; Harry Atkins informed clear project navigation; Christian MacMillan informed service, collaboration and support explanations. Niccolò Miranda informed the small editorial use of serif type. No code, imagery, testimonials or award claims were copied from those portfolios.
@@ -34,7 +42,7 @@ The obsolete carousel and overlapping-accordion scripts and browser specificatio
 - Offline integrity: all four HTML pages, local assets, cross-page anchors, heading hierarchy, image dimensions and package metadata.
 - JavaScript syntax checks.
 - Existing seven credentials-motion regression tests.
-- Browser suite: navigation and focus, disclosure operation, all case-study routes, mobile menu dismissal, breakpoint changes, light/dark persistence, reduced motion, missing observers, blocked storage, no JavaScript, 320px/enlarged text, image loading and horizontal overflow.
+- Browser suite: navigation and focus, disclosure operation, all case-study routes, mobile menu dismissal, breakpoint changes, light/dark persistence, reduced motion, missing observers, blocked storage, no JavaScript, 320px/enlarged text, image loading, horizontal overflow, screenshot-dialog keyboard use and native image-link fallback.
 - Browser projects: Chromium, Firefox, WebKit, Android-sized Chromium, iPhone-sized WebKit and tablet-sized WebKit.
 
 The session’s managed preview browser was unavailable. Local static and unit checks passed; the GitHub Actions run is the source of truth for browser results. Full-page homepage and case-study screenshots are included in the workflow artifact. Automated viewport checks are not a claim of testing every physical device or of an independent accessibility certification.

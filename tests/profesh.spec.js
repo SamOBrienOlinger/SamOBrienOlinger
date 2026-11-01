@@ -107,7 +107,7 @@ test('reduced motion settles animations and keeps all main content visible', asy
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('.case-preview')).toHaveCount(3);
-  const states = await page.locator('[data-reveal], .credential-circle, .credential-detail, .credential-overlap').evaluateAll(elements => elements.map(el => {
+  const states = await page.locator('[data-reveal], #hero-title > span, .project-interfaces, .credential-circle, .credential-detail, .credential-overlap').evaluateAll(elements => elements.map(el => {
     const css = getComputedStyle(el);
     return { opacity: css.opacity, animation: css.animationName };
   }));
@@ -163,4 +163,43 @@ test('320px layout and enlarged text preserve readable content', async ({ page }
     await expect(page.locator('h1')).toBeVisible();
   }
   await page.screenshot({ path: testInfo.outputPath('enlarged-text.png'), fullPage: true });
+});
+
+
+test('interface images enlarge by keyboard, close with Escape and restore focus', async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const route of ['/', '/work/journeys-to-ireland.html']) {
+    await page.goto(route);
+    const opener = page.locator('[data-screen]').first();
+    await opener.focus();
+    await opener.press('Enter');
+    const dialog = page.getByRole('dialog', { name: 'Interface preview' });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.locator('img')).toHaveAttribute('src', /interfaces\/.+\.webp$/);
+    await expect.poll(() => dialog.locator('img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+    expect(await dialog.evaluate(el => el.getBoundingClientRect().right <= innerWidth + 1)).toBe(true);
+    await expect(page.getByRole('button', { name: 'Close image preview' })).toBeFocused();
+    if (route !== '/') await page.screenshot({ path: testInfo.outputPath('interface-viewer.png') });
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(opener).toBeFocused();
+    await expect(page.locator('html')).not.toHaveClass(/is-viewing-image/);
+    await opener.click();
+    await page.getByRole('button', { name: 'Close image preview' }).click();
+    await expect(opener).toBeFocused();
+  }
+});
+
+test('offer and contact are available before the project list, and image links work without JavaScript', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();
+  await page.goto(baseURL + '/');
+  await expect(page.locator('h1')).toContainText('Websites &');
+  await expect(page.locator('.hero-actions').getByRole('link', { name: 'Discuss a project' })).toHaveAttribute('href', '#contact');
+  const link = page.locator('[data-screen]').first();
+  const destination = await link.getAttribute('href');
+  await link.click();
+  expect(page.url()).toBe(baseURL + '/' + destination);
+  await expect(page.locator('img')).toBeVisible();
+  await context.close();
 });
