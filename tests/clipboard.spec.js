@@ -2,9 +2,9 @@ const { test, expect } = require('@playwright/test');
 
 test('selected page text copies and pastes without HTML or file attachments', async ({ page }) => {
   await page.goto('/');
-  const text = 'empower people and strengthen communities';
+  const text = 'empower people, strengthen communities';
   await page.evaluate(text => {
-    const node = document.querySelector('.lede').firstChild;
+    const node = document.querySelector('.hero-intro').firstChild;
     const start = node.textContent.indexOf(text);
     const range = document.createRange();
     range.setStart(node, start);
@@ -64,7 +64,7 @@ test('empty selections and editable fields retain their normal Copy behavior', a
       field.focus();
       // A stale page selection must not replace the contents being copied from a field.
       const range = document.createRange();
-      range.selectNodeContents(document.querySelector('.lede'));
+      range.selectNodeContents(document.querySelector('.hero-intro'));
       selection.removeAllRanges();
       selection.addRange(range);
       results.push(copy(field));
@@ -79,7 +79,7 @@ test('Copy falls back to the browser when a clipboard write is unavailable', asy
   await page.goto('/');
   const prevented = await page.evaluate(() => {
     const range = document.createRange();
-    range.selectNodeContents(document.querySelector('.lede'));
+    range.selectNodeContents(document.querySelector('.hero-intro'));
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     const events = [
