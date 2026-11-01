@@ -2,6 +2,12 @@ const { test, expect } = require('@playwright/test');
 
 const pages = ['/', '/work/saggart-citywest.html', '/work/journeys-to-ireland.html', '/work/stopped-both-sides.html'];
 
+async function openMainSections(page) {
+  for (const summary of await page.locator('.section-disclosure > summary').all()) {
+    if (!(await summary.evaluate(el => el.parentElement.open))) await summary.click();
+  }
+}
+
 async function settleImages(page) {
   await page.locator('img').evaluateAll(images => Promise.all(images.map(async img => {
     img.loading = 'eager';
@@ -19,7 +25,10 @@ test('all pages load their assets and stay within the viewport', async ({ page }
     await page.goto(route);
     await expect(page.locator('h1')).toBeVisible();
     // Load every image, including optional projects, before checking asset integrity.
-    if (route === '/') await page.locator('.more-work > summary').click();
+    if (route === '/') {
+      await openMainSections(page);
+      await page.locator('.more-work > summary').click();
+    }
     await settleImages(page);
     await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
@@ -35,6 +44,10 @@ test('all pages load their assets and stay within the viewport', async ({ page }
   await settleImages(page);
   await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('homepage.png'), fullPage: true });
+  await page.locator('#work .section-toggle').click();
+  await settleImages(page);
+  await page.evaluate(() => scrollTo(0, 0));
+  await page.screenshot({ path: testInfo.outputPath('homepage-work-open.png'), fullPage: true });
   await page.goto('/work/stopped-both-sides.html');
   await settleImages(page);
   await page.screenshot({ path: testInfo.outputPath('case-study.png'), fullPage: true });
@@ -50,6 +63,7 @@ test('navigation, keyboard disclosures and case-study routes work', async ({ pag
     await nav.getByRole('link', { name, exact: name !== 'Contact' }).click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
     await expect(page.locator(`#${id}`)).toBeFocused();
+    await expect(page.locator(`#${id} .section-disclosure`)).toHaveAttribute('open', '');
     await expect(menu).toHaveAttribute('aria-expanded', 'false');
   }
   const summary = page.locator('.more-work > summary');
@@ -65,6 +79,7 @@ test('navigation, keyboard disclosures and case-study routes work', async ({ pag
   await expect(page.locator('#experience')).toBeFocused();
   await page.getByRole('link', { name: 'All work', exact: false }).click();
   await expect(page).toHaveURL(/index.html#work$/);
+  await expect(page.locator('#work .case-list')).toBeVisible();
 });
 
 test('Escape, outside clicks and breakpoint changes close the mobile menu', async ({ page }) => {
@@ -107,6 +122,7 @@ test('reduced motion settles animations and keeps all main content visible', asy
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('.case-preview')).toHaveCount(3);
+  await openMainSections(page);
   const states = await page.locator('[data-reveal], #hero-title > span, .project-interfaces, .credential-circle, .credential-detail, .credential-overlap').evaluateAll(elements => elements.map(el => {
     const css = getComputedStyle(el);
     return { opacity: css.opacity, animation: css.animationName };
@@ -124,6 +140,7 @@ test('content, navigation and case studies remain usable without JavaScript', as
   await page.goto(baseURL + '/');
   await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
   await expect(page.locator('.case-preview')).toHaveCount(3);
+  await page.locator('#work .section-toggle').click();
   await page.locator('.more-work > summary').click();
   await expect(page.locator('.more-work-grid')).toBeVisible();
   await page.getByRole('link', { name: /Read the case study.*Journeys to Ireland/ }).click();
@@ -151,7 +168,10 @@ test('320px layout and enlarged text preserve readable content', async ({ page }
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const route of pages) {
     await page.goto(route);
-    if (route === '/') await page.locator('.more-work > summary').click();
+    if (route === '/') {
+      await openMainSections(page);
+      await page.locator('.more-work > summary').click();
+    }
     await page.addStyleTag({ content: 'html { font-size: 200%; }' });
     const overflowing = await page.locator('body *').evaluateAll(elements => elements.filter(element => {
       if (!element.getClientRects().length || element.closest('svg, .sr-only, .skip-link')) return false;
@@ -170,6 +190,7 @@ test('interface images enlarge by keyboard, close with Escape and restore focus'
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const route of ['/', '/work/journeys-to-ireland.html']) {
     await page.goto(route);
+    if (route === '/') await page.locator('#work .section-toggle').click();
     const opener = page.locator('[data-screen]').first();
     await opener.focus();
     await opener.press('Enter');
@@ -196,10 +217,68 @@ test('offer and contact are available before the project list, and image links w
   await page.goto(baseURL + '/');
   await expect(page.locator('h1')).toContainText('Websites &');
   await expect(page.locator('.hero-actions').getByRole('link', { name: 'Discuss a project' })).toHaveAttribute('href', '#contact');
+  await page.locator('#work .section-toggle').click();
   const link = page.locator('[data-screen]').first();
   const destination = await link.getAttribute('href');
   await link.click();
   expect(page.url()).toBe(baseURL + '/' + destination);
   await expect(page.locator('img')).toBeVisible();
   await context.close();
+});
+
+
+test('main sections start closed and toggle independently with keyboard and touch', async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await expect(page.locator('.section-disclosure')).toHaveCount(6);
+  for (const id of ['work', 'services', 'research', 'people', 'approach', 'contact']) {
+    const section = page.locator(`#${id}`);
+    const summary = section.locator('.section-toggle');
+    const panel = section.locator('.section-panel');
+    await expect(panel).toBeHidden();
+    await summary.focus();
+    await summary.press('Enter');
+    await expect(panel).toBeVisible();
+    await expect(summary).toBeFocused();
+    await summary.press('Space');
+    await expect(panel).toBeHidden();
+    await expect(summary).toBeFocused();
+    await summary.click();
+    await expect(panel).toBeVisible();
+  }
+  // Opening another section does not close content the visitor is already using.
+  await expect(page.locator('.section-disclosure[open]')).toHaveCount(6);
+  await page.locator('#research .section-toggle').click();
+  await expect(page.locator('#research .publication-list')).toBeHidden();
+  await expect(page.locator('#work .case-list')).toBeVisible();
+  await page.locator('#people .section-toggle').click();
+  await expect(page.locator('#career-background')).toBeHidden();
+  await page.locator('#people .section-toggle').click();
+  await expect(page.locator('#career-background')).toBeVisible();
+  await expect(page.locator('#career-background')).not.toHaveClass(/is-revealing/);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to dark theme' }).click();
+  await page.screenshot({ path: testInfo.outputPath('collapsed-dark.png'), fullPage: true });
+});
+
+test('fragment links, repeat navigation and browser history reveal the requested section', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#research');
+  await expect(page.locator('#research .publication-list')).toBeVisible();
+  await page.reload();
+  await expect(page.locator('#research .publication-list')).toBeVisible();
+  await page.locator('#research .section-toggle').click();
+  const menu = page.locator('.menu-toggle');
+  if (await menu.isVisible()) await menu.click();
+  await page.getByRole('navigation', { name: 'Primary', exact: true }).getByRole('link', { name: 'Research', exact: true }).click();
+  await expect(page.locator('#research .publication-list')).toBeVisible();
+  await page.locator('.hero-actions').getByRole('link', { name: 'Discuss a project' }).click();
+  await expect(page.locator('#contact .contact-copy')).toBeVisible();
+  await page.locator('#research .section-toggle').click();
+  await page.goBack();
+  await expect(page).toHaveURL(/#research$/);
+  await expect(page.locator('#research .publication-list')).toBeVisible();
+  await page.goto('/#career-background');
+  await expect(page.locator('#people .section-panel')).toBeVisible();
+  await expect(page.locator('#career-background')).toBeInViewport();
 });

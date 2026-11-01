@@ -135,9 +135,27 @@
     });
   }
 
-  function moveFocusToSection(hash) {
-    const target = document.getElementById(hash.slice(1));
+  function fragmentTarget(hash) {
+    try { return document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch { return null; }
+  }
+
+  function openTargetSection(target) {
     if (!target) return;
+    if (target.classList.contains('collapsible-section')) {
+      const disclosure = target.querySelector('.section-disclosure');
+      if (disclosure) disclosure.open = true;
+    }
+    // Also reveal deep links inside a closed section or nested project list.
+    for (let ancestor = target; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor instanceof HTMLDetailsElement) ancestor.open = true;
+    }
+  }
+
+  function moveFocusToSection(hash) {
+    const target = fragmentTarget(hash);
+    if (!target) return;
+    openTargetSection(target);
     if (!target.hasAttribute('tabindex')) {
       target.setAttribute('tabindex', '-1');
       target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
@@ -217,6 +235,17 @@
   header.classList.add('nav-ready');
   measureHeader();
   if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
+
+  // Direct links, reloads and browser history reveal the destination before scrolling.
+  function revealFragment() {
+    const target = fragmentTarget(location.hash);
+    if (!target) return;
+    openTargetSection(target);
+    requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+  }
+  window.addEventListener('hashchange', revealFragment);
+  window.addEventListener('pageshow', revealFragment);
+  revealFragment();
 
   // The last section above the reading line is stable even for very tall sections.
   // Only observe targets on the current page; case-study navigation links return home.

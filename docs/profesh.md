@@ -8,7 +8,7 @@ This branch starts from the live source branch, `portfolio-redesign`, at `767c64
 - Clear positioning and three services: websites/information hubs, interactive learning, and research/digital content.
 - Three substantial case studies at `work/saggart-citywest.html`, `work/journeys-to-ireland.html` and `work/stopped-both-sides.html`.
 - Six additional projects remain discoverable through a keyboard-operable native disclosure.
-- Research is immediately visible, with all eight existing publication links retained.
+- The Research section is directly accessible, with all eight existing publication links retained.
 - Existing people/background copy and the animated credentials diagram are preserved.
 - A four-step process includes scope, prototypes, review, handover and an agreed support plan.
 - Direct email contact; there is no form pretending to submit to an unconfigured service.
@@ -31,6 +31,8 @@ Project descriptions are based on the portfolio and the connected repositoriesâ€
 
 ## Implementation and accessibility
 
+The homepage's six main sections (Work, Services, Research, People, Working together and Contact) use independent native disclosures. They begin closed, with descriptive headings and plus/minus controls. The opening offer stays visible. Navigation and contact links open their destination; initial URL fragments, reloads, browser history and deeper anchors also reveal the relevant section. The existing More projects disclosure remains inside Work. Without JavaScript, visitors can open each section directly with its native summary control.
+
 The site is static HTML, CSS and JavaScript, with relative links that support the GitHub Pages project path. Existing local images, original image dimensions and system fonts avoid new runtime dependencies. Additional images lazy-load. There are no automatically rotating project cards, scroll interception, custom cursors or looping decorative effects.
 
 The mobile menu, saved light/dark theme, blocked-storage fallback and plain-text clipboard behaviour remain. Native navigation and the additional-project disclosure work without JavaScript. Entry effects never leave waiting text hidden, settle for keyboard interaction, and honour reduced-motion changes. The credentials diagram retains its dedicated tested motion implementation and CSS.
@@ -42,7 +44,7 @@ The obsolete carousel and overlapping-accordion scripts and browser specificatio
 - Offline integrity: all four HTML pages, local assets, cross-page anchors, heading hierarchy, image dimensions and package metadata.
 - JavaScript syntax checks.
 - Existing seven credentials-motion regression tests.
-- Browser suite: navigation and focus, disclosure operation, all case-study routes, mobile menu dismissal, breakpoint changes, light/dark persistence, reduced motion, missing observers, blocked storage, no JavaScript, 320px/enlarged text, image loading, horizontal overflow, screenshot-dialog keyboard use and native image-link fallback.
+- Browser suite: navigation and focus, independent section disclosure operation, deep links and browser history, all case-study routes, mobile menu dismissal, breakpoint changes, light/dark persistence, reduced motion, missing observers, blocked storage, no JavaScript, 320px/enlarged text, image loading, horizontal overflow, screenshot-dialog keyboard use and native image-link fallback.
 - Browser projects: Chromium, Firefox, WebKit, Android-sized Chromium, iPhone-sized WebKit and tablet-sized WebKit.
 
 The sessionâ€™s managed preview browser was unavailable. Local static and unit checks passed; the GitHub Actions run is the source of truth for browser results. Full-page homepage and case-study screenshots are included in the workflow artifact. Automated viewport checks are not a claim of testing every physical device or of an independent accessibility certification.
