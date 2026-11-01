@@ -169,17 +169,33 @@ main:focus, section[tabindex="-1"]:focus, body:focus { outline: none; }
 .contact-section h2 em { color: #b7d5ed; }
 .contact-copy { max-width: 30rem; align-self: center; }
 .contact-copy > p { color: #b5c6d3; }
-.contact-copy .button { margin-top: 1.5rem; background: #b7d5ed; color: #152b46; min-width: min(11rem, 100%); }
-.contact-copy .button:hover { background: #ffcf84; }
-.email-address { display: block; width: fit-content; padding-block: .75rem; margin-top: .6rem; font-size: .9rem; overflow-wrap: anywhere; }
-.email-address:hover { text-decoration: underline; }
-.contact-copy .contact-note { margin-top: .75rem; font-size: .78rem; }
+.contact-copy .email-button { justify-content: flex-start; gap: .75rem; width: fit-content; max-width: 100%; min-width: min(11rem, 100%); min-height: 3.5rem; margin-top: 1.5rem; padding: .6rem 1.35rem .6rem .65rem; border: 1px solid #d4e9f080; border-radius: 999px; background: linear-gradient(115deg, #c4e0ed, #a7d9d4); color: #152b46; font-weight: 650; box-shadow: 0 4px 16px #0000001a; }
+.email-button > span { min-width: 0; }
+.email-button-icon { display: grid; place-items: center; flex: 0 0 2.125rem; width: 2.125rem; height: 2.125rem; border: 1px solid #152b4614; border-radius: 50%; background: #ffffff40; }
+.email-button-icon svg { display: block; width: 1.2rem; height: 1.2rem; }
+.contact-copy .email-button:hover { background: linear-gradient(115deg, #d7eaf4, #bce6de); color: #152b46; border-color: #d4e9f0; box-shadow: 0 6px 20px #00000024; }
+.contact-copy .email-button:active { background: #a7d9d4; box-shadow: 0 2px 8px #0000001a; }
+.contact-copy .contact-note { margin-top: 1.25rem; font-size: .78rem; }
 .contact-section :focus-visible, .site-footer :focus-visible { outline-color: #ffcf84; }
 .site-footer { background: #111e2d; color: #b5c6d3; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; align-items: center; border-top: 1px solid #354b5e; padding-block: 1.1rem; font-size: .75rem; }
 .footer-inner > p { margin-right: auto; }
 .footer-inner a { display: inline-flex; align-items: center; gap: .65rem; min-height: 2.75rem; }
 .footer-inner a:hover { color: #fff; }
+.footer-inner .linkedin-link { justify-content: center; flex: 0 0 auto; width: 2.75rem; height: 2.75rem; border: 1px solid #354b5e; border-radius: .65rem; background: #192b3c; color: #b7d5ed; transition: color .2s, background .2s, border-color .2s; }
+.linkedin-link svg { display: block; width: 1.35rem; height: 1.35rem; pointer-events: none; }
+.footer-inner .linkedin-link:hover { color: #fff; background: #294e71; border-color: #6f91ac; }
+@media (prefers-reduced-motion: no-preference) {
+  .contact-copy .email-button { transition: transform .2s var(--ease), box-shadow .2s, border-color .2s; }
+  .contact-copy .email-button:focus-visible { transform: translateY(-2px); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .contact-copy .email-button:hover { transform: translateY(-2px); }
+  .contact-copy .email-button:active { transform: none; }
+}
+@media (forced-colors: active) {
+  .contact-copy .email-button, .footer-inner .linkedin-link { border-color: ButtonText; }
+}
 /* Dedicated case studies have stable URLs and work without JavaScript. */
 .case-hero { padding-top: 2rem; }
 .breadcrumb { font-size: .85rem; margin-bottom: 3.5rem; border: 0; }
