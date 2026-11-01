@@ -1,0 +1,27 @@
+name: Portfolio project interface captures
+on:
+  push:
+    branches: [profesh]
+    paths:
+      - scripts/capture-projects.cjs
+      - .github/workflows/project-captures.yml
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/capture-projects.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: project-interface-captures
+          path: project-captures
+          if-no-files-found: error

@@ -1,0 +1,73 @@
+// Fresh, unmodified interface captures for the portfolio, taken from the live projects.
+const { chromium, expect } = require('@playwright/test');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const output = 'project-captures';
+const base = 'https://samobrienolinger.github.io/';
+(async () => {
+  await fs.mkdir(output, { recursive: true });
+  const browser = await chromium.launch();
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: 'light' });
+  const page = await context.newPage();
+  page.setDefaultTimeout(20000);
+  const manifest = [];
+  async function capture(name, action) {
+    if (action) await action();
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      const visible = [...document.images].filter(img => {
+        const r = img.getBoundingClientRect();
+        return (img.currentSrc || img.getAttribute('src')) && r.width > 0 && r.bottom > 0 && r.top < innerHeight;
+      });
+      await Promise.all(visible.map(img => img.decode()));
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    });
+    await page.screenshot({ path: path.join(output, name + '.jpg'), type: 'jpeg', quality: 90 });
+    manifest.push({ file: name + '.jpg', url: page.url(), title: await page.title(), viewport: page.viewportSize(), captured: new Date().toISOString() });
+  }
+  await page.goto(base + 'saggart-and-citywest-together/');
+  await expect(page.locator('h1')).toBeVisible();
+  await capture('saggart-home');
+  await page.goto(base + 'saggart-and-citywest-together/citywest-supports.html');
+  await expect(page.locator('h1')).toBeVisible();
+  await capture('saggart-services');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(base + 'saggart-and-citywest-together/#local-services');
+  await page.locator('#local-services').scrollIntoViewIfNeeded();
+  await capture('saggart-mobile');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto(base + 'My-New-Life-in-Ireland/');
+  await expect(page.locator('h1')).toBeVisible();
+  await capture('journeys-home');
+  await page.goto(base + 'My-New-Life-in-Ireland/#character-kwame');
+  await page.getByRole('button', {name:'Begin five-stage journey',exact:true}).click();
+  await expect(page.locator('#decision-title')).toBeVisible();
+  await page.evaluate(() => scrollTo(0,0));
+  await capture('journeys-decision');
+  await page.locator('[id="0-verify"]').click();
+  await page.getByRole('button',{name:'Check decision',exact:true}).click();
+  await page.locator('.decision-panel').scrollIntoViewIfNeeded();
+  await capture('journeys-feedback');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(base + 'My-New-Life-in-Ireland/fact-or-fiction/');
+  await expect(page.locator('.fact-card').first()).toBeVisible();
+  await capture('journeys-mobile');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto(base + 'stopped-both-sides/');
+  await expect(page.locator('h1')).toBeVisible();
+  await capture('stopped-home');
+  await page.locator('.perspective-hero a[href="#encounters/public"]').click();
+  await page.locator('[data-action="paired-quick-start"]').click();
+  await expect(page.locator('#scene-title')).toBeVisible();
+  await page.locator('.paired-game').scrollIntoViewIfNeeded();
+  await capture('stopped-public');
+  await page.locator('[data-action="paired-switch"]').click();
+  await expect(page.locator('#scene-title')).toBeVisible();
+  await page.locator('.paired-game').scrollIntoViewIfNeeded();
+  await capture('stopped-garda');
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('#scene-title').scrollIntoViewIfNeeded();
+  await capture('stopped-mobile');
+  await fs.writeFile(path.join(output,'manifest.json'), JSON.stringify(manifest,null,2)+'\n');
+  await browser.close();
+})().catch(error => { console.error(error); process.exit(1); });
