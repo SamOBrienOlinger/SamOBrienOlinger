@@ -4,7 +4,7 @@ This branch starts from the live source branch, `portfolio-redesign`, at `767c64
 
 ## Experience
 
-The opening restores the live `portfolio-redesign` presentation: a centred whale image (up to 44rem wide), followed by three bold navy-to-blue words. They sit in a row from 48rem and stack on smaller screens, using the original gentle staggered reveal. The two supporting lines remain centred beneath them. The opening stays above the offer, and its former “Discuss a project” / “See the work” buttons have been removed. Contact remains available in the navigation and sections.
+The opening restores the live `portfolio-redesign` presentation: a centred whale image (up to 44rem wide), followed by three bold navy-to-blue words. They sit in a row from 48rem and stack on smaller screens, using the original gentle staggered reveal. The opening stays above the offer, and its former “Discuss a project” / “See the work” buttons have been removed. Contact remains available in the navigation and sections.
 
 - Audience: community organisations, NGOs, education and research teams, cultural organisations, social enterprises and collaborating development teams.
 - Clear positioning and three services: websites/information hubs, interactive learning, and research/digital content.
@@ -17,7 +17,7 @@ The opening restores the live `portfolio-redesign` presentation: a centred whale
 
 ## Refinement: offer, evidence and editorial rhythm
 
-The whale photograph and “Curiosity. Creativity. Purpose.” signature lead the page, immediately below the navigation. The offer follows: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the main sections. People comes first (01), followed by Work (02), Services (03), Research (04), Working together (05) and Contact (06). Navigation follows this order on the homepage and case studies.
+The whale photograph and “Curiosity. Creativity. Purpose.” signature lead the page, immediately below the navigation. The offer follows: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the main sections. People comes first (01), followed by Work (02), Services (03), Research (04), Working together (05) and Contact (06). Navigation follows this order on the homepage and case studies. Sections 01–05 reuse the practice strip’s 2px divider colours: People and Working together use gold, Work and Services use blue, and Research uses teal. The blue and teal follow the active theme, matching the strip in light and dark modes.
 
 The three featured projects use nine real interface captures, including phone views and Stopped's two perspectives. An alternating project layout and a dark Stopped feature create variety while retaining the existing colours and typography foundations. Short, finite heading and interface entrances honour reduced motion. Screenshots can be enlarged with a native dialog and restore focus when closed; without JavaScript, they remain ordinary image links.
 

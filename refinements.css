@@ -1,5 +1,5 @@
 /* A connected practice: clear offers, real interfaces and an editorial rhythm. */
-:root { --max: 1280px; }
+:root { --max: 1280px; --gold: #b88948; }
 .hero-topline { margin-bottom: clamp(2rem, 4vw, 3rem); }
 #hero-title { font-size: clamp(2.8rem, 6.2vw, 5.85rem); line-height: 1.04; letter-spacing: -.058em; }
 #hero-title > span { display: block; }
@@ -8,7 +8,7 @@
 .practice-strip { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: clamp(2rem, 4vw, 3.5rem); gap: 1.25rem 2.5rem; }
 .practice-strip p { display: grid; gap: .25rem; padding-top: .85rem; border-top: 2px solid var(--blue); min-width: 0; }
 .practice-strip p:nth-child(2) { border-color: var(--accent); }
-.practice-strip p:nth-child(3) { border-color: #b88948; }
+.practice-strip p:nth-child(3) { border-color: var(--gold); }
 .practice-label { font: .68rem/1.6 "SFMono-Regular", Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .practice-strip strong { font-size: .94rem; font-weight: 600; }
 .practice-strip p > span:last-child { color: var(--muted); font-size: .8rem; }
@@ -116,6 +116,10 @@ html.is-viewing-image { overflow: hidden; }
 .collapsible-section { padding-block: 0; }
 .hero + .collapsible-section { margin-top: clamp(2.5rem, 5vw, 4rem); }
 .section-disclosure { border-top: 1px solid var(--line); }
+/* Carry the practice-strip colours into the five main section dividers. */
+:is(#people, #approach) .section-disclosure { border-top: 2px solid var(--gold); }
+:is(#work, #services) .section-disclosure { border-top: 2px solid var(--blue); }
+#research .section-disclosure { border-top: 2px solid var(--accent); }
 .section-toggle { display: block; list-style: none; cursor: pointer; padding-block: clamp(1.5rem, 3vw, 2.5rem); }
 .section-toggle::-webkit-details-marker { display: none; }
 .section-toggle > h2 { display: grid; grid-template-columns: minmax(0,1fr) 2.75rem; align-items: center; gap: 1.25rem; }
