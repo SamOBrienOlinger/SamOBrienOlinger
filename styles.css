@@ -46,6 +46,15 @@ main:focus, section[tabindex="-1"]:focus, body:focus { outline: none; }
 .text-link span[aria-hidden] { display: inline-block; transition: transform .35s var(--ease); }
 .text-link:hover { color: var(--accent); }
 .text-link:hover span[aria-hidden] { transform: translate(3px, -3px); }
+/* A consistent, rounded-stroke arrow that follows each link's text colour. */
+.link-arrow { display: inline-block; width: 1.125em; height: 1.125em; flex: 0 0 auto; vertical-align: -.16em; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .link-arrow { transition: transform .22s var(--ease); }
+  a:focus-visible .link-arrow { transform: translate(2px, -2px); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  a:hover .link-arrow { transform: translate(2px, -2px); }
+}
 .button { overflow-wrap: anywhere; display: inline-flex; align-items: center; justify-content: space-between; gap: clamp(.5rem, 3vw, 1.4rem); min-height: 3.25rem; padding: .9rem clamp(.75rem, 3vw, 1.3rem); border: 1px solid transparent; border-radius: .2rem; font-weight: 550; line-height: 1.5; transition: background .25s ease, color .25s ease; }
 .button.primary { background: var(--ink); color: var(--paper); }
 .button.primary:hover { background: var(--accent); color: var(--paper); }
