@@ -15,7 +15,7 @@ This branch starts from the live source branch, `portfolio-redesign`, at `767c64
 
 ## Refinement: offer, evidence and editorial rhythm
 
-The opening now states the offer directly: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the work section. “Curiosity. Creativity. Purpose.” remains beside the whale photograph as the practice's signature.
+The whale photograph and “Curiosity. Creativity. Purpose.” signature lead the page, immediately below the navigation. The offer follows: “Websites & learning tools. Built around people.” Software, sociology and community experience appear together before the work section.
 
 The three featured projects use nine real interface captures, including phone views and Stopped's two perspectives. An alternating project layout and a dark Stopped feature create variety while retaining the existing colours and typography foundations. Short, finite heading and interface entrances honour reduced motion. Screenshots can be enlarged with a native dialog and restore focus when closed; without JavaScript, they remain ordinary image links.
 
@@ -32,6 +32,8 @@ Project descriptions are based on the portfolio and the connected repositories�
 ## Implementation and accessibility
 
 The homepage's six main sections (Work, Services, Research, People, Working together and Contact) use independent native disclosures. They begin closed, with descriptive headings and plus/minus controls. The opening offer stays visible. Navigation and contact links open their destination; initial URL fragments, reloads, browser history and deeper anchors also reveal the relevant section. The existing More projects disclosure remains inside Work. Without JavaScript, visitors can open each section directly with its native summary control.
+
+Each main disclosure and More projects also has a discreet “Collapse section” button at its bottom. It closes only its own disclosure, restores keyboard focus to the summary and brings that heading below the sticky navigation. Reduced motion disables the smooth return scroll. The buttons are revealed only after their handlers are ready; native summary controls remain available without JavaScript.
 
 The site is static HTML, CSS and JavaScript, with relative links that support the GitHub Pages project path. Existing local images, original image dimensions and system fonts avoid new runtime dependencies. Additional images lazy-load. There are no automatically rotating project cards, scroll interception, custom cursors or looping decorative effects.
 

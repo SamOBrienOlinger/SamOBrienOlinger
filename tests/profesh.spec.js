@@ -42,6 +42,9 @@ test('all pages load their assets and stay within the viewport', async ({ page }
   expect(errors).toEqual([]);
   await page.goto('/');
   await settleImages(page);
+  const opening = await page.locator('.hero-image--opening').boundingBox();
+  const headline = await page.locator('#hero-title').boundingBox();
+  expect(opening.y + opening.height).toBeLessThanOrEqual(headline.y);
   await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('homepage.png'), fullPage: true });
   await page.locator('#work .section-toggle').click();
@@ -141,6 +144,7 @@ test('content, navigation and case studies remain usable without JavaScript', as
   await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
   await expect(page.locator('.case-preview')).toHaveCount(3);
   await page.locator('#work .section-toggle').click();
+  await expect(page.locator('#work-disclosure > .section-panel > [data-collapse-section]')).toBeHidden();
   await page.locator('.more-work > summary').click();
   await expect(page.locator('.more-work-grid')).toBeVisible();
   await page.getByRole('link', { name: /Read the case study.*Journeys to Ireland/ }).click();
@@ -281,4 +285,47 @@ test('fragment links, repeat navigation and browser history reveal the requested
   await page.goto('/#career-background');
   await expect(page.locator('#people .section-panel')).toBeVisible();
   await expect(page.locator('#career-background')).toBeInViewport();
+});
+
+test('bottom controls close their own section and return focus to the visible heading', async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const sections = [['work', 'Work'], ['services', 'Services'], ['research', 'Research'], ['people', 'People'], ['approach', 'Working together'], ['contact', 'Contact']];
+  for (const [id, label] of sections) {
+    const summary = page.locator(`#${id} .section-toggle`);
+    const disclosure = page.locator(`#${id}-disclosure`);
+    await summary.click();
+    const close = page.getByRole('button', { name: `Collapse section: ${label}`, exact: true });
+    await expect(close).toBeVisible();
+    await close.focus();
+    if (id === 'research') {
+      await close.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: testInfo.outputPath('bottom-collapse-control.png') });
+    }
+    if (id === 'work' || id === 'people') await close.press('Enter');
+    else await close.click();
+    await expect(disclosure).not.toHaveAttribute('open', '');
+    await expect(summary).toBeFocused();
+    await expect.poll(() => summary.evaluate(el => {
+      const r = el.getBoundingClientRect();
+      const header = document.querySelector('[data-header]').getBoundingClientRect();
+      return r.top >= header.bottom - 1 && r.top < innerHeight;
+    })).toBe(true);
+  }
+  // The nested control must leave its parent Work section open.
+  await page.locator('#work .section-toggle').click();
+  const more = page.locator('#more-projects-disclosure');
+  await more.locator(':scope > summary').click();
+  await page.getByRole('button', { name: 'Collapse section: More projects', exact: true }).click();
+  await expect(more).not.toHaveAttribute('open', '');
+  await expect(page.locator('#work-disclosure')).toHaveAttribute('open', '');
+  await expect(more.locator(':scope > summary')).toBeFocused();
+  await expect(more.locator(':scope > summary')).toBeInViewport();
+  // Closing a fragment destination must not immediately reopen it.
+  await page.goto('/#contact');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.getByRole('button', { name: 'Collapse section: Contact', exact: true }).click();
+  await expect(page.locator('#contact-disclosure')).not.toHaveAttribute('open', '');
+  await expect(page.locator('#contact .section-toggle')).toBeFocused();
+  await expect(page.locator('#contact .section-toggle')).toBeInViewport();
 });

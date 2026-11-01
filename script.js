@@ -111,6 +111,19 @@
     });
   }
 
+  // Close the nearest disclosure and return readers to its heading, including nested projects.
+  document.querySelectorAll('[data-collapse-section]').forEach(button => {
+    const disclosure = button.closest('details');
+    const summary = disclosure?.querySelector(':scope > summary');
+    if (!summary) return;
+    button.addEventListener('click', () => {
+      disclosure.open = false;
+      summary.focus({ preventScroll: true });
+      summary.scrollIntoView({ block: 'start', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    });
+    button.hidden = false;
+  });
+
   const header = document.querySelector('[data-header]');
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.getElementById('site-nav');
