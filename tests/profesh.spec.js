@@ -2,6 +2,14 @@ const { test, expect } = require('@playwright/test');
 
 const pages = ['/', '/work/saggart-citywest.html', '/work/journeys-to-ireland.html', '/work/stopped-both-sides.html'];
 
+async function settleImages(page) {
+  await page.locator('img').evaluateAll(images => Promise.all(images.map(async img => {
+    img.loading = 'eager';
+    await img.decode();
+  })));
+}
+
+
 test('all pages load their assets and stay within the viewport', async ({ page }, testInfo) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -12,7 +20,7 @@ test('all pages load their assets and stay within the viewport', async ({ page }
     await expect(page.locator('h1')).toBeVisible();
     // Load every image, including optional projects, before checking asset integrity.
     if (route === '/') await page.locator('.more-work > summary').click();
-    await page.locator('img').evaluateAll(images => images.forEach(img => { img.loading = 'eager'; }));
+    await settleImages(page);
     await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
     const outside = await page.locator('main a, main button, main summary, h1, h2, h3').evaluateAll(elements => elements.filter(element => {
@@ -24,10 +32,11 @@ test('all pages load their assets and stay within the viewport', async ({ page }
   }
   expect(errors).toEqual([]);
   await page.goto('/');
-  await page.locator('img').evaluateAll(images => images.forEach(img => { img.loading = 'eager'; }));
+  await settleImages(page);
   await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('homepage.png'), fullPage: true });
   await page.goto('/work/stopped-both-sides.html');
+  await settleImages(page);
   await page.screenshot({ path: testInfo.outputPath('case-study.png'), fullPage: true });
 });
 
@@ -79,7 +88,7 @@ test('Escape, outside clicks and breakpoint changes close the mobile menu', asyn
   await expect(page.locator('#site-nav')).toBeHidden();
 });
 
-test('theme persists, including across case studies', async ({ page }) => {
+test('theme persists, including across case studies', async ({ page }, testInfo) => {
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
@@ -89,6 +98,9 @@ test('theme persists, including across case studies', async ({ page }) => {
   await page.getByRole('button', { name: 'Switch to dark theme' }).click();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await settleImages(page);
+  await page.screenshot({ path: testInfo.outputPath('dark-case-study.png'), fullPage: true });
 });
 
 test('reduced motion settles animations and keeps all main content visible', async ({ page }) => {
@@ -139,6 +151,7 @@ test('320px layout and enlarged text preserve readable content', async ({ page }
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const route of pages) {
     await page.goto(route);
+    if (route === '/') await page.locator('.more-work > summary').click();
     await page.addStyleTag({ content: 'html { font-size: 200%; }' });
     const overflowing = await page.locator('body *').evaluateAll(elements => elements.filter(element => {
       if (!element.getClientRects().length || element.closest('svg, .sr-only, .skip-link')) return false;
