@@ -47,6 +47,9 @@ test('all pages load their assets and stay within the viewport', async ({ page }
   expect(opening.y + opening.height).toBeLessThanOrEqual(headline.y);
   await expect.poll(() => page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('homepage.png'), fullPage: true });
+  await page.locator('#people .section-toggle').click();
+  await page.locator('#people').screenshot({ path: testInfo.outputPath('people-open.png') });
+  await page.locator('#people .section-toggle').click();
   await page.locator('#work .section-toggle').click();
   await settleImages(page);
   await page.evaluate(() => scrollTo(0, 0));

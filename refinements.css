@@ -132,7 +132,7 @@ html.is-viewing-image { overflow: hidden; }
 .section-toggle:focus-visible { outline-offset: -3px; border-radius: .2rem; }
 .section-panel { padding-block: 1rem clamp(3rem, 6vw, 5rem); }
 .section-heading .section-title { font-size: clamp(2.25rem, 4.1vw, 3.8rem); }
-.people-copy .section-title { font-size: clamp(2.35rem, 4.7vw, 4.4rem); margin-bottom: 2rem; }
+.people-profile .section-title { font-size: clamp(2.35rem, 4.7vw, 4.4rem); margin-bottom: 2rem; }
 .contact-layout .section-title { font-size: clamp(2.35rem, 4.7vw, 4.4rem); }
 .contact-layout .section-title em { color: #b7d5ed; }
 .contact-section.collapsible-section { --ink: #edf4f8; --muted: #b5c6d3; --line: #354b5e; --accent: #9dd3cd; --soft: #203447; }
