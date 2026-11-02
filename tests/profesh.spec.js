@@ -294,7 +294,7 @@ test('fragment links, repeat navigation and browser history reveal the requested
 test('bottom controls close their own section and return focus to the visible heading', async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  const sections = [['work', 'Work'], ['services', 'Services'], ['research', 'Research'], ['people', 'Background'], ['approach', 'Working together'], ['contact', 'Contact']];
+  const sections = [['work', 'Work in practice'], ['services', 'Services'], ['research', 'Research'], ['people', 'Background'], ['approach', 'Working together'], ['contact', 'Contact']];
   for (const [id, label] of sections) {
     const summary = page.locator(`#${id} .section-toggle`);
     const disclosure = page.locator(`#${id}-disclosure`);
