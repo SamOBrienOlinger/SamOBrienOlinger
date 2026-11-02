@@ -238,7 +238,7 @@ main:focus, section[tabindex="-1"]:focus, body:focus { outline: none; }
 }
 @media (min-width: 40rem) {
   .more-work-grid, .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .case-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .case-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 52rem) {
   .hero-layout { grid-template-columns: 1.1fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); }
