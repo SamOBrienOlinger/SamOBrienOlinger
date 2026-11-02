@@ -134,6 +134,7 @@ html.is-viewing-image { overflow: hidden; }
 .section-heading .section-title { font-size: clamp(2.25rem, 4.1vw, 3.8rem); }
 .section-heading--intro { display: block; }
 .section-heading--intro > p { max-width: 46rem; }
+.section-heading--intro > p + p { margin-top: .85rem; }
 .people-section .section-toggle-description { grid-column: 1 / -1; max-width: 56rem; }
 .linkedin-profile-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .5rem .85rem; max-width: 100%; min-height: 2.75rem; color: var(--blue); font-size: .94rem; font-weight: 600; line-height: 1.5; }
 .linkedin-profile-link > span:first-child { min-width: 0; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: .25em; }
