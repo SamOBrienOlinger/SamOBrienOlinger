@@ -31,7 +31,7 @@ The implementation is original. Dennis Snellenberg informed the use of generous 
 
 Project descriptions are based on the portfolio and the connected repositories’ READMEs, reviewed during implementation. Case studies distinguish a project’s features and intended contribution from validated outcomes. Stopped: Both Sides remains an independent educational prototype, and Journeys to Ireland uses fictional characters. The new branch uses the requested Journeys to Ireland name while retaining the established repository URL.
 
-The contact action is a rounded “Email me” button with an envelope icon. The email address remains only in its `mailto:` destination. Footer LinkedIn links use the original Bootstrap Icons LinkedIn mark, with a descriptive accessible link name; the MIT notice is retained in `assets/icons/bootstrap-icons-LICENSE.txt`.
+The contact action is a rounded “Email me” button with an envelope icon. The email address remains only in its `mailto:` destination. Footer LinkedIn links use the original Bootstrap Icons LinkedIn mark, with a descriptive accessible link name; the MIT notice is retained in `assets/icons/bootstrap-icons-LICENSE.txt`. The Background section adds “Find me on LinkedIn” and a full LinkedIn wordmark in one accessible link to the same public profile.
 
 ## Implementation and accessibility
 

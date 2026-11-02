@@ -135,6 +135,11 @@ html.is-viewing-image { overflow: hidden; }
 .section-heading--intro { display: block; }
 .section-heading--intro > p { max-width: 46rem; }
 .people-section .section-toggle-description { grid-column: 1 / -1; max-width: 56rem; }
+.linkedin-profile-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .5rem .85rem; max-width: 100%; min-height: 2.75rem; color: var(--blue); font-size: .94rem; font-weight: 600; line-height: 1.5; }
+.linkedin-profile-link > span:first-child { min-width: 0; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: .25em; }
+.linkedin-profile-link:hover { color: var(--accent); }
+.linkedin-wordmark { display: inline-flex; align-items: center; gap: .08em; flex: 0 0 auto; white-space: nowrap; font: 700 1.3rem/1 Arial, Helvetica, sans-serif; letter-spacing: -.045em; }
+.linkedin-wordmark svg { display: block; flex: 0 0 auto; width: 1em; height: 1em; }
 .contact-layout .section-title { font-size: clamp(2.35rem, 4.7vw, 4.4rem); }
 .contact-layout .section-title em { color: #b7d5ed; }
 .contact-section.collapsible-section { --ink: #edf4f8; --muted: #b5c6d3; --line: #354b5e; --accent: #9dd3cd; --soft: #203447; }
