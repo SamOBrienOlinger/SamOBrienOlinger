@@ -10,7 +10,7 @@ The opening restores the live `portfolio-redesign` presentation: a centred whale
 - Clear positioning and three services: websites/information hubs, interactive learning, and research/digital content.
 - Three substantial case studies at `work/saggart-citywest.html`, `work/journeys-to-ireland.html` and `work/stopped-both-sides.html`.
 - Six additional projects remain discoverable through a keyboard-operable native disclosure.
-- The Research section is directly accessible, with all eight existing publication links retained.
+- The Research section uses “A foundation in evidence.” as its single collapsible heading, with the former heading block removed. All eight existing publication links remain directly accessible.
 - Existing people/background copy and the animated credentials diagram are preserved.
 - A four-step process includes scope, prototypes, review, handover and an agreed support plan.
 - Direct email contact; there is no form pretending to submit to an unconfigured service.
