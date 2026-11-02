@@ -64,7 +64,7 @@ test('navigation, keyboard disclosures and case-study routes work', async ({ pag
   await page.goto('/');
   const menu = page.locator('.menu-toggle');
   const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
-  for (const [name, id] of [['Services', 'services'], ['Research', 'research'], ['People', 'people'], ['Contact', 'contact'], ['Work', 'work']]) {
+  for (const [name, id] of [['Services', 'services'], ['Research', 'research'], ['Background', 'people'], ['Contact', 'contact'], ['Work', 'work']]) {
     if (await menu.isVisible()) await menu.click();
     await nav.getByRole('link', { name, exact: name !== 'Contact' }).click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
@@ -294,7 +294,7 @@ test('fragment links, repeat navigation and browser history reveal the requested
 test('bottom controls close their own section and return focus to the visible heading', async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  const sections = [['work', 'Work'], ['services', 'Services'], ['research', 'Research'], ['people', 'People'], ['approach', 'Working together'], ['contact', 'Contact']];
+  const sections = [['work', 'Work'], ['services', 'Services'], ['research', 'Research'], ['people', 'Background'], ['approach', 'Working together'], ['contact', 'Contact']];
   for (const [id, label] of sections) {
     const summary = page.locator(`#${id} .section-toggle`);
     const disclosure = page.locator(`#${id}-disclosure`);
