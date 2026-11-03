@@ -36,7 +36,7 @@ Community resources, full-stack applications and playful learning. Open a site t
 
 **Community connection** · HTML, CSS, JavaScript
 
-<a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/ui/sct.svg" width="560" alt="Open Saggart & Citywest Together: local homes, a church, a Luas tram and a park."></a>
+<a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/projects/saggart-citywest-hero.jpg" width="560" alt="Open Saggart &amp; Citywest Together: local homes, the village church, a Luas tram and green hills."></a>
 
 Local supports, facts, history and ways to connect. Includes a source directory, translation controls and an integrated history gallery.
 
@@ -64,7 +64,7 @@ The preview shows the interface; sign-in and account features require the config
 
 **Playful learning** · JavaScript, HTML, CSS
 
-<a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/ui/beaver.svg" width="560" alt="Play Beaver v Otter: the two animals beside a river, with data centres in the landscape."></a>
+<a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/projects/beaver-otter-hero.png" width="560" alt="Play Beaver v Otter: beaver and otter characters standing together."></a>
 
 Ten data centres. Two animals. One river. A choice-based game exploring the dynamics between energy consumption and everyday decisions that change our waterways and natural environments.
 
@@ -77,7 +77,7 @@ Ten data centres. Two animals. One river. A choice-based game exploring the dyna
 
 #### A New Life in Ireland
 
-<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/IMG_1456.jpeg" width="560" alt="People following coastal paths toward an Irish town."></a>
+<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/projects/journeys-ireland-hero.webp" width="560" alt="People walking beside a river, with rural fields and Dublin landmarks."></a>
 
 **Interactive learning** · React, TypeScript, Vite<br>
 Every journey to Ireland is different. Follow one of twelve fictional people through choices, circumstances and life in Ireland.
@@ -90,7 +90,7 @@ Every journey to Ireland is different. Follow one of twelve fictional people thr
 
 #### Stopped: Both Sides
 
-<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/IMG_1457.jpeg" width="560" alt="Public and Garda characters meeting on a Dublin street."></a>
+<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-public-hero.webp" width="280" alt="Public perspective: a fictional character speaking with a Garda on a Dublin street."> <img src="assets/profile/projects/stopped-garda-hero.webp" width="280" alt="Garda perspective: the same Dublin street encounter viewed from the other side."></a>
 
 **Interactive learning** · JavaScript modules, HTML, CSS<br>
 Explore rights, responsibilities and fair decision-making in Ireland through public and Garda perspectives.
@@ -116,7 +116,7 @@ A browser experience inspired by the world of Beetlejuice.
 
 #### Know Yellowknife
 
-<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/ui/yellowknife.svg" width="560" alt="Yellowknife among northern lakes and forest beneath the aurora."></a>
+<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/projects/yellowknife-hero.webp" width="560" alt="Graphic novel illustration of Yellowknife’s skyline among blue lakes, rocky shores and golden autumn forest."></a>
 
 **Place-based learning**<br>
 Explore Yellowknife through local information and a replayable knowledge quiz.
@@ -145,7 +145,7 @@ Learning resources and a quiz introducing LGBTQIA+ history, terminology and ally
 
 #### The White Whale vs Old Thunder
 
-<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/IMG_1475.jpeg" width="560" alt="The Pequod in a storm, with Moby Dick beneath the sea."></a>
+<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/projects/white-whale-hero.jpeg" width="560" alt="The Pequod sailing through lightning above Moby Dick beneath the sea."></a>
 
 **Literary game**<br>
 Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspectives.
