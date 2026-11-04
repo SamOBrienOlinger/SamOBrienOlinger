@@ -75,13 +75,13 @@ test('overlap keeps its completed state on return and respects a changed motion 
 test('completed overlap stays still at the viewport exit boundary without more scrolling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.setViewportSize({ width: page.viewportSize().width, height: 480 });
-  // Start below the cards without revealing them, so the first entrance still
-  // exercises the original 10 px boundary rather than replaying a finished reveal.
-  await page.goto('/#contact');
+  // Start above the cards without revealing them. Fragment navigation can pass
+  // through the cards before reaching its destination and consume this entrance.
+  await page.goto('/');
   await page.evaluate(() => (window.portfolioFontReady || document.fonts.ready).then(() => {}));
   const stack = page.locator('[data-focus-overlap]');
-  await page.locator('.site-footer').scrollIntoViewIfNeeded();
   await expect(stack).not.toHaveClass(/is-overlapped/);
+  expect(await stack.evaluate(element => element.getBoundingClientRect().top)).toBeGreaterThan(page.viewportSize().height);
   await expect.poll(() => stack.evaluate(element => {
     const gap = parseFloat(getComputedStyle(document.documentElement).fontSize);
     return Array.from(element.querySelectorAll(':scope > section')).slice(1).every(section =>
