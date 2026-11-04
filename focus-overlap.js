@@ -9,8 +9,15 @@
   if (summaries.some(summary => !summary)) return;
 
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const observationArea = document.createElement('span');
+  observationArea.className = 'focus-overlap-observer';
+  observationArea.setAttribute('aria-hidden', 'true');
+  stack.append(observationArea);
   let observer;
   let measurementPending = false;
+  let inView = false;
+  const fontReadiness = window.portfolioFontReady || document.fonts?.ready;
+  let fontsReady = !fontReadiness;
 
   function measure() {
     measurementPending = false;
@@ -30,6 +37,12 @@
     sections.slice(1).forEach((section, index) => {
       section.style.setProperty('--focus-overlap', `${Math.min(heights[index], heights[index + 1]) * .2}px`);
     });
+    // Observe the uncompressed footprint, which cannot leave and re-enter the
+    // viewport merely because the cards' animated margins shrink the stack.
+    const gap = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const fullHeight = sections.reduce((height, section) => height + section.getBoundingClientRect().height, 0)
+      + gap * (sections.length - 1);
+    observationArea.style.height = `${fullHeight}px`;
   }
 
   function scheduleMeasure() {
@@ -47,6 +60,7 @@
 
   function syncMotion() {
     observer?.disconnect();
+    inView = false;
     if (motion.matches || !('IntersectionObserver' in window)) {
       stack.classList.add('is-overlapped');
       return;
@@ -54,9 +68,12 @@
     stack.classList.remove('is-overlapped');
     observer = new IntersectionObserver(entries => {
       if (motion.matches) return;
-      entries.forEach(entry => stack.classList.toggle('is-overlapped', entry.isIntersecting));
+      entries.forEach(entry => {
+        inView = entry.isIntersecting;
+        stack.classList.toggle('is-overlapped', inView && fontsReady);
+      });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
-    observer.observe(stack);
+    observer.observe(observationArea);
   }
 
   panels.forEach(panel => panel.addEventListener('toggle', syncPanels));
@@ -72,7 +89,12 @@
     });
   }
   window.addEventListener('resize', scheduleMeasure);
-  document.fonts?.ready.then(scheduleMeasure);
+  const finishFontSetup = () => {
+    fontsReady = true;
+    measure();
+    if (inView && !motion.matches) stack.classList.add('is-overlapped');
+  };
+  fontReadiness?.then(finishFontSetup, finishFontSetup);
   if (motion.addEventListener) motion.addEventListener('change', syncMotion);
   else motion.addListener(syncMotion);
   window.addEventListener('pageshow', event => {

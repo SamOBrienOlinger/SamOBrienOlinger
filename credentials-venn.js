@@ -27,6 +27,9 @@
   let observer;
   let previousOrder = [];
   let active = false;
+  let inView = false;
+  const fontReadiness = window.portfolioFontReady || document.fonts?.ready;
+  let fontsReady = !fontReadiness;
 
   function reveal() {
     const order = circles.map((_, index) => index);
@@ -60,6 +63,7 @@
 
   function reset() {
     active = false;
+    inView = false;
     // Removing the animation cancels delayed circles too; there are no timers to leak.
     diagram.classList.remove('is-revealing');
   }
@@ -76,7 +80,10 @@
       entries.forEach(entry => {
         // A small visible edge must not prevent replay on tall screens.
         if (!entry.isIntersecting || entry.intersectionRatio <= .15) reset();
-        else if (!active && entry.intersectionRatio >= .25) reveal();
+        else if (entry.intersectionRatio >= .25) {
+          inView = true;
+          if (fontsReady && !active) reveal();
+        }
       });
     }, { threshold: [0, .15, .25] });
     // Observe the graphic so the reveal follows the visible diagram.
@@ -86,6 +93,13 @@
   }
 
   syncMotion();
+  // A late font swap can rewrap a centred label after its reveal has finished.
+  // Keep the entrance pending until the rendered text has its final metrics.
+  const finishFontSetup = () => {
+    fontsReady = true;
+    if (inView && !active && !reducedMotion.matches) reveal();
+  };
+  fontReadiness?.then(finishFontSetup, finishFontSetup);
   if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncMotion);
   else reducedMotion.addListener(syncMotion);
   window.addEventListener('pageshow', event => {

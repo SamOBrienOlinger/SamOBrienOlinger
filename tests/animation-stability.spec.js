@@ -83,3 +83,38 @@ test('the first completed Venn reveal stays fixed when delayed fonts arrive', as
     releaseFonts();
   }
 });
+
+test('stalled fonts cannot hide the diagram or shift it when they eventually arrive', async ({ page }, testInfo) => {
+  test.skip(!['Android Chrome 360', 'iOS WebKit 375'].includes(testInfo.project.name),
+    'Check the stalled-font fallback once per browser engine.');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  let releaseFonts;
+  const gate = new Promise(resolve => { releaseFonts = resolve; });
+  await page.route(/TogetherSans-(Medium|Bold)\.woff2(?:\?.*)?$/, async route => {
+    await gate;
+    await route.continue();
+  });
+  try {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    const figure = page.locator('[data-credentials-venn]');
+    await figure.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
+    await expect.poll(() => figure.evaluate(element =>
+      Array.from(element.querySelectorAll('[data-credential-label], [data-credential-circle]')).every(node =>
+        Number(getComputedStyle(node).opacity) === 1)
+    ), { timeout: 16000, message: 'The diagram must become readable even while the font requests are stalled' }).toBe(true);
+    const measure = () => figure.evaluate(element => Array.from(element.querySelectorAll('[data-credential-label]')).map(label => {
+      const rect = label.getBoundingClientRect();
+      return [rect.left + scrollX, rect.top + scrollY, rect.width, rect.height];
+    }));
+    const baseline = await measure();
+    const responses = Promise.all(['Medium', 'Bold'].map(weight => page.waitForResponse(response =>
+      response.url().includes(`TogetherSans-${weight}.woff2`))));
+    releaseFonts();
+    await responses;
+    await page.evaluate(() => document.fonts.ready.then(() => {}));
+    const after = await measure();
+    expect(after).toEqual(baseline);
+  } finally {
+    releaseFonts();
+  }
+});
