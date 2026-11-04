@@ -128,7 +128,9 @@ test('completed Venn circles stay settled through height changes while an edge r
   const figure = page.locator('[data-credentials-venn]');
   await figure.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
   await expect.poll(() => figure.evaluate(element => element.getAnimations({ subtree: true }).length)).toBeGreaterThan(0);
-  await figure.evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)));
+  await figure.evaluate(async element => {
+    await Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished));
+  });
   // Keep the completed graphic partly visible, then mimic browser chrome changing height.
   await figure.evaluate(element => {
     const rect = element.querySelector('svg').getBoundingClientRect();
