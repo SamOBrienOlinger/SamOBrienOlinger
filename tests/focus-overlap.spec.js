@@ -140,6 +140,13 @@ test('completed overlap stays still at the viewport exit boundary without more s
     return { samples: records, completedAt };
   }, boundary.top);
 
+  console.log('Overlap boundary samples', JSON.stringify({
+    completedAt,
+    samples: samples.filter((sample, index) => index === 0 || index === samples.length - 1
+      || sample.overlapped !== samples[index - 1].overlapped
+      || sample.scrollY !== samples[index - 1].scrollY
+      || Math.abs(sample.elapsed - completedAt) < 50)
+  }));
   const entries = samples.slice(1).filter((sample, index) => sample.overlapped && !samples[index].overlapped).length;
   expect(entries, 'The stack must not repeatedly re-enter itself while the visitor is still').toBeLessThanOrEqual(1);
 
