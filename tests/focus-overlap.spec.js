@@ -140,13 +140,13 @@ test('completed overlap stays still at the viewport exit boundary without more s
     return { samples: records, completedAt };
   }, boundary.top);
 
-  console.log('Overlap boundary samples', JSON.stringify({
+  const diagnostics = JSON.stringify({
     completedAt,
     samples: samples.filter((sample, index) => index === 0 || index === samples.length - 1
       || sample.overlapped !== samples[index - 1].overlapped
       || sample.scrollY !== samples[index - 1].scrollY
       || Math.abs(sample.elapsed - completedAt) < 50)
-  }));
+  });
   const entries = samples.slice(1).filter((sample, index) => sample.overlapped && !samples[index].overlapped).length;
   expect(entries, 'The stack must not repeatedly re-enter itself while the visitor is still').toBeLessThanOrEqual(1);
 
@@ -158,7 +158,7 @@ test('completed overlap stays still at the viewport exit boundary without more s
   expect(settled.length).toBeGreaterThan(1);
   const drift = values => Math.max(...values) - Math.min(...values);
   for (const key of ['stackTop', 'stackBottom', 'stackHeight', 'scrollY']) {
-    expect(drift(settled.map(sample => sample[key])), `${key} changed after the overlap completed`).toBeLessThanOrEqual(1);
+    expect(drift(settled.map(sample => sample[key])), `${key} changed after the overlap completed: ${diagnostics}`).toBeLessThanOrEqual(1);
   }
   for (let index = 0; index < settled[0].sectionTops.length; index++) {
     expect(drift(settled.map(sample => sample.sectionTops[index])), `Focus card ${index + 1} moved after the overlap completed`).toBeLessThanOrEqual(1);
