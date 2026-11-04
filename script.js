@@ -57,9 +57,6 @@
     const panel = focusPanels.get(hash);
     if (!panel) return;
     panel.open = true;
-    // Settle the card spacing before the browser calculates the anchor position.
-    // The native details toggle event runs after that calculation.
-    panel.closest('[data-focus-overlap]')?.classList.add('has-open-panel');
   }
   document.querySelectorAll('a[href="#work"], a[href="#research"], a[href="#people"]').forEach(link => {
     link.addEventListener('click', event => {
