@@ -91,7 +91,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await page.keyboard.press('Enter');
   await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
   await expect(page.locator('#people-panel .research-experience')).toBeVisible();
-  await expect(page.locator('#people-panel li')).toHaveCount(9);
+  await expect(page.locator('#people-panel li')).toHaveCount(10);
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Send me an email', exact: true })).toBeFocused();
   await nav.getByRole('link', { name: 'Software', exact: true }).click();
