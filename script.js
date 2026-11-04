@@ -55,7 +55,11 @@
   ]);
   function revealFocusPanel(hash) {
     const panel = focusPanels.get(hash);
-    if (panel) panel.open = true;
+    if (!panel) return;
+    panel.open = true;
+    // Settle the card spacing before the browser calculates the anchor position.
+    // The native details toggle event runs after that calculation.
+    panel.closest('[data-focus-overlap]')?.classList.add('has-open-panel');
   }
   document.querySelectorAll('a[href="#work"], a[href="#research"], a[href="#people"]').forEach(link => {
     link.addEventListener('click', event => {
@@ -141,9 +145,10 @@
     });
   });
 
-  header.querySelector('.brand')?.addEventListener('click', () => {
+  header.querySelector('.brand')?.addEventListener('click', event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
     setMenu(false);
-    markActive('');
+    markActive('top');
   });
 
   document.addEventListener('keydown', event => {
