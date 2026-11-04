@@ -181,3 +181,67 @@ test('completed Venn circles stay settled through height changes while an edge r
     });
   }
 });
+
+test('the settled Venn never replays on return, restored history or motion changes', async ({ page }, testInfo) => {
+  test.skip(!['Android Chrome 360', 'iOS WebKit 375'].includes(testInfo.project.name),
+    'Check one-time reveal behaviour once per browser engine.');
+  test.setTimeout(45000);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => window.portfolioFontReady);
+  const figure = page.locator('[data-credentials-venn]');
+  await figure.evaluate(element => {
+    element.vennAnimationStarts = 0;
+    element.addEventListener('animationstart', () => { element.vennAnimationStarts++; });
+    element.scrollIntoView({ block: 'center', behavior: 'instant' });
+  });
+  await expect.poll(() => figure.evaluate(element => element.getAnimations({ subtree: true }).length)).toBeGreaterThan(0);
+  await figure.evaluate(async element => {
+    await Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished));
+  });
+  const observe = duration => figure.evaluate(async (element, duration) => {
+    const samples = [], started = performance.now();
+    do {
+      await new Promise(requestAnimationFrame);
+      const graphic = element.querySelector('svg').getBoundingClientRect();
+      samples.push({
+        starts: element.vennAnimationStarts,
+        opacity: Array.from(element.querySelectorAll('[data-credential-circle], [data-credential-label], [data-overlap-circles]'))
+          .map(node => Number(getComputedStyle(node).opacity)),
+        circles: Array.from(element.querySelectorAll('[data-credential-circle]')).map(circle => {
+          const rect = circle.getBoundingClientRect();
+          return [rect.left - graphic.left, rect.top - graphic.top, rect.width, rect.height];
+        })
+      });
+    } while (performance.now() - started < duration);
+    return samples;
+  }, duration);
+  const baseline = (await observe(50)).at(-1);
+  expect(baseline.starts, 'The first visit must exercise real entrance animations').toBeGreaterThan(0);
+  expect(baseline.opacity.every(opacity => opacity === 1)).toBe(true);
+  const samples = [];
+  const record = async (stage, duration) => {
+    for (const sample of await observe(duration)) samples.push({ stage, ...sample });
+  };
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await expect(figure).not.toBeInViewport();
+  await record('fully outside viewport', 150);
+  await figure.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  await expect(figure).toBeInViewport({ ratio: .25 });
+  await record('returned to viewport', 1200);
+  // Exercise the real restoration handler without depending on CI bfcache eligibility.
+  await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
+  await record('persisted pageshow', 1200);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await record('reduced motion', 150);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await record('motion re-enabled', 1200);
+  for (const sample of samples) {
+    expect(sample.starts, `${sample.stage}: a completed animation restarted`).toBe(baseline.starts);
+    expect(sample.opacity, `${sample.stage}: settled circles, labels or overlaps faded`).toEqual(baseline.opacity);
+    sample.circles.forEach((circle, index) => circle.forEach((value, coordinate) => {
+      expect(Math.abs(value - baseline.circles[index][coordinate]),
+        `${sample.stage}: circle ${index + 1} moved after completion`).toBeLessThanOrEqual(.75);
+    }));
+  }
+});
