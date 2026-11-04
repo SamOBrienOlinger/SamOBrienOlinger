@@ -52,7 +52,7 @@ test('opening any focus card separates the stack and closing restores the overla
   }
 });
 
-test('overlap animates on scroll and respects a changed motion preference', async ({ page }) => {
+test('overlap keeps its completed state on return and respects a changed motion preference', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/#about');
   const stack = page.locator('[data-focus-overlap]');
@@ -61,10 +61,10 @@ test('overlap animates on scroll and respects a changed motion preference', asyn
   expect(await research.evaluate(element => getComputedStyle(element).transitionDuration)).toBe('1s');
   await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
   // Home can still show the first card at the bottom of a tall viewport.
-  // Move fully past the group to exercise an actual leave-and-return visit.
+  // Move fully past the group: leaving must retain the completed layout.
   await page.setViewportSize({ width: page.viewportSize().width, height: 480 });
   await page.locator('.site-footer').scrollIntoViewIfNeeded();
-  await expect(stack).not.toHaveClass(/is-overlapped/);
+  await expect(stack).toHaveClass(/is-overlapped/);
   await stack.locator('#software-panel > summary').scrollIntoViewIfNeeded();
   await expect(stack).toHaveClass(/is-overlapped/);
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -75,13 +75,11 @@ test('overlap animates on scroll and respects a changed motion preference', asyn
 test('completed overlap stays still at the viewport exit boundary without more scrolling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.setViewportSize({ width: page.viewportSize().width, height: 480 });
-  await page.goto('/#about');
-  await page.evaluate(() => document.fonts.ready.then(() => {}));
+  // Start below the cards without revealing them, so the first entrance still
+  // exercises the original 10 px boundary rather than replaying a finished reveal.
+  await page.goto('/#contact');
+  await page.evaluate(() => (window.portfolioFontReady || document.fonts.ready).then(() => {}));
   const stack = page.locator('[data-focus-overlap]');
-  await expect(stack).toHaveClass(/is-overlapped/);
-  await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
-
-  // Leave fully first: a genuine leave-and-return visit must still replay.
   await page.locator('.site-footer').scrollIntoViewIfNeeded();
   await expect(stack).not.toHaveClass(/is-overlapped/);
   await expect.poll(() => stack.evaluate(element => {
@@ -163,4 +161,83 @@ test('completed overlap stays still at the viewport exit boundary without more s
   for (let index = 0; index < settled[0].sectionTops.length; index++) {
     expect(drift(settled.map(sample => sample.sectionTops[index])), `Focus card ${index + 1} moved after the overlap completed`).toBeLessThanOrEqual(1);
   }
+});
+
+test('leaving completed cards does not move the finished Venn diagram or replay the overlap on return', async ({ page }) => {
+  // Include the real Venn reveal and two stability windows, including cold WebKit startup.
+  test.setTimeout(45000);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.setViewportSize({ width: page.viewportSize().width, height: 480 });
+  await page.goto('/#about');
+  await page.evaluate(() => (window.portfolioFontReady || document.fonts.ready).then(() => {}));
+  const stack = page.locator('[data-focus-overlap]');
+  const diagram = page.locator('[data-credentials-venn]');
+  await expect(stack).toHaveClass(/is-overlapped/);
+  await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
+
+  const boundary = await page.locator('.focus-overlap-observer').evaluate(element => ({
+    bottom: element.getBoundingClientRect().bottom + scrollY,
+    maxScroll: document.documentElement.scrollHeight - innerHeight
+  }));
+  expect(boundary.bottom - 10).toBeGreaterThanOrEqual(0);
+  expect(boundary.bottom + 10, 'The observer exit must be reachable without scroll clamping').toBeLessThanOrEqual(boundary.maxScroll);
+  // Keep the observer's last 10 px in view while the visible Venn finishes.
+  await page.evaluate(top => window.scrollTo({ top, behavior: 'instant' }), boundary.bottom - 10);
+  await expect(diagram).toHaveClass(/is-revealing/);
+  await expect.poll(() => diagram.evaluate(element => {
+    const animations = element.getAnimations({ subtree: true });
+    return animations.length > 0 && animations.every(animation => animation.playState === 'finished');
+  }), { timeout: 10000 }).toBe(true);
+
+  const baseline = await page.evaluate(() => {
+    const stack = document.querySelector('[data-focus-overlap]').getBoundingClientRect();
+    const diagram = document.querySelector('[data-credentials-venn]').getBoundingClientRect();
+    return {
+      stackHeight: stack.height,
+      vennTop: diagram.top + scrollY,
+      pageHeight: document.documentElement.scrollHeight,
+      returnTop: Math.max(0, stack.top + scrollY - document.querySelector('.site-header').getBoundingClientRect().height - 20)
+    };
+  });
+
+  for (const [phase, top] of [['exit', boundary.bottom + 10], ['return', baseline.returnTop]]) {
+    const samples = await page.evaluate(async top => {
+      const stack = document.querySelector('[data-focus-overlap]');
+      const observer = stack.querySelector('.focus-overlap-observer');
+      const sections = Array.from(stack.querySelectorAll(':scope > section'));
+      const diagram = document.querySelector('[data-credentials-venn]');
+      const records = [];
+      window.scrollTo({ top, behavior: 'instant' });
+      const started = performance.now();
+      await new Promise(resolve => {
+        const sample = now => {
+          records.push({
+            elapsed: now - started,
+            overlapped: stack.classList.contains('is-overlapped'),
+            stackHeight: stack.getBoundingClientRect().height,
+            vennTop: diagram.getBoundingClientRect().top + scrollY,
+            pageHeight: document.documentElement.scrollHeight,
+            scrollY,
+            observerBottom: observer.getBoundingClientRect().bottom,
+            runningTransitions: sections.flatMap(section => section.getAnimations()).filter(animation => animation.playState === 'running').length
+          });
+          if (now - started < 2100) requestAnimationFrame(sample);
+          else resolve();
+        };
+        requestAnimationFrame(sample);
+      });
+      return records;
+    }, top);
+    const diagnostics = JSON.stringify({ phase, top, baseline, first: samples[0], last: samples[samples.length - 1] });
+    expect(samples[samples.length - 1].elapsed).toBeGreaterThanOrEqual(2100);
+    if (phase === 'exit') expect(samples[0].observerBottom, 'The observer must actually leave the viewport').toBeLessThan(-1);
+    for (const key of ['vennTop', 'pageHeight', 'stackHeight']) {
+      const displacement = Math.max(...samples.map(sample => Math.abs(sample[key] - baseline[key])));
+      expect(displacement, `${key} changed on ${phase} after both reveals completed: ${diagnostics}`).toBeLessThanOrEqual(1);
+    }
+    expect(Math.max(...samples.map(sample => Math.abs(sample.scrollY - top))), `Unexpected scroll correction on ${phase}: ${diagnostics}`).toBeLessThanOrEqual(1);
+    expect(samples.every(sample => sample.overlapped), `Completed overlap was reset on ${phase}: ${diagnostics}`).toBe(true);
+    expect(samples.every(sample => sample.runningTransitions === 0), `Completed overlap restarted on ${phase}: ${diagnostics}`).toBe(true);
+  }
+  await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
 });

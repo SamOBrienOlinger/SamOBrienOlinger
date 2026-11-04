@@ -78,14 +78,13 @@
       // Ignore queued notifications from a disconnected observer after a preference change.
       if (reducedMotion.matches) return;
       entries.forEach(entry => {
-        // A small visible edge must not prevent replay on tall screens.
-        if (!entry.isIntersecting || entry.intersectionRatio <= .15) reset();
-        else if (entry.intersectionRatio >= .25) {
-          inView = true;
-          if (fontsReady && !active) reveal();
-        }
+        // Keep a completed diagram visible at the viewport edge. Browser chrome
+        // or a small resize must not reset circles that the visitor can still see.
+        inView = entry.isIntersecting && entry.intersectionRatio >= .25;
+        if (!entry.isIntersecting) reset();
+        else if (inView && fontsReady && !active) reveal();
       });
-    }, { threshold: [0, .15, .25] });
+    }, { threshold: [0, .25] });
     // Observe the graphic so the reveal follows the visible diagram.
     observer.observe(graphic);
     // Progressive enhancement: without this script/observer, every circle stays visible.

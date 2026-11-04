@@ -16,6 +16,7 @@
   let observer;
   let measurementPending = false;
   let inView = false;
+  let hasRevealed = false;
   const fontReadiness = window.portfolioFontReady || document.fonts?.ready;
   let fontsReady = !fontReadiness;
 
@@ -58,10 +59,20 @@
     scheduleMeasure();
   }
 
+  function reveal() {
+    if (hasRevealed || !inView || !fontsReady) return;
+    hasRevealed = true;
+    stack.classList.add('is-overlapped');
+    // Retain the finished geometry. Expanding these cards when they leave view
+    // would push the already-visible Venn diagram and contact section down.
+    observer?.disconnect();
+  }
+
   function syncMotion() {
     observer?.disconnect();
     inView = false;
-    if (motion.matches || !('IntersectionObserver' in window)) {
+    if (hasRevealed || motion.matches || !('IntersectionObserver' in window)) {
+      hasRevealed = true;
       stack.classList.add('is-overlapped');
       return;
     }
@@ -70,7 +81,7 @@
       if (motion.matches) return;
       entries.forEach(entry => {
         inView = entry.isIntersecting;
-        stack.classList.toggle('is-overlapped', inView && fontsReady);
+        reveal();
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
     observer.observe(observationArea);
@@ -92,7 +103,7 @@
   const finishFontSetup = () => {
     fontsReady = true;
     measure();
-    if (inView && !motion.matches) stack.classList.add('is-overlapped');
+    if (!motion.matches) reveal();
   };
   fontReadiness?.then(finishFontSetup, finishFontSetup);
   if (motion.addEventListener) motion.addEventListener('change', syncMotion);
