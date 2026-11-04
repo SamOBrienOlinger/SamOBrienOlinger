@@ -106,7 +106,7 @@ Project artwork is served locally as WebP with reserved image space and deferred
 
 The [original profile record](https://github.com/SamOBrienOlinger/SamOBrienOlinger/blob/e913e4a3696655da181c6bb3ccbe584e8880d786/README.md) preserves earlier project descriptions, hackathon records and acknowledgements.
 
-Project artwork: [Saggart & Citywest Together](https://github.com/SamOBrienOlinger/saggart-and-citywest-together), [Beaver v Otter](https://github.com/SamOBrienOlinger/beaver-v-otter) and the existing [SpoodleSpace project screenshot](https://res.cloudinary.com/dzhbg6go0/image/upload/v1692012034/PP5-multiscreen_hucdla.jpg). Their original contributor and asset credits continue to apply.
+Project previews use the live sites' hero artwork, verified on 4 November 2026. [Project image sources](PROJECT-IMAGE-SOURCES.md) records all nine sources and the rendered captures used for composite heroes, including [Saggart & Citywest Together](https://github.com/SamOBrienOlinger/saggart-and-citywest-together), [Beaver v Otter](https://github.com/SamOBrienOlinger/beaver-v-otter) and the [SpoodleSpace cockapoo hero](https://res.cloudinary.com/dzhbg6go0/image/upload/v1670254218/CockapooClub/furry-fun_gsmi28.webp). Their original contributor and asset credits continue to apply.
 
 Homepage photograph attribution: [How do whales sleep?](https://specialtours.is/blog/how-do-whales-sleep/).
 
