@@ -126,6 +126,70 @@ async function expectReadableLabels(page, { minimumFontSize = 14, allowDiagramSc
         }
       });
     });
+    if (problems.length) {
+      const round = value => Math.round(value * 1000) / 1000;
+      const relativeRect = rect => ({
+        left: round(rect.left - canvas.left), top: round(rect.top - canvas.top),
+        right: round(rect.right - canvas.left), bottom: round(rect.bottom - canvas.top),
+        width: round(rect.width), height: round(rect.height)
+      });
+      const textStyle = element => {
+        const style = getComputedStyle(element);
+        return {
+          fontSize: style.fontSize, fontFamily: style.fontFamily, fontWeight: style.fontWeight,
+          lineHeight: style.lineHeight, textSizeAdjust: style.textSizeAdjust,
+          webkitTextSizeAdjust: style.webkitTextSizeAdjust, width: style.width, maxWidth: style.maxWidth
+        };
+      };
+      const diagnostics = {
+        viewport: {
+          width: window.innerWidth, height: window.innerHeight,
+          clientWidth: document.documentElement.clientWidth,
+          scrollWidth: document.documentElement.scrollWidth,
+          visual: window.visualViewport && {
+            width: window.visualViewport.width, height: window.visualViewport.height,
+            scale: window.visualViewport.scale, offsetLeft: window.visualViewport.offsetLeft,
+            offsetTop: window.visualViewport.offsetTop
+          }
+        },
+        rootFont: getComputedStyle(document.documentElement).fontSize,
+        frame: { ...relativeRect(frame), scrollLeft: diagram.scrollLeft, scrollWidth: diagram.scrollWidth },
+        canvas: { left: round(canvas.left), top: round(canvas.top), width: round(canvas.width), height: round(canvas.height) },
+        circles: Array.from(diagram.querySelectorAll('[data-credential-circle] > circle')).map((circle, index) => {
+          const matrix = circle.getScreenCTM();
+          const rect = circle.getBoundingClientRect();
+          return {
+            ctm: Object.fromEntries(['a', 'b', 'c', 'd', 'e', 'f'].map(key => [key, round(matrix[key])])),
+            ctmCircle: { x: round(circles[index].x - canvas.left), y: round(circles[index].y - canvas.top), radius: round(circles[index].radius) },
+            boundingRect: relativeRect(rect),
+            boundingCircle: { x: round((rect.left + rect.right) / 2 - canvas.left), y: round((rect.top + rect.bottom) / 2 - canvas.top), radiusX: round(rect.width / 2), radiusY: round(rect.height / 2) }
+          };
+        }),
+        statements: paragraphs.map(paragraph => {
+          const lines = [];
+          const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+          while (walker.nextNode()) {
+            if (!walker.currentNode.textContent.trim()) continue;
+            const range = document.createRange();
+            range.selectNodeContents(walker.currentNode);
+            lines.push({ text: walker.currentNode.textContent, rectangles: Array.from(range.getClientRects()).map(relativeRect) });
+          }
+          return {
+            text: paragraph.textContent, box: relativeRect(paragraph.getBoundingClientRect()),
+            label: textStyle(paragraph.closest('[data-credential-label]')),
+            paragraph: textStyle(paragraph), prefix: textStyle(paragraph.querySelector('.credential-prefix')),
+            accent: textStyle(paragraph.querySelector('.credential-accent')), lines
+          };
+        }),
+        fonts: {
+          status: document.fonts.status,
+          faces: Array.from(document.fonts).filter(face => face.family.includes('Together Sans')).map(face => ({
+            family: face.family, weight: face.weight, style: face.style, status: face.status
+          }))
+        }
+      };
+      problems.push(`rendering diagnostics: ${JSON.stringify(diagnostics)}`);
+    }
     return problems;
   }, { minimumFontSize, allowDiagramScroll }), {
     message: 'Original statements remain readable inside their circles, clear of light intersections and any legend'
