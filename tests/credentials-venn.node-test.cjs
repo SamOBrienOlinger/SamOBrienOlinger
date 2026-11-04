@@ -20,7 +20,9 @@ function setup({ reduced = false, observerAvailable = true } = {}) {
     style: { setProperty(_, value) { this.delay = value; } }
   }));
   const graphic = {};
+  const diagramHandlers = {};
   const diagram = {
+    addEventListener: (name, callback) => { diagramHandlers[name] = callback; },
     querySelector: selector => selector === 'svg' ? graphic : null,
     querySelectorAll: selector => ({
       '[data-credential-circle]': circles,

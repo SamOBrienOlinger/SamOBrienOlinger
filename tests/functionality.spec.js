@@ -4,6 +4,8 @@ test('theme follows the system until a saved choice overrides it', async ({ page
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  const menu = page.locator('.menu-toggle');
+  await menu.click();
   await page.getByRole('button', { name: 'Switch to light theme', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await page.reload();
@@ -11,6 +13,7 @@ test('theme follows the system until a saved choice overrides it', async ({ page
   await page.emulateMedia({ colorScheme: 'light' });
   await page.emulateMedia({ colorScheme: 'dark' });
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await menu.click();
   await page.getByRole('button', { name: 'Switch to dark theme', exact: true }).click();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
@@ -92,6 +95,14 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
   await expect(page.locator('#people-panel .research-experience')).toBeVisible();
   await expect(page.locator('#people-panel li')).toHaveCount(10);
+  for (const name of [
+    'Diploma in Full Stack Software Development',
+    'Over a decade working in the Community & Voluntary sector',
+    'Co-founder of Local Community Group'
+  ]) {
+    await page.keyboard.press('Tab');
+    await expect(page.locator('[data-credentials-venn]').getByRole('link', { name, exact: true })).toBeFocused();
+  }
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Send me an email', exact: true })).toBeFocused();
   await nav.getByRole('link', { name: 'Software', exact: true }).click();

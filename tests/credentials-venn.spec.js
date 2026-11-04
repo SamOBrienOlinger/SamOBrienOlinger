@@ -245,3 +245,75 @@ test('Venn statements remain readable without JavaScript on narrow and wide scre
     await context.close();
   }
 });
+
+test('Venn links retain the complete wording and point to the requested destinations', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#career-background');
+  const figure = page.locator('[data-credentials-venn]');
+  await expect(figure.locator('.credential-statement')).toHaveText(statements);
+  await expect(figure.locator('a.credential-statement')).toHaveCount(3);
+  const destinations = [
+    [statements[1], 'https://www.credential.net/profile/samobrienolinger167622/wallet'],
+    [statements[2], '#people'],
+    [statements[3], 'https://samobrienolinger.github.io/saggart-and-citywest-together/']
+  ];
+  for (const [name, href] of destinations) {
+    const link = figure.getByRole('link', { name, exact: true });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute('href', href);
+  }
+  await expect(figure.getByRole('link', { name: statements[0], exact: true })).toHaveCount(0);
+});
+
+test('the community Venn link opens People and reaches it by pointer and keyboard', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#career-background');
+  const community = page.locator('[data-credentials-venn]').getByRole('link', { name: statements[2], exact: true });
+  const panel = page.locator('#people-panel');
+  const summary = panel.locator(':scope > summary');
+  for (const activation of ['pointer', 'keyboard']) {
+    await expect(panel).not.toHaveAttribute('open', '');
+    await community.scrollIntoViewIfNeeded();
+    if (activation === 'pointer') await community.click();
+    else await community.press('Enter');
+    await expect(page).toHaveURL(/#people$/);
+    await expect(panel).toHaveAttribute('open', '');
+    await expect(panel.locator(':scope > .accordion-content')).toBeVisible();
+    await expect(page.locator('#people')).toBeFocused();
+    await expect.poll(() => summary.evaluate(element => {
+      const box = element.getBoundingClientRect();
+      const header = document.querySelector('.site-header').getBoundingClientRect();
+      return box.top >= header.bottom - 1 && box.bottom <= innerHeight + 1;
+    }), { message: `${activation}: People must be in view below the sticky header` }).toBe(true);
+    await summary.press('Enter');
+    // The second activation keeps #people as the current fragment. A click
+    // handler must reopen it even when no new hashchange event is generated.
+    await expect(panel).not.toHaveAttribute('open', '');
+  }
+});
+
+test('keyboard focus makes pending Venn links immediately readable', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  await page.evaluate(async () => { await (window.portfolioFontReady || document.fonts.ready); });
+  const figure = page.locator('[data-credentials-venn]');
+  expect(await figure.locator('[data-credential-label]').evaluateAll(labels =>
+    labels.some(label => Number(getComputedStyle(label).opacity) < 1)
+  ), 'Begin while the offscreen label entrance is still pending').toBe(true);
+  await page.locator('#people-panel > summary').focus();
+  for (const name of statements.slice(1)) {
+    await page.keyboard.press('Tab');
+    const link = figure.getByRole('link', { name, exact: true });
+    await expect(link).toBeFocused();
+    const opaque = await link.evaluate(element => {
+      const boundary = element.closest('[data-credentials-venn]').parentElement;
+      for (let current = element; current && current !== boundary; current = current.parentElement) {
+        const style = getComputedStyle(current);
+        if (Number(style.opacity) !== 1 || style.visibility !== 'visible' || style.display === 'none') return false;
+      }
+      return true;
+    });
+    expect(opaque, `${name}: focus must not wait for a delayed fade`).toBe(true);
+    await expect(link).toBeInViewport();
+  }
+});

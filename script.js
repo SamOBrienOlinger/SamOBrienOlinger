@@ -62,6 +62,7 @@
     link.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
       revealFocusPanel(link.hash);
+      if (link.closest('[data-credentials-venn]')) moveFocusToSection(link.hash);
     });
   });
   window.addEventListener('hashchange', () => revealFocusPanel(window.location.hash));
@@ -200,7 +201,9 @@
   let updateScheduled = false;
   function updateActiveSection() {
     updateScheduled = false;
-    const readingLine = Math.min(window.innerHeight * .32, 260);
+    // A wrapped or two-row header can place an anchor below the usual reading line.
+    const anchorClearance = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+    const readingLine = Math.max(Math.min(window.innerHeight * .32, 260), anchorClearance + 1);
     let current = '';
     for (const section of sections) {
       if (section.getBoundingClientRect().top <= readingLine) current = section.id;

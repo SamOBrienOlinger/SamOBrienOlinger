@@ -11,11 +11,11 @@
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261104-separated-cards">
+  <link rel="stylesheet" href="styles.css?v=20261104-centred-navbar">
   <script src="font-readiness.js?v=20261104-completed-layout" defer></script>
-  <script src="script.js?v=20261104-separated-cards" defer></script>
+  <script src="script.js?v=20261104-header-links" defer></script>
   <script src="carousel.js?v=20261028-software-card" defer></script>
-  <script src="credentials-venn.js?v=20261104-reveal-once" defer></script>
+  <script src="credentials-venn.js?v=20261104-linked-labels" defer></script>
   <script src="focus-reveal.js?v=20261104-separated-cards" defer></script>
 </head>
 <body id="top">
@@ -24,18 +24,20 @@
     <div class="header-inner container">
       <a class="brand" href="#top" aria-label="Sam Tim Solutions, back to top">
         <img class="brand-logo" src="assets/images/sam-logo.png" width="460" height="460" alt="">
-        <span>Sam Tim<br><strong>Solutions</strong></span>
+        <span class="brand-name"><span>Sam</span> <span>Tim</span> <span>Solutions</span></span>
       </a>
-      <div class="header-controls"><button class="theme-toggle" type="button" aria-label="Switch to dark theme" hidden><span aria-hidden="true">◐</span></button>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
-        <span data-menu-label>Menu</span><span class="menu-icon" aria-hidden="true"></span>
-      </button></div>
+      <div class="header-controls">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+          <span class="sr-only" data-menu-label>Menu</span><span class="menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="#top">Home</a>
         <a href="#work">Software</a>
         <a href="#research">Research</a>
         <a href="#people">People</a>
         <a class="nav-contact" href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" hidden><span aria-hidden="true">◐</span></button>
       </nav>
     </div>
   </header>
@@ -46,7 +48,7 @@
         <div class="hero-copy">
           <figure class="hero-image"><img src="assets/images/sleepy-sperm-whales.jpeg" width="1045" height="691" alt="A pod of sperm whales sleeping vertically beneath a diver" decoding="async" fetchpriority="high"></figure>
           <h1 id="hero-title"><span>Curiosity</span><span>Creativity</span><span>Purpose</span></h1>
-          <p class="lede">Digital experiences that empower people and strengthen communities.</p>
+          <p class="lede">Digital experiences to empower people and strengthen communities</p>
         </div>
       </div>
     </section>
@@ -313,13 +315,13 @@
                 <p class="credential-statement"><span class="credential-prefix">PhD in</span> <strong class="credential-accent">Sociology</strong></p>
               </div>
               <div class="credential-label credential-label--development" data-credential-label>
-                <p class="credential-statement"><span class="credential-prefix">Diploma in</span> <strong class="credential-accent">Full Stack Software Development</strong></p>
+                <a class="credential-statement" href="https://www.credential.net/profile/samobrienolinger167622/wallet"><span class="credential-prefix">Diploma in</span> <strong class="credential-accent">Full Stack Software Development</strong></a>
               </div>
               <div class="credential-label credential-label--community" data-credential-label>
-                <p class="credential-statement"><span class="credential-prefix">Over a decade working in the</span> <strong class="credential-accent">Community &amp; Voluntary sector</strong></p>
+                <a class="credential-statement" href="#people"><span class="credential-prefix">Over a decade working in the</span> <strong class="credential-accent">Community &amp; Voluntary sector</strong></a>
               </div>
               <div class="credential-label credential-label--service" data-credential-label>
-                <p class="credential-statement"><span class="credential-prefix">Co-founder of</span> <strong class="credential-accent">Local Community Group</strong></p>
+                <a class="credential-statement" href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><span class="credential-prefix">Co-founder of</span> <strong class="credential-accent">Local Community Group</strong></a>
               </div>
             </div>
             </div>
