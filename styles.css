@@ -55,6 +55,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: calc(var(--header-height) + 1.25rem); }
+html.font-fallback { --font-body: var(--font-system); }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 1rem; line-height: 1.65; -webkit-text-size-adjust: 100%; }
 button, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
@@ -276,8 +277,12 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .focus-overview > summary .accordion-icon { color: currentColor; border-color: #8aa6bf; }
 .focus-overview > .accordion-content { padding: var(--panel-space); border-color: #8aa6bf; border-radius: 0 0 1.8rem 1.8rem; background: var(--surface); color: var(--ink); }
 .focus-overview .accordion-content .accordion-content { padding-inline: clamp(.5rem, 2vw, 1rem); }
+/* The animated stack controls page height. Native anchoring can otherwise
+   apply a second scroll correction after its margin transitions finish. */
+html:has(.approach.overlap-ready) { overflow-anchor: none; }
 /* Closed cards share 20% of the smaller neighbouring card's height. */
-.approach.overlap-ready { gap: 0; isolation: isolate; overflow-anchor: none; }
+.approach.overlap-ready { position: relative; gap: 0; isolation: isolate; overflow-anchor: none; }
+.focus-overlap-observer { position: absolute; inset: 0 0 auto; visibility: hidden; pointer-events: none; }
 .approach.overlap-ready > section { position: relative; }
 .approach.overlap-ready > section:focus-within { z-index: 2; }
 .approach.overlap-ready > section + section { margin-block-start: 1rem; }
