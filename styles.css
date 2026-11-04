@@ -114,7 +114,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .section-heading { display: grid; gap: 1rem; margin-bottom: 2rem; }
 .section-heading > p { max-width: 36rem; margin: 0; color: var(--muted); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-.work-carousel { min-width: 0; container-type: inline-size; }
+.work-carousel { min-width: 0; }
 .carousel-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .carousel-progress { flex: 1; min-width: 2rem; height: 2px; background: var(--line); overflow: hidden; }
 .carousel-progress::after { content: ''; display: block; height: 100%; background: var(--navy-mid); transform: scaleX(var(--project-progress, .1)); transform-origin: left; transition: transform .75s cubic-bezier(.22, 1, .36, 1); }
@@ -125,7 +125,6 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .carousel-arrow:hover { background: var(--soft); }
 .work-track { position: relative; display: flex; gap: clamp(1.5rem, 4vw, 3rem); overflow-x: auto; overflow-anchor: none; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; }
 .work-track.is-animating { scroll-snap-type: none; }
-.work-carousel[data-current-photo] .work-track { height: 75cqw; overflow-y: hidden; }
 .carousel-ready .work-track { scrollbar-width: none; }
 .carousel-ready .work-track::-webkit-scrollbar { display: none; }
 .work-track:focus-visible { outline-offset: 4px; }

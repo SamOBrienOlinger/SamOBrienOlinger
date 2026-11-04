@@ -29,7 +29,6 @@
   function makeClone(slide) {
     const clone = slide.cloneNode(true);
     clone.removeAttribute('data-project');
-    clone.removeAttribute('data-photo');
     clone.setAttribute('data-carousel-clone', '');
     clone.setAttribute('aria-hidden', 'true');
     clone.inert = true;
@@ -79,8 +78,7 @@
       slide.setAttribute('aria-hidden', String(i !== index));
     });
     count.textContent = String(index + 1).padStart(2, '0');
-    carousel.dataset.currentProject = slides[index].dataset.project || slides[index].dataset.photo;
-    carousel.toggleAttribute('data-current-photo', Boolean(slides[index].dataset.photo));
+    carousel.dataset.currentProject = slides[index].dataset.project;
     carousel.style.setProperty('--project-progress', (index + 1) / slides.length);
     // Load the nearby artwork before it scrolls into view.
     for (const offset of [-1, 0, 1]) {
