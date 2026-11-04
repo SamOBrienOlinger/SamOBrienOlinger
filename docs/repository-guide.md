@@ -28,7 +28,7 @@ Open http://localhost:8000. Check navigation, project links, keyboard access and
 
 ## Portfolio source and publishing
 
-The current portfolio source is maintained on `main`. Publish the repository root (`/`) from `main` in GitHub Pages. The earlier `portfolio-redesign` branch remains in the repository history.
+The current portfolio source is maintained on the default branch, `main`. GitHub Pages currently publishes the repository root (`/`) from `portfolio-redesign`. To release a reviewed version of `main`, fast-forward `portfolio-redesign` to the same commit; the existing Pages workflow then deploys that exact version. Keep both branches at the release commit after publishing.
 
 Install the development dependencies with `npm install`, install the supported browser engines with `npx playwright install --with-deps chromium webkit`, then run `npm test`. GitHub Actions runs the existing responsive checks for changes to `main` and `portfolio-redesign`.
 
