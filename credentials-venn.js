@@ -3,8 +3,10 @@
 
   const diagram = document.querySelector('[data-credentials-venn]');
   if (!diagram) return;
+  const graphic = diagram.querySelector('svg') || diagram;
   const circles = Array.from(diagram.querySelectorAll('[data-credential-circle]'));
   const details = Array.from(diagram.querySelectorAll('[data-credential-detail]'));
+  const labels = Array.from(diagram.querySelectorAll('[data-credential-label]'));
   const overlaps = Array.from(diagram.querySelectorAll('[data-overlap-circles]'));
   if (!circles.length || !window.matchMedia || !('IntersectionObserver' in window)) return;
 
@@ -30,6 +32,7 @@
       delays[index] = 160 + position * 600;
       circles[index].style.setProperty('--reveal-delay', `${delays[index]}ms`);
       details[index]?.style.setProperty('--reveal-delay', `${delays[index]}ms`);
+      labels[index]?.style.setProperty('--reveal-delay', `${delays[index]}ms`);
     });
     overlaps.forEach(overlap => {
       const members = overlap.dataset.overlapCircles.split(' ').map(Number);
@@ -63,7 +66,8 @@
         else if (!active && entry.intersectionRatio >= .25) reveal();
       });
     }, { threshold: [0, .15, .25] });
-    observer.observe(diagram);
+    // The compact text key can be tall; reveal when the graphic itself is visible.
+    observer.observe(graphic);
     // Progressive enhancement: without this script/observer, every circle stays visible.
     diagram.classList.add('reveal-ready');
   }

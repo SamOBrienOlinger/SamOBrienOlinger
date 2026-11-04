@@ -9,10 +9,10 @@
   <link rel="canonical" href="https://samobrienolinger.github.io/SamOBrienOlinger/">
   <link rel="icon" href="assets/images/sam-logo.png" type="image/png">
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261104-section-navigation">
+  <link rel="stylesheet" href="styles.css?v=20261104-responsive-venn">
   <script src="script.js?v=20261104-section-navigation" defer></script>
   <script src="carousel.js?v=20261028-software-card" defer></script>
-  <script src="credentials-venn.js?v=20261029-venn-overlaps" defer></script>
+  <script src="credentials-venn.js?v=20261104-responsive-labels" defer></script>
   <script src="focus-overlap.js?v=20261030" defer></script>
 </head>
 <body id="top">
@@ -218,9 +218,9 @@
         </div>
         <div class="about-copy">
           <figure class="credentials-venn" id="career-background" data-credentials-venn>
-            <svg viewBox="285 0 970 980" role="img" aria-labelledby="credentials-title credentials-description">
-              <title id="credentials-title">Education and professional experience</title>
-              <desc id="credentials-description">PhD in Sociology. Diploma in Full Stack Software Development. Over a decade working in the Community &amp; Voluntary sector. Co-founder of Local Community Group.</desc>
+            <figcaption id="credentials-title" class="sr-only">Education and professional experience</figcaption>
+            <div class="credentials-venn-canvas">
+            <svg viewBox="285 0 970 980" aria-hidden="true" focusable="false">
               <defs>
                 <linearGradient id="venn-blue-glass" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#a9d6f5" stop-opacity=".34" />
@@ -301,21 +301,40 @@
               </g>
               <g class="credential-detail credential-detail--sociology" data-credential-detail aria-hidden="true">
                 <circle cx="590" cy="310" r="275" class="credential-outline" />
-                <text x="490" y="260"><tspan x="490">PhD in</tspan><tspan x="490" dy="52" class="credential-accent">Sociology</tspan></text>
+                <g class="credential-marker"><circle cx="490" cy="270" r="48" /><text x="490" y="270" dy=".35em">1</text></g>
               </g>
               <g class="credential-detail credential-detail--development" data-credential-detail aria-hidden="true">
                 <circle cx="940" cy="310" r="275" class="credential-outline" />
-                <text x="1030" y="190"><tspan x="1030">Diploma in</tspan><tspan x="1030" dy="48" class="credential-accent">Full Stack</tspan><tspan x="1030" dy="48" class="credential-accent">Software</tspan><tspan x="1030" dy="48" class="credential-accent">Development</tspan></text>
+                <g class="credential-marker"><circle cx="1030" cy="270" r="48" /><text x="1030" y="270" dy=".35em">2</text></g>
               </g>
               <g class="credential-detail credential-detail--community" data-credential-detail aria-hidden="true">
                 <circle cx="590" cy="650" r="280" class="credential-outline" />
-                <text x="520" y="640"><tspan x="520">Over a decade</tspan><tspan x="520" dy="48">working in the</tspan><tspan x="520" dy="48" class="credential-accent">Community &amp;</tspan><tspan x="520" dy="48" class="credential-accent">Voluntary sector</tspan></text>
+                <g class="credential-marker"><circle cx="520" cy="710" r="48" /><text x="520" y="710" dy=".35em">3</text></g>
               </g>
               <g class="credential-detail credential-detail--service" data-credential-detail aria-hidden="true">
                 <circle cx="940" cy="650" r="280" class="credential-outline" />
-                <text x="1035" y="640"><tspan x="1035">Co-founder</tspan><tspan x="1035" dy="48">of <tspan class="credential-accent">Local</tspan></tspan><tspan x="1035" dy="48" class="credential-accent">Community</tspan><tspan x="1035" dy="48" class="credential-accent">Group</tspan></text>
+                <g class="credential-marker"><circle cx="1035" cy="710" r="48" /><text x="1035" y="710" dy=".35em">4</text></g>
               </g>
             </svg>
+            <ol class="credential-labels">
+              <li class="credential-label credential-label--sociology" data-credential-label>
+                <span class="credential-key" aria-hidden="true">1</span>
+                <p class="credential-statement"><span class="credential-prefix">PhD in</span> <strong class="credential-accent">Sociology</strong></p>
+              </li>
+              <li class="credential-label credential-label--development" data-credential-label>
+                <span class="credential-key" aria-hidden="true">2</span>
+                <p class="credential-statement"><span class="credential-prefix">Diploma in</span> <strong class="credential-accent">Full Stack Software Development</strong></p>
+              </li>
+              <li class="credential-label credential-label--community" data-credential-label>
+                <span class="credential-key" aria-hidden="true">3</span>
+                <p class="credential-statement"><span class="credential-prefix">Over a decade working in the</span> <strong class="credential-accent">Community &amp; Voluntary sector</strong></p>
+              </li>
+              <li class="credential-label credential-label--service" data-credential-label>
+                <span class="credential-key" aria-hidden="true">4</span>
+                <p class="credential-statement"><span class="credential-prefix">Co-founder of</span> <strong class="credential-accent">Local Community Group</strong></p>
+              </li>
+            </ol>
+            </div>
           </figure>
         </div>
       </div>

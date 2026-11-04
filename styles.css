@@ -82,7 +82,7 @@ main:focus { outline: none; }
 .brand { display: inline-flex; align-items: center; gap: .7rem; min-height: 3rem; font-size: .875rem; line-height: 1.25; letter-spacing: -.02em; }
 .brand strong { font-weight: 700; }
 .brand-logo { width: 2.75rem; height: 2.75rem; object-fit: contain; border-radius: .45rem; background: white; border: 1px solid var(--line); }
-.header-controls { display: flex; align-items: center; gap: .5rem; }
+.header-controls { display: flex; flex-wrap: wrap; align-items: center; max-width: 100%; gap: .5rem; }
 .theme-toggle { display: grid; place-items: center; min-width: 2.75rem; min-height: 2.875rem; border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--ink); font-size: 1.5rem; line-height: 1; }
 .menu-toggle { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 2.875rem; padding: .5rem .8rem; border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--ink); font-size: .875rem; font-weight: 650; }
 .menu-icon { width: 1rem; height: .75rem; position: relative; border-block: 1.5px solid currentColor; }
@@ -180,14 +180,38 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .approach-people { --focus-background: var(--section-software); --focus-hover: var(--section-software-hover); background: var(--section-software); color: white; margin-right: clamp(0rem, 1.5vw, .75rem); }
 .approach-play { --focus-background: var(--section-research); --focus-hover: var(--section-research-hover); background: var(--section-research); color: white; margin-left: clamp(0rem, 1.5vw, .75rem); }
 .approach-simplify { --focus-background: var(--section-people); --focus-hover: var(--section-people-hover); --focus-color: #152b46; --focus-outline: #086b68; background: var(--section-people); color: #152b46; margin-right: clamp(0rem, 1.5vw, .75rem); }
-.credentials-venn { margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow: hidden; }
-.credentials-venn svg { display: block; width: 100%; height: auto; }
+.about-layout > * { min-width: 0; }
+.credentials-venn { container: credentials / inline-size; margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow: hidden; }
+.credentials-venn-canvas { position: relative; }
+.credentials-venn svg { display: block; width: min(100%, 18rem); height: auto; margin-inline: auto; }
 .credential-circle { transform-box: fill-box; transform-origin: center; }
 .credential-circle circle { fill: url(#venn-blue-glass); }
 .credential-outline { fill: none; stroke: #b9dcf4; stroke-width: 2.5; stroke-opacity: .5; }
-.credential-detail text { fill: #edf5fc; font: 600 42px/1.2 var(--font-body); letter-spacing: -.5px; text-anchor: middle; }
-.credential-detail--community text { font-size: 39px; }
-.credential-detail .credential-accent { fill: #ffcf84; font-weight: 700; letter-spacing: -.3px; }
+.credential-marker circle { fill: #111e2d; stroke: #9bbbd0; stroke-width: 2.5; }
+.credential-marker text { fill: #ffcf84; font: 700 60px/1 var(--font-body); text-anchor: middle; }
+/* One copy of each statement reflows below the graphic when space is limited. */
+.credential-labels { list-style: none; margin: 0; padding: .25rem clamp(12px, 3cqi, 20px) .75rem; }
+.credential-label { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); align-items: start; gap: .75rem; padding-block: 1rem; border-top: 1px solid #344b60; }
+.credential-key { display: grid; place-items: center; width: 1.75rem; min-height: 1.75rem; border: 1px solid #769ab6; border-radius: 50%; background: #1b354c; color: #ffcf84; font-size: .9375rem; font-weight: 700; line-height: 1; }
+.credential-statement { margin: 0; color: #edf5fc; font-size: clamp(1rem, 2.6cqi, 1.125rem); font-weight: 500; line-height: 1.55; letter-spacing: 0; }
+.credential-statement .credential-accent { color: #ffcf84; font-weight: 700; }
+/* Enlarged text can use the full row instead of sharing it with its key. */
+@container credentials (max-width: 12rem) {
+  .credential-label { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+}
+/* Spacious diagrams keep the statements in the outer, unshared circle areas. */
+@container credentials (min-width: 28rem) {
+  .credentials-venn svg { width: 100%; }
+  .credential-marker, .credential-key { display: none; }
+  .credential-labels { position: absolute; inset: 0; padding: 0; }
+  .credential-label { position: absolute; display: block; width: 30%; padding: 0; border: 0; transform: translate(-50%, -50%); text-align: center; }
+  .credential-label--sociology { left: 21.5%; top: 28.5%; }
+  .credential-label--development { left: 77%; top: 27%; }
+  .credential-label--community { left: 24%; top: 70%; width: 35%; }
+  .credential-label--service { left: 77.5%; top: 71%; }
+  .credential-statement { font-size: clamp(1.125rem, 3.9cqi, 1.625rem); line-height: 1.28; }
+  .credential-prefix { display: block; }
+}
 .credential-overlap--gold { fill: #d6ac70; }
 .credential-overlap--teal { fill: #8ebbb6; }
 .credential-overlap--peach { fill: #e4b49b; }
@@ -208,6 +232,12 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .credentials-venn.reveal-ready.is-revealing .credential-overlap {
     animation: credential-colour-reveal 1.8s ease-in-out var(--overlap-delay, 3s) both;
   }
+  @container credentials (min-width: 28rem) {
+    .credentials-venn.reveal-ready .credential-label { opacity: 0; }
+    .credentials-venn.reveal-ready.is-revealing .credential-label {
+      animation: credential-colour-reveal .8666666667s ease-out var(--reveal-delay, 0ms) both;
+    }
+  }
 }
 @keyframes credential-circle-reveal {
   from { opacity: 0; transform: translateY(12px) scale(.97); }
@@ -219,6 +249,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 }
 @media print {
   .credentials-venn :is(.credential-circle, .credential-detail, .credential-overlap) { opacity: 1 !important; animation: none !important; transform: none !important; }
+  .credentials-venn .credential-label { opacity: 1 !important; animation: none !important; }
 }
 .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .skills li { padding: .45rem .8rem; background: var(--surface); border: 1px solid var(--line); border-radius: .4rem; font-size: .875rem; }
@@ -327,7 +358,6 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .project { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); }
   .project-media { align-self: start; }
   .project-content { padding: .5rem .15rem; }
-  .about-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: start; gap: clamp(2rem, 4vw, 4rem); }
 }
 @media (min-width: 64rem) {
   .menu-toggle { display: none; }
@@ -336,7 +366,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .site-nav a { min-height: 2.875rem; padding-inline: 1rem; }
   .section-heading { grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: end; margin-bottom: 2.5rem; }
   .section-heading > p { max-width: 28rem; justify-self: end; }
-  .about-layout { gap: 4rem; }
+  .about-layout { grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); align-items: start; gap: 4rem; }
   .approach { margin-top: 0; }
   .approach > a, .focus-overview > summary { min-height: 9rem; }
   .footer-brand { display: inline; margin-left: 1rem; }
