@@ -87,6 +87,14 @@
     diagram.classList.add('reveal-ready');
   }
 
+  // A keyboard visitor must never focus an invisible link during its entrance.
+  diagram.addEventListener('focusin', () => {
+    hasRevealed = true;
+    observer?.disconnect();
+    diagram.classList.remove('reveal-ready');
+    diagram.classList.remove('is-revealing');
+  });
+
   syncMotion();
   // A late font swap can rewrap a centred label after its reveal has finished.
   // Keep the entrance pending until the rendered text has its final metrics.

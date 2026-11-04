@@ -38,13 +38,22 @@ test('mobile navigation and project layouts remain usable', async ({ page }) => 
   await expectNoOverflow(page);
 });
 
-test('Escape closes the mobile menu and returns focus', async ({ page }) => {
+test('the theme control stays inside the mobile menu and Escape returns focus from it', async ({ page }) => {
   await page.goto('/');
   const menu = page.locator('.menu-toggle');
+  const theme = page.locator('#site-nav .theme-toggle');
+  await expect(page.locator('.theme-toggle')).toHaveCount(1);
+  await expect(theme).toHaveCount(1);
+  await expect(theme).toBeHidden();
+  await expect(menu).toHaveAccessibleName('Menu');
   await menu.click();
-  await page.keyboard.press('Escape');
+  await expect(theme).toBeVisible();
+  await theme.focus();
+  await expect(theme).toBeFocused();
+  await theme.press('Escape');
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await expect(menu).toBeFocused();
+  await expect(theme).toBeHidden();
 });
 
 test('focus cards and contact actions are readable at normal and enlarged text sizes', async ({ page }) => {
@@ -112,9 +121,13 @@ test('theme and menu work when preference storage is blocked', async ({ page }) 
   await page.goto('/');
   const root = page.locator('html');
   const initialTheme = await root.getAttribute('data-theme');
+  const menu = page.locator('.menu-toggle');
+  await menu.click();
   await page.getByRole('button', { name: /Switch to .* theme/ }).click();
   await expect(root).toHaveAttribute('data-theme', initialTheme === 'dark' ? 'light' : 'dark');
-  const menu = page.locator('.menu-toggle');
+  await expect(menu).toHaveAttribute('aria-expanded', 'true');
+  await menu.click();
+  await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await menu.click();
   await expect(menu).toHaveAttribute('aria-expanded', 'true');
 });
@@ -155,6 +168,103 @@ test('layout reflows from a small phone to desktop', async ({ page }, testInfo) 
       await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
     } else {
       await expect(page.locator('.menu-toggle')).toBeVisible();
+    }
+  }
+});
+
+test('the tagline is exact and the brand uses the same darker blue gradient as the hero', async ({ page }, testInfo) => {
+  test.skip(!['Android Chrome 360', 'iOS WebKit 375'].includes(testInfo.project.name),
+    'Check the rendered colours once per browser engine.');
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' });
+  await page.goto('/');
+  await expect(page.locator('.hero .lede')).toHaveText('Digital experiences to empower people and strengthen communities');
+  await expect(page.locator('.brand-name > span')).toHaveText(['Sam', 'Tim', 'Solutions']);
+  const luminance = colour => colour.match(/[\d.]+/g).slice(0, 3).map(Number)
+    .map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4)
+    .reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+  for (const scheme of ['light', 'dark']) {
+    await page.emulateMedia({ colorScheme: scheme });
+    await expect(page.locator('html')).toHaveAttribute('data-theme', scheme);
+    const colours = await page.evaluate(() => ({
+      brand: Array.from(document.querySelectorAll('.brand-name > span')).map(word => getComputedStyle(word).color),
+      hero: Array.from(document.querySelectorAll('#hero-title > span')).map(word => getComputedStyle(word).color)
+    }));
+    expect(colours.brand, `${scheme}: Sam, Tim and Solutions must match the corresponding hero words`).toEqual(colours.hero);
+    expect(new Set(colours.hero).size, `${scheme}: keep three distinct gradient steps`).toBe(3);
+    const oldPurpose = scheme === 'light' ? 'rgb(68, 107, 139)' : 'rgb(146, 184, 214)';
+    expect(luminance(colours.hero[2]), `${scheme}: Purpose must be darker than its previous colour`).toBeLessThan(luminance(oldPurpose));
+  }
+});
+
+test('the wordmark stays horizontally centred and clear of controls at every header size', async ({ page }, testInfo) => {
+  test.skip(!['Android Chrome 360', 'iOS WebKit 375'].includes(testInfo.project.name),
+    'Exercise the full header width and text-size matrix once per browser engine.');
+  test.setTimeout(45000);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await page.evaluate(async () => { await (window.portfolioFontReady || document.fonts.ready); });
+  const menu = page.locator('.menu-toggle');
+  const nav = page.locator('#site-nav');
+  const theme = nav.locator('.theme-toggle');
+  const checkCentre = async phase => {
+    const metrics = await page.locator('.brand-name').evaluate(name => {
+      const box = name.getBoundingClientRect();
+      const logo = document.querySelector('.brand-logo').getBoundingClientRect();
+      const menu = document.querySelector('.menu-toggle');
+      const menuBox = menu.getBoundingClientRect();
+      const walker = document.createTreeWalker(name, NodeFilter.SHOW_TEXT);
+      const textBoxes = [];
+      while (walker.nextNode()) {
+        if (!walker.currentNode.textContent.trim()) continue;
+        const range = document.createRange();
+        range.selectNodeContents(walker.currentNode);
+        textBoxes.push(...range.getClientRects());
+      }
+      const textLeft = Math.min(...textBoxes.map(rect => rect.left));
+      const textRight = Math.max(...textBoxes.map(rect => rect.right));
+      const centre = document.documentElement.clientWidth / 2;
+      return {
+        boxError: Math.abs((box.left + box.right) / 2 - centre),
+        textError: Math.abs((textLeft + textRight) / 2 - centre),
+        fits: textLeft >= box.left - 1 && textRight <= box.right + 1
+          && name.scrollWidth <= name.clientWidth + 1,
+        logoClear: logo.right <= textLeft,
+        menuClear: !menu.getClientRects().length || textRight <= menuBox.left
+      };
+    });
+    expect(metrics.boxError, `${phase}: wordmark container is off-centre`).toBeLessThanOrEqual(1);
+    expect(metrics.textError, `${phase}: visible wordmark text is off-centre`).toBeLessThanOrEqual(1);
+    expect(metrics.fits, `${phase}: wordmark text is clipped`).toBe(true);
+    expect(metrics.logoClear, `${phase}: wordmark overlaps the logo`).toBe(true);
+    expect(metrics.menuClear, `${phase}: wordmark overlaps the menu button`).toBe(true);
+    await expectNoOverflow(page);
+  };
+  for (const width of [320, 375, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    for (const size of ['100%', '200%']) {
+      await page.evaluate(value => { document.documentElement.style.fontSize = value; }, size);
+      const phase = `${width}px / ${size} text`;
+      await checkCentre(phase);
+      if (width < 1024) {
+        await expect(menu).toBeVisible();
+        await expect(theme).toBeHidden();
+        await menu.click();
+        await expect(theme).toBeVisible();
+        await checkCentre(`${phase}, menu open`);
+        await menu.click();
+        await expect(theme).toBeHidden();
+      } else {
+        await expect(menu).toBeHidden();
+        await expect(nav).toBeVisible();
+        await expect(theme).toBeVisible();
+        const position = await nav.evaluate(element => {
+          const box = element.getBoundingClientRect();
+          const brand = document.querySelector('.brand-name').getBoundingClientRect();
+          return { belowBrand: box.top >= brand.bottom, centreError: Math.abs((box.left + box.right) / 2 - document.documentElement.clientWidth / 2) };
+        });
+        expect(position.belowBrand, `${phase}: desktop navigation must sit below the wordmark`).toBe(true);
+        expect(position.centreError, `${phase}: desktop navigation is off-centre`).toBeLessThanOrEqual(1);
+      }
     }
   }
 });
