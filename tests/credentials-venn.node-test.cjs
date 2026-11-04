@@ -116,18 +116,19 @@ test('restoring from browser history arms a fresh reveal', () => {
 });
 
 
-test('a small visible edge resets the reveal on tall desktop screens', () => {
+test('a small visible edge retains the settled reveal without changing its order', () => {
   const state = setup();
   const observer = state.observers[0];
   observer.enter(.3);
   const first = state.delays();
   observer.enter(.14);
-  assert.equal(state.classes.has('is-revealing'), false);
+  assert.equal(state.classes.has('is-revealing'), true);
+  assert.deepEqual(state.delays(), first);
   observer.enter(.2);
-  assert.equal(state.classes.has('is-revealing'), false);
+  assert.equal(state.classes.has('is-revealing'), true);
   observer.enter(.3);
   assert.equal(state.classes.has('is-revealing'), true);
-  assert.notDeepEqual(state.delays(), first);
+  assert.deepEqual(state.delays(), first);
 });
 
 test('labels follow their circle and intersection colours wait for all contributing circles', () => {
