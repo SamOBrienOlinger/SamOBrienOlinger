@@ -189,10 +189,10 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .credential-circle circle { fill: url(#venn-blue-glass); }
 .credential-outline { fill: none; stroke: #b9dcf4; stroke-width: 2.5; stroke-opacity: .5; }
 .credential-labels { position: absolute; inset: 0; }
-.credential-label { position: absolute; width: 35%; max-width: 8em; transform: translate(-50%, -50%); text-align: center; font-size: clamp(.875rem, 4.5cqi, 1.625rem); }
+.credential-label { position: absolute; width: 36%; max-width: 8em; transform: translate(-50%, -50%); text-align: center; font-size: clamp(.875rem, 4.5cqi, 1.625rem); }
 .credential-label--sociology { left: 20.8%; top: 25.3%; }
 .credential-label--development { left: 78.2%; top: 25%; }
-.credential-label--community { left: 20.5%; top: 75.8%; width: 36%; }
+.credential-label--community { left: 20.5%; top: 75.8%; width: 37%; }
 .credential-label--service { left: 80%; top: 75.2%; }
 .credential-statement { margin: 0; color: #edf5fc; font-size: inherit; font-weight: 500; line-height: 1.2; letter-spacing: 0; overflow-wrap: normal; word-break: normal; }
 .credential-prefix { display: block; }
