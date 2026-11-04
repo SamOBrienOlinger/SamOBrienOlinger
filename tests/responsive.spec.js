@@ -98,7 +98,7 @@ test('every project keeps one main image and a live link without mobile overflow
     expect(box.x).toBeGreaterThanOrEqual(0);
     expect(box.x + box.width).toBeLessThanOrEqual(page.viewportSize().width);
     await expectNoOverflow(page);
-    if (index < projects.length - 1) await page.getByRole('button', { name: 'Next project', exact: true }).click();
+    if (index < projects.length - 1) await page.getByRole('button', { name: 'Next slide', exact: true }).click();
   }
   await expect(page.locator('[data-project="allyindex"] .project-links a')).toHaveAttribute('href', 'https://declan444.github.io/24-7-hackathon-team9/index.html');
   await expect(page.locator('#work a[href*="github.com/"]')).toHaveCount(0);
@@ -129,6 +129,7 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await page.locator('#software-panel > summary').click();
   await expect(page.locator('#work-track')).toBeVisible();
   await expect(page.locator('#software-panel [data-project]')).toHaveCount(9);
+  await expect(page.locator('#software-panel [data-photo]')).toHaveCount(3);
   await expect(page.locator('[data-project="sct"] .project-links a')).toBeVisible();
   await expect(page.locator('.publication-cover')).toHaveCount(7);
   await expect(page.locator('#research-publications')).toBeHidden();

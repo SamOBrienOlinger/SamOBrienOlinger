@@ -83,7 +83,7 @@ test('Software opens in place, retains its project when reopened, and fits enlar
   await expect(carousel).toHaveAccessibleName('Software');
   await expect(page.locator('[data-carousel]')).toHaveCount(1);
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
-  await page.getByRole('button', { name: 'Next project', exact: true }).click();
+  await page.getByRole('button', { name: 'Next slide', exact: true }).click();
   await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
   await summary.press('Enter');
   await expect(content).toBeHidden();
@@ -116,9 +116,9 @@ test('Software opens in place, retains its project when reopened, and fits enlar
       expect(box.width).toBeGreaterThanOrEqual(44);
       expect(box.height).toBeGreaterThanOrEqual(44);
     }
-    await page.getByRole('button', { name: 'Next project', exact: true }).click();
+    await page.getByRole('button', { name: 'Next slide', exact: true }).click();
     await expect(carousel).toHaveAttribute('data-current-project', 'beaver');
-    await page.getByRole('button', { name: 'Previous project', exact: true }).click();
+    await page.getByRole('button', { name: 'Previous slide', exact: true }).click();
     await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
   }
 });

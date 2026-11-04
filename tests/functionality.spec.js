@@ -97,7 +97,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await nav.getByRole('link', { name: 'Software', exact: true }).click();
   await page.locator('#work-track').focus();
   await page.keyboard.press('End');
-  await expect(page.locator('[data-carousel]')).toHaveAttribute('data-current-project', 'white-whale');
+  await expect(page.locator('[data-carousel]')).toHaveAttribute('data-current-project', 'community-certificates');
   await page.keyboard.press('Home');
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-current-project', 'sct');
   await expect(page.locator('[data-project="sct"] img')).toHaveCount(1);

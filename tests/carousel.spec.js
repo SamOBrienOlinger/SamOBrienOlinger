@@ -1,6 +1,8 @@
 const { test, expect } = require('@playwright/test');
 
 const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+const photos = ['council-group', 'council-chamber', 'community-certificates'];
+const slides = [...projects, ...photos];
 
 async function openWork(page, reducedMotion = 'no-preference') {
   await page.emulateMedia({ reducedMotion });
@@ -27,16 +29,18 @@ test('rotation advances, then stays stopped after a real touch and a return to t
   await carousel.scrollIntoViewIfNeeded();
   await page.waitForTimeout(9000);
   await expect(carousel).toHaveAttribute('data-current-project', 'spoodle');
-  await page.getByRole('button', { name: 'Next project', exact: true }).click();
+  await page.getByRole('button', { name: 'Next slide', exact: true }).click();
   await expect(carousel).toHaveAttribute('data-current-project', 'beaver');
   await expect(carousel).toHaveAttribute('data-rotation', 'paused');
 });
 
-test('every project and its images fit the carousel, including both loop boundaries', async ({ page }) => {
+test('every project and community photo fits the carousel, including both loop boundaries', async ({ page }) => {
   await openWork(page, 'reduce');
   const carousel = page.locator('[data-carousel]');
   await expect(carousel).toHaveAttribute('data-rotation', 'paused');
   await expect(page.locator('.project[data-project]')).toHaveCount(projects.length);
+  await expect(page.locator('.photo-slide[data-photo]')).toHaveCount(photos.length);
+  await expect(carousel.locator('.carousel-total')).toHaveText('/ 12');
   const controls = await page.locator('.carousel-toolbar button').evaluateAll(buttons => buttons.map(button => {
     const rect = button.getBoundingClientRect();
     return { width: rect.width, height: rect.height };
@@ -45,10 +49,11 @@ test('every project and its images fit the carousel, including both loop boundar
     expect(control.width).toBeGreaterThanOrEqual(44);
     expect(control.height).toBeGreaterThanOrEqual(44);
   }
-  for (const project of projects) {
-    await expect(carousel).toHaveAttribute('data-current-project', project);
-    const card = page.locator(`[data-project="${project}"]`);
+  for (const [index, slide] of slides.entries()) {
+    await expect(carousel).toHaveAttribute('data-current-project', slide);
+    const card = page.locator(`[data-project="${slide}"], [data-photo="${slide}"]`);
     await expect(card).toHaveAttribute('aria-hidden', 'false');
+    await expect(card).toHaveAttribute('aria-label', new RegExp(`^${index + 1} of ${slides.length}:`));
     await expect.poll(() => card.locator('img').evaluateAll(images => images.length > 0 && images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     const fit = await card.evaluate(element => {
       const rect = element.getBoundingClientRect();
@@ -57,16 +62,32 @@ test('every project and its images fit the carousel, including both loop boundar
         && element.scrollWidth <= element.clientWidth + 1
         && document.documentElement.scrollWidth <= document.documentElement.clientWidth;
     });
-    expect(fit, project).toBe(true);
-    await page.getByRole('button', { name: 'Next project', exact: true }).click();
+    expect(fit, slide).toBe(true);
+    if (photos.includes(slide)) {
+      await expect.poll(() => card.evaluate(element => {
+        const track = element.closest('.work-track').getBoundingClientRect();
+        const media = element.querySelector('.project-media').getBoundingClientRect();
+        return Math.abs(track.height - media.height);
+      }), { message: `${slide}: the photo frame should fill the track without a blank lower half` }).toBeLessThanOrEqual(1);
+      const image = card.locator('img');
+      const link = card.locator('a.project-media');
+      await expect(image).toHaveCount(1);
+      await expect(link).toHaveAttribute('href', await image.getAttribute('src'));
+      await expect(link).toHaveAttribute('target', '_blank');
+      await expect(link).toHaveAttribute('rel', /(?:^|\s)noopener(?:\s|$)/);
+      const alt = (await image.getAttribute('alt')) || '';
+      expect(alt.trim().split(/\s+/).length, `${slide}: descriptive photo alternative`).toBeGreaterThanOrEqual(6);
+      expect(alt).toMatch(slide === 'community-certificates' ? /certificates/i : /council chamber/i);
+    }
+    await page.getByRole('button', { name: 'Next slide', exact: true }).click();
   }
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
-  await page.getByRole('button', { name: 'Previous project', exact: true }).click();
-  await expect(carousel).toHaveAttribute('data-current-project', 'white-whale');
-  expect(await page.locator('[data-carousel-clone]').evaluateAll(clones => clones.every(clone => clone.inert && !clone.querySelector('[id]')))).toBe(true);
+  await page.getByRole('button', { name: 'Previous slide', exact: true }).click();
+  await expect(carousel).toHaveAttribute('data-current-project', 'community-certificates');
+  expect(await page.locator('[data-carousel-clone]').evaluateAll(clones => clones.every(clone => clone.inert && !clone.hasAttribute('data-project') && !clone.hasAttribute('data-photo') && !clone.querySelector('[id]')))).toBe(true);
 });
 
-test('keyboard focus stops rotation and offscreen projects stay out of the tab order', async ({ page }) => {
+test('keyboard focus stops rotation and offscreen slides stay out of the tab order', async ({ page }) => {
   await openWork(page);
   const carousel = page.locator('[data-carousel]');
   const track = page.locator('.work-track');
@@ -77,11 +98,14 @@ test('keyboard focus stops rotation and offscreen projects stay out of the tab o
   await page.keyboard.press('ArrowLeft');
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
   await page.keyboard.press('End');
-  await expect(carousel).toHaveAttribute('data-current-project', 'white-whale');
+  await expect(carousel).toHaveAttribute('data-current-project', 'community-certificates');
+  await page.keyboard.press('Tab');
+  await expect(page.locator('[data-photo="community-certificates"] .project-media')).toBeFocused();
+  await track.focus();
   await page.keyboard.press('Home');
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
-  const tabState = await page.locator('.project[data-project]').evaluateAll(slides => slides.map(slide => slide.inert));
-  expect(tabState).toEqual([false, ...Array(projects.length - 1).fill(true)]);
+  const tabState = await page.locator('.project[data-project], .project[data-photo]').evaluateAll(items => items.map(slide => slide.inert));
+  expect(tabState).toEqual([false, ...Array(slides.length - 1).fill(true)]);
   await page.keyboard.press('Tab');
   await expect(page.locator('[data-project="sct"] .project-media')).toBeFocused();
 });

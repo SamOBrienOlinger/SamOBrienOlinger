@@ -1,4 +1,4 @@
-# Project carousel image sources
+# Portfolio carousel image sources
 
 Verified against all nine live homepages on **4 November 2026**. Each portfolio preview now uses the current live hero artwork. Where the hero combines multiple images, HTML or CSS, the preview is a fresh capture of that complete rendered composition.
 
@@ -27,4 +27,16 @@ The four composite previews were captured from the actual live pages without cha
 
 Source images and captures were converted to WebP and proportionally limited to a maximum dimension of 1400 pixels where needed. Existing descriptive project copy, links and carousel behaviour are retained. The dated filenames distinguish this refresh from older assets and avoid stale cached previews.
 
-Existing third-party assets retain their original ownership and reuse terms. These previews are a snapshot of the live sites on the verification date; they do not update automatically when those sites change.
+## Additional community photographs
+
+Three user-supplied photographs were added on **4 November 2026**, after the nine project previews and in the supplied order. They are separate photo slides, bringing the carousel to twelve slides. The complete photographs are retained, including the panoramic image's original framing. Each photo opens its full-resolution local WebP in a new tab when selected.
+
+| Slide | Supplied photograph | Local image | Dimensions |
+| --- | --- | --- | --- |
+| 10: Group photo in the council chamber | `IMG_1724.jpeg` | `assets/images/community/council-group-20261104.webp` | 1501 × 1125 |
+| 11: Gathering in the council chamber | `IMG_1722.jpeg` | `assets/images/community/council-chamber-20261104.webp` | 1536 × 709 |
+| 12: Group holding certificates | `IMG_1723.jpeg` | `assets/images/community/community-certificates-20261104.webp` | 1507 × 1125 |
+
+The photographs were converted to WebP at their original pixel dimensions for web delivery. They have descriptive alternative text and no added visible captions or image overlays.
+
+Existing third-party assets retain their original ownership and reuse terms. The project previews are a snapshot of the live sites on the verification date; they do not update automatically when those sites change.
