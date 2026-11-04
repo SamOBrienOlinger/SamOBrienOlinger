@@ -25,24 +25,19 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let observer;
-  let previousOrder = [];
-  let active = false;
+  let hasRevealed = false;
   let inView = false;
   const fontReadiness = window.portfolioFontReady || document.fonts?.ready;
   let fontsReady = !fontReadiness;
 
   function reveal() {
+    if (hasRevealed || reducedMotion.matches) return;
     const order = circles.map((_, index) => index);
     // Fisher-Yates changes the reveal order, never the layout or reading order.
     for (let index = order.length - 1; index > 0; index--) {
       const other = Math.floor(Math.random() * (index + 1));
       [order[index], order[other]] = [order[other], order[index]];
     }
-    // A return visit should visibly get a new sequence, even if the draw repeats.
-    if (order.length > 1 && order.every((value, index) => value === previousOrder[index])) {
-      [order[0], order[1]] = [order[1], order[0]];
-    }
-    previousOrder = order;
     const delays = [];
     order.forEach((index, position) => {
       delays[index] = 160 + position * 600;
@@ -57,32 +52,33 @@
       const delay = Math.max(...members.map(index => delays[index])) + 867 + 180 + (members.length - 2) * 220;
       overlap.style.setProperty('--overlap-delay', `${delay}ms`);
     });
-    active = true;
+    // Run the entrance once per page visit. Leaving the viewport must not
+    // reset a finished diagram or restart a sequence already in progress.
+    hasRevealed = true;
+    observer?.disconnect();
     diagram.classList.add('is-revealing');
-  }
-
-  function reset() {
-    active = false;
-    inView = false;
-    // Removing the animation cancels delayed circles too; there are no timers to leak.
-    diagram.classList.remove('is-revealing');
   }
 
   function syncMotion() {
     observer?.disconnect();
-    reset();
+    if (reducedMotion.matches) {
+      // A static, readable diagram is also a completed reveal. Do not hide it
+      // again if the visitor later changes their motion preference.
+      hasRevealed = true;
+      diagram.classList.remove('reveal-ready');
+      diagram.classList.remove('is-revealing');
+      return;
+    }
+    if (hasRevealed) return;
+    inView = false;
     diagram.classList.remove('reveal-ready');
-    if (reducedMotion.matches) return;
 
     observer = new IntersectionObserver(entries => {
       // Ignore queued notifications from a disconnected observer after a preference change.
-      if (reducedMotion.matches) return;
+      if (reducedMotion.matches || hasRevealed) return;
       entries.forEach(entry => {
-        // Keep a completed diagram visible at the viewport edge. Browser chrome
-        // or a small resize must not reset circles that the visitor can still see.
         inView = entry.isIntersecting && entry.intersectionRatio >= .25;
-        if (!entry.isIntersecting) reset();
-        else if (inView && fontsReady && !active) reveal();
+        if (inView && fontsReady) reveal();
       });
     }, { threshold: [0, .25] });
     // Observe the graphic so the reveal follows the visible diagram.
@@ -96,7 +92,7 @@
   // Keep the entrance pending until the rendered text has its final metrics.
   const finishFontSetup = () => {
     fontsReady = true;
-    if (inView && !active && !reducedMotion.matches) reveal();
+    if (inView && !hasRevealed && !reducedMotion.matches) reveal();
   };
   fontReadiness?.then(finishFontSetup, finishFontSetup);
   if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncMotion);

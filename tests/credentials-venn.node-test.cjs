@@ -6,9 +6,11 @@ const source = readFileSync(require.resolve('../credentials-venn.js'), 'utf8');
 
 function setup({ reduced = false, observerAvailable = true } = {}) {
   const classes = new Set();
+  let staggerWrites = 0;
+  let randomDraws = 0;
   const circles = Array.from({ length: 4 }, () => ({
     delay: null,
-    style: { setProperty(_, value) { this.owner.delay = value; } }
+    style: { setProperty(_, value) { this.owner.delay = value; staggerWrites++; } }
   }));
   circles.forEach(circle => { circle.style.owner = circle; });
   const details = circles.map(() => ({ style: { setProperty(_, value) { this.delay = value; } } }));
@@ -26,7 +28,10 @@ function setup({ reduced = false, observerAvailable = true } = {}) {
       '[data-credential-label]': labels,
       '[data-overlap-circles]': overlaps
     })[selector],
-    classList: { add: name => classes.add(name), remove: name => classes.delete(name) }
+    classList: {
+      add: (...names) => names.forEach(name => classes.add(name)),
+      remove: (...names) => names.forEach(name => classes.delete(name))
+    }
   };
   const observers = [];
   const handlers = {};
@@ -43,12 +48,13 @@ function setup({ reduced = false, observerAvailable = true } = {}) {
       enter(ratio) { this.callback([{ target: this.target, isIntersecting: ratio > 0, intersectionRatio: ratio }]); }
     };
   }
-  // A repeated random draw deliberately exercises the no-repeat guard on return visits.
+  // Fix the draw so the initial randomized stagger is reproducible.
   const math = Object.create(Math);
-  math.random = () => .5;
+  math.random = () => { randomDraws++; return .5; };
   runInNewContext(source, { window, document: { querySelector: () => diagram },
     IntersectionObserver: window.IntersectionObserver, Math: math });
-  return { classes, circles, details, labels, overlaps, graphic, observers, media, handlers, delays: () => circles.map(circle => circle.delay) };
+  return { classes, circles, details, labels, overlaps, graphic, observers, media, handlers,
+    delays: () => circles.map(circle => circle.delay), staggerWrites: () => staggerWrites, randomDraws: () => randomDraws };
 }
 
 test('entry staggers all four circles; small scroll changes do not restart the reveal', () => {
@@ -60,28 +66,32 @@ test('entry staggers all four circles; small scroll changes do not restart the r
   observer.enter(.3);
   assert.equal(state.classes.has('is-revealing'), true);
   assert.deepEqual([...state.delays()].sort((a, b) => parseInt(a) - parseInt(b)), ['160ms', '760ms', '1360ms', '1960ms']);
+  assert.ok(state.randomDraws() > 0, 'the first reveal retains its randomized order');
   const first = state.delays();
   observer.enter(.8);
   observer.enter(.2);
   observer.enter(.4);
   assert.deepEqual(state.delays(), first);
+  assert.equal(state.staggerWrites(), 4);
 });
 
-test('leaving cancels the sequence; returning changes the order even if randomness repeats', () => {
+test('a full exit and return keep the reveal visible without assigning another sequence', () => {
   const state = setup();
   const observer = state.observers[0];
   observer.enter(.3);
   const first = state.delays();
   observer.enter(0);
-  assert.equal(state.classes.has('is-revealing'), false);
+  assert.equal(state.classes.has('is-revealing'), true);
   observer.enter(.3);
   assert.equal(state.classes.has('is-revealing'), true);
-  assert.notDeepEqual(state.delays(), first);
+  assert.deepEqual(state.delays(), first);
+  assert.equal(state.staggerWrites(), 4);
 });
 
-test('reduced motion is immediate, including when enabled during a pending reveal', () => {
+test('reduced motion makes the reveal static and switching back does not restart it', () => {
   const state = setup();
   state.observers[0].enter(.3);
+  const first = state.delays();
   state.media.matches = true;
   state.media.change();
   assert.equal(state.observers[0].disconnected, true);
@@ -91,9 +101,11 @@ test('reduced motion is immediate, including when enabled during a pending revea
   assert.equal(state.classes.has('is-revealing'), false);
   state.media.matches = false;
   state.media.change();
-  assert.equal(state.classes.has('reveal-ready'), true);
+  assert.equal(state.classes.has('reveal-ready'), false);
   state.observers.at(-1).enter(.3);
-  assert.equal(state.classes.has('is-revealing'), true);
+  assert.equal(state.classes.has('is-revealing'), false);
+  assert.deepEqual(state.delays(), first);
+  assert.equal(state.staggerWrites(), 4);
 });
 
 test('motion preference and unsupported observers leave content visible by default', () => {
@@ -101,18 +113,26 @@ test('motion preference and unsupported observers leave content visible by defau
     const state = setup(options);
     assert.equal(state.classes.size, 0);
     assert.equal(state.observers.length, 0);
+    if (options.reduced) {
+      state.media.matches = false;
+      state.media.change();
+      assert.equal(state.classes.size, 0, 'initially readable content must not become hidden');
+      assert.equal(state.observers.length, 0);
+      assert.equal(state.staggerWrites(), 0);
+    }
   }
 });
 
-test('restoring from browser history arms a fresh reveal', () => {
+test('restoring from browser history preserves the existing reveal for this page visit', () => {
   const state = setup();
   state.observers[0].enter(.3);
   const first = state.delays();
   state.handlers.pageshow({ persisted: true });
   assert.equal(state.observers[0].disconnected, true);
-  assert.equal(state.classes.has('is-revealing'), false);
+  assert.equal(state.classes.has('is-revealing'), true);
   state.observers.at(-1).enter(.3);
-  assert.notDeepEqual(state.delays(), first);
+  assert.deepEqual(state.delays(), first);
+  assert.equal(state.staggerWrites(), 4);
 });
 
 
@@ -133,18 +153,14 @@ test('a small visible edge retains the settled reveal without changing its order
 
 test('labels follow their circle and intersection colours wait for all contributing circles', () => {
   const state = setup();
-  // Check both the first draw and a different return-visit order.
-  for (let visit = 0; visit < 2; visit++) {
-    state.observers[0].enter(.3);
-    state.details.forEach((detail, index) => assert.equal(detail.style.delay, state.circles[index].delay));
-    state.labels.forEach((label, index) => assert.equal(label.style.delay, state.circles[index].delay));
-    state.overlaps.forEach(overlap => {
-      const members = overlap.dataset.overlapCircles.split(' ').map(Number);
-      const latestCircleEnd = Math.max(...members.map(index => parseInt(state.circles[index].delay))) + 867;
-      assert.ok(parseInt(overlap.style.delay) > latestCircleEnd, `${members}: intersection appeared before its circles settled`);
-    });
-    const centreDelay = parseInt(state.overlaps.at(-1).style.delay);
-    assert.ok(state.overlaps.slice(0, -1).every(overlap => parseInt(overlap.style.delay) < centreDelay));
-    state.observers[0].enter(0);
-  }
+  state.observers[0].enter(.3);
+  state.details.forEach((detail, index) => assert.equal(detail.style.delay, state.circles[index].delay));
+  state.labels.forEach((label, index) => assert.equal(label.style.delay, state.circles[index].delay));
+  state.overlaps.forEach(overlap => {
+    const members = overlap.dataset.overlapCircles.split(' ').map(Number);
+    const latestCircleEnd = Math.max(...members.map(index => parseInt(state.circles[index].delay))) + 867;
+    assert.ok(parseInt(overlap.style.delay) > latestCircleEnd, `${members}: intersection appeared before its circles settled`);
+  });
+  const centreDelay = parseInt(state.overlaps.at(-1).style.delay);
+  assert.ok(state.overlaps.slice(0, -1).every(overlap => parseInt(overlap.style.delay) < centreDelay));
 });
