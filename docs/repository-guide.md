@@ -26,6 +26,18 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 Open http://localhost:8000. Check navigation, project links, keyboard access and narrow-screen layouts before proposing a change.
 
+## Portfolio source and publishing
+
+The current portfolio source is maintained on `main`. Publish the repository root (`/`) from `main` in GitHub Pages. The earlier `portfolio-redesign` branch remains in the repository history.
+
+Install the development dependencies with `npm install`, install the supported browser engines with `npx playwright install --with-deps chromium webkit`, then run `npm test`. GitHub Actions runs the existing responsive checks for changes to `main` and `portfolio-redesign`.
+
+The portfolio uses a responsive single-page layout with navigation to Software, Research, People and Contact. The mobile menu supports keyboard access, Escape to close and focus return. Light and dark themes follow the device preference until the visitor makes a choice, and reduced-motion preferences are respected.
+
+Together Sans is hosted locally; the “Curiosity. Creativity. Purpose.” heading retains its original system font. The font's licence and derivation notes are included in [assets/fonts/together-sans](../assets/fonts/together-sans/).
+
+Project previews use local WebP artwork with reserved image space. [Project image sources](../PROJECT-IMAGE-SOURCES.md) records the nine hero previews verified on 4 November 2026, including rendered captures for composite heroes. Original contributor and asset credits continue to apply.
+
 ## Profile design
 
 The profile reuses the portfolio’s navy, blue and teal identity, rounded imagery and button styling. It uses native headings, links and keyboard-operable disclosures for project details. Saggart & Citywest Together is visible first, followed by the remaining projects in the same order as the portfolio. Content and navigation stay in the README; decorative frames and hero typography are SVG assets.
