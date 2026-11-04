@@ -1,6 +1,36 @@
 /* Mobile first. Content remains visible and navigable without JavaScript. */
+@font-face {
+  font-family: "Together Sans";
+  src: url("assets/fonts/together-sans/TogetherSans-Light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Together Sans";
+  src: url("assets/fonts/together-sans/TogetherSans-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Together Sans";
+  src: url("assets/fonts/together-sans/TogetherSans-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Together Sans";
+  src: url("assets/fonts/together-sans/TogetherSans-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 :root {
   color-scheme: light;
+  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Together Sans", var(--font-system);
   --paper: #f7f9fc;
   --surface: #fff;
   --ink: #152b46;
@@ -19,8 +49,8 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: calc(var(--header-height) + 1.25rem); }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 1rem; line-height: 1.65; -webkit-text-size-adjust: 100%; }
-button, input { font: inherit; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 1rem; line-height: 1.65; -webkit-text-size-adjust: 100%; }
+button, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 a { color: inherit; text-decoration: none; }
 a, button { -webkit-touch-callout: default; }
@@ -66,7 +96,8 @@ main:focus { outline: none; }
 .hero-layout { max-width: 56rem; margin-inline: auto; }
 .hero-copy { display: flex; flex-direction: column; align-items: center; min-width: 0; text-align: center; }
 .hero-image { width: 100%; max-width: 44rem; margin: 0 0 1.5rem; }
-.hero #hero-title { width: 100%; margin-bottom: 1.5rem; text-align: center; }
+/* Keep the original typeface for “Curiosity. Creativity. Purpose.” */
+.hero #hero-title { width: 100%; margin-bottom: 1.5rem; font-family: var(--font-system); text-align: center; }
 .hero .actions { justify-content: center; max-width: 100%; }
 .hero-image img { width: 100%; aspect-ratio: 1045 / 691; object-fit: cover; border-radius: .9rem; }
 .hero-role { max-width: 38rem; margin-bottom: .75rem; color: var(--ink); font-size: .9375rem; font-weight: 600; line-height: 1.55; }
@@ -103,7 +134,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .sct-media { background: #e6eee9; }
 /* Match the source project's maroon and teal; anchor text within the sky. */
 .new-life-media { container-type: inline-size; }
-.journey-preview-title { position: absolute; top: 17%; left: 6%; max-width: 58%; color: #7a1f3d; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1rem, 5cqw, 2.25rem); font-weight: 600; line-height: 1.08; letter-spacing: -.025em; text-align: left; text-shadow: 0 1px 6px rgba(250,247,245,.7); }
+.journey-preview-title { position: absolute; top: 17%; left: 6%; max-width: 58%; color: #7a1f3d; font-family: var(--font-body); font-size: clamp(1rem, 5cqw, 2.25rem); font-weight: 600; line-height: 1.08; letter-spacing: -.025em; text-align: left; text-shadow: 0 1px 6px rgba(250,247,245,.7); }
 .journey-preview-title > span { color: #135e59; }
 .spoodle-media { background: #eaf0f7; }
 .beaver-media { background: #fbfaf5; }
@@ -144,7 +175,7 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .credential-circle { transform-box: fill-box; transform-origin: center; }
 .credential-circle circle { fill: url(#venn-blue-glass); }
 .credential-outline { fill: none; stroke: #b9dcf4; stroke-width: 2.5; stroke-opacity: .5; }
-.credential-detail text { fill: #edf5fc; font: 600 42px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.5px; text-anchor: middle; }
+.credential-detail text { fill: #edf5fc; font: 600 42px/1.2 var(--font-body); letter-spacing: -.5px; text-anchor: middle; }
 .credential-detail--community text { font-size: 39px; }
 .credential-detail .credential-accent { fill: #ffcf84; font-weight: 700; letter-spacing: -.3px; }
 .credential-overlap--gold { fill: #d6ac70; }

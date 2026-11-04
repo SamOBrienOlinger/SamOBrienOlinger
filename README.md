@@ -100,7 +100,7 @@ Open [localhost:8000](http://localhost:8000). Review navigation, project links, 
 
 The site uses a mobile-first, single-page layout with all sections available in the navigation. The mobile menu supports keyboard access, Escape to close, and focus return; without JavaScript, its links stay visible. The light/dark theme follows the device preference until a choice is saved; blocked browser storage does not prevent the menu or theme switch from working. The page also respects reduced-motion preferences and includes a skip link, visible focus indicators, flexible text layouts and a compact footer.
 
-Project artwork is served locally as WebP with reserved image space and deferred loading. System fonts keep the initial page independent of external font services. The featured project order is Saggart & Citywest Together, SpoodleSpace, then Beaver v Otter.
+Project artwork is served locally as WebP with reserved image space and deferred loading. Together Sans is hosted locally, keeping the page independent of external font services. The main “Curiosity. Creativity. Purpose.” heading retains its original system font. The featured project order is Saggart & Citywest Together, SpoodleSpace, then Beaver v Otter.
 
 ## Credits and reuse
 
