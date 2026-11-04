@@ -4,6 +4,19 @@
   const diagram = document.querySelector('[data-credentials-venn]');
   if (!diagram) return;
   const graphic = diagram.querySelector('svg') || diagram;
+
+  // Enlarged text keeps its size; a larger diagram can be panned within its frame.
+  // Add a keyboard stop only when that frame actually needs horizontal scrolling.
+  if ('ResizeObserver' in window) {
+    const syncScrollFocus = () => {
+      if (diagram.scrollWidth > diagram.clientWidth + 1) diagram.setAttribute('tabindex', '0');
+      else diagram.removeAttribute('tabindex');
+    };
+    const sizeObserver = new ResizeObserver(syncScrollFocus);
+    sizeObserver.observe(diagram);
+    sizeObserver.observe(graphic);
+    syncScrollFocus();
+  }
   const circles = Array.from(diagram.querySelectorAll('[data-credential-circle]'));
   const details = Array.from(diagram.querySelectorAll('[data-credential-detail]'));
   const labels = Array.from(diagram.querySelectorAll('[data-credential-label]'));
@@ -66,7 +79,7 @@
         else if (!active && entry.intersectionRatio >= .25) reveal();
       });
     }, { threshold: [0, .15, .25] });
-    // The compact text key can be tall; reveal when the graphic itself is visible.
+    // Observe the graphic so the reveal follows the visible diagram.
     observer.observe(graphic);
     // Progressive enhancement: without this script/observer, every circle stays visible.
     diagram.classList.add('reveal-ready');

@@ -181,36 +181,31 @@ h1 span:nth-child(3) { color: var(--navy-light); }
 .approach-play { --focus-background: var(--section-research); --focus-hover: var(--section-research-hover); background: var(--section-research); color: white; margin-left: clamp(0rem, 1.5vw, .75rem); }
 .approach-simplify { --focus-background: var(--section-people); --focus-hover: var(--section-people-hover); --focus-color: #152b46; --focus-outline: #086b68; background: var(--section-people); color: #152b46; margin-right: clamp(0rem, 1.5vw, .75rem); }
 .about-layout > * { min-width: 0; }
-.credentials-venn { container: credentials / inline-size; margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow: hidden; }
-.credentials-venn-canvas { position: relative; }
-.credentials-venn svg { display: block; width: min(100%, 18rem); height: auto; margin-inline: auto; }
+/* Keep the statements inside their circles at every width. */
+.credentials-venn { container: credentials / inline-size; margin: 0; width: 100%; max-width: 44rem; margin-inline: auto; background: #111e2d; border-radius: 1rem; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #769ab6 #111e2d; }
+.credentials-venn-canvas { position: relative; width: 100%; min-width: 18rem; }
+.credentials-venn svg { display: block; width: 100%; height: auto; }
 .credential-circle { transform-box: fill-box; transform-origin: center; }
 .credential-circle circle { fill: url(#venn-blue-glass); }
 .credential-outline { fill: none; stroke: #b9dcf4; stroke-width: 2.5; stroke-opacity: .5; }
-.credential-marker circle { fill: #111e2d; stroke: #9bbbd0; stroke-width: 2.5; }
-.credential-marker text { fill: #ffcf84; font: 700 60px/1 var(--font-body); text-anchor: middle; }
-/* One copy of each statement reflows below the graphic when space is limited. */
-.credential-labels { list-style: none; margin: 0; padding: .25rem clamp(12px, 3cqi, 20px) .75rem; }
-.credential-label { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); align-items: start; gap: .75rem; padding-block: 1rem; border-top: 1px solid #344b60; }
-.credential-key { display: grid; place-items: center; width: 1.75rem; min-height: 1.75rem; border: 1px solid #769ab6; border-radius: 50%; background: #1b354c; color: #ffcf84; font-size: .9375rem; font-weight: 700; line-height: 1; }
-.credential-statement { margin: 0; color: #edf5fc; font-size: clamp(1rem, 2.6cqi, 1.125rem); font-weight: 500; line-height: 1.55; letter-spacing: 0; }
+.credential-labels { position: absolute; inset: 0; }
+.credential-label { position: absolute; width: 35%; max-width: 8em; transform: translate(-50%, -50%); text-align: center; font-size: clamp(.875rem, 4.5cqi, 1.625rem); }
+.credential-label--sociology { left: 20.8%; top: 25.3%; }
+.credential-label--development { left: 78.2%; top: 25%; }
+.credential-label--community { left: 20.5%; top: 75.8%; width: 36%; }
+.credential-label--service { left: 80%; top: 75.2%; }
+.credential-statement { margin: 0; color: #edf5fc; font-size: inherit; font-weight: 500; line-height: 1.2; letter-spacing: 0; overflow-wrap: normal; word-break: normal; }
+.credential-prefix { display: block; }
 .credential-statement .credential-accent { color: #ffcf84; font-weight: 700; }
-/* Enlarged text can use the full row instead of sharing it with its key. */
-@container credentials (max-width: 12rem) {
-  .credential-label { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+@container credentials (max-width: 20rem) {
+  .credential-label--community { top: 75.5%; }
 }
-/* Spacious diagrams keep the statements in the outer, unshared circle areas. */
 @container credentials (min-width: 28rem) {
-  .credentials-venn svg { width: 100%; }
-  .credential-marker, .credential-key { display: none; }
-  .credential-labels { position: absolute; inset: 0; padding: 0; }
-  .credential-label { position: absolute; display: block; width: 30%; padding: 0; border: 0; transform: translate(-50%, -50%); text-align: center; }
-  .credential-label--sociology { left: 21.5%; top: 28.5%; }
-  .credential-label--development { left: 77%; top: 27%; }
-  .credential-label--community { left: 24%; top: 70%; width: 35%; }
-  .credential-label--service { left: 77.5%; top: 71%; }
-  .credential-statement { font-size: clamp(1.125rem, 3.9cqi, 1.625rem); line-height: 1.28; }
-  .credential-prefix { display: block; }
+  .credential-statement { line-height: 1.25; }
+}
+/* Small screens give the diagram space before reducing its type size. */
+@media (max-width: 30rem) {
+  .about-copy { margin-inline: calc(.5rem - var(--gutter)); }
 }
 .credential-overlap--gold { fill: #d6ac70; }
 .credential-overlap--teal { fill: #8ebbb6; }
@@ -232,11 +227,9 @@ h1 span:nth-child(3) { color: var(--navy-light); }
   .credentials-venn.reveal-ready.is-revealing .credential-overlap {
     animation: credential-colour-reveal 1.8s ease-in-out var(--overlap-delay, 3s) both;
   }
-  @container credentials (min-width: 28rem) {
-    .credentials-venn.reveal-ready .credential-label { opacity: 0; }
-    .credentials-venn.reveal-ready.is-revealing .credential-label {
-      animation: credential-colour-reveal .8666666667s ease-out var(--reveal-delay, 0ms) both;
-    }
+  .credentials-venn.reveal-ready .credential-label { opacity: 0; }
+  .credentials-venn.reveal-ready.is-revealing .credential-label {
+    animation: credential-colour-reveal .8666666667s ease-out var(--reveal-delay, 0ms) both;
   }
 }
 @keyframes credential-circle-reveal {
