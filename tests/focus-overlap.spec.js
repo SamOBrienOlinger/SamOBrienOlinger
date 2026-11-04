@@ -71,3 +71,89 @@ test('overlap animates on scroll and respects a changed motion preference', asyn
   expect(await research.evaluate(element => getComputedStyle(element).transitionDuration)).toBe('0s');
   await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
 });
+
+test('completed overlap stays still at the viewport exit boundary without more scrolling', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.setViewportSize({ width: page.viewportSize().width, height: 480 });
+  await page.goto('/#about');
+  await page.evaluate(() => document.fonts.ready.then(() => {}));
+  const stack = page.locator('[data-focus-overlap]');
+  await expect(stack).toHaveClass(/is-overlapped/);
+  await expect.poll(async () => (await overlapMetrics(page)).every(pair => Math.abs(pair.ratio - .2) < .005)).toBe(true);
+
+  // Leave fully first: a genuine leave-and-return visit must still replay.
+  await page.locator('.site-footer').scrollIntoViewIfNeeded();
+  await expect(stack).not.toHaveClass(/is-overlapped/);
+  await expect.poll(() => stack.evaluate(element => {
+    const gap = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    return Array.from(element.querySelectorAll(':scope > section')).slice(1).every(section =>
+      Math.abs(parseFloat(getComputedStyle(section).marginBlockStart) - gap) < .5
+      && !section.getAnimations().some(animation => animation.playState === 'running')
+    );
+  })).toBe(true);
+
+  const boundary = await stack.evaluate(element => ({
+    top: element.getBoundingClientRect().bottom + scrollY - 10,
+    maxScroll: document.documentElement.scrollHeight - innerHeight
+  }));
+  expect(boundary.top).toBeGreaterThanOrEqual(0);
+  expect(boundary.top, 'The 10 px tail must be reachable without scroll clamping').toBeLessThanOrEqual(boundary.maxScroll);
+
+  const { samples, completedAt } = await stack.evaluate(async (element, top) => {
+    const sections = Array.from(element.querySelectorAll(':scope > section'));
+    let transitionStarted = false;
+    let completedAt = null;
+    const onTransitionRun = event => {
+      if (sections.includes(event.target)) transitionStarted = true;
+    };
+    element.addEventListener('transitionrun', onTransitionRun);
+    const snapshot = elapsed => {
+      const rect = element.getBoundingClientRect();
+      const overlapped = element.classList.contains('is-overlapped');
+      const running = sections.some(section => section.getAnimations().some(animation => animation.playState === 'running'));
+      if (running) transitionStarted = true;
+      if (transitionStarted && overlapped && !running && completedAt === null) completedAt = elapsed;
+      return {
+        elapsed,
+        overlapped,
+        stackTop: rect.top + scrollY,
+        stackBottom: rect.bottom + scrollY,
+        stackHeight: rect.height,
+        scrollY,
+        sectionTops: sections.map(section => section.getBoundingClientRect().top + scrollY)
+      };
+    };
+    const records = [snapshot(0)];
+    window.scrollTo({ top, behavior: 'instant' });
+    const started = performance.now();
+    await new Promise(resolve => {
+      const sample = now => {
+        const elapsed = now - started;
+        records.push(snapshot(elapsed));
+        const observedAfterCompletion = completedAt !== null && elapsed - completedAt >= 2000;
+        if (!observedAfterCompletion && elapsed < 6000) requestAnimationFrame(sample);
+        else resolve();
+      };
+      requestAnimationFrame(sample);
+    });
+    element.removeEventListener('transitionrun', onTransitionRun);
+    return { samples: records, completedAt };
+  }, boundary.top);
+
+  const entries = samples.slice(1).filter((sample, index) => sample.overlapped && !samples[index].overlapped).length;
+  expect(entries, 'The stack must not repeatedly re-enter itself while the visitor is still').toBeLessThanOrEqual(1);
+
+  // Start the stability window at actual completion, not a fixed timing guess.
+  // The six-second ceiling also catches loops that never reach a completed state.
+  expect(completedAt, 'The first overlap transition never completed').not.toBeNull();
+  expect(samples[samples.length - 1].elapsed - completedAt).toBeGreaterThanOrEqual(2000);
+  const settled = samples.filter(sample => sample.elapsed >= completedAt);
+  expect(settled.length).toBeGreaterThan(1);
+  const drift = values => Math.max(...values) - Math.min(...values);
+  for (const key of ['stackTop', 'stackBottom', 'stackHeight', 'scrollY']) {
+    expect(drift(settled.map(sample => sample[key])), `${key} changed after the overlap completed`).toBeLessThanOrEqual(1);
+  }
+  for (let index = 0; index < settled[0].sectionTops.length; index++) {
+    expect(drift(settled.map(sample => sample.sectionTops[index])), `Focus card ${index + 1} moved after the overlap completed`).toBeLessThanOrEqual(1);
+  }
+});
