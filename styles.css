@@ -205,6 +205,26 @@ a.credential-statement { display: block; border-radius: .2em; }
 a.credential-statement .credential-accent { text-decoration: underline; text-decoration-thickness: .05em; text-underline-offset: .14em; }
 a.credential-statement:hover .credential-accent, a.credential-statement:focus-visible .credential-accent { text-decoration-thickness: .1em; }
 a.credential-statement:focus-visible { outline-color: #ffcf84; outline-offset: .15em; }
+/* A quiet frame keeps the original certificate complete at every screen size. */
+html.certificate-open { overflow: hidden; scrollbar-gutter: stable; scroll-behavior: auto; background: #08121e; }
+html.certificate-open body { overflow: hidden; }
+.certificate-dialog { --certificate-space: clamp(12px, 2vmin, 24px); --certificate-inline-gap: max(12px, env(safe-area-inset-left), env(safe-area-inset-right)); --certificate-block-gap: max(12px, env(safe-area-inset-top), env(safe-area-inset-bottom)); width: min(calc(100% - var(--certificate-inline-gap) * 2), 44rem); height: min(calc(100vh - var(--certificate-block-gap) * 2), 58rem); height: min(calc(100dvh - var(--certificate-block-gap) * 2), 58rem); max-width: calc(100% - var(--certificate-inline-gap) * 2); max-height: calc(100vh - var(--certificate-block-gap) * 2); max-height: calc(100dvh - var(--certificate-block-gap) * 2); margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); color: var(--ink); box-shadow: 0 1.5rem 5rem rgb(0 0 0 / .35); overflow: auto; overscroll-behavior: contain; }
+.certificate-dialog:not([open]) { display: none; }
+.certificate-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.certificate-dialog::backdrop { background: rgb(8 18 30 / .78); backdrop-filter: blur(5px); }
+.certificate-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: var(--certificate-space); border-bottom: 1px solid var(--line); }
+.certificate-header h2 { min-width: 0; margin: 0; font-size: clamp(1.125rem, 2.2vw, 1.5rem); line-height: 1.25; letter-spacing: -.02em; }
+.certificate-close { flex: 0 0 44px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); }
+.certificate-close:hover { background: var(--soft); }
+.certificate-close:focus-visible { outline-offset: 3px; }
+.certificate-image { min-width: 0; min-height: 0; display: grid; place-items: center; margin: 0; padding: var(--certificate-space); background: var(--soft); overflow: hidden; }
+.certificate-image img { width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; }
+.certificate-footer { padding: .25rem var(--certificate-space); border-top: 1px solid var(--line); text-align: center; }
+.certificate-fullsize { display: inline-block; max-width: 100%; min-height: 44px; padding-block: .5em; font-size: .9375rem; line-height: 1.4; text-decoration: underline; text-underline-offset: .2em; }
+@media (prefers-reduced-motion: no-preference) {
+  .certificate-dialog[open], .certificate-dialog[open]::backdrop { animation: certificate-fade-in .18s ease-out; }
+}
+@keyframes certificate-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @container credentials (max-width: 20rem) {
   .credential-label--community { top: 75.5%; }
 }
