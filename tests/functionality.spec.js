@@ -96,6 +96,7 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('#people-panel .research-experience')).toBeVisible();
   await expect(page.locator('#people-panel li')).toHaveCount(10);
   for (const name of [
+    'PhD in Sociology',
     'Diploma in Full Stack Software Development',
     'Over a decade working in the Community & Voluntary sector',
     'Co-founder of Local Community Group'

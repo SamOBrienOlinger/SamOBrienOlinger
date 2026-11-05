@@ -11,11 +11,12 @@
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/together-sans/TogetherSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261104-centred-navbar">
+  <link rel="stylesheet" href="styles.css?v=20261105-certificate">
   <script src="font-readiness.js?v=20261104-completed-layout" defer></script>
   <script src="script.js?v=20261104-header-links" defer></script>
   <script src="carousel.js?v=20261028-software-card" defer></script>
   <script src="credentials-venn.js?v=20261104-linked-labels" defer></script>
+  <script src="certificate.js?v=20261105-lightbox" defer></script>
   <script src="focus-reveal.js?v=20261104-separated-cards" defer></script>
 </head>
 <body id="top">
@@ -312,7 +313,7 @@
             </svg>
             <div class="credential-labels">
               <div class="credential-label credential-label--sociology" data-credential-label>
-                <p class="credential-statement"><span class="credential-prefix">PhD in</span> <strong class="credential-accent">Sociology</strong></p>
+                <a class="credential-statement" href="assets/images/credentials/phd-sociology-certificate.jpg" data-certificate-open><span class="credential-prefix">PhD in</span> <strong class="credential-accent">Sociology</strong></a>
               </div>
               <div class="credential-label credential-label--development" data-credential-label>
                 <a class="credential-statement" href="https://www.credential.net/profile/samobrienolinger167622/wallet"><span class="credential-prefix">Diploma in</span> <strong class="credential-accent">Full Stack Software Development</strong></a>
@@ -355,6 +356,20 @@
   <footer class="site-footer">
     <div class="container footer-inner"><p>© <span id="year">2026</span> Sam Tim Solutions</p><a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
   </footer>
+  <dialog class="certificate-dialog" id="phd-certificate-dialog" aria-labelledby="phd-certificate-title">
+    <header class="certificate-header">
+      <h2 id="phd-certificate-title">PhD in Sociology</h2>
+      <button class="certificate-close" type="button" aria-label="Close certificate" autofocus>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <figure class="certificate-image">
+      <img src="assets/images/credentials/phd-sociology-certificate.jpg" width="1088" height="1557" loading="lazy" decoding="async" alt="Doctor of Philosophy degree certificate awarded to Sam Tim O’Brien Olinger by the National University of Ireland, Dublin.">
+    </figure>
+    <footer class="certificate-footer">
+      <a class="certificate-fullsize" href="assets/images/credentials/phd-sociology-certificate.jpg" target="_blank" rel="noopener">Open full-size image<span class="sr-only"> (opens in a new tab)</span></a>
+    </footer>
+  </dialog>
 </body>
 </html>
 

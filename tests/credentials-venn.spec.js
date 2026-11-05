@@ -251,8 +251,9 @@ test('Venn links retain the complete wording and point to the requested destinat
   await page.goto('/#career-background');
   const figure = page.locator('[data-credentials-venn]');
   await expect(figure.locator('.credential-statement')).toHaveText(statements);
-  await expect(figure.locator('a.credential-statement')).toHaveCount(3);
+  await expect(figure.locator('a.credential-statement')).toHaveCount(4);
   const destinations = [
+    [statements[0], 'assets/images/credentials/phd-sociology-certificate.jpg'],
     [statements[1], 'https://www.credential.net/profile/samobrienolinger167622/wallet'],
     [statements[2], '#people'],
     [statements[3], 'https://samobrienolinger.github.io/saggart-and-citywest-together/']
@@ -262,7 +263,6 @@ test('Venn links retain the complete wording and point to the requested destinat
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute('href', href);
   }
-  await expect(figure.getByRole('link', { name: statements[0], exact: true })).toHaveCount(0);
 });
 
 test('the community Venn link opens People and reaches it by pointer and keyboard', async ({ page }) => {
@@ -301,7 +301,7 @@ test('keyboard focus makes pending Venn links immediately readable', async ({ pa
     labels.some(label => Number(getComputedStyle(label).opacity) < 1)
   ), 'Begin while the offscreen label entrance is still pending').toBe(true);
   await page.locator('#people-panel > summary').focus();
-  for (const name of statements.slice(1)) {
+  for (const name of statements) {
     await page.keyboard.press('Tab');
     const link = figure.getByRole('link', { name, exact: true });
     await expect(link).toBeFocused();
