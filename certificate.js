@@ -26,6 +26,23 @@
 
   closeButton.addEventListener('click', () => dialog.close());
 
+  // Keep Tab cycling through the viewer's controls at either boundary.
+  // Native modal inertness alone can still send Tab into the browser chrome.
+  dialog.addEventListener('keydown', event => {
+    if (event.key !== 'Tab' || event.ctrlKey || event.altKey || event.metaKey) return;
+    const controls = Array.from(dialog.querySelectorAll('button:not([disabled]), a[href], [tabindex]'))
+      .filter(element => element.tabIndex >= 0 && element.getClientRects().length);
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
+  });
+
   // Dismiss only a gesture that starts and finishes outside the frame.
   // Clicking the certificate or dragging from it must not close the viewer.
   const isBackdrop = event => {
@@ -41,7 +58,7 @@
     pressedBackdrop = false;
   });
 
-  // Native dialog handles Escape and contains keyboard focus while open.
+  // Native dialog handles Escape and makes the rest of the page inert.
   dialog.addEventListener('close', () => {
     const previousScrollBehavior = root.style.scrollBehavior;
     root.style.scrollBehavior = 'auto';

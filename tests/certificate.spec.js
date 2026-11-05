@@ -33,7 +33,7 @@ async function expectCompleteCertificate(dialog) {
   });
 }
 
-test('the certificate fits small and desktop screens, restores focus, and keeps the background still', async ({ page }) => {
+test('the certificate fits small and desktop screens, restores focus, and keeps the background still', async ({ page, browserName }) => {
   test.setTimeout(60000);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#career-background');
@@ -60,8 +60,12 @@ test('the certificate fits small and desktop screens, restores focus, and keeps 
       const fullSize = dialog.getByRole('link', { name: 'Open full-size image (opens in a new tab)', exact: true });
       await expect(fullSize).toHaveAttribute('href', certificatePath);
       await expect(fullSize).toHaveAttribute('target', '_blank');
-      await page.mouse.move(1, 1);
-      await page.mouse.wheel(0, 400);
+      // Mobile WebKit has no mouse-wheel API. Keep its keyboard scrolling
+      // coverage here and exercise real wheel input in a desktop context below.
+      if (browserName !== 'webkit') {
+        await page.mouse.move(1, 1);
+        await page.mouse.wheel(0, 400);
+      }
       await page.keyboard.press('PageDown');
       const drift = await opener.evaluate(async (element, top) => {
         let maximum = 0;
@@ -81,6 +85,43 @@ test('the certificate fits small and desktop screens, restores focus, and keeps 
         message: 'Closing the certificate restores the original page position'
       }).toBeLessThanOrEqual(1);
     }
+  }
+});
+
+test('desktop wheel input cannot scroll the page behind the certificate', async ({ browser }) => {
+  const context = await browser.newContext({
+    baseURL: 'http://127.0.0.1:4173', viewport: { width: 1440, height: 900 },
+    isMobile: false, hasTouch: false, reducedMotion: 'reduce'
+  });
+  try {
+    const page = await context.newPage();
+    await page.goto('/#career-background');
+    await page.evaluate(async () => { await (window.portfolioFontReady || document.fonts.ready); });
+    const opener = page.getByRole('link', { name: 'PhD in Sociology', exact: true });
+    await opener.scrollIntoViewIfNeeded();
+    const before = await opener.evaluate(element => ({ top: element.getBoundingClientRect().top, scrollY }));
+    await opener.click();
+    const dialog = page.getByRole('dialog', { name: 'PhD in Sociology', exact: true });
+    await expect(dialog).toBeVisible();
+    await expectCompleteCertificate(dialog);
+    await page.mouse.move(1, 1);
+    await page.mouse.wheel(0, 600);
+    const drift = await opener.evaluate(async (element, top) => {
+      let maximum = 0;
+      const until = performance.now() + 250;
+      do {
+        await new Promise(requestAnimationFrame);
+        maximum = Math.max(maximum, Math.abs(element.getBoundingClientRect().top - top));
+      } while (performance.now() < until);
+      return maximum;
+    }, before.top);
+    expect(drift, 'Wheel input moved the page behind the modal').toBeLessThanOrEqual(1);
+    await dialog.getByRole('button', { name: 'Close certificate', exact: true }).click();
+    await expect(dialog).toBeHidden();
+    await expect(opener).toBeFocused();
+    await expect.poll(async () => Math.abs(await page.evaluate(() => scrollY) - before.scrollY)).toBeLessThanOrEqual(1);
+  } finally {
+    await context.close();
   }
 });
 
