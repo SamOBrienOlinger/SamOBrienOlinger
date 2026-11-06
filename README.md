@@ -156,7 +156,7 @@ Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspective
 </p>
 
 
-[Browse the full interactive portfolio](https://samobrienolinger.github.io/SamOBrienOlinger/#work)
+[Browse the full interactive portfolio](https://samobrienolinger.github.io/SamOBrienOlinger/#work) · [Portfolio data model](#portfolio-entity-relationship-diagram)
 
 <a name="experience"></a>
 <a name="work-in-context"></a>
@@ -203,5 +203,32 @@ Have a digital project, a research question or a community idea? I’d be glad t
 </p>
 
 [Portfolio](https://samobrienolinger.github.io/SamOBrienOlinger/) · [Back to work](#work)
+
+## Portfolio entity relationship diagram
+
+The portfolio is authored in HTML. It contains nine software project cards, each with preview artwork and links, and a separate background section with four credentials. The carousel reads the project cards directly from the page. [Portfolio markup](index.html) · [Carousel](carousel.js) · [Credential interactions](credentials-venn.js)
+
+```mermaid
+erDiagram
+    accTitle: Portfolio projects and credentials
+    accDescr: The portfolio contains project cards and credentials. Every project card has preview artwork.
+    Portfolio ||--|{ "Project Card" : showcases
+    Portfolio ||--|{ Credential : presents
+    "Project Card" ||--|| "Preview Image" : displays
+
+    "Project Card" {
+        string projectKey
+        string label
+        url primaryLink
+    }
+    "Preview Image" {
+        path src
+        string alt
+    }
+    Credential {
+        string label
+        url destination
+    }
+```
 
 <sub>© 2026 Sam O’Brien-Olinger · Sam Tim Solutions · [Setup & credits](docs/repository-guide.md) · [Profile maintenance](docs/profile-layout.md)</sub>
