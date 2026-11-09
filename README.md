@@ -99,7 +99,10 @@ Every journey to Ireland is different. Follow one of twelve fictional people thr
 
 #### Stopped: Both Sides
 
-<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-public-hero.webp" width="280" alt="Public perspective: a fictional character speaking with a city scene and layered dialogue."></a>
+<p>
+  <a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-public-hero.webp" width="280" alt="Public perspective: a fictional character speaking with a city scene and layered dialogue."></a>
+  <a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-garda-hero.webp" width="280" alt="Garda perspective: a fictional Garda character considering a stop decision."></a>
+</p>
 
 **Interactive learning** · JavaScript modules, HTML, CSS<br>
 Explore rights, responsibilities and fair decision-making in Ireland through public and Garda perspectives.
