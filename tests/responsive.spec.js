@@ -158,16 +158,37 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
 });
 
 test('layout reflows from a small phone to desktop', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'Android Chrome 360', 'One Chromium pass covers the wider viewport transitions.');
-  await page.goto('/');
-  for (const width of [320, 768, 1024, 1440]) {
+  test.skip(!['Android Chrome 360', 'iOS WebKit 375'].includes(testInfo.project.name),
+    'Check the desktop layout once per browser engine.');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#work');
+  for (const width of [320, 768, 1024, 1440, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     await expectNoOverflow(page);
+    const layout = await page.evaluate(() => {
+      const box = selector => document.querySelector(selector).getBoundingClientRect();
+      const heading = box('#hero-title');
+      const heroImage = box('.hero-image');
+      const projectImage = box('[data-project="sct"] .project-media');
+      const projectCopy = box('[data-project="sct"] .project-content');
+      return {
+        heroSideBySide: heading.right < heroImage.left && heading.top < heroImage.bottom,
+        projectSideBySide: projectImage.right < projectCopy.left && projectCopy.top < projectImage.bottom,
+        panelWidth: box('#software-panel').width,
+        credentialsWidth: box('.credentials-venn').width
+      };
+    });
     if (width >= 1024) {
       await expect(page.locator('.menu-toggle')).toBeHidden();
       await expect(page.getByRole('navigation', { name: 'Primary', exact: true })).toBeVisible();
+      expect(layout.heroSideBySide, `${width}px: keep the headline beside the image`).toBe(true);
+      expect(layout.projectSideBySide, `${width}px: keep the project preview beside its description`).toBe(true);
+      expect(layout.panelWidth, `${width}px: give the portfolio column more room than the credentials`)
+        .toBeGreaterThan(layout.credentialsWidth * 1.5);
     } else {
       await expect(page.locator('.menu-toggle')).toBeVisible();
+      expect(layout.heroSideBySide).toBe(false);
+      expect(layout.projectSideBySide).toBe(false);
     }
   }
 });
