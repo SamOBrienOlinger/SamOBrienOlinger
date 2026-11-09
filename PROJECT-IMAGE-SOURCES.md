@@ -7,7 +7,7 @@ All previews are served locally as WebP. The image dimensions in `index.html` ma
 | Project | Portfolio image | Current live source | Selection and verification |
 | --- | --- | --- | --- |
 | Saggart & Citywest Together | `assets/images/projects/hero-sct-20261104.webp` (1400 × 933) | [Hero v12](https://samobrienolinger.github.io/saggart-and-citywest-together/assets/images/hero-saggart-citywest-v12.jpg) | The live `.home-hero-art > img.home-hero-still` uses this image. It is also the completed state after the temporary sunrise animation. |
-| SpoodleSpace | `assets/images/projects/hero-spoodle-20261108.webp` (848 × 857) | [Live homepage](https://spoodle-space-pp5.herokuapp.com/) | Captured the rendered welcome panel on 8 November 2026, including the running cockapoo, welcome message and both action buttons. |
+| SpoodleSpace | `assets/images/projects/hero-spoodle-20261109.webp` (740 × 1400) | [Live homepage](https://spoodle-space-pp5.herokuapp.com/) | User-supplied mobile landing page screenshot added on 9 November 2026, showing the navigation, running cockapoo, welcome message and both action buttons. |
 | Beaver v Otter | `assets/images/projects/hero-beaver-20261104.webp` (608 × 546) | [Live homepage](https://samobrienolinger.github.io/beaver-v-otter/) | Fresh capture of `#home .river-scene`: paired animals, rock, three data centres and the CSS landscape. No single source image contains the complete scene. |
 | A New Life in Ireland / Journeys to Ireland | `assets/images/projects/hero-new-life-20261104.webp` (1400 × 788) | [Dublin and countryside hero](https://samobrienolinger.github.io/My-New-Life-in-Ireland/images/ireland-rural-dublin-hero.webp) | Both the live `.hero-section` background and `img.hero-mobile-image` use this image. The portfolio's existing “Every journey to Ireland is different.” HTML overlay is retained. |
 | Both Sides | `assets/images/projects/hero-both-sides-20261104.webp` (1024 × 470) | [Live homepage](https://samobrienolinger.github.io/stopped-both-sides/) · [Public perspective](https://samobrienolinger.github.io/stopped-both-sides/assets/heroes/public-1600.webp?v=irish-streetlights-1) · [Garda perspective](https://samobrienolinger.github.io/stopped-both-sides/assets/heroes/garda-1600.webp?v=irish-streetlights-1) | Fresh capture of `.reference-landing .overlapping-heroes`, preserving both current street scenes, their perspective buttons and captions. |
@@ -20,7 +20,7 @@ All previews are served locally as WebP. The image dimensions in `index.html` ma
 
 The composite previews were captured from the actual live pages without changing their DOM, styles or animation behaviour. Animated scenes are represented by a static rendered frame. The captures omit unrelated page sections while retaining the complete hero component:
 
-- SpoodleSpace: the rendered welcome panel was captured at scroll position zero (848 × 857).
+- The supplied SpoodleSpace screenshot was resized proportionally to 740 × 1400 and saved as WebP.
 - Beaver v Otter: page-coordinate rectangle `x=672, y=152, width=608, height=546`, at scroll position zero.
 - Both Sides: the complete paired hero was extracted from a native 1363 × 936 viewport capture using `x=162, y=101, width=1024, height=470`, at `scrollY=608`.
 - Beetlejuice: page-coordinate rectangle `x=0, y=129, width=1348, height=726`, at scroll position zero.
