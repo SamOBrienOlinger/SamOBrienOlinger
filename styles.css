@@ -436,9 +436,6 @@ html.certificate-open body { overflow: hidden; }
   .approach { max-width: none; gap: 1.25rem; }
   @container portfolio-areas (min-width: 58rem) {
     .about-layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
-    @media (min-height: 52rem) {
-      .about-copy > .credentials-venn { position: sticky; top: calc(var(--header-height) + 1.25rem); }
-    }
   }
   .focus-overview, .focus-overview[open] { border-radius: 1.25rem; }
   .focus-overview > summary {
