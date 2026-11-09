@@ -38,6 +38,8 @@
   --navy-light: #355c7d;
   --muted: #536578;
   --accent: #086b68;
+  --warm-accent: #ffcf84;
+  --warm-accent-shade: #d6ac70;
   --line: #d8e1ea;
   --soft: #eaf0f6;
   --section-software: #152b46;
@@ -169,6 +171,24 @@ h1 span { display: block; padding-bottom: .07em; }
 .project-links { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .25rem 1rem; margin-top: auto; padding-top: .65rem; }
 .text-link, .source-link { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding-block: .6rem; font-size: .9375rem; font-weight: 600; line-height: 1.5; text-decoration: underline; text-underline-offset: .3em; text-decoration-color: #92a4b5; }
 .text-link { color: var(--ink); }
+.project-links > .text-link {
+  justify-content: center;
+  max-inline-size: 100%;
+  padding-inline: 1rem;
+  border: 1px solid var(--section-software);
+  border-radius: .6rem;
+  background-color: var(--warm-accent);
+  color: var(--section-software);
+  text-align: center;
+  text-decoration: none;
+}
+.project-links > .text-link:active {
+  background-color: var(--warm-accent-shade);
+}
+.project-links > .text-link:focus-visible {
+  outline-color: var(--section-software);
+  outline-offset: -5px;
+}
 .source-link { color: var(--muted); font-weight: 500; }
 .work-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .25rem 1rem; margin-top: 1rem; }
 .work-footer p { margin: 0; color: var(--muted); font-size: .8125rem; }
@@ -200,11 +220,11 @@ h1 span { display: block; padding-bottom: .07em; }
 .credential-label--service { left: 80%; top: 75.2%; }
 .credential-statement { margin: 0; color: #edf5fc; font-size: inherit; font-weight: 500; line-height: 1.2; letter-spacing: 0; overflow-wrap: normal; word-break: normal; }
 .credential-prefix { display: block; }
-.credential-statement .credential-accent { color: #ffcf84; font-weight: 700; }
+.credential-statement .credential-accent { color: var(--warm-accent); font-weight: 700; }
 a.credential-statement { display: block; border-radius: .2em; }
 a.credential-statement .credential-accent { text-decoration: underline; text-decoration-thickness: .05em; text-underline-offset: .14em; }
 a.credential-statement:hover .credential-accent, a.credential-statement:focus-visible .credential-accent { text-decoration-thickness: .1em; }
-a.credential-statement:focus-visible { outline-color: #ffcf84; outline-offset: .15em; }
+a.credential-statement:focus-visible { outline-color: var(--warm-accent); outline-offset: .15em; }
 /* A quiet frame keeps the original certificate complete at every screen size. */
 html.certificate-open { overflow: hidden; scrollbar-gutter: stable; scroll-behavior: auto; background: #08121e; }
 html.certificate-open body { overflow: hidden; }
@@ -235,7 +255,7 @@ html.certificate-open body { overflow: hidden; }
 @media (max-width: 30rem) {
   .about-copy { margin-inline: calc(.5rem - var(--gutter)); }
 }
-.credential-overlap--gold { fill: #d6ac70; }
+.credential-overlap--gold { fill: var(--warm-accent-shade); }
 .credential-overlap--teal { fill: #8ebbb6; }
 .credential-overlap--peach { fill: #e4b49b; }
 .credential-overlap--lavender { fill: #b5b5d5; }
@@ -243,7 +263,7 @@ html.certificate-open body { overflow: hidden; }
 .credential-overlap--rose { fill: #c99f9c; }
 .credential-overlap--sand { fill: #d6c397; }
 .credential-overlap--slate { fill: #96b3c5; }
-.credential-overlap--centre { fill: #ffcf84; }
+.credential-overlap--centre { fill: var(--warm-accent); }
 @media (prefers-reduced-motion: no-preference) {
   .credentials-venn.reveal-ready :is(.credential-circle, .credential-detail, .credential-overlap) { opacity: 0; }
   .credentials-venn.reveal-ready.is-revealing .credential-circle {
@@ -398,6 +418,10 @@ html.certificate-open body { overflow: hidden; }
   .button.primary:hover { background: var(--navy-mid); color: white; }
   .button.secondary:hover { background: var(--soft); border-color: var(--navy-mid); }
   .text-link:hover, .source-link:hover, .project h5 a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  .project-links > .text-link:hover {
+    background-color: var(--warm-accent-shade);
+    color: var(--section-software);
+  }
   .project-media:hover .media-link { background: var(--ink); color: white; }
   .publication:hover .publication-copy strong { text-decoration: underline; text-underline-offset: .2em; }
   .accordion > summary:hover { background: var(--soft); }
