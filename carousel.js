@@ -6,12 +6,25 @@
   const section = carousel.closest('section');
   const disclosure = carousel.closest('details');
   const track = carousel.querySelector('.work-track');
+
+  // Keep the two requested sites out of the Software carousel.
+  track.querySelectorAll('[data-project="beetlejuice"], [data-project="white-whale"]').forEach(slide => slide.remove());
+
   const slides = Array.from(track.children);
   const toolbar = carousel.querySelector('.carousel-toolbar');
   const count = carousel.querySelector('[data-project-number]');
+  const total = carousel.querySelector('.carousel-total');
   const status = carousel.querySelector('[data-carousel-status]');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (slides.length < 2) return;
+
+  // Update accessible slide positions and the visible counter to match the filtered set.
+  slides.forEach((slide, index) => {
+    const label = slide.getAttribute('aria-label') || '';
+    const name = label.includes(': ') ? label.split(': ').slice(1).join(': ') : label;
+    slide.setAttribute('aria-label', `${index + 1} of ${slides.length}: ${name}`);
+  });
+  if (total) total.textContent = ` / ${slides.length}`;
 
   const delay = 7000;
   let current = 0;
