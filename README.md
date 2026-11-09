@@ -32,11 +32,21 @@ I create bespoke digital experiences to empower and connect communities.
 
 Community resources, full-stack applications and playful learning. Open a site to try it, or view the code to see how it is built.
 
+### Latest repository details
+
+- Saggart & Citywest Together — Community website for Saggart and Citywest: local supports, facts, history and events. Built with HTML, CSS and JavaScript. Languages: JavaScript 43.8%, HTML 42.4%, CSS 13.5%.
+- SpoodleSpace — React frontend for a dog-community social app, paired with a Django REST API. GitHub Pages hosts an interface preview. Languages: JavaScript 88%, CSS 11.6%, Other 0.4%.
+- Beaver v Otter — JavaScript-based learning game exploring energy consumption and everyday decisions in a data-centre river ecosystem. Languages: JavaScript 44.8%, HTML 28.2%, CSS 27%.
+- A New Life in Ireland — Interactive learning about migration to Ireland through twelve fictional journeys. Built with React and TypeScript. Languages: TypeScript 93.1%, CSS 4.9%, JavaScript 1.5%, Other 0.5%.
+- Stopped: Both Sides — JavaScript learning game exploring public and Garda perspectives through branching choices, saved progress and sourced explanations. Languages: JavaScript 95%, CSS 4.6%, HTML 0.4%.
+- Know Yellowknife — "Know Yellowknife" is a versatile educational tool, online resource, and digital hub designed to foster connection, belonging, and cultural understanding within Yellowknife. Languages: HTML 62.4%, JavaScript 37.6%.
+- The White Whale vs Old Thunder — A mobile-first, Battleship-inspired browser game built in plain HTML, CSS and JavaScript. You play as Moby Dick. Languages: JavaScript 47.4%, CSS 44.3%, HTML 8.3%.
+
 ### Saggart & Citywest Together
 
 **Community connection** · HTML, CSS, JavaScript
 
-<a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/projects/saggart-citywest-hero.jpg" width="560" alt="Open Saggart &amp; Citywest Together: local homes, the village church, a Luas tram and green hills."></a>
+<a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/projects/saggart-citywest-hero.jpg" width="560" alt="Open Saggart &amp; Citywest Together: local supports, facts and history in a designed community portal."></a>
 
 Local supports, facts, history and ways to connect. Includes a source directory, translation controls and an integrated history gallery.
 
@@ -49,7 +59,7 @@ Local supports, facts, history and ways to connect. Includes a source directory,
 
 **Full-stack application** · React, Python, Django REST Framework
 
-<a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/profile/ui/spoodlespace.svg" width="560" alt="Open the SpoodleSpace interface preview, shown across desktop, laptop, tablet and phone."></a>
+<a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/profile/ui/spoodlespace.svg" width="560" alt="Open the SpoodleSpace interface preview, shown across desktop, laptop and mobile."></a>
 
 A dog-community application with profiles, posts, comments, likes and following, built with a React frontend and a Django REST API.
 
@@ -64,7 +74,7 @@ The preview shows the interface; sign-in and account features require the config
 
 **Playful learning** · JavaScript, HTML, CSS
 
-<a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/projects/beaver-otter-hero.png" width="560" alt="Play Beaver v Otter: beaver and otter characters standing together."></a>
+<a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/projects/beaver-otter-hero.png" width="560" alt="Play Beaver v Otter: beaver and otter characters standing together over a river landscape."></a>
 
 Ten data centres. Two animals. One river. A choice-based game exploring the dynamics between energy consumption and everyday decisions that change our waterways and natural environments.
 
@@ -77,7 +87,7 @@ Ten data centres. Two animals. One river. A choice-based game exploring the dyna
 
 #### A New Life in Ireland
 
-<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/projects/journeys-ireland-hero.webp" width="560" alt="People walking beside a river, with rural fields and Dublin landmarks."></a>
+<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/projects/journeys-ireland-hero.webp" width="560" alt="People walking beside a river, with rural fields and a welcoming city in the distance."></a>
 
 **Interactive learning** · React, TypeScript, Vite<br>
 Every journey to Ireland is different. Follow one of twelve fictional people through choices, circumstances and life in Ireland.
@@ -87,10 +97,9 @@ Every journey to Ireland is different. Follow one of twelve fictional people thr
   <a href="https://github.com/SamOBrienOlinger/My-New-Life-in-Ireland"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the A New Life in Ireland source code"></a>
 </p>
 
-
 #### Stopped: Both Sides
 
-<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-public-hero.webp" width="280" alt="Public perspective: a fictional character speaking with a Garda on a Dublin street."> <img src="assets/profile/projects/stopped-garda-hero.webp" width="280" alt="Garda perspective: the same Dublin street encounter viewed from the other side."></a>
+<a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-public-hero.webp" width="280" alt="Public perspective: a fictional character speaking with a city scene and layered dialogue."></a>
 
 **Interactive learning** · JavaScript modules, HTML, CSS<br>
 Explore rights, responsibilities and fair decision-making in Ireland through public and Garda perspectives.
@@ -100,10 +109,9 @@ Explore rights, responsibilities and fair decision-making in Ireland through pub
   <a href="https://github.com/SamOBrienOlinger/stopped-both-sides"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the Stopped: Both Sides source code"></a>
 </p>
 
-
 #### Beetlejuice
 
-<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/IMG_1458.jpeg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon background."></a>
+<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/IMG_1458.jpeg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon backdrop."></a>
 
 **Playful experience**<br>
 A browser experience inspired by the world of Beetlejuice.
@@ -113,10 +121,9 @@ A browser experience inspired by the world of Beetlejuice.
   <a href="https://github.com/SamOBrienOlinger/Beetlejuice-Beetlejuice-Beetlejuice"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the Beetlejuice source code"></a>
 </p>
 
-
 #### Know Yellowknife
 
-<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/projects/yellowknife-hero.webp" width="560" alt="Graphic novel illustration of Yellowknife’s skyline among blue lakes, rocky shores and golden autumn forest."></a>
+<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/projects/yellowknife-hero.webp" width="560" alt="Graphic novel illustration of Yellowknife’s skyline among mountains and water."></a>
 
 **Place-based learning**<br>
 Explore Yellowknife through local information and a replayable knowledge quiz.
@@ -125,7 +132,6 @@ Explore Yellowknife through local information and a replayable knowledge quiz.
   <a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore Know Yellowknife"></a>
   <a href="https://github.com/SamOBrienOlinger/know-yellowknife"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the Know Yellowknife source code"></a>
 </p>
-
 
 #### AllyIndex
 
@@ -141,11 +147,9 @@ Learning resources and a quiz introducing LGBTQIA+ history, terminology and ally
 
 [My fork](https://github.com/SamOBrienOlinger/24-7-hackathon-team9)
 
-
-
 #### The White Whale vs Old Thunder
 
-<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/projects/white-whale-hero.jpeg" width="560" alt="The Pequod sailing through lightning above Moby Dick beneath the sea."></a>
+<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/projects/white-whale-hero.jpeg" width="560" alt="The Pequod sailing through lightning above Moby Dick's ocean battle."></a>
 
 **Literary game**<br>
 Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspectives.
@@ -154,7 +158,6 @@ Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspective
   <a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Play The White Whale vs Old Thunder"></a>
   <a href="https://github.com/SamOBrienOlinger/the-white-whale-vs-old-thunder"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View The White Whale vs Old Thunder source code"></a>
 </p>
-
 
 [Browse the full interactive portfolio](https://samobrienolinger.github.io/SamOBrienOlinger/#work) · [Portfolio data model](#portfolio-entity-relationship-diagram)
 
@@ -174,7 +177,7 @@ Executive Officer, bringing software development together with a background in p
 **PhD in Sociology, University College Dublin.** Research shapes how I understand people, test assumptions and design for context.
 
 [Police, Race and Culture in the ‘New Ireland’](https://link.springer.com/book/10.1057/9781137490452) · Author, Palgrave Macmillan<br>
-[Routledge International Handbook of Police Ethnography](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399) · Contributing author, Chapter 34
+[Routledge International Handbook of Police Ethnography](https://www.routledge.com/Routledge-International-Handbook-of-Police-Ethnography/Fleming-Charman/p/book/9780367539399) · Contributing author<br>
 
 [Research & background](docs/research-and-background.md)
 
@@ -184,7 +187,7 @@ Executive Officer, bringing software development together with a background in p
 
 **Understand the people. Simplify the information. Build something useful.**
 
-My background spans sociology, public policy, education and community development. I bring that perspective to frontend and backend work, with attention to accessibility, maintainability and clear communication.
+My background spans sociology, public policy, education and community development. I bring that perspective to frontend and backend work, with attention to accessibility, maintainability and clear user experience.
 
 Diploma in Full Stack Software Development · Code Institute, Advanced Front End · [View credential](https://www.credential.net/profile/samobrienolinger167622/wallet)
 
@@ -206,7 +209,7 @@ Have a digital project, a research question or a community idea? I’d be glad t
 
 ## Portfolio entity relationship diagram
 
-The portfolio is authored in HTML. It contains nine software project cards, each with preview artwork and links, and a separate background section with four credentials. The carousel reads the project cards directly from the page. [Portfolio markup](index.html) · [Carousel](carousel.js) · [Credential interactions](credentials-venn.js)
+The portfolio is authored in HTML. It contains nine software project cards, each with preview artwork and links, and a separate background section with four credentials. The carousel reads the project data from the repository’s front-end source and renders the cards dynamically.
 
 [![The portfolio contains project cards and credentials. Every project card has preview artwork.](docs/diagrams/portfolio-projects-and-credentials.svg)](docs/diagrams/portfolio-projects-and-credentials.svg)
 
