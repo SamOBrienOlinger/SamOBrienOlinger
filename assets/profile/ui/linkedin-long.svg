@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="48" viewBox="0 0 176 48" role="img" aria-labelledby="title">
+<title id="title">Find me on LinkedIn</title>
+<style>:root{color-scheme:dark;--paper:#111e2d;--ink:#edf4ff;--line:#647b93;--button:#b7d5ed;--button-text:#152b46}</style>
+<rect x="1" y="1" width="174" height="46" rx="9" fill="var(--paper)" stroke="var(--line)"/>
+<text x="88" y="29.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="var(--ink)">Find me on LinkedIn</text>
+</svg>

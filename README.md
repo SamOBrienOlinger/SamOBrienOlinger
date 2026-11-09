@@ -14,7 +14,7 @@ I create bespoke digital experiences to empower and connect communities.
   <a href="#contact"><img src="assets/profile/ui/lets-talk.svg" width="120" height="48" alt="Jump to contact details"></a>
 </p>
 <p>
-  <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/"><img src="assets/profile/ui/linkedin.svg" width="144" height="48" alt="Sam O’Brien-Olinger on LinkedIn"></a>
+  <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/"><img src="assets/profile/ui/linkedin-long.svg" width="176" height="48" alt="Find me on LinkedIn"></a>
   <a href="https://github.com/SamOBrienOlinger"><img src="assets/profile/ui/github.svg" width="128" height="48" alt="Sam O’Brien-Olinger on GitHub"></a>
 </p>
 
@@ -32,17 +32,13 @@ I create bespoke digital experiences to empower and connect communities.
 
 Community resources, full-stack applications and playful learning. Open a site to try it, or view the code to see how it is built.
 
-### Latest repository details
-
-<p><img src="assets/profile/ui/latest-repository-details.svg" width="100%" alt="Infographic of seven featured repositories. Each card summarizes the project and shows a proportional language-composition bar with exact percentages: Saggart & Citywest Together—JavaScript 43.8%, HTML 42.4%, CSS 13.5%; SpoodleSpace—JavaScript 88%, CSS 11.6%, Other 0.4%; Beaver v Otter—JavaScript 44.8%, HTML 28.2%, CSS 27%; A New Life in Ireland—TypeScript 93.1%, CSS 4.9%, JavaScript 1.5%, Other 0.5%; Stopped: Both Sides—JavaScript 95%, CSS 4.6%, HTML 0.4%; Know Yellowknife—HTML 62.4%, JavaScript 37.6%; The White Whale vs Old Thunder—JavaScript 47.4%, CSS 44.3%, HTML 8.3%."></p>
-
 ### Saggart & Citywest Together
 
 **Community connection** · HTML, CSS, JavaScript
 
-<a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/images/projects/hero-sct-20261104.webp" width="560" alt="Illustration of Saggart and Citywest with a village church, homes, a Luas tram and green hills beneath a bright sun."></a>
+<a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/projects/saggart-citywest-hero.jpg" width="560" alt="Open Saggart &amp; Citywest Together: local supports, facts and history in a designed community portal."></a>
 
-A community resource connecting neighbours with local history, practical supports and opportunities to take part. Explore local events and activities, a directory of supports, and a source-linked history and learning gallery.
+Local supports, facts, history and ways to connect. Includes a source directory, translation controls and an integrated history gallery.
 
 <p>
   <a href="https://samobrienolinger.github.io/saggart-and-citywest-together/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Open the Saggart & Citywest Together website"></a>
@@ -51,26 +47,26 @@ A community resource connecting neighbours with local history, practical support
 
 ### SpoodleSpace
 
-**Full-stack social application** · React frontend, Django REST API
+**Full-stack application** · React, Python, Django REST Framework
 
-<a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/images/projects/hero-spoodle-20261109.webp" width="280" alt="Mobile SpoodleSpace landing page with five navigation tabs, a running cockapoo, a welcome message and account actions."></a>
+<a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/profile/ui/spoodlespace.svg" width="560" alt="Open the SpoodleSpace interface preview, shown across desktop, laptop and mobile."></a>
 
-A dog-community social app for sharing posts, exploring member profiles and connecting around a common interest. The GitHub Pages site is an interface preview; sign-in and account features need the configured backend.
+A dog-community application with profiles, posts, comments, likes and following, built with a React frontend and a Django REST API.
 
 <p>
-  <a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/profile/ux/preview.svg" width="148" height="48" alt="Open the SpoodleSpace interface preview"></a>
-  <a href="https://github.com/SamOBrienOlinger/spoodle-space-pp5"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the SpoodleSpace React frontend code"></a>
+  <a href="https://samobrienolinger.github.io/spoodle-space-pp5/"><img src="assets/profile/ux/preview.svg" width="148" height="48" alt="Open the SpoodleSpace interface-only preview"></a>
+  <a href="https://github.com/SamOBrienOlinger/spoodle-space-pp5"><img src="assets/profile/ux/source.svg" width="144" height="48" alt="View the SpoodleSpace frontend code"></a>
 </p>
 
-[View the Django REST API code](https://github.com/SamOBrienOlinger/drf-spoodle-space).
+The preview shows the interface; sign-in and account features require the configured backend. [View the backend API code](https://github.com/SamOBrienOlinger/drf-spoodle-space).
 
 ### Beaver v Otter
 
 **Playful learning** · JavaScript, HTML, CSS
 
-<a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/images/projects/hero-beaver-20261104.webp" width="560" alt="A beaver and otter holding hands on a river rock, with trees, hills and data centres behind them."></a>
+<a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/projects/beaver-otter-hero.png" width="560" alt="Play Beaver v Otter: beaver and otter characters standing together over a river landscape."></a>
 
-A choice-based learning game about river ecosystems, data centres and collective action. Choose a beaver or an otter, work through challenges and explore how ecological evidence can inform decisions about the water they share.
+Ten data centres. Two animals. One river. A choice-based game exploring the dynamics between energy consumption and everyday decisions that change our waterways and natural environments.
 
 <p>
   <a href="https://samobrienolinger.github.io/beaver-v-otter/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Play Beaver v Otter"></a>
@@ -81,10 +77,10 @@ A choice-based learning game about river ecosystems, data centres and collective
 
 #### A New Life in Ireland
 
-<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/images/projects/hero-new-life-20261104.webp" width="560" alt="Illustration of people walking beside the River Liffey, with Dublin landmarks and green countryside across the water."></a>
+<a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/projects/journeys-ireland-hero.webp" width="560" alt="People walking beside a river, with rural fields and a welcoming city in the distance."></a>
 
 **Interactive learning** · React, TypeScript, Vite<br>
-An interactive learning resource about migration and settlement, told through twelve fictional journeys. Follow a five-stage journey, consider choices and explanations, and explore the information hub and Fact or Fiction activities.
+Every journey to Ireland is different. Follow one of twelve fictional people through choices, circumstances and life in Ireland.
 
 <p>
   <a href="https://samobrienolinger.github.io/My-New-Life-in-Ireland/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore A New Life in Ireland"></a>
@@ -98,8 +94,8 @@ An interactive learning resource about migration and settlement, told through tw
   <a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/projects/stopped-garda-hero.webp" width="280" alt="Garda perspective: a fictional Garda character considering a stop decision."></a>
 </p>
 
-**Interactive learning** · JavaScript, HTML, CSS<br>
-A branching learning game about rights, responsibilities and fair decision-making in Ireland. Explore sourced explanations from public and Garda perspectives, with saved progress.
+**Interactive learning** · JavaScript modules, HTML, CSS<br>
+Explore rights, responsibilities and fair decision-making in Ireland through public and Garda perspectives.
 
 <p>
   <a href="https://samobrienolinger.github.io/stopped-both-sides/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore Stopped: Both Sides"></a>
@@ -108,10 +104,10 @@ A branching learning game about rights, responsibilities and fair decision-makin
 
 #### Beetlejuice
 
-<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/images/projects/hero-beetlejuice-20261104.webp" width="560" alt="Current Beetlejuice browser experience homepage, with its themed artwork and interactive welcome."></a>
+<a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/IMG_1458.jpeg" width="560" alt="A Beetlejuice welcome panel against a purple bats-and-moon backdrop."></a>
 
-**Playful browser experience** · JavaScript, HTML, CSS<br>
-A Halloween hackathon project inspired by the world of Beetlejuice. Create a personalised three-part curse, explore film history and enjoy themed imagery and sound in an interactive fan experience.
+**Playful experience**<br>
+A browser experience inspired by the world of Beetlejuice.
 
 <p>
   <a href="https://samobrienolinger.github.io/Beetlejuice-Beetlejuice-Beetlejuice/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore the Beetlejuice website"></a>
@@ -120,10 +116,10 @@ A Halloween hackathon project inspired by the world of Beetlejuice. Create a per
 
 #### Know Yellowknife
 
-<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/images/projects/hero-yellowknife-20261104.webp" width="560" alt="Graphic-novel illustration of Yellowknife’s skyline among blue lakes, rocky shores and golden autumn forest."></a>
+<a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/projects/yellowknife-hero.webp" width="560" alt="Graphic novel illustration of Yellowknife’s skyline among mountains and water."></a>
 
-**Place-based learning** · HTML, JavaScript<br>
-An educational tool and digital hub for connection, belonging and cultural understanding in Yellowknife. Explore local topics, then try the replayable quiz.
+**Place-based learning**<br>
+Explore Yellowknife through local information and a replayable knowledge quiz.
 
 <p>
   <a href="https://samobrienolinger.github.io/know-yellowknife/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore Know Yellowknife"></a>
@@ -132,10 +128,10 @@ An educational tool and digital hub for connection, belonging and cultural under
 
 #### AllyIndex
 
-<a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/images/projects/hero-allyindex-20261104.webp" width="560" alt="AllyIndex homepage hero with a carousel of Pride photographs and its Welcome to AllyIndex quiz invitation."></a>
+<a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/profile/IMG_1474.jpeg" width="560" alt="The AllyIndex welcome screen and quiz introduction."></a>
 
-**Team project** · Interactive learning<br>
-Explore LGBTQ+ terminology, diverse history and allyship through self-guided learning and a knowledge quiz.
+**Team project**<br>
+Learning resources and a quiz introducing LGBTQIA+ history, terminology and allyship.
 
 <p>
   <a href="https://declan444.github.io/24-7-hackathon-team9/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Explore the AllyIndex team project"></a>
@@ -146,10 +142,10 @@ Explore LGBTQ+ terminology, diverse history and allyship through self-guided lea
 
 #### The White Whale vs Old Thunder
 
-<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/images/projects/hero-white-whale-20261104.webp" width="280" alt="Black-and-white artwork of the Pequod sailing through lightning above Moby Dick beneath the sea."></a>
+<a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/projects/white-whale-hero.jpeg" width="560" alt="The Pequod sailing through lightning above Moby Dick's ocean battle."></a>
 
-**Literary game** · JavaScript, HTML, CSS<br>
-A mobile-first, Battleship-inspired browser game. Play as Moby Dick and strike all five coordinates of the hidden Pequod to sink it; one miss lets Captain Ahab kill the whale and leaves the ship intact.
+**Literary game**<br>
+Choose Moby Dick or Ahab in a coordinate-hunt game with two playable perspectives.
 
 <p>
   <a href="https://samobrienolinger.github.io/the-white-whale-vs-old-thunder/"><img src="assets/profile/ux/live.svg" width="140" height="48" alt="Play The White Whale vs Old Thunder"></a>
@@ -198,7 +194,7 @@ Have a digital project, a research question or a community idea? I’d be glad t
   <a href="mailto:samobrienolinger@gmail.com"><img src="assets/profile/ui/email.svg" width="188" height="48" alt="Email Sam O’Brien-Olinger"></a>
 </p>
 <p>
-  <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/"><img src="assets/profile/ui/linkedin.svg" width="144" height="48" alt="Contact Sam O’Brien-Olinger on LinkedIn"></a>
+  <a href="https://www.linkedin.com/in/sam-o-brien-olinger-b658283a/"><img src="assets/profile/ui/linkedin-long.svg" width="176" height="48" alt="Find me on LinkedIn"></a>
   <a href="https://github.com/SamOBrienOlinger"><img src="assets/profile/ui/github.svg" width="128" height="48" alt="Visit Sam O’Brien-Olinger on GitHub"></a>
 </p>
 
