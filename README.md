@@ -34,13 +34,7 @@ Community resources, full-stack applications and playful learning. Open a site t
 
 ### Latest repository details
 
-- Saggart & Citywest Together — Community website for Saggart and Citywest: local supports, facts, history and events. Built with HTML, CSS and JavaScript. Languages: JavaScript 43.8%, HTML 42.4%, CSS 13.5%.
-- SpoodleSpace — React frontend for a dog-community social app, paired with a Django REST API. GitHub Pages hosts an interface preview. Languages: JavaScript 88%, CSS 11.6%, Other 0.4%.
-- Beaver v Otter — JavaScript-based learning game exploring energy consumption and everyday decisions in a data-centre river ecosystem. Languages: JavaScript 44.8%, HTML 28.2%, CSS 27%.
-- A New Life in Ireland — Interactive learning about migration to Ireland through twelve fictional journeys. Built with React and TypeScript. Languages: TypeScript 93.1%, CSS 4.9%, JavaScript 1.5%, Other 0.5%.
-- Stopped: Both Sides — JavaScript learning game exploring public and Garda perspectives through branching choices, saved progress and sourced explanations. Languages: JavaScript 95%, CSS 4.6%, HTML 0.4%.
-- Know Yellowknife — "Know Yellowknife" is a versatile educational tool, online resource, and digital hub designed to foster connection, belonging, and cultural understanding within Yellowknife. Languages: HTML 62.4%, JavaScript 37.6%.
-- The White Whale vs Old Thunder — A mobile-first, Battleship-inspired browser game built in plain HTML, CSS and JavaScript. You play as Moby Dick. Languages: JavaScript 47.4%, CSS 44.3%, HTML 8.3%.
+<p><img src="assets/profile/ui/latest-repository-details.svg" width="100%" alt="Infographic of seven featured repositories. Each card summarizes the project and shows a proportional language-composition bar with exact percentages: Saggart & Citywest Together—JavaScript 43.8%, HTML 42.4%, CSS 13.5%; SpoodleSpace—JavaScript 88%, CSS 11.6%, Other 0.4%; Beaver v Otter—JavaScript 44.8%, HTML 28.2%, CSS 27%; A New Life in Ireland—TypeScript 93.1%, CSS 4.9%, JavaScript 1.5%, Other 0.5%; Stopped: Both Sides—JavaScript 95%, CSS 4.6%, HTML 0.4%; Know Yellowknife—HTML 62.4%, JavaScript 37.6%; The White Whale vs Old Thunder—JavaScript 47.4%, CSS 44.3%, HTML 8.3%."></p>
 
 ### Saggart & Citywest Together
 

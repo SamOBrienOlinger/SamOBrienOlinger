@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1190" viewBox="0 0 1200 1190" role="img" aria-labelledby="title desc">
+<title id="title">Latest repository details</title>
+<desc id="desc">Seven project cards summarize each repository and show its language composition as a color-coded proportional bar with a percentage legend. The palette uses the portfolio's deep navy, pale blue and cyan accents.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111e2d"/><stop offset="1" stop-color="#172638"/></linearGradient>
+  <linearGradient id="header" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#edf4ff"/><stop offset="1" stop-color="#92b8d6"/></linearGradient>
+  <style>
+    text{font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .title{font-size:27px;font-weight:700;fill:#edf4ff}.summary{font-size:16px;fill:#c4d6e8}.label{font-size:11px;font-weight:700;letter-spacing:1.4px;fill:#92b8d6}.legend{font-size:12px;fill:#edf4ff}.muted{font-size:13px;fill:#b7d5ed}
+    .card{fill:#172638;stroke:#354b60;stroke-width:1.5}.track{fill:#263c50}
+  </style>
+</defs>
+<rect width="1200" height="1190" rx="24" fill="url(#bg)"/>
+<text x="38" y="58" font-size="36" font-weight="750" fill="url(#header)">Latest repository details</text>
+<text x="40" y="91" font-size="15" fill="#b7d5ed">What each project does · language composition from the featured repositories</text>
+
+<!-- Saggart & Citywest Together -->
+<g transform="translate(30 120)"><rect class="card" width="560" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#46d4cf"/>
+<text class="title" x="25" y="39">Saggart &amp; Citywest Together</text>
+<text class="summary" x="25" y="72"><tspan x="25">Community hub for local supports, facts, history</tspan><tspan x="25" dy="22">and events across Saggart and Citywest.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="510" height="13" rx="7"/>
+<rect x="25" y="149" width="223.38" height="13" rx="7" fill="#30c9c4"/><rect x="248.38" y="149" width="216.24" height="13" fill="#91c9ef"/><rect x="464.62" y="149" width="68.85" height="13" rx="7" fill="#c2a8f4"/>
+<circle cx="30" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="42" y="194">JavaScript 43.8%</text><circle cx="210" cy="190" r="5" fill="#91c9ef"/><text class="legend" x="222" y="194">HTML 42.4%</text><circle cx="360" cy="190" r="5" fill="#c2a8f4"/><text class="legend" x="372" y="194">CSS 13.5%</text>
+<text class="muted" x="25" y="225">HTML · CSS · JavaScript</text></g>
+
+<!-- SpoodleSpace -->
+<g transform="translate(610 120)"><rect class="card" width="560" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#91c9ef"/>
+<text class="title" x="25" y="39">SpoodleSpace</text>
+<text class="summary" x="25" y="72"><tspan x="25">Dog-community app frontend with a Django REST API;</tspan><tspan x="25" dy="22">GitHub Pages hosts an interface preview.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="510" height="13" rx="7"/>
+<rect x="25" y="149" width="448.8" height="13" rx="7" fill="#30c9c4"/><rect x="473.8" y="149" width="59.16" height="13" fill="#c2a8f4"/><rect x="532.96" y="149" width="2.04" height="13" rx="1" fill="#f2c879"/>
+<circle cx="30" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="42" y="194">JavaScript 88%</text><circle cx="210" cy="190" r="5" fill="#c2a8f4"/><text class="legend" x="222" y="194">CSS 11.6%</text><circle cx="355" cy="190" r="5" fill="#f2c879"/><text class="legend" x="367" y="194">Other 0.4%</text>
+<text class="muted" x="25" y="225">React frontend · Django REST API · preview interface</text></g>
+
+<!-- Beaver v Otter -->
+<g transform="translate(30 385)"><rect class="card" width="560" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#f2c879"/>
+<text class="title" x="25" y="39">Beaver v Otter</text>
+<text class="summary" x="25" y="72"><tspan x="25">Choice-based learning game about energy use and</tspan><tspan x="25" dy="22">everyday decisions that affect rivers and wildlife.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="510" height="13" rx="7"/>
+<rect x="25" y="149" width="228.48" height="13" rx="7" fill="#30c9c4"/><rect x="253.48" y="149" width="143.82" height="13" fill="#91c9ef"/><rect x="397.3" y="149" width="137.7" height="13" rx="7" fill="#c2a8f4"/>
+<circle cx="30" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="42" y="194">JavaScript 44.8%</text><circle cx="225" cy="190" r="5" fill="#91c9ef"/><text class="legend" x="237" y="194">HTML 28.2%</text><circle cx="380" cy="190" r="5" fill="#c2a8f4"/><text class="legend" x="392" y="194">CSS 27%</text>
+<text class="muted" x="25" y="225">Learning through play · river ecology</text></g>
+
+<!-- A New Life in Ireland -->
+<g transform="translate(610 385)"><rect class="card" width="560" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#c2a8f4"/>
+<text class="title" x="25" y="39">A New Life in Ireland</text>
+<text class="summary" x="25" y="72"><tspan x="25">Interactive migration learning through twelve</tspan><tspan x="25" dy="22">fictional journeys, built with React and TypeScript.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="510" height="13" rx="7"/>
+<rect x="25" y="149" width="474.81" height="13" rx="7" fill="#91c9ef"/><rect x="499.81" y="149" width="24.99" height="13" fill="#c2a8f4"/><rect x="524.8" y="149" width="7.65" height="13" fill="#30c9c4"/><rect x="532.45" y="149" width="2.55" height="13" rx="1" fill="#f2c879"/>
+<circle cx="30" cy="190" r="5" fill="#91c9ef"/><text class="legend" x="42" y="194">TypeScript 93.1%</text><circle cx="215" cy="190" r="5" fill="#c2a8f4"/><text class="legend" x="227" y="194">CSS 4.9%</text><circle cx="330" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="342" y="194">JavaScript 1.5%</text><circle cx="475" cy="190" r="5" fill="#f2c879"/><text class="legend" x="487" y="194">Other .5%</text>
+<text class="muted" x="25" y="225">React · TypeScript · Vite</text></g>
+
+<!-- Stopped Both Sides -->
+<g transform="translate(30 650)"><rect class="card" width="560" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#f09cab"/>
+<text class="title" x="25" y="39">Stopped: Both Sides</text>
+<text class="summary" x="25" y="72"><tspan x="25">Branching game with public and Garda perspectives,</tspan><tspan x="25" dy="22">saved choices and sourced explanations.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="510" height="13" rx="7"/>
+<rect x="25" y="149" width="484.5" height="13" rx="7" fill="#30c9c4"/><rect x="509.5" y="149" width="23.46" height="13" fill="#c2a8f4"/><rect x="532.96" y="149" width="2.04" height="13" rx="1" fill="#91c9ef"/>
+<circle cx="30" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="42" y="194">JavaScript 95%</text><circle cx="210" cy="190" r="5" fill="#c2a8f4"/><text class="legend" x="222" y="194">CSS 4.6%</text><circle cx="335" cy="190" r="5" fill="#91c9ef"/><text class="legend" x="347" y="194">HTML 0.4%</text>
+<text class="muted" x="25" y="225">Interactive learning · rights and responsibilities</text></g>
+
+<!-- Know Yellowknife -->
+<g transform="translate(610 650)"><rect class="card" width="560" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#72d6ae"/>
+<text class="title" x="25" y="39">Know Yellowknife</text>
+<text class="summary" x="25" y="72"><tspan x="25">Educational hub for connection, belonging and</tspan><tspan x="25" dy="22">cultural understanding in Yellowknife.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="510" height="13" rx="7"/>
+<rect x="25" y="149" width="318.24" height="13" rx="7" fill="#91c9ef"/><rect x="343.24" y="149" width="191.76" height="13" rx="7" fill="#30c9c4"/>
+<circle cx="30" cy="190" r="5" fill="#91c9ef"/><text class="legend" x="42" y="194">HTML 62.4%</text><circle cx="210" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="222" y="194">JavaScript 37.6%</text>
+<text class="muted" x="25" y="225">Local learning · community and cultural understanding</text></g>
+
+<!-- The White Whale vs Old Thunder -->
+<g transform="translate(30 915)"><rect class="card" width="1140" height="245" rx="18"/><rect width="7" height="245" rx="4" fill="#edf4ff"/>
+<text class="title" x="25" y="39">The White Whale vs Old Thunder</text>
+<text class="summary" x="25" y="72"><tspan x="25">Mobile-first Battleship-inspired browser game: play as Moby Dick and strike all five coordinates of the hidden Pequod.</tspan><tspan x="25" dy="22">One miss lets Captain Ahab kill the whale, leaving the ship intact.</tspan></text>
+<text class="label" x="25" y="137">LANGUAGE MIX</text><rect class="track" x="25" y="149" width="1085" height="13" rx="7"/>
+<rect x="25" y="149" width="514.29" height="13" rx="7" fill="#30c9c4"/><rect x="539.29" y="149" width="480.655" height="13" fill="#c2a8f4"/><rect x="1019.945" y="149" width="90.055" height="13" rx="7" fill="#91c9ef"/>
+<circle cx="30" cy="190" r="5" fill="#30c9c4"/><text class="legend" x="42" y="194">JavaScript 47.4%</text><circle cx="235" cy="190" r="5" fill="#c2a8f4"/><text class="legend" x="247" y="194">CSS 44.3%</text><circle cx="390" cy="190" r="5" fill="#91c9ef"/><text class="legend" x="402" y="194">HTML 8.3%</text>
+<text class="muted" x="25" y="225">Plain HTML · CSS · JavaScript</text></g>
+</svg>
