@@ -154,10 +154,8 @@ h1 span { display: block; padding-bottom: .07em; }
 .journey-preview-title > span { color: #135e59; }
 .spoodle-media { background: #eaf0f7; }
 .beaver-media { background: #fbfaf5; }
-.white-whale-media { background: #e8e6dc; }
 .allyindex-media { background: #c4f1fa; }
 .allyindex-media img { object-fit: contain; }
-.beetlejuice-media { background: #20172d; }
 .media-link { position: absolute; right: 1rem; bottom: 1rem; padding: .45rem .7rem; border: 1px solid #d2dde6; border-radius: .45rem; background: #fff; color: #152b46; font-size: .875rem; font-weight: 600; line-height: 1.35; }
 .project-content { display: flex; flex: 1; flex-direction: column; padding: 1.5rem .15rem .25rem; }
 .project-category { margin-bottom: .65rem; color: var(--accent); font-size: .8125rem; font-weight: 600; line-height: 1.45; letter-spacing: .035em; }
@@ -460,7 +458,7 @@ html.certificate-open body { overflow: hidden; }
   .software-overview .project-content { min-width: 0; padding: 0; }
   .software-overview .project-content > p:not(.project-subtitle) { margin-bottom: .85rem; }
   .software-overview .project-media { align-self: center; }
-  .software-overview :is(.spoodle-media, .white-whale-media) { aspect-ratio: 1; }
+  .software-overview .spoodle-media { aspect-ratio: 1; }
   .software-overview :is(h5, .project-subtitle) {
     margin-bottom: .65rem;
     font-size: clamp(1.6rem, 2.5vw, 2.125rem);

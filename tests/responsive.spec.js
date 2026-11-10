@@ -86,7 +86,7 @@ test('focus cards and contact actions are readable at normal and enlarged text s
 test('every project keeps one main image and a live link without mobile overflow', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#work');
-  const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+  const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'yellowknife', 'allyindex'];
   await expect(page.locator('#work .project-gallery')).toHaveCount(0);
   for (const [index, project] of projects.entries()) {
     const card = page.locator(`[data-project="${project}"]`);
@@ -141,7 +141,7 @@ test('navigation remains available without JavaScript', async ({ browser }) => {
   await expect(page.locator('#software-panel > .accordion-content')).toBeHidden();
   await page.locator('#software-panel > summary').click();
   await expect(page.locator('#work-track')).toBeVisible();
-  await expect(page.locator('#software-panel [data-project]')).toHaveCount(9);
+  await expect(page.locator('#software-panel [data-project]')).toHaveCount(7);
   await expect(page.locator('[data-project="sct"] .project-links a')).toBeVisible();
   await expect(page.locator('.publication-cover')).toHaveCount(7);
   await expect(page.locator('#research-publications')).toBeHidden();

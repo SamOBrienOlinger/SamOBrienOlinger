@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'beetlejuice', 'yellowknife', 'allyindex', 'white-whale'];
+const projects = ['sct', 'spoodle', 'beaver', 'new-life', 'both-sides', 'yellowknife', 'allyindex'];
 
 async function openWork(page, reducedMotion = 'no-preference') {
   await page.emulateMedia({ reducedMotion });
@@ -45,10 +45,13 @@ test('every project and its images fit the carousel, including both loop boundar
     expect(control.width).toBeGreaterThanOrEqual(44);
     expect(control.height).toBeGreaterThanOrEqual(44);
   }
-  for (const project of projects) {
+  await expect(carousel.locator('[data-project]')).toHaveCount(projects.length);
+  await expect(carousel.locator('.carousel-count')).toHaveText(`01 / ${projects.length}`);
+  for (const [index, project] of projects.entries()) {
     await expect(carousel).toHaveAttribute('data-current-project', project);
     const card = page.locator(`[data-project="${project}"]`);
     await expect(card).toHaveAttribute('aria-hidden', 'false');
+    await expect(card).toHaveAttribute('aria-label', new RegExp(`^${index + 1} of ${projects.length}: `));
     await expect.poll(() => card.locator('img').evaluateAll(images => images.length > 0 && images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     const fit = await card.evaluate(element => {
       const rect = element.getBoundingClientRect();
@@ -62,7 +65,7 @@ test('every project and its images fit the carousel, including both loop boundar
   }
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
   await page.getByRole('button', { name: 'Previous project', exact: true }).click();
-  await expect(carousel).toHaveAttribute('data-current-project', 'white-whale');
+  await expect(carousel).toHaveAttribute('data-current-project', projects.at(-1));
   expect(await page.locator('[data-carousel-clone]').evaluateAll(clones => clones.every(clone => clone.inert && !clone.querySelector('[id]')))).toBe(true);
 });
 
@@ -77,7 +80,7 @@ test('keyboard focus stops rotation and offscreen projects stay out of the tab o
   await page.keyboard.press('ArrowLeft');
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
   await page.keyboard.press('End');
-  await expect(carousel).toHaveAttribute('data-current-project', 'white-whale');
+  await expect(carousel).toHaveAttribute('data-current-project', projects.at(-1));
   await page.keyboard.press('Home');
   await expect(carousel).toHaveAttribute('data-current-project', 'sct');
   const tabState = await page.locator('.project[data-project]').evaluateAll(slides => slides.map(slide => slide.inert));
