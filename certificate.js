@@ -26,6 +26,7 @@
   });
 
   card?.addEventListener('mouseenter', () => card.classList.add('is-lifted'));
+  card?.addEventListener('mouseleave', () => card.classList.remove('is-lifted'));
 
   closeButton.addEventListener('click', () => dialog.close());
 
