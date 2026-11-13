@@ -352,6 +352,9 @@ html.certificate-open body { overflow: hidden; }
 .research-experience { padding-inline-start: 1.25rem; list-style: disc; }
 .research-experience li + li { margin-top: .75rem; }
 .research-experience li::marker { color: var(--accent); }
+#people-panel .accordion-content > a { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 44px; margin-top: 1.5rem; padding: .65rem 1rem; border: 1px solid var(--accent); border-radius: .7rem; background: var(--accent); color: white; font-weight: 700; text-decoration: none; transition: transform .15s ease, filter .15s ease; }
+#people-panel .accordion-content > a:hover { filter: brightness(1.08); transform: translateY(-2px); }
+#people-panel .accordion-content > a:focus-visible { outline: 3px solid var(--warm-accent); outline-offset: 3px; }
 .publication-list { border-top: 1px solid #aebfce; }
 .publication { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: .65rem 1rem; align-items: center; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
 .publication-meta { display: flex; flex-wrap: wrap; gap: .75rem; font-size: .875rem; color: var(--muted); }
