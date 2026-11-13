@@ -95,6 +95,8 @@ test('desktop navigation, focus links and carousel work without script errors', 
   await expect(page.locator('#people-panel > .accordion-content')).toBeVisible();
   await expect(page.locator('#people-panel .research-experience')).toBeVisible();
   await expect(page.locator('#people-panel li')).toHaveCount(10);
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#people-panel').getByRole('link', { name: 'Find me on LinkedIn' })).toBeFocused();
   for (const name of [
     'PhD in Sociology',
     'Diploma in Full Stack Software Development',

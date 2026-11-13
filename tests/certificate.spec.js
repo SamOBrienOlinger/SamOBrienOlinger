@@ -57,9 +57,8 @@ test('the certificate fits small and desktop screens, restores focus, and keeps 
       await expect(page).toHaveURL(url);
       await expectCompleteCertificate(dialog);
       await expect(close).toBeInViewport({ ratio: 1 });
-      const fullSize = dialog.getByRole('link', { name: 'Open full-size image (opens in a new tab)', exact: true });
-      await expect(fullSize).toHaveAttribute('href', certificatePath);
-      await expect(fullSize).toHaveAttribute('target', '_blank');
+      // The modal displays the original JPEG directly; no separate full-size link is needed.
+      await expect(dialog.locator('.certificate-image img')).toHaveAttribute('src', certificatePath);
       // Mobile WebKit has no mouse-wheel API. Keep its keyboard scrolling
       // coverage here and exercise real wheel input in a desktop context below.
       if (browserName !== 'webkit') {

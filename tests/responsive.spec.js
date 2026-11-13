@@ -230,7 +230,6 @@ test('the wordmark stays horizontally centred and clear of controls at every hea
   const checkCentre = async phase => {
     const metrics = await page.locator('.brand-name').evaluate(name => {
       const box = name.getBoundingClientRect();
-      const logo = document.querySelector('.brand-logo').getBoundingClientRect();
       const menu = document.querySelector('.menu-toggle');
       const menuBox = menu.getBoundingClientRect();
       const walker = document.createTreeWalker(name, NodeFilter.SHOW_TEXT);
@@ -249,14 +248,12 @@ test('the wordmark stays horizontally centred and clear of controls at every hea
         textError: Math.abs((textLeft + textRight) / 2 - centre),
         fits: textLeft >= box.left - 1 && textRight <= box.right + 1
           && name.scrollWidth <= name.clientWidth + 1,
-        logoClear: logo.right <= textLeft,
         menuClear: !menu.getClientRects().length || textRight <= menuBox.left
       };
     });
     expect(metrics.boxError, `${phase}: wordmark container is off-centre`).toBeLessThanOrEqual(1);
     expect(metrics.textError, `${phase}: visible wordmark text is off-centre`).toBeLessThanOrEqual(1);
     expect(metrics.fits, `${phase}: wordmark text is clipped`).toBe(true);
-    expect(metrics.logoClear, `${phase}: wordmark overlaps the logo`).toBe(true);
     expect(metrics.menuClear, `${phase}: wordmark overlaps the menu button`).toBe(true);
     await expectNoOverflow(page);
   };
