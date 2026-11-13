@@ -154,6 +154,26 @@ test('the modal contains keyboard focus and only a backdrop click dismisses the 
   await expect(opener).toBeFocused();
 });
 
+test('pointer dismissal keeps focus without a lingering outline, while Escape retains keyboard focus', async ({ page }) => {
+  await page.goto('/#career-background');
+  const opener = page.getByRole('link', { name: 'PhD in Sociology', exact: true });
+  const dialog = page.getByRole('dialog', { name: 'PhD in Sociology', exact: true });
+  await opener.click();
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole('button', { name: 'Close certificate', exact: true }).click();
+  await expect(dialog).toBeHidden();
+  await expect(opener).toBeFocused();
+  await expect(opener).toHaveClass(/certificate-pointer-dismissed/);
+  await expect(opener).toHaveCSS('outline-style', 'none');
+
+  await opener.press('Enter');
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(opener).toBeFocused();
+  await expect(opener).not.toHaveClass(/certificate-pointer-dismissed/);
+});
+
 test('without JavaScript the PhD link opens the original JPEG directly', async ({ browser }) => {
   test.setTimeout(45000);
   const context = await browser.newContext({

@@ -223,6 +223,8 @@ a.credential-statement { display: block; border-radius: .2em; }
 a.credential-statement .credential-accent { text-decoration: underline; text-decoration-thickness: .05em; text-underline-offset: .14em; }
 a.credential-statement:hover .credential-accent, a.credential-statement:focus-visible .credential-accent { text-decoration-thickness: .1em; }
 a.credential-statement:focus-visible { outline-color: var(--warm-accent); outline-offset: .15em; }
+/* Remove the lingering yellow rectangle after a tap closes the certificate. */
+a.credential-statement.certificate-pointer-dismissed:focus-visible { outline: none; }
 /* A quiet frame keeps the original certificate complete at every screen size. */
 html.certificate-open { overflow: hidden; scrollbar-gutter: stable; scroll-behavior: auto; background: #08121e; }
 html.certificate-open body { overflow: hidden; }

@@ -11,6 +11,10 @@
   let returnPosition;
   let pressedBackdrop = false;
   let dismissedByPointer = false;
+  const pointerFocusClass = 'certificate-pointer-dismissed';
+  // Restore the standard focus indicator as soon as the visitor uses the keyboard.
+  document.addEventListener('keydown', () => trigger.classList.remove(pointerFocusClass), true);
+  trigger.addEventListener('pointerdown', () => trigger.classList.remove(pointerFocusClass));
 
   trigger.setAttribute('aria-haspopup', 'dialog');
   trigger.setAttribute('aria-controls', dialog.id);
@@ -82,13 +86,10 @@
     returnPosition = undefined;
     pressedBackdrop = false;
     card?.classList.remove('is-lifted');
-    if (dismissedByPointer) {
-      // A tap should not leave Safari's persistent gold focus outline on the Venn label.
-      trigger.blur();
-    } else {
-      // Restore visible focus for Escape, Enter and other keyboard dismissals.
-      trigger.focus({ preventScroll: true });
-    }
+    // Native focus restoration keeps screen-reader and keyboard navigation in place.
+    // On touch Safari, a pointer dismissal can incorrectly keep :focus-visible active.
+    trigger.classList.toggle(pointerFocusClass, dismissedByPointer);
+    trigger.focus({ preventScroll: true });
     dismissedByPointer = false;
   });
 })();
