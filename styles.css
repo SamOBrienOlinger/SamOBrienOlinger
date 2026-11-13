@@ -240,6 +240,14 @@ html.certificate-open body { overflow: hidden; }
 .certificate-footer { padding: .25rem var(--certificate-space); border-top: 1px solid var(--line); text-align: center; }
 .certificate-fullsize { display: inline-block; max-width: 100%; min-height: 44px; padding-block: .5em; font-size: .9375rem; line-height: 1.4; text-decoration: underline; text-underline-offset: .2em; }
 @media (prefers-reduced-motion: no-preference) {
+  /* Match the Accredible credential tile's five-pixel lift and soft shadow. */
+  .certificate-image {
+    transition: transform .1s ease-in-out, box-shadow .1s ease-in-out;
+  }
+  .certificate-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 50px rgb(0 0 0 / .16);
+  }
   .certificate-dialog[open], .certificate-dialog[open]::backdrop { animation: certificate-fade-in .18s ease-out; }
 }
 @keyframes certificate-fade-in { from { opacity: 0; } to { opacity: 1; } }
