@@ -4,6 +4,7 @@
   const trigger = document.querySelector('[data-certificate-open]');
   const dialog = document.getElementById('phd-certificate-dialog');
   const closeButton = dialog?.querySelector('.certificate-close');
+  const card = dialog?.querySelector('.certificate-card');
   if (!trigger || !closeButton || typeof dialog.showModal !== 'function') return;
 
   const root = document.documentElement;
@@ -23,6 +24,8 @@
     root.classList.add('certificate-open');
     closeButton.focus({ preventScroll: true });
   });
+
+  card?.addEventListener('mouseenter', () => card.classList.add('is-lifted'));
 
   closeButton.addEventListener('click', () => dialog.close());
 
@@ -67,6 +70,7 @@
     root.style.scrollBehavior = previousScrollBehavior;
     returnPosition = undefined;
     pressedBackdrop = false;
+    card?.classList.remove('is-lifted');
     trigger.focus({ preventScroll: true });
   });
 })();
