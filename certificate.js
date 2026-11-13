@@ -10,6 +10,7 @@
   const root = document.documentElement;
   let returnPosition;
   let pressedBackdrop = false;
+  let dismissedByPointer = false;
 
   trigger.setAttribute('aria-haspopup', 'dialog');
   trigger.setAttribute('aria-controls', dialog.id);
@@ -17,6 +18,7 @@
     // Keep open-in-new-tab, downloads and the no-script image link available.
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
     if (dialog.open) { event.preventDefault(); return; }
+    dismissedByPointer = false;
     returnPosition = { left: window.scrollX, top: window.scrollY };
     dialog.querySelector('img').loading = 'eager';
     dialog.showModal();
@@ -28,7 +30,12 @@
   card?.addEventListener('mouseenter', () => card.classList.add('is-lifted'));
   card?.addEventListener('mouseleave', () => card.classList.remove('is-lifted'));
 
-  closeButton.addEventListener('click', () => dialog.close());
+  closeButton.addEventListener('click', event => {
+    dismissedByPointer = event.detail > 0;
+    dialog.close();
+  });
+  // Escape is a keyboard dismissal: keep the return-focus indicator for navigation.
+  dialog.addEventListener('cancel', () => { dismissedByPointer = false; });
 
   // Keep Tab cycling through the viewer's controls at either boundary.
   // Native modal inertness alone can still send Tab into the browser chrome.
@@ -58,7 +65,10 @@
   dialog.addEventListener('pointerdown', event => { pressedBackdrop = isBackdrop(event); });
   dialog.addEventListener('pointercancel', () => { pressedBackdrop = false; });
   dialog.addEventListener('click', event => {
-    if (pressedBackdrop && isBackdrop(event)) dialog.close();
+    if (pressedBackdrop && isBackdrop(event)) {
+      dismissedByPointer = true;
+      dialog.close();
+    }
     pressedBackdrop = false;
   });
 
@@ -72,6 +82,13 @@
     returnPosition = undefined;
     pressedBackdrop = false;
     card?.classList.remove('is-lifted');
-    trigger.focus({ preventScroll: true });
+    if (dismissedByPointer) {
+      // A tap should not leave Safari's persistent gold focus outline on the Venn label.
+      trigger.blur();
+    } else {
+      // Restore visible focus for Escape, Enter and other keyboard dismissals.
+      trigger.focus({ preventScroll: true });
+    }
+    dismissedByPointer = false;
   });
 })();
