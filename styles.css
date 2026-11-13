@@ -380,7 +380,7 @@ html.certificate-open body { overflow: hidden; }
 .contact-actions .social { flex: 1 1 100%; min-width: 0; margin: 0; }
 .contact-actions .social a { width: 100%; min-height: 3.25rem; }
 .social-icon { display: block; flex: 0 0 1.5rem; width: 1.5rem; height: 1.5rem; }
-.social-icon--wordmark { flex-basis: 7.875rem; width: 7.875rem; max-width: 100%; }
+.social-icon--linkedin { box-sizing: content-box; flex: 0 0 auto; width: 7rem; height: auto; aspect-ratio: 753 / 190; max-width: min(7rem, 100%); padding: .3rem .5rem; border-radius: .45rem; background: #ffffff; object-fit: contain; }\n.social a:has(.social-icon--linkedin) { flex-wrap: wrap; row-gap: .45rem; }
 .social a:active { background: #294e71; border-color: #a7d9d4; }
 .contact-section :focus-visible, .site-footer :focus-visible { outline-color: #a7d9d4; }
 .site-footer { background: #152b46; color: #d0deea; border-top: 1px solid #38506c; }
