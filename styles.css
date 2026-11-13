@@ -243,7 +243,7 @@ html.certificate-open body { overflow: hidden; }
   .certificate-card {
     transition: transform .1s ease-in-out, box-shadow .1s ease-in-out;
   }
-  .certificate-image:hover .certificate-card {
+  .certificate-card.is-lifted {
     transform: translateY(-5px);
     box-shadow: 0 8px 50px rgb(0 0 0 / .16);
   }
