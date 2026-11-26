@@ -615,3 +615,22 @@ html[data-theme="dark"] {
   from { opacity: 0; transform: translateY(1rem); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Keep the closed desktop overview together; opened panels grow naturally. */
+@media screen and (min-width: 64rem) {
+  .hero { padding-block: .75rem; }
+  @container portfolio-hero (min-width: 52rem) {
+    .hero-image { width: min(100%, 36rem, 42.34svh); }
+    .hero #hero-title { font-size: clamp(2.5rem, 5.5svh, 4rem); margin-bottom: .65rem; }
+    .hero .lede { font-size: 1rem; line-height: 1.5; }
+  }
+  .about-section { padding-block: .5rem 1rem; }
+  .approach { gap: .5rem; }
+  .focus-overview > summary { min-height: 4rem; padding: .5rem 1rem; gap: 1rem; }
+  .focus-overview > summary h3 { font-size: 1.375rem; margin-bottom: .2rem; }
+  .focus-label > p { font-size: .875rem; line-height: 1.4; }
+  .credentials-venn { max-width: clamp(12rem, 30svh, 18rem); }
+  .contact-section { padding-block: .5rem; }
+  .contact-copy { padding: .5rem; }
+  .footer-inner { padding-block: .25rem; }
+}
